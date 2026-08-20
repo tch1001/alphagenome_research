@@ -36,6 +36,7 @@ from alphagenome.models import variant_scorers as variant_scorers_lib
 from alphagenome_research.io import genome as genome_io
 from alphagenome_research.io import splicing as splicing_io
 from alphagenome_research.model import augmentation
+from alphagenome_research.model import attention
 from alphagenome_research.model import embeddings as embeddings_lib
 from alphagenome_research.model import indel_stitch_utils
 from alphagenome_research.model import model
@@ -1398,6 +1399,9 @@ class ModelSettings:
   splice_site_threshold: float = 0.1
   # Whether to use indel stitching.
   enable_indel_stitching: bool = True
+  # Sequence-attention implementation. ``pallas_tiled`` is an experimental,
+  # forward-only GPU inference backend; ``dense`` preserves existing behavior.
+  attention_backend: str = attention.ATTENTION_BACKEND_DENSE
 
 
 @dataclasses.dataclass(frozen=True, kw_only=True)
@@ -1487,6 +1491,7 @@ def create_model(
     *,
     num_splice_sites: int = model.DEFAULT_NUM_SPLICE_SITES,
     splice_site_threshold: float = model.DEFAULT_SPLICE_SITE_THRESHOLD,
+    attention_backend: str = attention.ATTENTION_BACKEND_DENSE,
 ) -> tuple[
     Callable[
         [chex.PRNGKey, Float[Array, 'B S 4'], Int32[Array, 'B']],
@@ -1514,6 +1519,24 @@ def create_model(
 
   jmp_policy = jmp.get_policy('params=float32,compute=bfloat16,output=bfloat16')
 
+  # Checkpoint restoration needs an abstract parameter/state target.  Build
+  # that tree with dense attention even when inference uses Pallas: both
+  # backends have exactly the same Haiku modules and parameters, while the
+  # checkpoint probe's short 2,048 bp input produces only 16 transformer
+  # tokens (smaller than the Pallas kernel's 64-token tile).
+  @hk.transform_with_state
+  def _forward_dense_init(
+      dna_sequence: Float[Array, 'B S 4'],
+      organism_index: Int32[Array, 'B'],
+  ):
+    with hk.mixed_precision.push_policy(model.AlphaGenome, jmp_policy):
+      return model.AlphaGenome(
+          metadata,
+          num_splice_sites=num_splice_sites,
+          splice_site_threshold=splice_site_threshold,
+          attention_backend=attention.ATTENTION_BACKEND_DENSE,
+      )(dna_sequence, organism_index)
+
   @hk.transform_with_state
   def _forward(
       dna_sequence: Float[Array, 'B S 4'],
@@ -1525,6 +1548,7 @@ def create_model(
           metadata,
           num_splice_sites=num_splice_sites,
           splice_site_threshold=splice_site_threshold,
+          attention_backend=attention_backend,
       )(dna_sequence, organism_index)
 
   @hk.transform_with_state
@@ -1538,6 +1562,7 @@ def create_model(
           metadata,
           num_splice_sites=num_splice_sites,
           splice_site_threshold=splice_site_threshold,
+          attention_backend=attention_backend,
       ).forward_trunk(dna_sequence, organism_index)
 
   @hk.transform_with_state
@@ -1553,6 +1578,7 @@ def create_model(
           metadata,
           num_splice_sites=num_splice_sites,
           splice_site_threshold=splice_site_threshold,
+          attention_backend=attention_backend,
       ).forward_heads(
           embeddings_lib.Embeddings(
               embeddings_1bp=embeddings_1bp,
@@ -1571,6 +1597,7 @@ def create_model(
           metadata,
           num_splice_sites=num_splice_sites,
           splice_site_threshold=splice_site_threshold,
+          attention_backend=attention_backend,
       ).predict_junctions(
           trunk_embeddings, splice_site_positions, organism_index
       )
@@ -1637,8 +1664,11 @@ def create_model(
     )
     return predictions
 
+  # Always returning the dense initializer is intentional: it is a pure
+  # checkpoint-tree constructor, not a runtime backend fallback.  All apply
+  # functions above retain the explicitly selected backend.
   return (
-      _forward.init,
+      _forward_dense_init.init,
       _apply_fn,
       _trunk_apply_fn,
       _heads_apply_fn,
@@ -1712,6 +1742,7 @@ def create(
           metadata,
           num_splice_sites=model_settings.num_splice_sites,
           splice_site_threshold=model_settings.splice_site_threshold,
+          attention_backend=model_settings.attention_backend,
       )
   )
 
@@ -1753,6 +1784,7 @@ def create_from_kaggle(
     organism_settings: (
         Mapping[dna_model.Organism, OrganismSettings] | None
     ) = None,
+    model_settings: ModelSettings = ModelSettings(),
     device: jax.Device | None = None,
 ) -> AlphaGenomeModel:
   """Helper function to create a model from Kaggle.
@@ -1761,6 +1793,7 @@ def create_from_kaggle(
     model_version: The model version to use, e.g. all_folds.
     organism_settings: Optional organism settings to use. If unset, will use
       default organism settings.
+    model_settings: Model settings, including the attention backend.
     device: Optional device to use for model prediction. If None, the first
       local device will be used.
 
@@ -1777,7 +1810,10 @@ def create_from_kaggle(
       f'google/alphagenome/jax/{model_version.lower()}'
   )
   return create(
-      checkpoint_path, organism_settings=organism_settings, device=device
+      checkpoint_path,
+      organism_settings=organism_settings,
+      model_settings=model_settings,
+      device=device,
   )
 
 
@@ -1787,6 +1823,7 @@ def create_from_huggingface(
     organism_settings: (
         Mapping[dna_model.Organism, OrganismSettings] | None
     ) = None,
+    model_settings: ModelSettings = ModelSettings(),
     device: jax.Device | None = None,
 ) -> AlphaGenomeModel:
   """Helper function to create a DNA model from HuggingFace.
@@ -1795,6 +1832,7 @@ def create_from_huggingface(
     model_version: The model version to use, e.g. all_folds.
     organism_settings: Optional organism settings to use. If unset, will use
       default organism settings.
+    model_settings: Model settings, including the attention backend.
     device: Optional device to use for model prediction. If None, the first
       local device will be used.
 
@@ -1814,5 +1852,8 @@ def create_from_huggingface(
       repo_id=f'google/alphagenome-{model_version.replace("_", "-").lower()}'
   )
   return create(
-      checkpoint_path, organism_settings=organism_settings, device=device
+      checkpoint_path,
+      organism_settings=organism_settings,
+      model_settings=model_settings,
+      device=device,
   )

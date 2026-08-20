@@ -17,6 +17,7 @@
 import math
 from alphagenome import typing
 from alphagenome_research.model import layers
+from alphagenome_research.model import pallas_tiled_attention
 import chex
 from einshape import jax_einshape as einshape  # pylint: disable=g-importing-member
 import haiku as hk
@@ -26,6 +27,22 @@ from jaxtyping import Array, Float, Int  # pylint: disable=g-importing-member, g
 
 
 _MAX_RELATIVE_DISTANCE = 8192  # 1Mb / 128bp.
+
+ATTENTION_BACKEND_DENSE = 'dense'
+ATTENTION_BACKEND_PALLAS_TILED = 'pallas_tiled'
+ATTENTION_BACKENDS = frozenset(
+    (ATTENTION_BACKEND_DENSE, ATTENTION_BACKEND_PALLAS_TILED)
+)
+
+
+def validate_attention_backend(attention_backend: str) -> str:
+  """Validates and returns an attention backend name."""
+  if attention_backend not in ATTENTION_BACKENDS:
+    raise ValueError(
+        f'Unsupported attention backend {attention_backend!r}; expected one of '
+        f'{sorted(ATTENTION_BACKENDS)}.'
+    )
+  return attention_backend
 
 
 def _shift(
@@ -116,11 +133,20 @@ class PairMLPBlock(hk.Module):
 class MHABlock(hk.Module):
   """Multi-Head Attention block with residual connection."""
 
+  def __init__(
+      self,
+      *,
+      attention_backend: str = ATTENTION_BACKEND_DENSE,
+      name: str | None = None,
+  ):
+    super().__init__(name=name)
+    self._attention_backend = validate_attention_backend(attention_backend)
+
   @typing.jaxtyped
   def __call__(
       self,
       x: Float[Array, 'B S D'],
-      attention_bias: Float[Array, 'B H S S'],
+      attention_bias: Array,
       *,
       is_training: bool,
   ) -> Float[Array, 'B S D']:
@@ -144,28 +170,41 @@ class MHABlock(hk.Module):
     q = apply_rope(q, None, max_position=_MAX_RELATIVE_DISTANCE)
     k = apply_rope(k, None, max_position=_MAX_RELATIVE_DISTANCE)
 
-    logits_dtype = jnp.float32
-    attention_logits = jnp.einsum(
-        'bshc,bS1c->bhsS',
-        q,
-        k,
-        precision=jax.lax.DotAlgorithmPreset.BF16_BF16_F32,
-        preferred_element_type=logits_dtype,
-    )
-    attention_logits = attention_logits / math.sqrt(128.0)
-    attention_logits = (attention_logits + attention_bias).astype(logits_dtype)
-    logits_soft_cap = 5.0
-    attention_logits = (
-        jnp.tanh(attention_logits / logits_soft_cap) * logits_soft_cap
-    )
-    attention_weights = jax.nn.softmax(attention_logits, axis=-1)
+    if self._attention_backend == ATTENTION_BACKEND_PALLAS_TILED:
+      # Keep the learned pair bias at its native 2,048 bp resolution.  The
+      # kernel indexes the appropriate coarse bin for each 128 bp token,
+      # avoiding the full [B, H, S, S] materialization.
+      y = pallas_tiled_attention.pallas_tiled_attention(
+          q, k, v, attention_bias
+      )
+    else:
+      # Do not refactor this path: it is the checkpoint-compatible reference
+      # implementation and intentionally preserves the original operation
+      # order and dtypes exactly.
+      logits_dtype = jnp.float32
+      attention_logits = jnp.einsum(
+          'bshc,bS1c->bhsS',
+          q,
+          k,
+          precision=jax.lax.DotAlgorithmPreset.BF16_BF16_F32,
+          preferred_element_type=logits_dtype,
+      )
+      attention_logits = attention_logits / math.sqrt(128.0)
+      attention_logits = (attention_logits + attention_bias).astype(
+          logits_dtype
+      )
+      logits_soft_cap = 5.0
+      attention_logits = (
+          jnp.tanh(attention_logits / logits_soft_cap) * logits_soft_cap
+      )
+      attention_weights = jax.nn.softmax(attention_logits, axis=-1)
 
-    y = jnp.einsum(
-        'bhsS,bS1c->bshc',
-        attention_weights,
-        v,
-        precision=jax.lax.DotAlgorithmPreset.BF16_BF16_F32,
-    ).astype(q.dtype)
+      y = jnp.einsum(
+          'bhsS,bS1c->bshc',
+          attention_weights,
+          v,
+          precision=jax.lax.DotAlgorithmPreset.BF16_BF16_F32,
+      ).astype(q.dtype)
     y = hk.Linear(
         x.shape[-1],
         name='linear_embedding',
@@ -177,13 +216,24 @@ class MHABlock(hk.Module):
 class AttentionBiasBlock(hk.Module):
   """Generates attention bias for Multi-Head Attention."""
 
+  def __init__(
+      self,
+      *,
+      attention_backend: str = ATTENTION_BACKEND_DENSE,
+      name: str | None = None,
+  ):
+    super().__init__(name=name)
+    self._attention_backend = validate_attention_backend(attention_backend)
+
   @typing.jaxtyped
   def __call__(
       self, x: Float[Array, 'B s s D'], is_training: bool
-  ) -> Float[Array, 'B H S S']:
+  ) -> Array:
     x = jax.nn.gelu(layers.RMSBatchNorm()(x, is_training=is_training))
     # 8 = number of heads in sequence MHA.
     x = hk.Linear(8, with_bias=False, w_init=jnp.zeros)(x)
+    if self._attention_backend == ATTENTION_BACKEND_PALLAS_TILED:
+      return x  # [B, S//16, S//16, H]
     for axis in [1, 2]:
       x = jnp.repeat(x, repeats=16, axis=axis)  # [B S S H]
     return jnp.moveaxis(x, 3, 1)

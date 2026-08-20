@@ -77,6 +77,17 @@ class SequenceDecoder(hk.Module):
 class TransformerTower(hk.Module):
   """Transformer tower with interleaved pairwise updates."""
 
+  def __init__(
+      self,
+      *,
+      attention_backend: str = attention.ATTENTION_BACKEND_DENSE,
+      name: str | None = None,
+  ):
+    super().__init__(name=name)
+    self._attention_backend = attention.validate_attention_backend(
+        attention_backend
+    )
+
   @typing.jaxtyped
   def __call__(
       self, x: Float[Array, 'B S C'], *, is_training: bool
@@ -85,8 +96,12 @@ class TransformerTower(hk.Module):
     for i in range(9):
       if i % 2 == 0:
         pair_x = attention.PairUpdateBlock()(x, pair_x)
-      mha_bias = attention.AttentionBiasBlock()(pair_x, is_training)
-      x += attention.MHABlock()(x, mha_bias, is_training=is_training)
+      mha_bias = attention.AttentionBiasBlock(
+          attention_backend=self._attention_backend
+      )(pair_x, is_training)
+      x += attention.MHABlock(attention_backend=self._attention_backend)(
+          x, mha_bias, is_training=is_training
+      )
       x += attention.MLPBlock()(x, is_training=is_training)
     return x, pair_x
 
@@ -111,6 +126,7 @@ class AlphaGenome(hk.Module):
       splice_site_threshold: float = DEFAULT_SPLICE_SITE_THRESHOLD,
       freeze_trunk_embeddings: bool = False,
       num_organisms: int = 2,
+      attention_backend: str = attention.ATTENTION_BACKEND_DENSE,
       name: str | None = None,
   ):
     """Initializes the AlphaGenome model.
@@ -125,6 +141,9 @@ class AlphaGenome(hk.Module):
       num_organisms: The number of organisms. This is used to initialize the
         organism embedding layer. Default is 2, for human and mouse. Leave at 2
         to load pre-trained weights.
+      attention_backend: Sequence-attention implementation. ``dense`` keeps
+        the original implementation; ``pallas_tiled`` enables the
+        experimental forward-only, memory-efficient GPU kernel.
       name: The name of the module.
     """
 
@@ -134,6 +153,9 @@ class AlphaGenome(hk.Module):
     self._splice_site_threshold = splice_site_threshold
     self._freeze_trunk_embeddings = freeze_trunk_embeddings
     self._num_organisms = num_organisms
+    self._attention_backend = attention.validate_attention_backend(
+        attention_backend
+    )
     self._heads: dict[heads_module.HeadName, heads_module.Head] = {}
     self._head_configs: dict[heads_module.HeadName, heads_module.HeadConfig] = (
         {}
@@ -222,7 +244,9 @@ class AlphaGenome(hk.Module):
           self._num_organisms, trunk.shape[-1]
       )(organism_index)
       trunk += organism_embedding_trunk[:, None, :]
-    trunk, pair_activations = TransformerTower()(trunk, is_training=is_training)
+    trunk, pair_activations = TransformerTower(
+        attention_backend=self._attention_backend
+    )(trunk, is_training=is_training)
 
     x = SequenceDecoder()(trunk, intermediates, is_training=is_training)
 

@@ -26,6 +26,7 @@ from alphagenome.models import dna_output
 from alphagenome.models import interval_scorers
 from alphagenome.models import variant_scorers
 from alphagenome_research.io import splicing
+from alphagenome_research.model import attention
 from alphagenome_research.model import dna_model
 from alphagenome_research.model import embeddings
 from alphagenome_research.model.metadata import metadata
@@ -1150,6 +1151,23 @@ class DnaModelTest(parameterized.TestCase):
     chex.assert_trees_all_equal_shapes_and_dtypes(
         full_extracted, composed_extracted
     )
+
+  def test_tiled_model_uses_dense_checkpoint_tree_initializer(self):
+    """The 2,048 bp restore probe must not invoke a 64-token Pallas tile."""
+    metadata = {dna_model.Organism.HOMO_SAPIENS: self._metadata}
+    dense_init, *_ = dna_model.create_model(
+        metadata, attention_backend=attention.ATTENTION_BACKEND_DENSE
+    )
+    tiled_init, *_ = dna_model.create_model(
+        metadata, attention_backend=attention.ATTENTION_BACKEND_PALLAS_TILED
+    )
+    dna_shape = jax.ShapeDtypeStruct((1, 2048, 4), dtype=jnp.float32)
+    organism_shape = jax.ShapeDtypeStruct((1,), dtype=jnp.int32)
+    rng = jax.random.PRNGKey(0)
+
+    dense_tree = jax.eval_shape(dense_init, rng, dna_shape, organism_shape)
+    tiled_tree = jax.eval_shape(tiled_init, rng, dna_shape, organism_shape)
+    chex.assert_trees_all_equal_shapes_and_dtypes(dense_tree, tiled_tree)
 
   @parameterized.parameters(('all_folds',), (dna_model.ModelVersion.ALL_FOLDS,))
   @mock.patch.object(jax, 'eval_shape', return_value=MOCK_SHAPES, autospec=True)
