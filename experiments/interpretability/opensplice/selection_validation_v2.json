@@ -1,0 +1,56 @@
+{
+  "selection_version": "opensplice-circuit-v2-snv-only",
+  "validated_date": "2026-08-27",
+  "selected_file": "selected_variants_v2.tsv",
+  "sha256": "09cf0003317d742dfa742481ff6a96896b679342717867b31c85283262a6fdf6",
+  "counts": {
+    "total": 50,
+    "unique_variant_ids": 50,
+    "unique_vcf_ids": 50,
+    "significant_effects": 30,
+    "neutral_controls": 20,
+    "exons": 5,
+    "per_exon": {"significant_effects": 6, "neutral_controls": 4}
+  },
+  "observed_effect_signs": {
+    "BRAF_e14": {"positive": 6, "negative": 0},
+    "SLC25A48_e8": {"positive": 0, "negative": 6},
+    "ELN_e19": {"positive": 6, "negative": 0},
+    "EIF4A2_e4": {"positive": 0, "negative": 6},
+    "DMD_e78": {"positive": 0, "negative": 6},
+    "note": "BRAF's one-sided positive effects are an observed property of the frozen experimental set, not a selection failure or reason to replace the exon."
+  },
+  "neutral_match_tiers": {
+    "same_region_and_mut_type": 13,
+    "same_mut_type": 7
+  },
+  "checks": {
+    "all_mut_type_sub": true,
+    "all_exact_one_base_ref_alt": true,
+    "all_exact_vcf_joins_match_chrom_pos_id_ref_alt": true,
+    "all_effects_significant_and_padj_below_0_1": true,
+    "all_controls_nonsignificant_and_padj_at_least_0_1": true,
+    "observed_effect_sign_matches_delta_logit": true,
+    "frozen_exon_list_unchanged_from_v1": true,
+    "predictor_columns_used_for_selection": false,
+    "model_inference_run_before_freeze": false
+  },
+  "input_release_checksums": {
+    "open_splice_experimental_master_unique_sequence_all_predictor_cols.tsv.gz": {
+      "bytes": 425453242,
+      "md5": "374443aa36bc1070dfd36318d8e77c59"
+    },
+    "opensplice_predictors_benchmarking_exon_metadata.tsv": {
+      "bytes": 6220008,
+      "md5": "c8f9be07de206ba7fd9fac09c80dfc9f",
+      "sha256": "34e24f699d04f15a6a021098f68efdf77000b74e718ecdbf164690dd60019e00"
+    },
+    "alphagenome_genome_input_per_exon.zip": {
+      "bytes": 8418366,
+      "md5": "acb6efd47062eae4bc557e0286f959ef",
+      "sha256": "5e50782c98786de304e65176942622c90d38c84c94714197120a4293ae1ef763"
+    }
+  },
+  "test_command": "python -m unittest experiments/interpretability/opensplice/select_holdout_v2_test.py -v",
+  "test_result": "2 tests passed"
+}

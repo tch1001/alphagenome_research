@@ -64,6 +64,21 @@ class TargetSelection:
 
 
 @chex.dataclass(frozen=True)
+class PairedTargetSelection:
+  """Fixed-size paired position/track values for a scalar output target.
+
+  Unlike :class:`TargetSelection`, this selects ``(position_indices[q],
+  track_indices[q])`` pairs rather than their Cartesian product.  This is
+  required for targets such as strand-aware splice-site scores, where the
+  acceptor and donor live at different positions and in different channels.
+  """
+
+  position_indices: Int[Array, 'Q']
+  track_indices: Int[Array, 'Q']
+  valid_mask: Bool[Array, 'Q']
+
+
+@chex.dataclass(frozen=True)
 class TargetSummary:
   """Per-example sum and mean over the selected model-output values."""
 
@@ -408,6 +423,38 @@ def reduce_target(
   values = jnp.where(valid[None, :, :], values, 0.0)
   total = jnp.sum(values, axis=(1, 2), dtype=jnp.float32)
   num_values = jnp.sum(valid, dtype=jnp.int32)
+  mean = total / jnp.maximum(num_values, 1)
+  return TargetSummary(total=total, mean=mean, num_values=num_values)
+
+
+def reduce_paired_target(
+    predictions: Float[Array, 'B S C'], selection: PairedTargetSelection
+) -> TargetSummary:
+  """Reduces paired position/track values without forming a Cartesian box."""
+  if predictions.ndim != 3:
+    raise ValueError(
+        'Target predictions must have shape [batch, position, track].'
+    )
+  if (
+      selection.position_indices.ndim != 1
+      or selection.track_indices.ndim != 1
+      or selection.valid_mask.ndim != 1
+  ):
+    raise ValueError('Paired target selection arrays must all have rank 1.')
+  if not (
+      selection.position_indices.shape
+      == selection.track_indices.shape
+      == selection.valid_mask.shape
+  ):
+    raise ValueError('Paired target selection arrays must have the same shape.')
+  safe_positions = jnp.clip(
+      selection.position_indices, 0, predictions.shape[1] - 1
+  )
+  safe_tracks = jnp.clip(selection.track_indices, 0, predictions.shape[2] - 1)
+  values = predictions[:, safe_positions, safe_tracks].astype(jnp.float32)
+  values = jnp.where(selection.valid_mask[None, :], values, 0.0)
+  total = jnp.sum(values, axis=1, dtype=jnp.float32)
+  num_values = jnp.sum(selection.valid_mask, dtype=jnp.int32)
   mean = total / jnp.maximum(num_values, 1)
   return TargetSummary(total=total, mean=mean, num_values=num_values)
 

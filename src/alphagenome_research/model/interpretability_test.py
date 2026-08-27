@@ -615,6 +615,64 @@ class InterpretabilityTest(absltest.TestCase):
     chex.assert_shape(summary.mean, (1,))
     chex.assert_shape(trace.compact_pair_bias_edges, (9, 1, 2, 8))
 
+  def test_paired_target_reducer_does_not_include_cross_terms(self):
+    predictions = jnp.arange(2 * 5 * 4, dtype=jnp.float32).reshape(2, 5, 4)
+    selection = interpretability.PairedTargetSelection(
+        position_indices=jnp.array([1, 4, 99], jnp.int32),
+        track_indices=jnp.array([0, 2, -5], jnp.int32),
+        valid_mask=jnp.array([True, True, False]),
+    )
+
+    target = interpretability.reduce_paired_target(predictions, selection)
+
+    np.testing.assert_array_equal(target.total, jnp.array([22, 62]))
+    np.testing.assert_array_equal(target.mean, jnp.array([11.0, 31.0]))
+    self.assertEqual(target.num_values, 2)
+
+  def test_paired_targeted_factory_uses_standard_checkpoint_tree(self):
+    track_metadata = track_data.TrackMetadata(
+        pd.DataFrame({
+            'name': ['donor', 'acceptor', 'donor', 'acceptor', 'padding'],
+            'strand': ['+', '+', '-', '-', '.'],
+        })
+    )
+    metadata = {
+        public_dna_model.Organism.HOMO_SAPIENS: (
+            metadata_lib.AlphaGenomeOutputMetadata(splice_sites=track_metadata)
+        )
+    }
+    init, _, _, _, _ = dna_model.create_model(metadata)
+    dna = jax.ShapeDtypeStruct((1, 2048, 4), jnp.float32)
+    organism = jax.ShapeDtypeStruct((1,), jnp.int32)
+    params, state = jax.eval_shape(init, jax.random.key(15), dna, organism)
+    paired_apply = dna_model.create_paired_targeted_interpretability_apply(
+        metadata,
+        interpretability.TargetSpec(
+            head_name='splice_sites_classification',
+            prediction_key='predictions',
+        ),
+    )
+
+    summary, trace = jax.eval_shape(
+        paired_apply,
+        params,
+        state,
+        dna,
+        organism,
+        self._tower_selection(),
+        interpretability.no_transformer_interventions(
+            batch_size=1, num_edges=2
+        ),
+        interpretability.PairedTargetSelection(
+            position_indices=jnp.array([100, 150], jnp.int32),
+            track_indices=jnp.array([1, 0], jnp.int32),
+            valid_mask=jnp.array([True, True]),
+        ),
+    )
+    chex.assert_shape(summary.total, (1,))
+    self.assertEqual(summary.num_values.shape, ())
+    chex.assert_shape(trace.pre_attention_residuals, (9, 1, 3, 1536))
+
 
 if __name__ == '__main__':
   absltest.main()

@@ -1,0 +1,203 @@
+{
+  "plan_version": "2.0.0",
+  "status": "selection_frozen_no_model_inference",
+  "purpose": "A 50-variant, SNV-only, temporally post-AlphaGenome OpenSplice benchmark for causal circuit analysis. Selection was frozen before any local AlphaGenome inference.",
+  "v1_infeasibility": {
+    "record": "selection_attempt_v1.json",
+    "reason": "The predeclared v1 requirement for three significant negative and three significant positive variants per exon was infeasible because BRAF_e14 had zero significant negative effects.",
+    "disposition": "v1 remains unchanged and has no selected-variant artifact. v2 keeps the same five frozen exons, drops the forced sign balance, and restricts the primary causal-patching benchmark to exact SNVs."
+  },
+  "temporal_holdout_scope": {
+    "statement": "OpenSplice was posted after AlphaGenome's original publication/evaluation, so it is a temporal holdout from AlphaGenome training and original evaluation. It is not model-blind in the stronger sense because the OpenSplice authors subsequently benchmarked AlphaGenome on the dataset.",
+    "alphagenome_primary_paper": "https://doi.org/10.1038/s41586-025-10014-0",
+    "opensplice_preprint": "https://doi.org/10.64898/2026.05.22.727141",
+    "opensplice_posted_date": "2026-05-23"
+  },
+  "upstream_repository": {
+    "url": "https://github.com/lehner-lab/OpenSplice",
+    "commit": "3e4ad8c037c216b952f1a8945f8f498669bff589",
+    "commit_date": "2026-05-27T07:26:17-04:00",
+    "license": "MIT",
+    "inspected_files": [
+      {
+        "path": "analysis/00_master_table_creation.R",
+        "sha256": "188706c14fa5aa65e114c8752d0fdcf17381165fd62211cae7ee965c93dfbae1",
+        "role": "Defines Supplementary Table 4 experimental columns, quality statistics and hg38 coordinate merge."
+      },
+      {
+        "path": "analysis/06.9.1_SpliceMaps_main.R",
+        "sha256": "48791869d0c0218fa93defc0c28e88b7ab787165a35304189cd6ce1e3ef2fa40",
+        "role": "Publishes the ordered 30-exon curated example list from which the first five were frozen without consulting model scores."
+      },
+      {
+        "path": "libraries_design/02_mutagenesis_libraries/exon_list_with_metadata.tsv",
+        "sha256": "3f1f97dcf1199aeaafdda8cd36ef37bee0b376caacd1b212fecdba4e355e4a3a",
+        "role": "Maps curated exon labels to genes, Ensembl exon IDs and GRCh38 exon coordinates."
+      },
+      {
+        "path": "benchmarking_predictors/scripts/inference/alphagenome_genome_mode_snvs_inference.py",
+        "sha256": "f6a49e808933d57bdd093075498d32c5800576d9d882430f36a49bfb63f93ff0",
+        "role": "Reference for upstream VCF parsing, strand handling and fixed genomic-window semantics; its model scores are not used for selection."
+      },
+      {
+        "path": "benchmarking_predictors/scripts/inference/alphagenome_genome_mode_deletions_inference.py",
+        "sha256": "43a26fc1df3fc1ec0320693a9b233bdf125e8e0da2566ea62271df71ea628979",
+        "role": "Reference for VCF deletion anchoring and REF-to-ALT coordinate realignment; its model scores are not used for selection."
+      }
+    ]
+  },
+  "dataset_release": {
+    "title": "OpenSplice: the impact of half a million mutations on the alternative splicing of 600 human exons",
+    "figshare_article_id": 32337414,
+    "figshare_version": 5,
+    "doi": "10.6084/m9.figshare.32337414.v5",
+    "api_url": "https://api.figshare.com/v2/articles/32337414/versions/5",
+    "landing_url": "https://figshare.com/articles/dataset/OpenSplice_the_impact_of_half_a_million_mutations_on_the_alternative_splicing_of_600_human_exons/32337414",
+    "license": "CC BY 4.0"
+  },
+  "required_files": [
+    {
+      "figshare_file_id": 64886694,
+      "name": "open_splice_experimental_master_unique_sequence_all_predictor_cols.tsv.gz",
+      "size_bytes": 425453242,
+      "md5": "374443aa36bc1070dfd36318d8e77c59",
+      "download_url": "https://ndownloader.figshare.com/files/64886694",
+      "download_now": false,
+      "role": "Measured PSI, replicate PSI, delta-logit-PSI, uncertainty, significance, region and mutation class. The file also contains existing predictor columns, which are prohibited selection inputs and ignored by an explicit allowlist in select_holdout_v2.py."
+    },
+    {
+      "figshare_file_id": 64887939,
+      "name": "opensplice_predictors_benchmarking_exon_metadata.tsv",
+      "size_bytes": 6220008,
+      "md5": "c8f9be07de206ba7fd9fac09c80dfc9f",
+      "sha256_observed": "34e24f699d04f15a6a021098f68efdf77000b74e718ecdbf164690dd60019e00",
+      "download_url": "https://ndownloader.figshare.com/files/64887939",
+      "download_now": false,
+      "role": "Ensembl exon ID, strand and GRCh38 exon coordinates required to construct genomic AlphaGenome intervals."
+    },
+    {
+      "figshare_file_id": 64890999,
+      "name": "alphagenome_genome_input_per_exon.zip",
+      "size_bytes": 8418366,
+      "md5": "acb6efd47062eae4bc557e0286f959ef",
+      "sha256_observed": "5e50782c98786de304e65176942622c90d38c84c94714197120a4293ae1ef763",
+      "download_url": "https://ndownloader.figshare.com/files/64890999",
+      "download_now": false,
+      "role": "Exact GRCh38 VCF-like CHROM, POS, ID, REF and ALT values. Exact selected alleles must come from this archive, not be reconstructed from minigene position labels."
+    }
+  ],
+  "frozen_vcf_members": [
+    {
+      "ensembl_exon_id": "ENSE00003649805",
+      "member": "alphagenome_genome_input_per_exon/ENSE00003649805_vcf_spliceai_pangolin.vcf",
+      "size_bytes": 51670,
+      "variant_rows": 967,
+      "sha256": "50d954bd8691aba557d1a1b9004d02bc1c271f683cfa21d2d1adf42f9c17d6a9"
+    },
+    {
+      "ensembl_exon_id": "ENSE00003835789",
+      "member": "alphagenome_genome_input_per_exon/ENSE00003835789_vcf_spliceai_pangolin.vcf",
+      "size_bytes": 86614,
+      "variant_rows": 1604,
+      "sha256": "7d7a26dcb267c7f5a48b8a5c131d75ca287f882049dd01c591e4edf8a6588ba1"
+    },
+    {
+      "ensembl_exon_id": "ENSE00003673416",
+      "member": "alphagenome_genome_input_per_exon/ENSE00003673416_vcf_spliceai_pangolin.vcf",
+      "size_bytes": 53342,
+      "variant_rows": 1016,
+      "sha256": "a722470aa1b89c08670caf366f504a07e71dff9c215595085d12025346fe967f"
+    },
+    {
+      "ensembl_exon_id": "ENSE00002462331",
+      "member": "alphagenome_genome_input_per_exon/ENSE00002462331_vcf_spliceai_pangolin.vcf",
+      "size_bytes": 87382,
+      "variant_rows": 1618,
+      "sha256": "19eebcc4745cbf8ba845421465b18bb34ec6634b4fe3bd19f5ec0664d279d3ac"
+    },
+    {
+      "ensembl_exon_id": "ENSE00001436107",
+      "member": "alphagenome_genome_input_per_exon/ENSE00001436107_vcf_spliceai_pangolin.vcf",
+      "size_bytes": 45048,
+      "variant_rows": 862,
+      "sha256": "d39b59f9d8d7a68e875ed57abc0f9c8201c97856ac8009a810fa6952d338e53b"
+    }
+  ],
+  "files_explicitly_not_required": [
+    {
+      "name": "opensplice_predictors_benchmarking_variant_metadata.tsv",
+      "reason": "Its 182.8 MB minigene sequence table is unnecessary for native-genome selection and inference."
+    },
+    {
+      "name": "splice_transformer_genomic_variant_input_needed_cols_only.parquet.gz",
+      "reason": "Only required for SpliceTransformer benchmarking."
+    },
+    {
+      "name": "psi_per_barcode_*.tsv",
+      "reason": "Multi-gigabyte barcode-level inputs are unnecessary because the released variant-level table already applies the upstream error model and read filters."
+    },
+    {
+      "name": "ENA PRJEB111846 raw reads",
+      "reason": "Raw read reprocessing is outside the small circuit benchmark."
+    },
+    {
+      "name": "Supplementary Table 12 and every predictor-score column",
+      "reason": "Using existing AlphaGenome or comparator scores to choose exons or variants would leak model performance into the holdout."
+    }
+  ],
+  "experimental_selection_allowlist": [
+    "gene",
+    "exon_id",
+    "ensembl_exon_id",
+    "variant_id",
+    "start",
+    "end",
+    "length",
+    "region",
+    "mut_type",
+    "psi_r1",
+    "psi_r2",
+    "psi_r3",
+    "wt_psi",
+    "psi",
+    "delta_psi",
+    "logit_psi_wt",
+    "logit_psi",
+    "delta_logit",
+    "se_d",
+    "padj",
+    "significant",
+    "measured"
+  ],
+  "frozen_exon_rule": {
+    "file": "frozen_exons_v2.tsv",
+    "rule": "Carry forward unchanged the five exons mechanically frozen for v1: the first five entries, in source order, from the upstream 30-exon curated splice-map list. This is deterministic and independent of all predictor scores.",
+    "count": 5
+  },
+  "frozen_variant_rule": {
+    "quality_gate": "Keep measured non-WT variants with complete exact VCF mapping, three finite replicate PSI values and finite psi, wt_psi, delta_psi, delta_logit, se_d and padj values. For v2, also require mut_type='sub' and one-base REF and ALT alleles in the exact released VCF.",
+    "significant_effects_per_exon": 6,
+    "effect_rule": "Among significant SNVs with padj < 0.1, choose the six largest absolute delta_logit values regardless of sign; break ties by variant_id. Record, but do not rebalance, the observed sign.",
+    "neutral_controls_per_exon": 4,
+    "neutral_rule": "For the first four selected effects, select an unused nonsignificant SNV with padj >= 0.1 and the smallest absolute delta_logit in the best available tier: same region and mutation type, same region, same mutation type, then any; break ties by variant_id.",
+    "indel_policy": "Exclude deletions from the primary v2 causal-patching benchmark to avoid activation-alignment and indel-stitching confounds. Evaluate deletions only in a later, explicitly versioned sensitivity analysis.",
+    "total_variants": 50
+  },
+  "output_contract": {
+    "selector": "select_holdout_v2.py",
+    "planned_output": "selected_variants_v2.tsv",
+    "planned_sha256": "09cf0003317d742dfa742481ff6a96896b679342717867b31c85283262a6fdf6",
+    "validation_report": "selection_validation_v2.json",
+    "freeze_condition": "The three pinned inputs passed their release checksums and the selector froze the canonical TSV before local AlphaGenome inference. Do not replace examples because AlphaGenome performs poorly."
+  },
+  "model_evaluation_constraints": {
+    "primary_mode": "native GRCh38 genomic context",
+    "minigene_mode": "sensitivity analysis only",
+    "primary_outputs": ["splice_sites", "splice_site_usage"],
+    "secondary_outputs": ["splice_junctions", "rna_seq"],
+    "development_context": "smallest supported splice-site input",
+    "confirmation_context_bp": 131072,
+    "mechanistic_gate": "Perform circuit recovery only for variants whose AlphaGenome output direction agrees with measured delta-logit-PSI; report the rejected fraction over all 30 high-effect variants.",
+    "no_reselection": "Model failures remain denominator observations and may not trigger replacement of an exon or variant."
+  }
+}

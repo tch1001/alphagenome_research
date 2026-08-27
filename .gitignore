@@ -22,3 +22,6 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+
+# Local, checksum-pinned OpenSplice inputs (downloaded on demand).
+experiments/interpretability/opensplice/local_data/

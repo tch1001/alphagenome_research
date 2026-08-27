@@ -1,0 +1,6 @@
+selection_order	gene	exon_id	ensembl_exon_id	chromosome	strand	exon_start_1based	exon_end_1based	exon_length_bp	selection_basis
+1	BRAF	BRAF_e14	ENSE00003649805	chr7	-	140754187	140754233	47	First entry in the upstream paper's frozen 30-exon curated splice-map list.
+2	SLC25A48	SLC25A48_e8	ENSE00003835789	chr5	+	135880773	135880910	138	Second entry in the upstream paper's frozen 30-exon curated splice-map list.
+3	ELN	ELN_e19	ENSE00003673416	chr7	+	74054716	74054769	54	Third entry in the upstream paper's frozen 30-exon curated splice-map list.
+4	EIF4A2	EIF4A2_e4	ENSE00002462331	chr3	+	186784962	186785101	140	Fourth entry in the upstream paper's frozen 30-exon curated splice-map list.
+5	DMD	DMD_e78	ENSE00001436107	chrX	-	31126642	31126673	32	Fifth entry in the upstream paper's frozen 30-exon curated splice-map list; also supplies the predeclared clinically familiar gene.

@@ -1,0 +1,40 @@
+{
+  "protocol_version": "opensplice-circuit-v1",
+  "attempt_date": "2026-08-27",
+  "status": "infeasible_no_output_written",
+  "frozen_exons": [
+    "BRAF_e14",
+    "SLC25A48_e8",
+    "ELN_e19",
+    "EIF4A2_e4",
+    "DMD_e78"
+  ],
+  "predeclared_rule": "Per exon, select three significant negative and three significant positive variants at padj < 0.1, plus four matched nonsignificant controls.",
+  "failure": {
+    "exon_id": "BRAF_e14",
+    "message": "BRAF_e14: fewer than three significant negative variants",
+    "reason": "BRAF_e14 has zero significant negative experimental effects, so the sign-balanced rule cannot produce the frozen 50-variant set."
+  },
+  "eligible_sign_counts": {
+    "all_quality_gated_mutations": {
+      "BRAF_e14": {"negative": 0, "positive": 118, "neutral": 707},
+      "SLC25A48_e8": {"negative": 450, "positive": 576, "neutral": 324},
+      "ELN_e19": {"negative": 310, "positive": 345, "neutral": 212},
+      "EIF4A2_e4": {"negative": 470, "positive": 461, "neutral": 416},
+      "DMD_e78": {"negative": 361, "positive": 242, "neutral": 93}
+    },
+    "snv_only": {
+      "BRAF_e14": {"negative": 0, "positive": 64, "neutral": 361},
+      "SLC25A48_e8": {"negative": 219, "positive": 288, "neutral": 191},
+      "ELN_e19": {"negative": 129, "positive": 187, "neutral": 127},
+      "EIF4A2_e4": {"negative": 226, "positive": 220, "neutral": 252},
+      "DMD_e78": {"negative": 185, "positive": 126, "neutral": 59}
+    }
+  },
+  "inputs": {
+    "master_table_md5": "374443aa36bc1070dfd36318d8e77c59",
+    "exact_vcf_archive_md5": "acb6efd47062eae4bc557e0286f959ef"
+  },
+  "leakage_statement": "The attempt and feasibility audit read only the frozen experimental allowlist and exact VCF alleles. No AlphaGenome or comparator predictor column was inspected or used, and no model inference ran.",
+  "disposition": "Preserve v1 unchanged. Define the changed selection rule as v2 rather than replacing an exon or silently rewriting v1."
+}

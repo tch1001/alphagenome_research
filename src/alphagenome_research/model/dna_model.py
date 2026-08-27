@@ -144,6 +144,18 @@ TargetedInterpretabilityApplyFn = Callable[
     ],
     tuple[interpretability.TargetSummary, interpretability.TransformerTrace],
 ]
+PairedTargetedInterpretabilityApplyFn = Callable[
+    [
+        hk.Params,
+        hk.State,
+        Float32[Array, 'B S 4'],
+        Int32[Array, 'B'],
+        interpretability.TransformerTraceSelection,
+        interpretability.TransformerInterventions,
+        interpretability.PairedTargetSelection,
+    ],
+    tuple[interpretability.TargetSummary, interpretability.TransformerTrace],
+]
 
 
 def extract_predictions(
@@ -1820,6 +1832,85 @@ def create_targeted_interpretability_apply(
       trace_selection: interpretability.TransformerTraceSelection,
       interventions: interpretability.TransformerInterventions,
       target_selection: interpretability.TargetSelection,
+  ) -> tuple[
+      interpretability.TargetSummary, interpretability.TransformerTrace
+  ]:
+    output, _ = _forward_targeted.apply(
+        params,
+        state,
+        None,
+        dna_sequence,
+        organism_index,
+        trace_selection,
+        interventions,
+        target_selection,
+    )
+    return output
+
+  return _apply_fn
+
+
+def create_paired_targeted_interpretability_apply(
+    metadata: Mapping[dna_model.Organism, AlphaGenomeOutputMetadata],
+    target_spec: interpretability.TargetSpec,
+    *,
+    num_splice_sites: int = model.DEFAULT_NUM_SPLICE_SITES,
+    splice_site_threshold: float = model.DEFAULT_SPLICE_SITE_THRESHOLD,
+    attention_backend: str = attention.ATTENTION_BACKEND_DENSE,
+) -> PairedTargetedInterpretabilityApplyFn:
+  """Creates an opt-in causal-trace apply for paired position/track targets.
+
+  This is separate from :func:`create_targeted_interpretability_apply` so the
+  established Cartesian target contract and normal public prediction APIs stay
+  unchanged.  The transform adds no parameters or state and consumes the normal
+  AlphaGenome checkpoint tree.
+  """
+  jmp_policy = jmp.get_policy('params=float32,compute=bfloat16,output=bfloat16')
+
+  @hk.transform_with_state
+  def _forward_targeted(
+      dna_sequence: Float[Array, 'B S 4'],
+      organism_index: Int32[Array, 'B'],
+      trace_selection: interpretability.TransformerTraceSelection,
+      interventions: interpretability.TransformerInterventions,
+      target_selection: interpretability.PairedTargetSelection,
+  ):
+    with hk.mixed_precision.push_policy(model.AlphaGenome, jmp_policy):
+      alphagenome = model.AlphaGenome(
+          metadata,
+          num_splice_sites=num_splice_sites,
+          splice_site_threshold=splice_site_threshold,
+          attention_backend=attention_backend,
+      )
+      embeddings, trace = alphagenome.forward_trunk_with_intermediates(
+          dna_sequence,
+          organism_index,
+          trace_selection=trace_selection,
+          interventions=interventions,
+      )
+      predictions = alphagenome.forward_heads(embeddings, organism_index)
+      try:
+        target_predictions = predictions[target_spec.head_name][
+            target_spec.prediction_key
+        ]
+      except KeyError as error:
+        raise ValueError(
+            'Unknown interpretability target '
+            f'{target_spec.head_name!r}/{target_spec.prediction_key!r}.'
+        ) from error
+      target = interpretability.reduce_paired_target(
+          target_predictions, target_selection
+      )
+      return target, trace
+
+  def _apply_fn(
+      params: hk.Params,
+      state: hk.State,
+      dna_sequence: Float32[Array, 'B S 4'],
+      organism_index: Int32[Array, 'B'],
+      trace_selection: interpretability.TransformerTraceSelection,
+      interventions: interpretability.TransformerInterventions,
+      target_selection: interpretability.PairedTargetSelection,
   ) -> tuple[
       interpretability.TargetSummary, interpretability.TransformerTrace
   ]:
