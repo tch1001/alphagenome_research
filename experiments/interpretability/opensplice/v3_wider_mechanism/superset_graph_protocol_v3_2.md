@@ -113,6 +113,32 @@ intermediate value.
    autotune load/dump/cache environment setting. Record every environment
    variable whose name starts with `XLA`, `JAX`, `CUDA`, `CUDNN`, `CUBLAS` or
    `TRITON`. No persistent executable or autotune artifact may be consumed.
+   The launcher must also fail before importing AlphaGenome unless the tracked
+   tree is clean and its only untracked files are the following exact generated
+   binding exceptions:
+
+   | Binding | Bytes | SHA-256 |
+   |---|---:|---|
+   | `src/alphagenome_research/protos/calibration_scores_pb2.py` | 2,794 | `4673289dd481fd8c4976f602ab36b07646304107e352e3e6d27b2abe4f9e9ebc` |
+   | `src/alphagenome_research/protos/calibration_scores_pb2.pyi` | 1,815 | `329dc390abeb187084fff28fbe6cb6d9868aa8867326bf53f9a52d4c83f527f9` |
+
+   Bind the paths and these exact source/dependency bytes as well:
+
+   | Dependency | Bytes | SHA-256 |
+   |---|---:|---|
+   | `calibration_scores.proto` | 1,483 | `356f08689a4bafa0761f88f08dac08468a2de2c8aef38dcef093457eceee2f34` |
+   | `dna_model.proto` | 15,103 | `d19a7208ec34953ca021efbff32516f1aa277f0477276f7699d9567fd616329a` |
+   | `tensor.proto` | 2,856 | `07779023b2868377cbfc3c2ce96cd266ae425a0a1116aea755691c263d6238f7` |
+   | imported `dna_model_pb2.py` | 16,279 | `d97564536e77ec09bdf144ba1204d4e08f79095fb9ed6c0cba7b065dc6f252ee` |
+   | imported `tensor_pb2.py` | 3,155 | `dea7a5207e82601b6763e95ee4b69356345e95bc2de91632928d6161f873cdb8` |
+
+   The generated header and runtime both report protobuf `7.35.1`. The
+   historical generator binary and argument vector are unknown;
+   these bytes are intentionally untracked exact build artifacts, not
+   reproducibly generated source. Make no regeneration claim. Persist the
+   launcher's pre-import attestation, then re-bind every imported module's
+   `__file__`, size and hash in the same process before model creation. Direct
+   runner invocation without that attestation must fail.
 2. **Start and compile.** Create a new append-only v3.2 attempt and compile the
    committed superset graph once. Persist compiler and import provenance.
 3. **Identity cohort.** In manifest order 0--19, run the all-false superset
