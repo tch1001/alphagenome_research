@@ -6,8 +6,11 @@
 instrumentation, analyzer, tests, this document and a machine-readable freeze
 must be committed before any v3.2 GPU or model call.
 
-**Confirmation status:** blind. ELN e19, EIF4A2 e4 and DMD e78 remain excluded
-from every v3.2 input, output, path, model call and decision.
+**Confirmation status:** model-output, activation and intervention blind. ELN
+e19, EIF4A2 e4 and DMD e78 remain excluded from every v3.2 model call and
+scientific decision. Their frozen manifest metadata/labels were exposed after
+this protocol was first frozen, as disclosed in Section 7, so this study does
+not claim complete metadata- or label-blindness.
 
 ## 1. Decision and rationale
 
