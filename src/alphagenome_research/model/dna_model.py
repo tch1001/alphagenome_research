@@ -180,6 +180,18 @@ SpliceClassificationLogitMarginRouteCensusApplyFn = Callable[
     ],
     tuple[interpretability.TargetSummary, interpretability.CausalRouteTrace],
 ]
+SpliceClassificationLogitMarginStageABranchApplyFn = Callable[
+    [
+        hk.Params,
+        hk.State,
+        Float32[Array, '6 S 4'],
+        Int32[Array, '6'],
+        interpretability.StageABranchSelection,
+        interpretability.StageABranchInterventions,
+        interpretability.SpliceClassificationLogitMarginSelection,
+    ],
+    tuple[interpretability.TargetSummary, interpretability.StageABranchTrace],
+]
 
 
 def extract_predictions(
@@ -2107,6 +2119,89 @@ def create_splice_classification_logit_margin_route_census_apply(
         dna_sequence,
         organism_index,
         trace_selection,
+        interventions,
+        target_selection,
+    )
+    return output
+
+  return _apply_fn
+
+
+def create_splice_classification_logit_margin_stage_a_branch_apply(
+    metadata: Mapping[dna_model.Organism, AlphaGenomeOutputMetadata],
+    *,
+    num_splice_sites: int = model.DEFAULT_NUM_SPLICE_SITES,
+    splice_site_threshold: float = model.DEFAULT_SPLICE_SITE_THRESHOLD,
+    attention_backend: str = attention.ATTENTION_BACKEND_DENSE,
+) -> SpliceClassificationLogitMarginStageABranchApplyFn:
+  """Creates the locked six-row Stage-A T/E branch and closure apply.
+
+  Whole route tensors remain inside one executable. The returned trace contains
+  only exact donor-equality audits plus selected final A/D embeddings, so full
+  1-bp encoder skips are never copied to host memory. The transform adds no
+  parameters or state and consumes the normal AlphaGenome checkpoint tree.
+  """
+  jmp_policy = jmp.get_policy('params=float32,compute=bfloat16,output=bfloat16')
+
+  @hk.transform_with_state
+  def _forward_targeted(
+      dna_sequence: Float[Array, '6 S 4'],
+      organism_index: Int32[Array, '6'],
+      selection: interpretability.StageABranchSelection,
+      interventions: interpretability.StageABranchInterventions,
+      target_selection: (
+          interpretability.SpliceClassificationLogitMarginSelection
+      ),
+  ):
+    if dna_sequence.shape[0] != interpretability.PAIRED_CAUSAL_BATCH_SIZE:
+      raise ValueError(
+          'Stage-A branch apply requires the frozen six-row batch.'
+      )
+    with hk.mixed_precision.push_policy(model.AlphaGenome, jmp_policy):
+      alphagenome = model.AlphaGenome(
+          metadata,
+          num_splice_sites=num_splice_sites,
+          splice_site_threshold=splice_site_threshold,
+          attention_backend=attention_backend,
+      )
+      embeddings, trace = alphagenome.forward_trunk_with_stage_a_branches(
+          dna_sequence,
+          organism_index,
+          selection=selection,
+          interventions=interventions,
+      )
+      predictions = alphagenome.forward_heads(embeddings, organism_index)
+      try:
+        logits = predictions['splice_sites_classification']['logits']
+      except KeyError as error:
+        raise ValueError(
+            'The splice-classification internal logits are unavailable.'
+        ) from error
+      target = interpretability.reduce_splice_classification_logit_margin(
+          logits, target_selection
+      )
+      return target, trace
+
+  def _apply_fn(
+      params: hk.Params,
+      state: hk.State,
+      dna_sequence: Float32[Array, '6 S 4'],
+      organism_index: Int32[Array, '6'],
+      selection: interpretability.StageABranchSelection,
+      interventions: interpretability.StageABranchInterventions,
+      target_selection: (
+          interpretability.SpliceClassificationLogitMarginSelection
+      ),
+  ) -> tuple[
+      interpretability.TargetSummary, interpretability.StageABranchTrace
+  ]:
+    output, _ = _forward_targeted.apply(
+        params,
+        state,
+        None,
+        dna_sequence,
+        organism_index,
+        selection,
         interventions,
         target_selection,
     )

@@ -26,6 +26,7 @@ per-head weighted-value output.  Neither quantity is an attention probability.
 import dataclasses
 
 import chex
+import jax
 import jax.numpy as jnp
 from jaxtyping import (  # pylint: disable=g-multiple-import
     Array,
@@ -345,6 +346,51 @@ class CausalRouteTrace:
   effective_final_embeddings: tuple[Array, ...]
 
 
+@chex.dataclass(frozen=True)
+class WholeSequenceBatchTransfer:
+  """Live whole-tensor transfers for route branches with differing lengths.
+
+  The leading axis enumerates statically unrolled route stages. Unlike a
+  selected residual transfer, this primitive replaces every sequence position
+  and channel in an enabled tensor without materializing it in the returned
+  trace.
+  """
+
+  donor_batch_indices: Int[Array, 'N B']
+  transfer_mask: Bool[Array, 'N B']
+
+
+@chex.dataclass(frozen=True)
+class StageABranchSelection:
+  """Compact A/D positions used by the final post-GELU closure control."""
+
+  final_embedding_positions: Int[Array, 'R']
+  final_embedding_valid_mask: Bool[Array, 'R']
+
+
+@chex.dataclass(frozen=True)
+class StageABranchInterventions:
+  """Whole T/E branch transfers and final post-GELU closure transfer."""
+
+  transformer_output: WholeSequenceBatchTransfer
+  encoder_skips: WholeSequenceBatchTransfer
+  final_embedding: SequenceResidualBatchTransfer
+
+
+@chex.dataclass(frozen=True)
+class StageABranchTrace:
+  """Compact exactness evidence for Stage-A closure and branch transfers."""
+
+  transformer_output_natural_matches_donor: Bool[Array, 'B']
+  transformer_output_effective_matches_donor: Bool[Array, 'B']
+  transformer_output_natural_fingerprint: Int[Array, 'B 4']
+  encoder_skips_natural_match_donor: Bool[Array, '7 B']
+  encoder_skips_effective_match_donor: Bool[Array, '7 B']
+  encoder_skips_natural_fingerprints: Int[Array, '7 B 4']
+  natural_final_embeddings: Float[Array, 'B R D']
+  effective_final_embeddings: Float[Array, 'B R D']
+
+
 def validate_transformer_interventions(
     interventions: TransformerInterventions,
     selection: TransformerTraceSelection,
@@ -539,6 +585,177 @@ def paired_six_row_batch_transfer(
   )
   return SequenceResidualBatchTransfer(
       donor_batch_indices=donors, transfer_mask=transfer_mask
+  )
+
+
+def no_whole_sequence_batch_transfer(
+    *, num_stages: int, batch_size: int
+) -> WholeSequenceBatchTransfer:
+  """Builds a fixed-shape all-false whole-tensor transfer."""
+  donors = jnp.broadcast_to(
+      jnp.arange(batch_size, dtype=jnp.int32)[None, :],
+      (num_stages, batch_size),
+  )
+  return WholeSequenceBatchTransfer(
+      donor_batch_indices=donors,
+      transfer_mask=jnp.zeros((num_stages, batch_size), jnp.bool),
+  )
+
+
+def paired_six_row_whole_sequence_transfer(
+    component_mask: Bool[Array, 'N'],
+) -> WholeSequenceBatchTransfer:
+  """Expands dynamic stage masks into the frozen six-row whole transfer."""
+  if component_mask.ndim != 1:
+    raise ValueError('component_mask must have shape [stage].')
+  num_stages = component_mask.shape[0]
+  donor_rows = jnp.asarray(PAIRED_CAUSAL_DONOR_ROWS, jnp.int32)
+  donors = jnp.broadcast_to(
+      donor_rows[None, :], (num_stages, PAIRED_CAUSAL_BATCH_SIZE)
+  )
+  recipient_rows = jnp.asarray(
+      [False, False, True, True, True, True], jnp.bool
+  )
+  return WholeSequenceBatchTransfer(
+      donor_batch_indices=donors,
+      transfer_mask=component_mask[:, None] & recipient_rows[None, :],
+  )
+
+
+def transfer_whole_sequence_within_batch(
+    values: Float[Array, 'B S D'],
+    transfer: WholeSequenceBatchTransfer,
+    stage: int,
+) -> tuple[
+    Float[Array, 'B S D'],
+    Bool[Array, 'B'],
+    Bool[Array, 'B'],
+    Int[Array, 'B 4'],
+]:
+  """Transfers a complete live tensor and returns non-tautological audits.
+
+  ``natural_matches`` compares the unmodified recipient to its natural donor,
+  even when transfer is disabled. ``effective_matches`` separately compares
+  the post-transfer recipient to that donor. The compact fingerprint hashes
+  the natural tensor's exact BF16 bit patterns for cross-call repeat audits.
+  """
+  if transfer.donor_batch_indices.ndim != 2:
+    raise ValueError('Whole-sequence donor indices must have shape [stage, B].')
+  if transfer.transfer_mask.shape != transfer.donor_batch_indices.shape:
+    raise ValueError('Whole-sequence transfer arrays must have equal shapes.')
+  batch_size = values.shape[0]
+  if transfer.donor_batch_indices.shape[1] != batch_size:
+    raise ValueError(
+        'Whole-sequence transfer batch axis does not match values.'
+    )
+  donor_indices = transfer.donor_batch_indices[stage]
+  mask = transfer.transfer_mask[stage]
+  valid_donors = (donor_indices >= 0) & (donor_indices < batch_size)
+  safe_donors = jnp.clip(donor_indices, 0, batch_size - 1)
+  donor_values = values[safe_donors]
+  natural_matches = valid_donors & jnp.all(
+      values == donor_values, axis=(1, 2)
+  )
+  effective = jnp.where(
+      (mask & valid_donors)[:, None, None], donor_values, values
+  )
+  effective_matches = valid_donors & jnp.all(
+      effective == donor_values, axis=(1, 2)
+  )
+  return (
+      effective,
+      natural_matches,
+      effective_matches,
+      bitwise_tensor_fingerprint(values),
+  )
+
+
+def bitwise_tensor_fingerprint(
+    values: Float[Array, 'B ...'],
+) -> Int[Array, 'B 4']:
+  """Returns four deterministic uint32 checksums of exact BF16 tensor bits.
+
+  This is compact repeat evidence, not a collision-free equality proof. The
+  four reductions are bitwise xor, modular sum, index-weighted modular sum and
+  a second mixed-index modular sum. Shape is static in the compiled graph and
+  audited separately by the trace schema.
+  """
+  if values.dtype != jnp.bfloat16:
+    raise ValueError('Stage-A whole-tensor fingerprints require BF16 values.')
+  bits = jax.lax.bitcast_convert_type(values, jnp.uint16)
+  flat = bits.reshape((bits.shape[0], -1)).astype(jnp.uint32)
+  indices = jnp.arange(1, flat.shape[1] + 1, dtype=jnp.uint32)
+  mixed = indices ^ (indices >> jnp.uint32(16))
+  mixed = mixed * jnp.uint32(0x7FEB352D)
+  mixed = mixed ^ (mixed >> jnp.uint32(15))
+  mixed = mixed * jnp.uint32(0x846CA68B)
+  mixed = mixed ^ (mixed >> jnp.uint32(16))
+  return jnp.stack(
+      (
+          jnp.bitwise_xor.reduce(flat, axis=1),
+          jnp.sum(flat, axis=1, dtype=jnp.uint32),
+          jnp.sum(flat * indices[None, :], axis=1, dtype=jnp.uint32),
+          jnp.sum(flat * mixed[None, :], axis=1, dtype=jnp.uint32),
+      ),
+      axis=1,
+  )
+
+
+def no_stage_a_branch_interventions(
+    selection: StageABranchSelection, *, batch_size: int
+) -> StageABranchInterventions:
+  """Builds an all-false fixed pytree for Stage-A branch experiments."""
+  if batch_size != PAIRED_CAUSAL_BATCH_SIZE:
+    raise ValueError('Stage-A branch experiments require exactly six rows.')
+  num_positions = selection.final_embedding_positions.shape[0]
+  return StageABranchInterventions(
+      transformer_output=paired_six_row_whole_sequence_transfer(
+          jnp.zeros((1,), jnp.bool)
+      ),
+      encoder_skips=paired_six_row_whole_sequence_transfer(
+          jnp.zeros((len(DECODER_ROUTE_RESOLUTIONS),), jnp.bool)
+      ),
+      final_embedding=no_sequence_route_batch_transfer(
+          num_stages=1,
+          batch_size=batch_size,
+          num_positions=num_positions,
+      ),
+  )
+
+
+def validate_stage_a_branch_interventions(
+    selection: StageABranchSelection,
+    interventions: StageABranchInterventions,
+    *,
+    batch_size: int,
+) -> None:
+  """Validates fixed shapes for opt-in T/E/final-embedding transfers."""
+  if selection.final_embedding_positions.ndim != 1:
+    raise ValueError('Stage-A final positions must have rank one.')
+  if (
+      selection.final_embedding_valid_mask.shape
+      != selection.final_embedding_positions.shape
+  ):
+    raise ValueError('Stage-A final position arrays must have equal shapes.')
+  expected_whole_shapes = (
+      ('transformer_output', interventions.transformer_output, (1, batch_size)),
+      (
+          'encoder_skips',
+          interventions.encoder_skips,
+          (len(DECODER_ROUTE_RESOLUTIONS), batch_size),
+      ),
+  )
+  for name, transfer, expected_shape in expected_whole_shapes:
+    if transfer.donor_batch_indices.shape != expected_shape:
+      raise ValueError(f'{name} donors must have shape {expected_shape}.')
+    if transfer.transfer_mask.shape != expected_shape:
+      raise ValueError(f'{name} mask must have shape {expected_shape}.')
+  _validate_route_transfer(
+      'final_embedding',
+      interventions.final_embedding,
+      num_stages=1,
+      batch_size=batch_size,
+      num_positions=selection.final_embedding_positions.shape[0],
   )
 
 

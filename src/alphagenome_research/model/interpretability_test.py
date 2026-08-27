@@ -446,6 +446,47 @@ class InterpretabilityTest(absltest.TestCase):
     for family in interpretability.CAUSAL_ROUTE_FAMILIES:
       self.assertLen(family.channel_widths, len(family.resolutions_bp))
 
+  def test_whole_sequence_transfer_is_exact_and_keeps_values_on_device(self):
+    row_ref = jnp.arange(12, dtype=jnp.bfloat16).reshape(3, 4)
+    row_alt = row_ref + jnp.asarray(100, jnp.bfloat16)
+    values = jnp.stack(
+        [row_ref, row_alt, row_alt, row_alt, row_ref, row_ref]
+    )
+    transfer = interpretability.paired_six_row_whole_sequence_transfer(
+        jnp.array([True])
+    )
+
+    effective, natural_matches, effective_matches, fingerprints = jax.jit(
+        interpretability.transfer_whole_sequence_within_batch,
+        static_argnums=2,
+    )(values, transfer, 0)
+
+    np.testing.assert_array_equal(effective[2], values[0])
+    np.testing.assert_array_equal(effective[3], values[1])
+    np.testing.assert_array_equal(effective[4], values[1])
+    np.testing.assert_array_equal(effective[5], values[0])
+    np.testing.assert_array_equal(effective[:2], values[:2])
+    np.testing.assert_array_equal(
+        natural_matches, [True, True, False, True, False, True]
+    )
+    np.testing.assert_array_equal(effective_matches, np.ones((6,), bool))
+    chex.assert_shape(fingerprints, (6, 4))
+    np.testing.assert_array_equal(fingerprints[1], fingerprints[2])
+    np.testing.assert_array_equal(fingerprints[0], fingerprints[4])
+
+    identity = interpretability.no_whole_sequence_batch_transfer(
+        num_stages=1, batch_size=6
+    )
+    unchanged, identity_natural, identity_effective, identity_fingerprints = (
+        interpretability.transfer_whole_sequence_within_batch(
+            values, identity, 0
+        )
+    )
+    np.testing.assert_array_equal(unchanged, values)
+    np.testing.assert_array_equal(identity_natural, np.ones((6,), bool))
+    np.testing.assert_array_equal(identity_effective, np.ones((6,), bool))
+    chex.assert_shape(identity_fingerprints, (6, 4))
+
   def test_encoder_route_census_is_exact_noop_and_preserves_tree(self):
     one_dna = jax.random.normal(
         jax.random.key(20), (1, 128, 4), dtype=jnp.bfloat16
@@ -1229,6 +1270,63 @@ class InterpretabilityTest(absltest.TestCase):
     chex.assert_shape(
         trace.transformer.post_mlp_residuals, (9, 6, 3, 1536)
     )
+
+  def test_stage_a_branch_factory_uses_checkpoint_and_compact_audits(self):
+    track_metadata = track_data.TrackMetadata(
+        pd.DataFrame({
+            'name': ['donor', 'acceptor', 'donor', 'acceptor', 'padding'],
+            'strand': ['+', '+', '-', '-', '.'],
+        })
+    )
+    metadata = {
+        public_dna_model.Organism.HOMO_SAPIENS: (
+            metadata_lib.AlphaGenomeOutputMetadata(splice_sites=track_metadata)
+        )
+    }
+    init, _, _, _, _ = dna_model.create_model(metadata)
+    params, state = jax.eval_shape(
+        init,
+        jax.random.key(32),
+        jax.ShapeDtypeStruct((1, 2048, 4), jnp.float32),
+        jax.ShapeDtypeStruct((1,), jnp.int32),
+    )
+    selection = interpretability.StageABranchSelection(
+        final_embedding_positions=jnp.array([100, 150], jnp.int32),
+        final_embedding_valid_mask=jnp.ones((2,), jnp.bool),
+    )
+    interventions = interpretability.no_stage_a_branch_interventions(
+        selection, batch_size=6
+    )
+    apply_fn = (
+        dna_model.create_splice_classification_logit_margin_stage_a_branch_apply(
+            metadata
+        )
+    )
+
+    target, trace = jax.eval_shape(
+        apply_fn,
+        params,
+        state,
+        jax.ShapeDtypeStruct((6, 2048, 4), jnp.float32),
+        jax.ShapeDtypeStruct((6,), jnp.int32),
+        selection,
+        interventions,
+        interpretability.SpliceClassificationLogitMarginSelection(
+            canonical_position_indices=jnp.array([100, 150], jnp.int32),
+            canonical_track_indices=jnp.array([1, 0], jnp.int32),
+            padding_track_index=jnp.array(4, jnp.int32),
+        ),
+    )
+
+    chex.assert_shape(target.mean, (6,))
+    chex.assert_shape(trace.transformer_output_natural_matches_donor, (6,))
+    chex.assert_shape(trace.transformer_output_effective_matches_donor, (6,))
+    chex.assert_shape(trace.transformer_output_natural_fingerprint, (6, 4))
+    chex.assert_shape(trace.encoder_skips_natural_match_donor, (7, 6))
+    chex.assert_shape(trace.encoder_skips_effective_match_donor, (7, 6))
+    chex.assert_shape(trace.encoder_skips_natural_fingerprints, (7, 6, 4))
+    chex.assert_shape(trace.natural_final_embeddings, (6, 2, 1536))
+    chex.assert_shape(trace.effective_final_embeddings, (6, 2, 1536))
 
 
 if __name__ == '__main__':

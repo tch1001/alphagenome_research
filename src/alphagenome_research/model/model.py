@@ -178,6 +178,44 @@ class SequenceDecoder(hk.Module):
         tuple(effective_output_traces),
     )
 
+  @hk.name_like('__call__')
+  def forward_with_whole_skip_transfers(
+      self,
+      x: Float[Array, 'B S D'],
+      intermediates: dict[str, Array],
+      *,
+      is_training: bool,
+      skip_transfer: interpretability.WholeSequenceBatchTransfer,
+  ) -> tuple[Array, Array, Array, Array]:
+    """Decodes with branch-isolated whole live transfers of all U-Net skips."""
+    natural_audits = []
+    effective_audits = []
+    natural_fingerprints = []
+    for stage, bin_size in enumerate(
+        interpretability.DECODER_ROUTE_RESOLUTIONS
+    ):
+      unet_skip = intermediates[f'bin_size_{bin_size}']
+      (
+          unet_skip,
+          natural_matches,
+          effective_matches,
+          natural_fingerprint,
+      ) = interpretability.transfer_whole_sequence_within_batch(
+          unet_skip, skip_transfer, stage
+      )
+      natural_audits.append(natural_matches)
+      effective_audits.append(effective_matches)
+      natural_fingerprints.append(natural_fingerprint)
+      x = convolutions.UpResBlock()(
+          x, unet_skip, is_training=is_training
+      )
+    return (
+        x,
+        jnp.stack(natural_audits),
+        jnp.stack(effective_audits),
+        jnp.stack(natural_fingerprints),
+    )
+
 
 class TransformerTower(hk.Module):
   """Transformer tower with interleaved pairwise updates."""
@@ -739,6 +777,105 @@ class AlphaGenome(hk.Module):
         effective_decoder_outputs=effective_decoder_output_traces,
         final_embeddings=tuple(natural_final_embeddings),
         effective_final_embeddings=tuple(effective_final_embeddings),
+    )
+
+  @hk.name_like('__call__')
+  def forward_trunk_with_stage_a_branches(
+      self,
+      dna_sequence: Float[Array, 'B S 4'],
+      organism_index: Int[Array, 'B'],
+      *,
+      selection: interpretability.StageABranchSelection,
+      interventions: interpretability.StageABranchInterventions,
+      is_training: bool = False,
+  ) -> tuple[
+      embeddings_module.Embeddings, interpretability.StageABranchTrace
+  ]:
+    """Runs opt-in whole T/E transfers and the final A/D closure seam."""
+    interpretability.validate_stage_a_branch_interventions(
+        selection, interventions, batch_size=dna_sequence.shape[0]
+    )
+    trunk, intermediates = SequenceEncoder()(
+        dna_sequence, is_training=is_training
+    )
+    if self._num_organisms >= 1:
+      organism_embedding_trunk = embeddings_module.create_default_embedding(
+          self._num_organisms, trunk.shape[-1]
+      )(organism_index)
+      trunk += organism_embedding_trunk[:, None, :]
+    trunk, pair_activations = TransformerTower(
+        attention_backend=self._attention_backend
+    )(trunk, is_training=is_training)
+    (
+        trunk,
+        transformer_natural_matches,
+        transformer_effective_matches,
+        transformer_fingerprint,
+    ) = (
+        interpretability.transfer_whole_sequence_within_batch(
+            trunk, interventions.transformer_output, 0
+        )
+    )
+
+    (
+        x,
+        skip_natural_matches,
+        skip_effective_matches,
+        skip_fingerprints,
+    ) = SequenceDecoder().forward_with_whole_skip_transfers(
+        trunk,
+        intermediates,
+        is_training=is_training,
+        skip_transfer=interventions.encoder_skips,
+    )
+    embeddings_128bp = embeddings_module.OutputEmbedder(self._num_organisms)(
+        trunk, organism_index, is_training=is_training
+    )
+    embeddings_1bp = embeddings_module.OutputEmbedder(self._num_organisms)(
+        x,
+        organism_index,
+        is_training=is_training,
+        skip_x=embeddings_128bp,
+    )
+    final_selection = interpretability.SequenceResidualSelection(
+        positions=selection.final_embedding_positions,
+        valid_mask=selection.final_embedding_valid_mask,
+    )
+    natural_final = interpretability.gather_sequence_residuals(
+        embeddings_1bp, final_selection
+    )
+    embeddings_1bp = interpretability.transfer_sequence_residuals_within_batch(
+        embeddings_1bp,
+        final_selection,
+        interventions.final_embedding.donor_batch_indices[0],
+        interventions.final_embedding.transfer_mask[0],
+    )
+    effective_final = interpretability.gather_sequence_residuals(
+        embeddings_1bp, final_selection
+    )
+    embeddings_pair = embeddings_module.OutputPair(self._num_organisms)(
+        pair_activations, organism_index
+    )
+    embeddings = embeddings_module.Embeddings(
+        embeddings_1bp=embeddings_1bp,
+        embeddings_128bp=embeddings_128bp,
+        embeddings_pair=embeddings_pair,
+    )
+    if self._freeze_trunk_embeddings:
+      embeddings = jax.lax.stop_gradient(embeddings)
+    return embeddings, interpretability.StageABranchTrace(
+        transformer_output_natural_matches_donor=(
+            transformer_natural_matches
+        ),
+        transformer_output_effective_matches_donor=(
+            transformer_effective_matches
+        ),
+        transformer_output_natural_fingerprint=transformer_fingerprint,
+        encoder_skips_natural_match_donor=skip_natural_matches,
+        encoder_skips_effective_match_donor=skip_effective_matches,
+        encoder_skips_natural_fingerprints=skip_fingerprints,
+        natural_final_embeddings=natural_final,
+        effective_final_embeddings=effective_final,
     )
 
   @hk.name_like('__call__')
