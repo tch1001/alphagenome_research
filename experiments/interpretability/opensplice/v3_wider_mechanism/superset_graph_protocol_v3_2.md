@@ -48,7 +48,8 @@ v3.2 uses only the first 20 rows of the existing SNV-only manifest:
 | frozen exon table | `b95f8fc540f19222546322bebfb817a6c0f2147dd41325091086833584a09a75` |
 | Development exons | BRAF e14 and SLC25A48 e8 |
 | Development rows | orders 0--19: 12 significant effects and 8 neutral controls |
-| Checkpoint snapshot | `a8f293a76ee73d5b57f3bf2ae146510589fcf187` |
+| Checkpoint snapshot | `a8f293a76ee73d5b57f3bf2ae146510589fcf187`; 12-file content manifest SHA-256 `1ed87db4c5bd7c5418c7734ec128faa4a9ecd186df2a024437484a8bc2b6e934` |
+| Reference object | `GRCh38.p13.genome.fa`; GCS generation `1766084693379925`; 3,321,586,957 bytes; ETag `edee5408303f6c1c6bae1c76ffd23671`; MD5 `7e5UCDA/bBxrrhx2/9I2cQ==`; CRC32C `AyHUtA==` |
 | Context / attention | 16,384 bp / dense |
 | Primary target | strand-aware mean canonical acceptor/donor classification logit minus padding logit |
 | Target head | `splice_sites_classification/logits` |
@@ -113,9 +114,11 @@ intermediate value.
    autotune load/dump/cache environment setting. Record every environment
    variable whose name starts with `XLA`, `JAX`, `CUDA`, `CUDNN`, `CUBLAS` or
    `TRITON`. No persistent executable or autotune artifact may be consumed.
-   The launcher must also fail before importing AlphaGenome unless the tracked
-   tree is clean and its only untracked files are the following exact generated
-   binding exceptions:
+   The launcher must also fail before importing AlphaGenome unless every frozen
+   tracked bundle path is identical to `HEAD` and the proto subtree's only
+   untracked files are the following exact generated binding exceptions.
+   Unrelated untracked files elsewhere in the shared worktree are neither read
+   nor included and do not authorize changing or deleting them:
 
    | Binding | Bytes | SHA-256 |
    |---|---:|---|
@@ -136,8 +139,11 @@ intermediate value.
    historical generator binary and argument vector are unknown;
    these bytes are intentionally untracked exact build artifacts, not
    reproducibly generated source. Make no regeneration claim. Persist the
-   launcher's pre-import attestation, then re-bind every imported module's
-   `__file__`, size and hash in the same process before model creation. Direct
+   launcher's pre-import attestation, then bind every currently imported local
+   module's `__file__`, size and hash in the same process before model creation.
+   Persist a second inventory after model construction but before lowering and
+   a final inventory after compilation/completion; shared modules must retain
+   identical bytes and every lazy import must be contained and hashed. Direct
    runner invocation without that attestation must fail.
 2. **Start and compile.** Create a new append-only v3.2 attempt and compile the
    committed superset graph once. Persist compiler and import provenance.
