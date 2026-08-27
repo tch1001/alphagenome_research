@@ -42,6 +42,7 @@ DECODER_ROUTE_RESOLUTIONS = (64, 32, 16, 8, 4, 2, 1)
 FINAL_EMBEDDING_ROUTE_RESOLUTIONS = (128, 1)
 PAIRED_CAUSAL_BATCH_SIZE = 6
 PAIRED_CAUSAL_DONOR_ROWS = (0, 1, 0, 1, 1, 0)
+PAIRED_CAUSAL_IDENTITY_ROWS = (0, 1, 1, 1, 0, 0)
 
 
 @dataclasses.dataclass(frozen=True)
@@ -357,6 +358,7 @@ class WholeSequenceBatchTransfer:
   """
 
   donor_batch_indices: Int[Array, 'N B']
+  natural_identity_batch_indices: Int[Array, 'N B']
   transfer_mask: Bool[Array, 'N B']
 
 
@@ -381,11 +383,13 @@ class StageABranchInterventions:
 class StageABranchTrace:
   """Compact exactness evidence for Stage-A closure and branch transfers."""
 
-  transformer_output_natural_matches_donor: Bool[Array, 'B']
-  transformer_output_effective_matches_donor: Bool[Array, 'B']
+  transformer_output_natural_matches_identity: Bool[Array, 'B']
+  transformer_output_effective_matches_natural: Bool[Array, 'B']
+  transformer_output_effective_matches_intervention_donor: Bool[Array, 'B']
   transformer_output_natural_fingerprint: Int[Array, 'B 4']
-  encoder_skips_natural_match_donor: Bool[Array, '7 B']
-  encoder_skips_effective_match_donor: Bool[Array, '7 B']
+  encoder_skips_natural_match_identity: Bool[Array, '7 B']
+  encoder_skips_effective_match_natural: Bool[Array, '7 B']
+  encoder_skips_effective_match_intervention_donor: Bool[Array, '7 B']
   encoder_skips_natural_fingerprints: Int[Array, '7 B 4']
   natural_final_embeddings: Float[Array, 'B R D']
   effective_final_embeddings: Float[Array, 'B R D']
@@ -598,6 +602,7 @@ def no_whole_sequence_batch_transfer(
   )
   return WholeSequenceBatchTransfer(
       donor_batch_indices=donors,
+      natural_identity_batch_indices=donors,
       transfer_mask=jnp.zeros((num_stages, batch_size), jnp.bool),
   )
 
@@ -613,11 +618,16 @@ def paired_six_row_whole_sequence_transfer(
   donors = jnp.broadcast_to(
       donor_rows[None, :], (num_stages, PAIRED_CAUSAL_BATCH_SIZE)
   )
+  identity_rows = jnp.asarray(PAIRED_CAUSAL_IDENTITY_ROWS, jnp.int32)
+  identity_donors = jnp.broadcast_to(
+      identity_rows[None, :], (num_stages, PAIRED_CAUSAL_BATCH_SIZE)
+  )
   recipient_rows = jnp.asarray(
       [False, False, True, True, True, True], jnp.bool
   )
   return WholeSequenceBatchTransfer(
       donor_batch_indices=donors,
+      natural_identity_batch_indices=identity_donors,
       transfer_mask=component_mask[:, None] & recipient_rows[None, :],
   )
 
@@ -630,19 +640,26 @@ def transfer_whole_sequence_within_batch(
     Float[Array, 'B S D'],
     Bool[Array, 'B'],
     Bool[Array, 'B'],
+    Bool[Array, 'B'],
     Int[Array, 'B 4'],
 ]:
   """Transfers a complete live tensor and returns non-tautological audits.
 
-  ``natural_matches`` compares the unmodified recipient to its natural donor,
-  even when transfer is disabled. ``effective_matches`` separately compares
-  the post-transfer recipient to that donor. The compact fingerprint hashes
-  the natural tensor's exact BF16 bit patterns for cross-call repeat audits.
+  ``natural_matches_identity`` compares each unmodified row to its same-allele
+  baseline. ``effective_matches_natural`` proves whether the transfer was a
+  no-op. ``effective_matches_donor`` separately compares the post-transfer row
+  to the requested intervention donor. The compact fingerprint hashes the
+  natural tensor's exact BF16 bit patterns for cross-call repeat audits.
   """
   if transfer.donor_batch_indices.ndim != 2:
     raise ValueError('Whole-sequence donor indices must have shape [stage, B].')
   if transfer.transfer_mask.shape != transfer.donor_batch_indices.shape:
     raise ValueError('Whole-sequence transfer arrays must have equal shapes.')
+  if (
+      transfer.natural_identity_batch_indices.shape
+      != transfer.donor_batch_indices.shape
+  ):
+    raise ValueError('Whole-sequence natural identity map has invalid shape.')
   batch_size = values.shape[0]
   if transfer.donor_batch_indices.shape[1] != batch_size:
     raise ValueError(
@@ -653,19 +670,24 @@ def transfer_whole_sequence_within_batch(
   valid_donors = (donor_indices >= 0) & (donor_indices < batch_size)
   safe_donors = jnp.clip(donor_indices, 0, batch_size - 1)
   donor_values = values[safe_donors]
-  natural_matches = valid_donors & jnp.all(
-      values == donor_values, axis=(1, 2)
+  identity_indices = transfer.natural_identity_batch_indices[stage]
+  valid_identity = (identity_indices >= 0) & (identity_indices < batch_size)
+  safe_identity = jnp.clip(identity_indices, 0, batch_size - 1)
+  natural_matches_identity = valid_identity & jnp.all(
+      values == values[safe_identity], axis=(1, 2)
   )
   effective = jnp.where(
       (mask & valid_donors)[:, None, None], donor_values, values
   )
-  effective_matches = valid_donors & jnp.all(
+  effective_matches_natural = jnp.all(effective == values, axis=(1, 2))
+  effective_matches_donor = valid_donors & jnp.all(
       effective == donor_values, axis=(1, 2)
   )
   return (
       effective,
-      natural_matches,
-      effective_matches,
+      natural_matches_identity,
+      effective_matches_natural,
+      effective_matches_donor,
       bitwise_tensor_fingerprint(values),
   )
 
@@ -748,6 +770,10 @@ def validate_stage_a_branch_interventions(
   for name, transfer, expected_shape in expected_whole_shapes:
     if transfer.donor_batch_indices.shape != expected_shape:
       raise ValueError(f'{name} donors must have shape {expected_shape}.')
+    if transfer.natural_identity_batch_indices.shape != expected_shape:
+      raise ValueError(
+          f'{name} natural identity map must have shape {expected_shape}.'
+      )
     if transfer.transfer_mask.shape != expected_shape:
       raise ValueError(f'{name} mask must have shape {expected_shape}.')
   _validate_route_transfer(

@@ -8,13 +8,14 @@ variants and does not replace the remaining Stage-A route census.
 
 `WholeSequenceBatchTransfer` transfers a complete live `[batch, sequence,
 channel]` tensor between rows of the frozen six-row batch. Full tensors remain
-inside one JAX executable. Separate exact booleans report whether the natural
-recipient already equals its donor and whether the effective (possibly
-transferred) recipient equals the donor. This distinction prevents a disabled
-transfer from passing merely because its effective tensor equals itself. Four
-compact uint32 reductions of each natural T/E tensor are also returned for
-cross-call repeat checks, avoiding host copies of the seven high-resolution
-encoder skips.
+inside one JAX executable. Three separate exact booleans report whether the
+natural row equals its same-allele baseline `[0,1,1,1,0,0]`, whether the
+effective row equals its own natural value, and whether the effective row
+equals the requested intervention donor `[0,1,0,1,1,0]`. The intervention-donor
+audit is meaningful only for enabled recipients; in all-false Gate 0, cross
+rows 2 and 4 should differ from those opposite-allele donors. Four compact
+uint32 reductions of each natural T/E tensor are also returned for cross-call
+repeat checks, avoiding host copies of the seven high-resolution encoder skips.
 
 The opt-in `AlphaGenome.forward_trunk_with_stage_a_branches` path exposes:
 
@@ -51,12 +52,15 @@ cohort before producing isolated branch results for eligible effects:
 3. isolated complete T and E patches are run.
 
 For active whole transfers, natural self-control rows 3 and 5 must exactly
-equal their natural donors, while effective recipient rows 2/3/4/5 must exactly
-equal their requested donors. Gate 0 requires natural duplicate equality for
-rows 2/3/4/5 and an exact target/trace repeat. Target self controls remain
+equal their same-allele baselines, while effective recipient rows 2/3/4/5 must
+exactly equal their requested intervention donors. Gate 0 requires natural
+same-allele equality for rows 2/3/4/5, natural/effective equality at every row,
+and an exact target/trace repeat. Donor-match booleans are repeated as audit
+values but are not treated as tensor content in the duplicate loop. Target self
+controls remain
 bit-exact. The four-word repeat fingerprint is deliberately compact: it catches
 ordinary tensor drift but collisions are possible, so it is not a
-cryptographic proof. The within-call natural/effective donor booleans are exact.
+cryptographic proof. The within-call equality booleans are exact.
 Per-variant raw T, E, T+E movements, bidirectional recoveries, Shapley values
 and interaction are written without clipping. Artifacts are atomic,
 fingerprinted and resume-safe.

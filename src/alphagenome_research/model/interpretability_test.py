@@ -456,7 +456,13 @@ class InterpretabilityTest(absltest.TestCase):
         jnp.array([True])
     )
 
-    effective, natural_matches, effective_matches, fingerprints = jax.jit(
+    (
+        effective,
+        natural_matches,
+        effective_matches_natural,
+        effective_matches_donor,
+        fingerprints,
+    ) = jax.jit(
         interpretability.transfer_whole_sequence_within_batch,
         static_argnums=2,
     )(values, transfer, 0)
@@ -466,10 +472,13 @@ class InterpretabilityTest(absltest.TestCase):
     np.testing.assert_array_equal(effective[4], values[1])
     np.testing.assert_array_equal(effective[5], values[0])
     np.testing.assert_array_equal(effective[:2], values[:2])
+    np.testing.assert_array_equal(natural_matches, np.ones((6,), bool))
     np.testing.assert_array_equal(
-        natural_matches, [True, True, False, True, False, True]
+        effective_matches_natural, [True, True, False, True, False, True]
     )
-    np.testing.assert_array_equal(effective_matches, np.ones((6,), bool))
+    np.testing.assert_array_equal(
+        effective_matches_donor, np.ones((6,), bool)
+    )
     chex.assert_shape(fingerprints, (6, 4))
     np.testing.assert_array_equal(fingerprints[1], fingerprints[2])
     np.testing.assert_array_equal(fingerprints[0], fingerprints[4])
@@ -477,14 +486,25 @@ class InterpretabilityTest(absltest.TestCase):
     identity = interpretability.no_whole_sequence_batch_transfer(
         num_stages=1, batch_size=6
     )
-    unchanged, identity_natural, identity_effective, identity_fingerprints = (
+    (
+        unchanged,
+        identity_natural,
+        identity_effective_natural,
+        identity_effective_donor,
+        identity_fingerprints,
+    ) = (
         interpretability.transfer_whole_sequence_within_batch(
             values, identity, 0
         )
     )
     np.testing.assert_array_equal(unchanged, values)
     np.testing.assert_array_equal(identity_natural, np.ones((6,), bool))
-    np.testing.assert_array_equal(identity_effective, np.ones((6,), bool))
+    np.testing.assert_array_equal(
+        identity_effective_natural, np.ones((6,), bool)
+    )
+    np.testing.assert_array_equal(
+        identity_effective_donor, np.ones((6,), bool)
+    )
     chex.assert_shape(identity_fingerprints, (6, 4))
 
   def test_encoder_route_census_is_exact_noop_and_preserves_tree(self):
@@ -1319,11 +1339,17 @@ class InterpretabilityTest(absltest.TestCase):
     )
 
     chex.assert_shape(target.mean, (6,))
-    chex.assert_shape(trace.transformer_output_natural_matches_donor, (6,))
-    chex.assert_shape(trace.transformer_output_effective_matches_donor, (6,))
+    chex.assert_shape(trace.transformer_output_natural_matches_identity, (6,))
+    chex.assert_shape(trace.transformer_output_effective_matches_natural, (6,))
+    chex.assert_shape(
+        trace.transformer_output_effective_matches_intervention_donor, (6,)
+    )
     chex.assert_shape(trace.transformer_output_natural_fingerprint, (6, 4))
-    chex.assert_shape(trace.encoder_skips_natural_match_donor, (7, 6))
-    chex.assert_shape(trace.encoder_skips_effective_match_donor, (7, 6))
+    chex.assert_shape(trace.encoder_skips_natural_match_identity, (7, 6))
+    chex.assert_shape(trace.encoder_skips_effective_match_natural, (7, 6))
+    chex.assert_shape(
+        trace.encoder_skips_effective_match_intervention_donor, (7, 6)
+    )
     chex.assert_shape(trace.encoder_skips_natural_fingerprints, (7, 6, 4))
     chex.assert_shape(trace.natural_final_embeddings, (6, 2, 1536))
     chex.assert_shape(trace.effective_final_embeddings, (6, 2, 1536))

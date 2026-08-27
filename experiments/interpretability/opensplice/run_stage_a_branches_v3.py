@@ -35,7 +35,7 @@ import run_inference_trace as v2  # pylint: disable=g-import-not-at-top
 import run_route_census_v3 as route_v3  # pylint: disable=g-import-not-at-top
 
 
-SCRIPT_VERSION = 'opensplice-stage-a-branches-v3.0.1'
+SCRIPT_VERSION = 'opensplice-stage-a-branches-v3.0.2'
 COMPONENTS = (
     'final_embedding_A_D_closure',
     'joint_T_plus_E_closure',
@@ -150,22 +150,30 @@ def _target_values(target: interpretability.TargetSummary) -> np.ndarray:
 
 def _trace_arrays(trace: interpretability.StageABranchTrace):
   return (
-      ('transformer_output_natural_matches_donor',
-       np.asarray(trace.transformer_output_natural_matches_donor), 0),
-      ('transformer_output_effective_matches_donor',
-       np.asarray(trace.transformer_output_effective_matches_donor), 0),
+      ('transformer_output_natural_matches_identity',
+       np.asarray(trace.transformer_output_natural_matches_identity)),
+      ('transformer_output_effective_matches_natural',
+       np.asarray(trace.transformer_output_effective_matches_natural)),
+      ('transformer_output_effective_matches_intervention_donor',
+       np.asarray(
+           trace.transformer_output_effective_matches_intervention_donor
+       )),
       ('transformer_output_natural_fingerprint',
-       np.asarray(trace.transformer_output_natural_fingerprint), 0),
-      ('encoder_skips_natural_match_donor',
-       np.asarray(trace.encoder_skips_natural_match_donor), 1),
-      ('encoder_skips_effective_match_donor',
-       np.asarray(trace.encoder_skips_effective_match_donor), 1),
+       np.asarray(trace.transformer_output_natural_fingerprint)),
+      ('encoder_skips_natural_match_identity',
+       np.asarray(trace.encoder_skips_natural_match_identity)),
+      ('encoder_skips_effective_match_natural',
+       np.asarray(trace.encoder_skips_effective_match_natural)),
+      ('encoder_skips_effective_match_intervention_donor',
+       np.asarray(
+           trace.encoder_skips_effective_match_intervention_donor
+       )),
       ('encoder_skips_natural_fingerprints',
-       np.asarray(trace.encoder_skips_natural_fingerprints), 1),
+       np.asarray(trace.encoder_skips_natural_fingerprints)),
       ('natural_final_embeddings',
-       np.asarray(trace.natural_final_embeddings), 0),
+       np.asarray(trace.natural_final_embeddings)),
       ('effective_final_embeddings',
-       np.asarray(trace.effective_final_embeddings), 0),
+       np.asarray(trace.effective_final_embeddings)),
   )
 
 
@@ -183,50 +191,48 @@ def validate_identity_audit(
     raise ValueError('Stage-A Gate 0 REF duplicate targets differ.')
   if not (first[1] == first[2] == first[3]):
     raise ValueError('Stage-A Gate 0 ALT duplicate targets differ.')
-  for (name, values, batch_axis), (_, repeated, _) in zip(
+  for (name, values), (_, repeated) in zip(
       _trace_arrays(first_trace), _trace_arrays(second_trace), strict=True
   ):
     if not np.array_equal(values, repeated):
       raise ValueError(f'Stage-A Gate 0 repeat failed at {name}.')
-    for donor, recipients in ((0, (4, 5)), (1, (2, 3))):
-      donor_value = np.take(values, donor, axis=batch_axis)
-      for recipient in recipients:
-        if not np.array_equal(
-            donor_value, np.take(values, recipient, axis=batch_axis)
-        ):
-          raise ValueError(f'Stage-A duplicate trace failed at {name}.')
+  natural_final = np.asarray(first_trace.natural_final_embeddings)
+  for donor, recipients in ((0, (4, 5)), (1, (2, 3))):
+    for recipient in recipients:
+      if not np.array_equal(natural_final[donor], natural_final[recipient]):
+        raise ValueError('Stage-A natural final duplicate trace failed.')
   if not np.array_equal(
       first_trace.natural_final_embeddings,
       first_trace.effective_final_embeddings,
   ):
     raise ValueError('All-false final embedding transfer is not a no-op.')
   if not np.asarray(
-      first_trace.transformer_output_natural_matches_donor
+      first_trace.transformer_output_natural_matches_identity
   ).all():
     raise ValueError('All-false T natural duplicate audit must be true.')
   if not np.asarray(
-      first_trace.transformer_output_effective_matches_donor
+      first_trace.transformer_output_effective_matches_natural
   ).all():
-    raise ValueError('All-false T effective duplicate audit must be true.')
+    raise ValueError('All-false T natural/effective no-op audit failed.')
   if not np.asarray(
-      first_trace.encoder_skips_natural_match_donor
+      first_trace.encoder_skips_natural_match_identity
   ).all():
     raise ValueError('All-false E natural duplicate audit must be true.')
   if not np.asarray(
-      first_trace.encoder_skips_effective_match_donor
+      first_trace.encoder_skips_effective_match_natural
   ).all():
-    raise ValueError('All-false E effective duplicate audit must be true.')
+    raise ValueError('All-false E natural/effective no-op audit failed.')
   return {
       'passed': True,
       'target_repeat_exact': True,
       'target_duplicate_rows_exact': True,
       'trace_repeat_exact': True,
-      'trace_duplicate_rows_exact': True,
+      'natural_final_duplicate_rows_exact': True,
       'all_false_final_embedding_exact': True,
       'natural_T_duplicate_tensors_exact': True,
-      'effective_T_duplicate_tensors_exact': True,
+      'all_false_T_natural_effective_exact': True,
       'natural_E_duplicate_tensors_exact': True,
-      'effective_E_duplicate_tensors_exact': True,
+      'all_false_E_natural_effective_exact': True,
       'natural_T_fingerprint_repeat_exact': True,
       'natural_E_fingerprint_repeat_exact': True,
       'fingerprint_repeat_semantics': (
@@ -256,23 +262,33 @@ def validate_component_audit(
   recipient_rows = (2, 3, 4, 5)
   self_rows = (3, 5)
   transformer_natural = np.asarray(
-      trace.transformer_output_natural_matches_donor
+      trace.transformer_output_natural_matches_identity
   )
   transformer_effective = np.asarray(
-      trace.transformer_output_effective_matches_donor
+      trace.transformer_output_effective_matches_intervention_donor
   )
-  skip_natural = np.asarray(trace.encoder_skips_natural_match_donor)
-  skip_effective = np.asarray(trace.encoder_skips_effective_match_donor)
+  transformer_noop = np.asarray(
+      trace.transformer_output_effective_matches_natural
+  )
+  skip_natural = np.asarray(trace.encoder_skips_natural_match_identity)
+  skip_effective = np.asarray(
+      trace.encoder_skips_effective_match_intervention_donor
+  )
+  skip_noop = np.asarray(trace.encoder_skips_effective_match_natural)
   if component.transformer_output:
     if not transformer_natural[list(self_rows)].all():
       raise ValueError('Whole T natural self tensor audit failed.')
     if not transformer_effective[list(recipient_rows)].all():
       raise ValueError('Whole T effective donor tensor audit failed.')
+  elif not transformer_noop.all():
+    raise ValueError('Disabled whole T transfer is not an exact no-op.')
   if component.encoder_skips:
     if not skip_natural[:, list(self_rows)].all():
       raise ValueError('Whole E natural self tensor audit failed.')
     if not skip_effective[:, list(recipient_rows)].all():
       raise ValueError('Whole E effective donor tensor audit failed.')
+  elif not skip_noop.all():
+    raise ValueError('Disabled whole E transfer is not an exact no-op.')
   if component.final_embedding:
     natural = np.asarray(trace.natural_final_embeddings)
     effective = np.asarray(trace.effective_final_embeddings)
@@ -308,12 +324,18 @@ def validate_component_audit(
       'transformer_effective_donor_tensors_exact': bool(
           transformer_effective[list(recipient_rows)].all()
       ) if component.transformer_output else None,
+      'transformer_disabled_natural_effective_exact': (
+          None if component.transformer_output else bool(transformer_noop.all())
+      ),
       'all_seven_skip_natural_self_tensors_exact': bool(
           skip_natural[:, list(self_rows)].all()
       ) if component.encoder_skips else None,
       'all_seven_skip_effective_donor_tensors_exact': bool(
           skip_effective[:, list(recipient_rows)].all()
       ) if component.encoder_skips else None,
+      'all_seven_skips_disabled_natural_effective_exact': (
+          None if component.encoder_skips else bool(skip_noop.all())
+      ),
       'final_embedding_donor_vectors_exact': (
           True if component.final_embedding else None
       ),

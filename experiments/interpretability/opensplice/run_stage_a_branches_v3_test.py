@@ -43,10 +43,13 @@ def _trace(
   effective_rows = jnp.asarray(final_effective_rows, jnp.float32)
   natural = jnp.broadcast_to(natural_rows[:, None, None], (6, 2, 3))
   effective = jnp.broadcast_to(effective_rows[:, None, None], (6, 2, 3))
-  natural_match = jnp.asarray(
+  effective_matches_natural = jnp.asarray(
       [True, True, False, True, False, True]
       if active_transformer or active_skips else [True] * 6,
       jnp.bool,
+  )
+  inactive_intervention_donor_matches = jnp.asarray(
+      [True, True, False, True, False, True], jnp.bool
   )
   fingerprints = jnp.asarray([
       [11, 12, 13, 14],
@@ -57,16 +60,25 @@ def _trace(
       [11, 12, 13, 14],
   ], jnp.uint32)
   return runner.interpretability.StageABranchTrace(
-      transformer_output_natural_matches_donor=(
-          natural_match if active_transformer else jnp.ones((6,), jnp.bool)
+      transformer_output_natural_matches_identity=jnp.ones((6,), jnp.bool),
+      transformer_output_effective_matches_natural=(
+          effective_matches_natural
+          if active_transformer else jnp.ones((6,), jnp.bool)
       ),
-      transformer_output_effective_matches_donor=jnp.ones((6,), jnp.bool),
+      transformer_output_effective_matches_intervention_donor=(
+          jnp.ones((6,), jnp.bool)
+          if active_transformer else inactive_intervention_donor_matches
+      ),
       transformer_output_natural_fingerprint=fingerprints,
-      encoder_skips_natural_match_donor=jnp.broadcast_to(
-          natural_match if active_skips else jnp.ones((6,), jnp.bool),
-          (7, 6),
+      encoder_skips_natural_match_identity=jnp.ones((7, 6), jnp.bool),
+      encoder_skips_effective_match_natural=jnp.broadcast_to(
+          effective_matches_natural
+          if active_skips else jnp.ones((6,), jnp.bool), (7, 6)
       ),
-      encoder_skips_effective_match_donor=jnp.ones((7, 6), jnp.bool),
+      encoder_skips_effective_match_intervention_donor=jnp.broadcast_to(
+          jnp.ones((6,), jnp.bool)
+          if active_skips else inactive_intervention_donor_matches, (7, 6)
+      ),
       encoder_skips_natural_fingerprints=jnp.broadcast_to(
           fingerprints[None, ...], (7, 6, 4)
       ),
@@ -177,6 +189,10 @@ class StageABranchesV3Test(unittest.TestCase):
           interventions.transformer_output.donor_batch_indices[0],
           runner.route_v3.TRACE_BATCH_DONORS,
       )
+      np.testing.assert_array_equal(
+          interventions.transformer_output.natural_identity_batch_indices[0],
+          [0, 1, 1, 1, 0, 0],
+      )
       self.assertFalse(np.asarray(
           interventions.transformer_output.transfer_mask[:, :2]
       ).any())
@@ -248,8 +264,8 @@ class StageABranchesV3Test(unittest.TestCase):
     self.assertTrue(result['transformer_effective_donor_tensors_exact'])
     bad = dataclasses.replace(
         trace,
-        transformer_output_natural_matches_donor=(
-            trace.transformer_output_natural_matches_donor.at[3].set(False)
+        transformer_output_natural_matches_identity=(
+            trace.transformer_output_natural_matches_identity.at[3].set(False)
         ),
     )
     with self.assertRaisesRegex(ValueError, 'natural self'):

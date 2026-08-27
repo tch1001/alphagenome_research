@@ -186,9 +186,10 @@ class SequenceDecoder(hk.Module):
       *,
       is_training: bool,
       skip_transfer: interpretability.WholeSequenceBatchTransfer,
-  ) -> tuple[Array, Array, Array, Array]:
+  ) -> tuple[Array, Array, Array, Array, Array]:
     """Decodes with branch-isolated whole live transfers of all U-Net skips."""
     natural_audits = []
+    effective_natural_audits = []
     effective_audits = []
     natural_fingerprints = []
     for stage, bin_size in enumerate(
@@ -198,12 +199,14 @@ class SequenceDecoder(hk.Module):
       (
           unet_skip,
           natural_matches,
+          effective_matches_natural,
           effective_matches,
           natural_fingerprint,
       ) = interpretability.transfer_whole_sequence_within_batch(
           unet_skip, skip_transfer, stage
       )
       natural_audits.append(natural_matches)
+      effective_natural_audits.append(effective_matches_natural)
       effective_audits.append(effective_matches)
       natural_fingerprints.append(natural_fingerprint)
       x = convolutions.UpResBlock()(
@@ -212,6 +215,7 @@ class SequenceDecoder(hk.Module):
     return (
         x,
         jnp.stack(natural_audits),
+        jnp.stack(effective_natural_audits),
         jnp.stack(effective_audits),
         jnp.stack(natural_fingerprints),
     )
@@ -809,6 +813,7 @@ class AlphaGenome(hk.Module):
     (
         trunk,
         transformer_natural_matches,
+        transformer_effective_matches_natural,
         transformer_effective_matches,
         transformer_fingerprint,
     ) = (
@@ -820,6 +825,7 @@ class AlphaGenome(hk.Module):
     (
         x,
         skip_natural_matches,
+        skip_effective_matches_natural,
         skip_effective_matches,
         skip_fingerprints,
     ) = SequenceDecoder().forward_with_whole_skip_transfers(
@@ -864,15 +870,23 @@ class AlphaGenome(hk.Module):
     if self._freeze_trunk_embeddings:
       embeddings = jax.lax.stop_gradient(embeddings)
     return embeddings, interpretability.StageABranchTrace(
-        transformer_output_natural_matches_donor=(
+        transformer_output_natural_matches_identity=(
             transformer_natural_matches
         ),
-        transformer_output_effective_matches_donor=(
+        transformer_output_effective_matches_natural=(
+            transformer_effective_matches_natural
+        ),
+        transformer_output_effective_matches_intervention_donor=(
             transformer_effective_matches
         ),
         transformer_output_natural_fingerprint=transformer_fingerprint,
-        encoder_skips_natural_match_donor=skip_natural_matches,
-        encoder_skips_effective_match_donor=skip_effective_matches,
+        encoder_skips_natural_match_identity=skip_natural_matches,
+        encoder_skips_effective_match_natural=(
+            skip_effective_matches_natural
+        ),
+        encoder_skips_effective_match_intervention_donor=(
+            skip_effective_matches
+        ),
         encoder_skips_natural_fingerprints=skip_fingerprints,
         natural_final_embeddings=natural_final,
         effective_final_embeddings=effective_final,
