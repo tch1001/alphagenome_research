@@ -120,3 +120,26 @@ Full checks are in `selection_validation_v2.json`. The CPU-only v2 tests are:
 python -m unittest \
   experiments/interpretability/opensplice/select_holdout_v2_test.py -v
 ```
+
+## Frozen development result
+
+The first cross-execution implementation failed Gate 0 because returning BF16
+residuals to Python and reinserting them in a later model call introduced
+nonzero same-allele drift. That run is retained as a tooling failure and is not
+interpreted biologically. The repair and its admissibility before confirmation
+are frozen in `gate0_paired_batch_amendment_v2_1.md`.
+
+The v1.2 live paired-batch implementation passed Gate 0 on all 12 development
+effects and all 2,592 candidate/control groups. Every same-allele output drift
+was exactly zero, and all 12 identity/repeat audits were bit-exact. The best
+frozen component was `pre_attention`, layer 2, joint set `S`; median
+bidirectional recovery was 0.1334 for BRAF and 0.0995 for SLC25A48. This is
+below the preregistered 0.25 threshold, and none of the 72 components passed.
+
+The result is therefore a valid negative for this compact 128-bp residual
+intervention family. It does not show that AlphaGenome lacks splice mechanisms
+or interpretable representations. The ELN, EIF4A2 and DMD confirmation
+internals remain unopened, as required by the frozen protocol. See
+`results/v2_development_paired_batch/PAIRED_BATCH_DEVELOPMENT_RESULT.md` and
+the machine-readable `DEVELOPMENT_ANALYSIS.json` for the exact result and raw
+artifact-tree hash.

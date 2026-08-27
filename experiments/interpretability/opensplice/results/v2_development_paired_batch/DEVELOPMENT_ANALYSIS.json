@@ -1,0 +1,1892 @@
+{
+  "analysis_version": "opensplice-development-analysis-v1.2",
+  "scope": "development_exons_only_confirmation_unopened",
+  "source_script_version": "opensplice-inference-trace-v1.2.0",
+  "run_dir": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v2_development_paired_batch",
+  "raw_artifact_count": 2625,
+  "raw_json_tree_sha256": "f2ef54d2cda31f55fc810f2579a869555892962b3a71e55fac67642080d9352e",
+  "baseline": {
+    "effect_gate_by_exon": {
+      "BRAF": {
+        "correct_and_above_threshold": 6,
+        "effect_total": 6,
+        "neutral_total": 4,
+        "neutral_max_absolute_predicted_delta": 0.9137344360351562,
+        "neutral_median_absolute_predicted_delta": 0.5659408569335938
+      },
+      "SLC25A48": {
+        "correct_and_above_threshold": 6,
+        "effect_total": 6,
+        "neutral_total": 4,
+        "neutral_max_absolute_predicted_delta": 0.0302734375,
+        "neutral_median_absolute_predicted_delta": 0.01025390625
+      }
+    },
+    "rows": [
+      {
+        "gene": "BRAF",
+        "variant_id": "BRAF_e14_A117G",
+        "selection_class": "significant_effect",
+        "experimental_delta_logit": 4.36370722301283,
+        "predicted_mean_delta": 0.0390625,
+        "predicted_acceptor_delta": -0.00390625,
+        "predicted_donor_delta": 0.08203125,
+        "direction_gate": {
+          "predicted_sign": "positive",
+          "experimental_sign": "positive",
+          "predicted_effect_threshold": 0.01,
+          "direction_correct": true,
+          "gated_for_tracing": true
+        }
+      },
+      {
+        "gene": "BRAF",
+        "variant_id": "BRAF_e14_T71A",
+        "selection_class": "significant_effect",
+        "experimental_delta_logit": 3.44546407449925,
+        "predicted_mean_delta": 0.044921875,
+        "predicted_acceptor_delta": 0.02734375,
+        "predicted_donor_delta": 0.0625,
+        "direction_gate": {
+          "predicted_sign": "positive",
+          "experimental_sign": "positive",
+          "predicted_effect_threshold": 0.01,
+          "direction_correct": true,
+          "gated_for_tracing": true
+        }
+      },
+      {
+        "gene": "BRAF",
+        "variant_id": "BRAF_e14_T71G",
+        "selection_class": "significant_effect",
+        "experimental_delta_logit": 2.73208684506164,
+        "predicted_mean_delta": 0.052734375,
+        "predicted_acceptor_delta": 0.03515625,
+        "predicted_donor_delta": 0.0703125,
+        "direction_gate": {
+          "predicted_sign": "positive",
+          "experimental_sign": "positive",
+          "predicted_effect_threshold": 0.01,
+          "direction_correct": true,
+          "gated_for_tracing": true
+        }
+      },
+      {
+        "gene": "BRAF",
+        "variant_id": "BRAF_e14_A117C",
+        "selection_class": "significant_effect",
+        "experimental_delta_logit": 2.5649285235963,
+        "predicted_mean_delta": 0.04296875,
+        "predicted_acceptor_delta": 0.0234375,
+        "predicted_donor_delta": 0.0625,
+        "direction_gate": {
+          "predicted_sign": "positive",
+          "experimental_sign": "positive",
+          "predicted_effect_threshold": 0.01,
+          "direction_correct": true,
+          "gated_for_tracing": true
+        }
+      },
+      {
+        "gene": "BRAF",
+        "variant_id": "BRAF_e14_A89G",
+        "selection_class": "significant_effect",
+        "experimental_delta_logit": 2.51071257583555,
+        "predicted_mean_delta": 0.0234375,
+        "predicted_acceptor_delta": 0.015625,
+        "predicted_donor_delta": 0.03125,
+        "direction_gate": {
+          "predicted_sign": "positive",
+          "experimental_sign": "positive",
+          "predicted_effect_threshold": 0.01,
+          "direction_correct": true,
+          "gated_for_tracing": true
+        }
+      },
+      {
+        "gene": "BRAF",
+        "variant_id": "BRAF_e14_A77C",
+        "selection_class": "significant_effect",
+        "experimental_delta_logit": 2.42257783213796,
+        "predicted_mean_delta": 0.044921875,
+        "predicted_acceptor_delta": 0.0234375,
+        "predicted_donor_delta": 0.06640625,
+        "direction_gate": {
+          "predicted_sign": "positive",
+          "experimental_sign": "positive",
+          "predicted_effect_threshold": 0.01,
+          "direction_correct": true,
+          "gated_for_tracing": true
+        }
+      },
+      {
+        "gene": "BRAF",
+        "variant_id": "BRAF_e14_T121C",
+        "selection_class": "neutral_control",
+        "experimental_delta_logit": 0.0015335625822494,
+        "predicted_mean_delta": -0.7285614013671875,
+        "predicted_acceptor_delta": -0.587890625,
+        "predicted_donor_delta": -0.869232177734375,
+        "direction_gate": {
+          "predicted_sign": "negative",
+          "experimental_sign": "positive",
+          "predicted_effect_threshold": 0.01,
+          "direction_correct": null,
+          "gated_for_tracing": false
+        }
+      },
+      {
+        "gene": "BRAF",
+        "variant_id": "BRAF_e14_A69G",
+        "selection_class": "neutral_control",
+        "experimental_delta_logit": -0.0308516707723401,
+        "predicted_mean_delta": -0.9137344360351562,
+        "predicted_acceptor_delta": -0.9569854736328125,
+        "predicted_donor_delta": -0.8704833984375,
+        "direction_gate": {
+          "predicted_sign": "negative",
+          "experimental_sign": "negative",
+          "predicted_effect_threshold": 0.01,
+          "direction_correct": null,
+          "gated_for_tracing": false
+        }
+      },
+      {
+        "gene": "BRAF",
+        "variant_id": "BRAF_e14_C68T",
+        "selection_class": "neutral_control",
+        "experimental_delta_logit": 0.0661236101641096,
+        "predicted_mean_delta": -0.4033203125,
+        "predicted_acceptor_delta": -0.30078125,
+        "predicted_donor_delta": -0.505859375,
+        "direction_gate": {
+          "predicted_sign": "negative",
+          "experimental_sign": "positive",
+          "predicted_effect_threshold": 0.01,
+          "direction_correct": null,
+          "gated_for_tracing": false
+        }
+      },
+      {
+        "gene": "BRAF",
+        "variant_id": "BRAF_e14_G118A",
+        "selection_class": "neutral_control",
+        "experimental_delta_logit": -0.02390553437038,
+        "predicted_mean_delta": -0.40283203125,
+        "predicted_acceptor_delta": -0.09375,
+        "predicted_donor_delta": -0.7119140625,
+        "direction_gate": {
+          "predicted_sign": "negative",
+          "experimental_sign": "negative",
+          "predicted_effect_threshold": 0.01,
+          "direction_correct": null,
+          "gated_for_tracing": false
+        }
+      },
+      {
+        "gene": "SLC25A48",
+        "variant_id": "SLC25A48_e8_G70A",
+        "selection_class": "significant_effect",
+        "experimental_delta_logit": -3.49904855531437,
+        "predicted_mean_delta": -0.30760085582733154,
+        "predicted_acceptor_delta": -0.4804360866546631,
+        "predicted_donor_delta": -0.134765625,
+        "direction_gate": {
+          "predicted_sign": "negative",
+          "experimental_sign": "negative",
+          "predicted_effect_threshold": 0.01,
+          "direction_correct": true,
+          "gated_for_tracing": true
+        }
+      },
+      {
+        "gene": "SLC25A48",
+        "variant_id": "SLC25A48_e8_A69C",
+        "selection_class": "significant_effect",
+        "experimental_delta_logit": -3.20189825261236,
+        "predicted_mean_delta": -0.29101061820983887,
+        "predicted_acceptor_delta": -0.48045873641967773,
+        "predicted_donor_delta": -0.1015625,
+        "direction_gate": {
+          "predicted_sign": "negative",
+          "experimental_sign": "negative",
+          "predicted_effect_threshold": 0.01,
+          "direction_correct": true,
+          "gated_for_tracing": true
+        }
+      },
+      {
+        "gene": "SLC25A48",
+        "variant_id": "SLC25A48_e8_A69T",
+        "selection_class": "significant_effect",
+        "experimental_delta_logit": -3.16689694191158,
+        "predicted_mean_delta": -0.29784470796585083,
+        "predicted_acceptor_delta": -0.48045504093170166,
+        "predicted_donor_delta": -0.115234375,
+        "direction_gate": {
+          "predicted_sign": "negative",
+          "experimental_sign": "negative",
+          "predicted_effect_threshold": 0.01,
+          "direction_correct": true,
+          "gated_for_tracing": true
+        }
+      },
+      {
+        "gene": "SLC25A48",
+        "variant_id": "SLC25A48_e8_T68G",
+        "selection_class": "significant_effect",
+        "experimental_delta_logit": -3.1170110532066,
+        "predicted_mean_delta": -0.291412353515625,
+        "predicted_acceptor_delta": -0.46759033203125,
+        "predicted_donor_delta": -0.115234375,
+        "direction_gate": {
+          "predicted_sign": "negative",
+          "experimental_sign": "negative",
+          "predicted_effect_threshold": 0.01,
+          "direction_correct": true,
+          "gated_for_tracing": true
+        }
+      },
+      {
+        "gene": "SLC25A48",
+        "variant_id": "SLC25A48_e8_G70C",
+        "selection_class": "significant_effect",
+        "experimental_delta_logit": -3.10474255254859,
+        "predicted_mean_delta": -0.2968332767486572,
+        "predicted_acceptor_delta": -0.48038530349731445,
+        "predicted_donor_delta": -0.11328125,
+        "direction_gate": {
+          "predicted_sign": "negative",
+          "experimental_sign": "negative",
+          "predicted_effect_threshold": 0.01,
+          "direction_correct": true,
+          "gated_for_tracing": true
+        }
+      },
+      {
+        "gene": "SLC25A48",
+        "variant_id": "SLC25A48_e8_G71T",
+        "selection_class": "significant_effect",
+        "experimental_delta_logit": -3.09761599701931,
+        "predicted_mean_delta": -0.27099609375,
+        "predicted_acceptor_delta": -0.4111328125,
+        "predicted_donor_delta": -0.130859375,
+        "direction_gate": {
+          "predicted_sign": "negative",
+          "experimental_sign": "negative",
+          "predicted_effect_threshold": 0.01,
+          "direction_correct": true,
+          "gated_for_tracing": true
+        }
+      },
+      {
+        "gene": "SLC25A48",
+        "variant_id": "SLC25A48_e8_C67T",
+        "selection_class": "neutral_control",
+        "experimental_delta_logit": -0.02201113353349,
+        "predicted_mean_delta": -0.0302734375,
+        "predicted_acceptor_delta": -0.0546875,
+        "predicted_donor_delta": -0.005859375,
+        "direction_gate": {
+          "predicted_sign": "negative",
+          "experimental_sign": "negative",
+          "predicted_effect_threshold": 0.01,
+          "direction_correct": null,
+          "gated_for_tracing": false
+        }
+      },
+      {
+        "gene": "SLC25A48",
+        "variant_id": "SLC25A48_e8_C67G",
+        "selection_class": "neutral_control",
+        "experimental_delta_logit": 0.15750589815352,
+        "predicted_mean_delta": -0.0068359375,
+        "predicted_acceptor_delta": -0.04296875,
+        "predicted_donor_delta": 0.029296875,
+        "direction_gate": {
+          "predicted_sign": "below_threshold",
+          "experimental_sign": "positive",
+          "predicted_effect_threshold": 0.01,
+          "direction_correct": null,
+          "gated_for_tracing": false
+        }
+      },
+      {
+        "gene": "SLC25A48",
+        "variant_id": "SLC25A48_e8_T68C",
+        "selection_class": "neutral_control",
+        "experimental_delta_logit": 0.1901617601991,
+        "predicted_mean_delta": 0.005859375,
+        "predicted_acceptor_delta": 0.0,
+        "predicted_donor_delta": 0.01171875,
+        "direction_gate": {
+          "predicted_sign": "below_threshold",
+          "experimental_sign": "positive",
+          "predicted_effect_threshold": 0.01,
+          "direction_correct": null,
+          "gated_for_tracing": false
+        }
+      },
+      {
+        "gene": "SLC25A48",
+        "variant_id": "SLC25A48_e8_C6A",
+        "selection_class": "neutral_control",
+        "experimental_delta_logit": 0.0001804191273198,
+        "predicted_mean_delta": -0.013671875,
+        "predicted_acceptor_delta": -0.01953125,
+        "predicted_donor_delta": -0.0078125,
+        "direction_gate": {
+          "predicted_sign": "negative",
+          "experimental_sign": "positive",
+          "predicted_effect_threshold": 0.01,
+          "direction_correct": null,
+          "gated_for_tracing": false
+        }
+      }
+    ]
+  },
+  "tooling_gate": {
+    "absolute_self_drift_limit": 0.0001,
+    "relative_self_drift_limit_fraction": 0.01,
+    "variants_with_any_failed_group": 0,
+    "variants_total": 12,
+    "identity_repeat_audits": {
+      "required": true,
+      "passed": 12,
+      "expected": 12,
+      "all_target_repeats_exact": true,
+      "all_trace_repeats_exact": true,
+      "all_duplicate_rows_exact": true
+    },
+    "passes_gate_0": true,
+    "per_variant": {
+      "BRAF_e14_A117G": {
+        "max_self_drift": 0.0,
+        "failed_groups": 0,
+        "total_groups": 216
+      },
+      "BRAF_e14_T71A": {
+        "max_self_drift": 0.0,
+        "failed_groups": 0,
+        "total_groups": 216
+      },
+      "BRAF_e14_T71G": {
+        "max_self_drift": 0.0,
+        "failed_groups": 0,
+        "total_groups": 216
+      },
+      "BRAF_e14_A117C": {
+        "max_self_drift": 0.0,
+        "failed_groups": 0,
+        "total_groups": 216
+      },
+      "BRAF_e14_A89G": {
+        "max_self_drift": 0.0,
+        "failed_groups": 0,
+        "total_groups": 216
+      },
+      "BRAF_e14_A77C": {
+        "max_self_drift": 0.0,
+        "failed_groups": 0,
+        "total_groups": 216
+      },
+      "SLC25A48_e8_G70A": {
+        "max_self_drift": 0.0,
+        "failed_groups": 0,
+        "total_groups": 216
+      },
+      "SLC25A48_e8_A69C": {
+        "max_self_drift": 0.0,
+        "failed_groups": 0,
+        "total_groups": 216
+      },
+      "SLC25A48_e8_A69T": {
+        "max_self_drift": 0.0,
+        "failed_groups": 0,
+        "total_groups": 216
+      },
+      "SLC25A48_e8_T68G": {
+        "max_self_drift": 0.0,
+        "failed_groups": 0,
+        "total_groups": 216
+      },
+      "SLC25A48_e8_G70C": {
+        "max_self_drift": 0.0,
+        "failed_groups": 0,
+        "total_groups": 216
+      },
+      "SLC25A48_e8_G71T": {
+        "max_self_drift": 0.0,
+        "failed_groups": 0,
+        "total_groups": 216
+      }
+    }
+  },
+  "development_search": {
+    "candidate_count": 72,
+    "top_candidate": {
+      "stage": "pre_attention",
+      "layer": 2,
+      "position_set": "S",
+      "Q": 0.09948902769659718,
+      "per_exon": {
+        "BRAF": {
+          "median_B": 0.13339920948616601,
+          "median_q": 0.13339920948616601,
+          "eligible_effects": 6
+        },
+        "SLC25A48": {
+          "median_B": 0.09952108986900007,
+          "median_q": 0.09948902769659718,
+          "eligible_effects": 6
+        }
+      },
+      "passes_development_selection_gate": false,
+      "rank": 1
+    },
+    "any_candidate_passes": false,
+    "rankings": [
+      {
+        "stage": "pre_attention",
+        "layer": 2,
+        "position_set": "S",
+        "Q": 0.09948902769659718,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.13339920948616601,
+            "median_q": 0.13339920948616601,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.09952108986900007,
+            "median_q": 0.09948902769659718,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 1
+      },
+      {
+        "stage": "post_attention",
+        "layer": 1,
+        "position_set": "S",
+        "Q": 0.09948902769659718,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.13339920948616601,
+            "median_q": 0.13339920948616601,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.09952108986900007,
+            "median_q": 0.09948902769659718,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 2
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 1,
+        "position_set": "S",
+        "Q": 0.09948902769659718,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.13339920948616601,
+            "median_q": 0.13339920948616601,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.09952108986900007,
+            "median_q": 0.09948902769659718,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 3
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 3,
+        "position_set": "S",
+        "Q": 0.0970285905310675,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.11166007905138339,
+            "median_q": 0.11166007905138339,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.0987255043177061,
+            "median_q": 0.0970285905310675,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 4
+      },
+      {
+        "stage": "post_attention",
+        "layer": 2,
+        "position_set": "S",
+        "Q": 0.0970285905310675,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.11166007905138339,
+            "median_q": 0.11166007905138339,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.0987255043177061,
+            "median_q": 0.0970285905310675,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 5
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 2,
+        "position_set": "S",
+        "Q": 0.0970285905310675,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.11166007905138339,
+            "median_q": 0.11166007905138339,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.0987255043177061,
+            "median_q": 0.0970285905310675,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 6
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 1,
+        "position_set": "S",
+        "Q": 0.09548735890553411,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.13339920948616601,
+            "median_q": 0.13339920948616601,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.09443710017659718,
+            "median_q": 0.09548735890553411,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 7
+      },
+      {
+        "stage": "post_attention",
+        "layer": 0,
+        "position_set": "S",
+        "Q": 0.09548735890553411,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.13339920948616601,
+            "median_q": 0.13339920948616601,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.09443710017659718,
+            "median_q": 0.09548735890553411,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 8
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 0,
+        "position_set": "S",
+        "Q": 0.09548735890553411,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.13339920948616601,
+            "median_q": 0.13339920948616601,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.09443710017659718,
+            "median_q": 0.09548735890553411,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 9
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 0,
+        "position_set": "S",
+        "Q": 0.09384228258973408,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.13339920948616601,
+            "median_q": 0.13339920948616601,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.09389475981315765,
+            "median_q": 0.09384228258973408,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 10
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 4,
+        "position_set": "S",
+        "Q": 0.08893280632411067,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.08893280632411067,
+            "median_q": 0.08893280632411067,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.09877705978614737,
+            "median_q": 0.09708010219326377,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 11
+      },
+      {
+        "stage": "post_attention",
+        "layer": 3,
+        "position_set": "S",
+        "Q": 0.08893280632411067,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.08893280632411067,
+            "median_q": 0.08893280632411067,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.09877705978614737,
+            "median_q": 0.09708010219326377,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 12
+      },
+      {
+        "stage": "post_attention",
+        "layer": 5,
+        "position_set": "S",
+        "Q": 0.08893280632411067,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.08893280632411067,
+            "median_q": 0.08893280632411067,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.0955398361289577,
+            "median_q": 0.09065794410070978,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 13
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 3,
+        "position_set": "S",
+        "Q": 0.08893280632411067,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.08893280632411067,
+            "median_q": 0.08893280632411067,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.09877705978614737,
+            "median_q": 0.09708010219326377,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 14
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 5,
+        "position_set": "S",
+        "Q": 0.08893280632411067,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.08893280632411067,
+            "median_q": 0.08893280632411067,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.0955398361289577,
+            "median_q": 0.09065794410070978,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 15
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 5,
+        "position_set": "S",
+        "Q": 0.06620553359683795,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.08893280632411067,
+            "median_q": 0.06620553359683795,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.09718500005724773,
+            "median_q": 0.09718519444715501,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 16
+      },
+      {
+        "stage": "post_attention",
+        "layer": 4,
+        "position_set": "S",
+        "Q": 0.06620553359683795,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.08893280632411067,
+            "median_q": 0.06620553359683795,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.09718500005724773,
+            "median_q": 0.09718519444715501,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 17
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 4,
+        "position_set": "S",
+        "Q": 0.06620553359683795,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.08893280632411067,
+            "median_q": 0.06620553359683795,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.09718500005724773,
+            "median_q": 0.09718519444715501,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 18
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 0,
+        "position_set": "D",
+        "Q": 0.04904306220095694,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.044466403162055336,
+            "median_q": 0.04904306220095694,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.06957854509424641,
+            "median_q": 0.06793376994577091,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 19
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 1,
+        "position_set": "D",
+        "Q": 0.044466403162055336,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.044466403162055336,
+            "median_q": 0.044466403162055336,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.06957878967870777,
+            "median_q": 0.06952626226073011,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 20
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 2,
+        "position_set": "D",
+        "Q": 0.044466403162055336,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.044466403162055336,
+            "median_q": 0.044466403162055336,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.07024787189430017,
+            "median_q": 0.06957858890049141,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 21
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 3,
+        "position_set": "D",
+        "Q": 0.044466403162055336,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.044466403162055336,
+            "median_q": 0.044466403162055336,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.06963048295419315,
+            "median_q": 0.06821190410171399,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 22
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 4,
+        "position_set": "D",
+        "Q": 0.044466403162055336,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.044466403162055336,
+            "median_q": 0.044466403162055336,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.06803770224852758,
+            "median_q": 0.06798556361036448,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 23
+      },
+      {
+        "stage": "post_attention",
+        "layer": 0,
+        "position_set": "D",
+        "Q": 0.044466403162055336,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.044466403162055336,
+            "median_q": 0.044466403162055336,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.06957878967870777,
+            "median_q": 0.06952626226073011,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 24
+      },
+      {
+        "stage": "post_attention",
+        "layer": 1,
+        "position_set": "D",
+        "Q": 0.044466403162055336,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.044466403162055336,
+            "median_q": 0.044466403162055336,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.07024787189430017,
+            "median_q": 0.06957858890049141,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 25
+      },
+      {
+        "stage": "post_attention",
+        "layer": 2,
+        "position_set": "D",
+        "Q": 0.044466403162055336,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.044466403162055336,
+            "median_q": 0.044466403162055336,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.06963048295419315,
+            "median_q": 0.06821190410171399,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 26
+      },
+      {
+        "stage": "post_attention",
+        "layer": 3,
+        "position_set": "D",
+        "Q": 0.044466403162055336,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.044466403162055336,
+            "median_q": 0.044466403162055336,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.06803770224852758,
+            "median_q": 0.06798556361036448,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 27
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 0,
+        "position_set": "D",
+        "Q": 0.044466403162055336,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.044466403162055336,
+            "median_q": 0.044466403162055336,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.06957878967870777,
+            "median_q": 0.06952626226073011,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 28
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 1,
+        "position_set": "D",
+        "Q": 0.044466403162055336,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.044466403162055336,
+            "median_q": 0.044466403162055336,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.07024787189430017,
+            "median_q": 0.06957858890049141,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 29
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 2,
+        "position_set": "D",
+        "Q": 0.044466403162055336,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.044466403162055336,
+            "median_q": 0.044466403162055336,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.06963048295419315,
+            "median_q": 0.06821190410171399,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 30
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 3,
+        "position_set": "D",
+        "Q": 0.044466403162055336,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.044466403162055336,
+            "median_q": 0.044466403162055336,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.06803770224852758,
+            "median_q": 0.06798556361036448,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 31
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 5,
+        "position_set": "A",
+        "Q": 0.030233086756993814,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.03571428571428571,
+            "median_q": 0.05745341614906832,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.030854801503172897,
+            "median_q": 0.030233086756993814,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 32
+      },
+      {
+        "stage": "post_attention",
+        "layer": 4,
+        "position_set": "A",
+        "Q": 0.030233086756993814,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.03571428571428571,
+            "median_q": 0.05745341614906832,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.030854801503172897,
+            "median_q": 0.030233086756993814,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 33
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 4,
+        "position_set": "A",
+        "Q": 0.030233086756993814,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.03571428571428571,
+            "median_q": 0.05745341614906832,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.030854801503172897,
+            "median_q": 0.030233086756993814,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 34
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 4,
+        "position_set": "A",
+        "Q": 0.02995921355213152,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.03571428571428571,
+            "median_q": 0.045454545454545456,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.029494013960530596,
+            "median_q": 0.02995921355213152,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 35
+      },
+      {
+        "stage": "post_attention",
+        "layer": 3,
+        "position_set": "A",
+        "Q": 0.02995921355213152,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.03571428571428571,
+            "median_q": 0.045454545454545456,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.029494013960530596,
+            "median_q": 0.02995921355213152,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 36
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 3,
+        "position_set": "A",
+        "Q": 0.02995921355213152,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.03571428571428571,
+            "median_q": 0.045454545454545456,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.029494013960530596,
+            "median_q": 0.02995921355213152,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 37
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 3,
+        "position_set": "V",
+        "Q": 0.02949440274034515,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.044466403162055336,
+            "median_q": 0.06620553359683795,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.029146313082565586,
+            "median_q": 0.02949440274034515,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 38
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 3,
+        "position_set": "A",
+        "Q": 0.02949440274034515,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.06719367588932806,
+            "median_q": 0.08893280632411067,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.029146313082565586,
+            "median_q": 0.02949440274034515,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 39
+      },
+      {
+        "stage": "post_attention",
+        "layer": 2,
+        "position_set": "V",
+        "Q": 0.02949440274034515,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.044466403162055336,
+            "median_q": 0.06620553359683795,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.029146313082565586,
+            "median_q": 0.02949440274034515,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 40
+      },
+      {
+        "stage": "post_attention",
+        "layer": 2,
+        "position_set": "A",
+        "Q": 0.02949440274034515,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.06719367588932806,
+            "median_q": 0.08893280632411067,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.029146313082565586,
+            "median_q": 0.02949440274034515,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 41
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 2,
+        "position_set": "V",
+        "Q": 0.02949440274034515,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.044466403162055336,
+            "median_q": 0.06620553359683795,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.029146313082565586,
+            "median_q": 0.02949440274034515,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 42
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 2,
+        "position_set": "A",
+        "Q": 0.02949440274034515,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.06719367588932806,
+            "median_q": 0.08893280632411067,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.029146313082565586,
+            "median_q": 0.02949440274034515,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 43
+      },
+      {
+        "stage": "post_attention",
+        "layer": 5,
+        "position_set": "A",
+        "Q": 0.026704045858591048,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.06719367588932806,
+            "median_q": 0.06719367588932806,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.0275749352132549,
+            "median_q": 0.026704045858591048,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 44
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 5,
+        "position_set": "A",
+        "Q": 0.026704045858591048,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.06719367588932806,
+            "median_q": 0.06719367588932806,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.0275749352132549,
+            "median_q": 0.026704045858591048,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 45
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 1,
+        "position_set": "V",
+        "Q": 0.0262937393947361,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.06620553359683795,
+            "median_q": 0.06620553359683795,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.0259089954245768,
+            "median_q": 0.0262937393947361,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 46
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 1,
+        "position_set": "A",
+        "Q": 0.0262937393947361,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.08893280632411067,
+            "median_q": 0.08893280632411067,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.0259089954245768,
+            "median_q": 0.0262937393947361,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 47
+      },
+      {
+        "stage": "post_attention",
+        "layer": 0,
+        "position_set": "V",
+        "Q": 0.0262937393947361,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.06620553359683795,
+            "median_q": 0.06620553359683795,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.0259089954245768,
+            "median_q": 0.0262937393947361,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 48
+      },
+      {
+        "stage": "post_attention",
+        "layer": 0,
+        "position_set": "A",
+        "Q": 0.0262937393947361,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.08893280632411067,
+            "median_q": 0.08893280632411067,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.0259089954245768,
+            "median_q": 0.0262937393947361,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 49
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 0,
+        "position_set": "V",
+        "Q": 0.0262937393947361,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.06620553359683795,
+            "median_q": 0.06620553359683795,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.0259089954245768,
+            "median_q": 0.0262937393947361,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 50
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 0,
+        "position_set": "A",
+        "Q": 0.0262937393947361,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.08893280632411067,
+            "median_q": 0.08893280632411067,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.0259089954245768,
+            "median_q": 0.0262937393947361,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 51
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 2,
+        "position_set": "V",
+        "Q": 0.024644692489589174,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.06620553359683795,
+            "median_q": 0.06620553359683795,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.024914909293130803,
+            "median_q": 0.024644692489589174,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 52
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 2,
+        "position_set": "A",
+        "Q": 0.024644692489589174,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.08893280632411067,
+            "median_q": 0.08893280632411067,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.024914909293130803,
+            "median_q": 0.024644692489589174,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 53
+      },
+      {
+        "stage": "post_attention",
+        "layer": 1,
+        "position_set": "V",
+        "Q": 0.024644692489589174,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.06620553359683795,
+            "median_q": 0.06620553359683795,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.024914909293130803,
+            "median_q": 0.024644692489589174,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 54
+      },
+      {
+        "stage": "post_attention",
+        "layer": 1,
+        "position_set": "A",
+        "Q": 0.024644692489589174,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.08893280632411067,
+            "median_q": 0.08893280632411067,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.024914909293130803,
+            "median_q": 0.024644692489589174,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 55
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 1,
+        "position_set": "V",
+        "Q": 0.024644692489589174,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.06620553359683795,
+            "median_q": 0.06620553359683795,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.024914909293130803,
+            "median_q": 0.024644692489589174,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 56
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 1,
+        "position_set": "A",
+        "Q": 0.024644692489589174,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.08893280632411067,
+            "median_q": 0.08893280632411067,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.024914909293130803,
+            "median_q": 0.024644692489589174,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 57
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 4,
+        "position_set": "V",
+        "Q": 0.022727272727272728,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.022727272727272728,
+            "median_q": 0.022727272727272728,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.029494013960530596,
+            "median_q": 0.02995921355213152,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 58
+      },
+      {
+        "stage": "post_attention",
+        "layer": 3,
+        "position_set": "V",
+        "Q": 0.022727272727272728,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.022727272727272728,
+            "median_q": 0.022727272727272728,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.029494013960530596,
+            "median_q": 0.02995921355213152,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 59
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 3,
+        "position_set": "V",
+        "Q": 0.022727272727272728,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.022727272727272728,
+            "median_q": 0.022727272727272728,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.029494013960530596,
+            "median_q": 0.02995921355213152,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 60
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 5,
+        "position_set": "V",
+        "Q": 0.021739130434782608,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.0,
+            "median_q": 0.021739130434782608,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.030854801503172897,
+            "median_q": 0.030233086756993814,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 61
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 5,
+        "position_set": "D",
+        "Q": 0.021739130434782608,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.021739130434782608,
+            "median_q": 0.021739130434782608,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.06803784644388076,
+            "median_q": 0.06798512463599583,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 62
+      },
+      {
+        "stage": "post_attention",
+        "layer": 4,
+        "position_set": "V",
+        "Q": 0.021739130434782608,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.0,
+            "median_q": 0.021739130434782608,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.030854801503172897,
+            "median_q": 0.030233086756993814,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 63
+      },
+      {
+        "stage": "post_attention",
+        "layer": 4,
+        "position_set": "D",
+        "Q": 0.021739130434782608,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.021739130434782608,
+            "median_q": 0.021739130434782608,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.06803784644388076,
+            "median_q": 0.06798512463599583,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 64
+      },
+      {
+        "stage": "post_attention",
+        "layer": 5,
+        "position_set": "V",
+        "Q": 0.021739130434782608,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.044466403162055336,
+            "median_q": 0.021739130434782608,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.0275749352132549,
+            "median_q": 0.026704045858591048,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 65
+      },
+      {
+        "stage": "post_attention",
+        "layer": 5,
+        "position_set": "D",
+        "Q": 0.021739130434782608,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.022727272727272728,
+            "median_q": 0.021739130434782608,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.06803814122289623,
+            "median_q": 0.06957805592532368,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 66
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 4,
+        "position_set": "V",
+        "Q": 0.021739130434782608,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.0,
+            "median_q": 0.021739130434782608,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.030854801503172897,
+            "median_q": 0.030233086756993814,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 67
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 4,
+        "position_set": "D",
+        "Q": 0.021739130434782608,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.021739130434782608,
+            "median_q": 0.021739130434782608,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.06803784644388076,
+            "median_q": 0.06798512463599583,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 68
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 5,
+        "position_set": "V",
+        "Q": 0.021739130434782608,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.044466403162055336,
+            "median_q": 0.021739130434782608,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.0275749352132549,
+            "median_q": 0.026704045858591048,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 69
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 5,
+        "position_set": "D",
+        "Q": 0.021739130434782608,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.022727272727272728,
+            "median_q": 0.021739130434782608,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.06803814122289623,
+            "median_q": 0.06957805592532368,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 70
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 0,
+        "position_set": "V",
+        "Q": 0.021618715445192425,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.044466403162055336,
+            "median_q": 0.04904306220095694,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.021257738204476913,
+            "median_q": 0.021618715445192425,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 71
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 0,
+        "position_set": "A",
+        "Q": 0.021618715445192425,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.06719367588932806,
+            "median_q": 0.06719367588932806,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.021257738204476913,
+            "median_q": 0.021618715445192425,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 72
+      }
+    ]
+  },
+  "decision": "negative_do_not_open_confirmation_internals"
+}
