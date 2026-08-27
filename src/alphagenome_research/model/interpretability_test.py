@@ -49,6 +49,27 @@ class InterpretabilityTest(absltest.TestCase):
         ),
     )
 
+  def _route_selection(self):
+    def positions(num_stages):
+      return jnp.zeros((num_stages, 2), jnp.int32)
+
+    def valid(num_stages):
+      return jnp.broadcast_to(
+          jnp.array([True, False]), (num_stages, 2)
+      )
+
+    return interpretability.CausalRouteTraceSelection(
+        transformer=self._tower_selection(),
+        encoder_positions=positions(8),
+        encoder_valid_mask=valid(8),
+        decoder_skip_positions=positions(7),
+        decoder_skip_valid_mask=valid(7),
+        decoder_output_positions=positions(7),
+        decoder_output_valid_mask=valid(7),
+        final_embedding_positions=positions(2),
+        final_embedding_valid_mask=valid(2),
+    )
+
   def test_attention_bias_trace_is_noop_and_preserves_parameter_tree(self):
     pair_x = jax.random.normal(jax.random.key(1), (1, 2, 2, 16))
     selection = interpretability.PairBiasEdgeSelection(
@@ -400,6 +421,302 @@ class InterpretabilityTest(absltest.TestCase):
     np.testing.assert_array_equal(transferred[3, 1], residuals[3, 1])
     np.testing.assert_array_equal(transferred[2], residuals[2])
 
+  def test_paired_six_row_route_transfer_has_frozen_donor_semantics(self):
+    component_mask = jnp.zeros((8, 3), jnp.bool).at[7, 1].set(True)
+
+    transfer = interpretability.paired_six_row_batch_transfer(component_mask)
+
+    chex.assert_shape(transfer.donor_batch_indices, (8, 6, 3))
+    chex.assert_shape(transfer.transfer_mask, (8, 6, 3))
+    np.testing.assert_array_equal(
+        transfer.donor_batch_indices[7, :, 1], [0, 1, 0, 1, 1, 0]
+    )
+    np.testing.assert_array_equal(
+        transfer.transfer_mask[7, :, 1],
+        [False, False, True, True, True, True],
+    )
+    self.assertEqual(np.count_nonzero(transfer.transfer_mask), 4)
+    self.assertEqual(
+        sum(
+            len(family.resolutions_bp)
+            for family in interpretability.CAUSAL_ROUTE_FAMILIES
+        ),
+        51,
+    )
+    for family in interpretability.CAUSAL_ROUTE_FAMILIES:
+      self.assertLen(family.channel_widths, len(family.resolutions_bp))
+
+  def test_encoder_route_census_is_exact_noop_and_preserves_tree(self):
+    one_dna = jax.random.normal(
+        jax.random.key(20), (1, 128, 4), dtype=jnp.bfloat16
+    )
+    dna = jnp.repeat(one_dna, 2, axis=0)
+    positions = jnp.zeros((8, 2), jnp.int32)
+    valid = jnp.broadcast_to(jnp.array([True, False]), (8, 2))
+    no_transfer = interpretability.no_sequence_route_batch_transfer(
+        num_stages=8, batch_size=2, num_positions=2
+    )
+
+    def normal(inputs):
+      return model.SequenceEncoder()(inputs, is_training=False)
+
+    def traced(inputs, transfer):
+      return model.SequenceEncoder().forward_with_route_census(
+          inputs,
+          is_training=False,
+          positions=positions,
+          valid_mask=valid,
+          transfer=transfer,
+      )
+
+    normal_fn = hk.transform_with_state(normal)
+    traced_fn = hk.transform_with_state(traced)
+    rng = jax.random.key(21)
+    normal_params, normal_state = normal_fn.init(rng, dna)
+    traced_params, traced_state = traced_fn.init(rng, dna, no_transfer)
+    jax.tree.map(np.testing.assert_array_equal, normal_params, traced_params)
+    jax.tree.map(np.testing.assert_array_equal, normal_state, traced_state)
+    (normal_trunk, normal_skips), _ = normal_fn.apply(
+        normal_params, normal_state, None, dna
+    )
+    (traced_trunk, traced_skips, natural, effective), _ = traced_fn.apply(
+        normal_params, normal_state, None, dna, no_transfer
+    )
+    np.testing.assert_array_equal(normal_trunk, traced_trunk)
+    jax.tree.map(np.testing.assert_array_equal, normal_skips, traced_skips)
+    jax.tree.map(np.testing.assert_array_equal, natural, effective)
+    self.assertLen(natural, 8)
+
+    self_transfer = interpretability.SequenceResidualBatchTransfer(
+        donor_batch_indices=no_transfer.donor_batch_indices.at[7, 1, 0].set(
+            0
+        ),
+        transfer_mask=no_transfer.transfer_mask.at[7, 1, 0].set(True),
+    )
+    (self_trunk, self_skips, _, self_effective), _ = traced_fn.apply(
+        normal_params, normal_state, None, dna, self_transfer
+    )
+    np.testing.assert_array_equal(self_trunk, normal_trunk)
+    jax.tree.map(np.testing.assert_array_equal, self_skips, normal_skips)
+    np.testing.assert_array_equal(self_effective[7][1, 0], natural[7][0, 0])
+
+  def test_decoder_route_census_is_exact_noop_and_preserves_tree(self):
+    one_x = jax.random.normal(
+        jax.random.key(22), (1, 1, 16), dtype=jnp.bfloat16
+    )
+    x = jnp.repeat(one_x, 2, axis=0)
+    one_skips = {
+        f'bin_size_{resolution}': jax.random.normal(
+            jax.random.fold_in(jax.random.key(23), resolution),
+            (1, 128 // resolution, 16),
+            dtype=jnp.bfloat16,
+        )
+        for resolution in interpretability.DECODER_ROUTE_RESOLUTIONS
+    }
+    skips = jax.tree.map(lambda value: jnp.repeat(value, 2, axis=0), one_skips)
+    positions = jnp.zeros((7, 2), jnp.int32)
+    valid = jnp.broadcast_to(jnp.array([True, False]), (7, 2))
+    no_skip_transfer = interpretability.no_sequence_route_batch_transfer(
+        num_stages=7, batch_size=2, num_positions=2
+    )
+    no_output_transfer = interpretability.no_sequence_route_batch_transfer(
+        num_stages=7, batch_size=2, num_positions=2
+    )
+
+    def normal(inputs, intermediate_values):
+      return model.SequenceDecoder()(
+          inputs, intermediate_values, is_training=False
+      )
+
+    def traced(inputs, intermediate_values, skip_transfer, output_transfer):
+      return model.SequenceDecoder().forward_with_route_census(
+          inputs,
+          intermediate_values,
+          is_training=False,
+          skip_positions=positions,
+          skip_valid_mask=valid,
+          skip_transfer=skip_transfer,
+          output_positions=positions,
+          output_valid_mask=valid,
+          output_transfer=output_transfer,
+      )
+
+    normal_fn = hk.transform_with_state(normal)
+    traced_fn = hk.transform_with_state(traced)
+    rng = jax.random.key(24)
+    normal_params, normal_state = normal_fn.init(rng, x, skips)
+    traced_params, traced_state = traced_fn.init(
+        rng, x, skips, no_skip_transfer, no_output_transfer
+    )
+    jax.tree.map(np.testing.assert_array_equal, normal_params, traced_params)
+    jax.tree.map(np.testing.assert_array_equal, normal_state, traced_state)
+    normal_x, _ = normal_fn.apply(
+        normal_params, normal_state, None, x, skips
+    )
+    (traced_x, natural_skip, effective_skip, natural_out, effective_out), _ = (
+        traced_fn.apply(
+            normal_params,
+            normal_state,
+            None,
+            x,
+            skips,
+            no_skip_transfer,
+            no_output_transfer,
+        )
+    )
+    np.testing.assert_array_equal(normal_x, traced_x)
+    jax.tree.map(np.testing.assert_array_equal, natural_skip, effective_skip)
+    jax.tree.map(np.testing.assert_array_equal, natural_out, effective_out)
+    self.assertLen(natural_skip, 7)
+    self.assertLen(natural_out, 7)
+
+    self_skip_transfer = interpretability.SequenceResidualBatchTransfer(
+        donor_batch_indices=(
+            no_skip_transfer.donor_batch_indices.at[0, 1, 0].set(0)
+        ),
+        transfer_mask=no_skip_transfer.transfer_mask.at[0, 1, 0].set(True),
+    )
+    self_output_transfer = interpretability.SequenceResidualBatchTransfer(
+        donor_batch_indices=(
+            no_output_transfer.donor_batch_indices.at[6, 1, 0].set(0)
+        ),
+        transfer_mask=no_output_transfer.transfer_mask.at[6, 1, 0].set(True),
+    )
+    (self_x, _, self_effective_skip, _, self_effective_out), _ = (
+        traced_fn.apply(
+            normal_params,
+            normal_state,
+            None,
+            x,
+            skips,
+            self_skip_transfer,
+            self_output_transfer,
+        )
+    )
+    np.testing.assert_array_equal(self_x, normal_x)
+    np.testing.assert_array_equal(
+        self_effective_skip[0][1, 0], natural_skip[0][0, 0]
+    )
+    np.testing.assert_array_equal(
+        self_effective_out[6][1, 0], natural_out[6][0, 0]
+    )
+
+  def test_final_embedding_route_is_exact_noop_and_preserves_tree(self):
+    one_trunk = jax.random.normal(
+        jax.random.key(26), (1, 1, 16), dtype=jnp.bfloat16
+    )
+    one_decoder = jax.random.normal(
+        jax.random.key(27), (1, 2, 8), dtype=jnp.bfloat16
+    )
+    trunk = jnp.repeat(one_trunk, 2, axis=0)
+    decoder = jnp.repeat(one_decoder, 2, axis=0)
+    organism = jnp.zeros((2,), jnp.int32)
+    positions = jnp.zeros((2, 2), jnp.int32)
+    valid = jnp.broadcast_to(jnp.array([True, False]), (2, 2))
+    no_transfer = interpretability.no_sequence_route_batch_transfer(
+        num_stages=2, batch_size=2, num_positions=2
+    )
+
+    def normal(trunk_inputs, decoder_inputs, organism_index):
+      embedding_128 = model.embeddings_module.OutputEmbedder(0)(
+          trunk_inputs, organism_index, is_training=False
+      )
+      embedding_1 = model.embeddings_module.OutputEmbedder(0)(
+          decoder_inputs,
+          organism_index,
+          is_training=False,
+          skip_x=embedding_128,
+      )
+      return embedding_128, embedding_1
+
+    def traced(trunk_inputs, decoder_inputs, organism_index, transfer):
+      embedding_128 = model.embeddings_module.OutputEmbedder(0)(
+          trunk_inputs, organism_index, is_training=False
+      )
+      embedding_128, natural_128, effective_128 = (
+          interpretability.trace_and_transfer_route_stage(
+              embedding_128, positions, valid, transfer, 0
+          )
+      )
+      embedding_1 = model.embeddings_module.OutputEmbedder(0)(
+          decoder_inputs,
+          organism_index,
+          is_training=False,
+          skip_x=embedding_128,
+      )
+      embedding_1, natural_1, effective_1 = (
+          interpretability.trace_and_transfer_route_stage(
+              embedding_1, positions, valid, transfer, 1
+          )
+      )
+      return (
+          embedding_128,
+          embedding_1,
+          (natural_128, natural_1),
+          (effective_128, effective_1),
+      )
+
+    normal_fn = hk.transform_with_state(normal)
+    traced_fn = hk.transform_with_state(traced)
+    rng = jax.random.key(28)
+    normal_params, normal_state = normal_fn.init(
+        rng, trunk, decoder, organism
+    )
+    traced_params, traced_state = traced_fn.init(
+        rng, trunk, decoder, organism, no_transfer
+    )
+    jax.tree.map(np.testing.assert_array_equal, normal_params, traced_params)
+    jax.tree.map(np.testing.assert_array_equal, normal_state, traced_state)
+    normal_embeddings, _ = normal_fn.apply(
+        normal_params, normal_state, None, trunk, decoder, organism
+    )
+    (traced_128, traced_1, natural, effective), _ = traced_fn.apply(
+        normal_params,
+        normal_state,
+        None,
+        trunk,
+        decoder,
+        organism,
+        no_transfer,
+    )
+    jax.tree.map(
+        np.testing.assert_array_equal,
+        normal_embeddings,
+        (traced_128, traced_1),
+    )
+    jax.tree.map(np.testing.assert_array_equal, natural, effective)
+
+    self_transfer = interpretability.SequenceResidualBatchTransfer(
+        donor_batch_indices=(
+            no_transfer.donor_batch_indices.at[0, 1, 0]
+            .set(0)
+            .at[1, 1, 0]
+            .set(0)
+        ),
+        transfer_mask=(
+            no_transfer.transfer_mask.at[0, 1, 0]
+            .set(True)
+            .at[1, 1, 0]
+            .set(True)
+        ),
+    )
+    (self_128, self_1, _, self_effective), _ = traced_fn.apply(
+        normal_params,
+        normal_state,
+        None,
+        trunk,
+        decoder,
+        organism,
+        self_transfer,
+    )
+    jax.tree.map(
+        np.testing.assert_array_equal,
+        normal_embeddings,
+        (self_128, self_1),
+    )
+    np.testing.assert_array_equal(self_effective[0][1, 0], natural[0][0, 0])
+    np.testing.assert_array_equal(self_effective[1][1, 0], natural[1][0, 0])
+
   def test_transformer_tower_stacks_traces_and_preserves_parameter_tree(self):
     one_x = jax.random.normal(jax.random.key(9), (1, 16, 32))
     x = jnp.repeat(one_x, 2, axis=0)
@@ -471,17 +788,25 @@ class InterpretabilityTest(absltest.TestCase):
     np.testing.assert_array_equal(trace.head_value_outputs[:, :, 2], 0)
     np.testing.assert_array_equal(trace.pre_attention_residuals[:, :, 2], 0)
 
-    donor_indices = jnp.broadcast_to(
-        jnp.arange(2, dtype=jnp.int32)[None, :, None], (9, 2, 3)
-    ).at[4, 1, 0].set(0)
-    transfer_mask = jnp.zeros((9, 2, 3), jnp.bool).at[4, 1, 0].set(
-        True
+    no_live_transfer = interpretability.no_sequence_route_batch_transfer(
+        num_stages=9, batch_size=2, num_positions=3
     )
-    live_transfer = interpretability.SequenceResidualBatchTransfer(
-        donor_batch_indices=donor_indices, transfer_mask=transfer_mask
-    )
+
+    def self_transfer(layer):
+      return interpretability.SequenceResidualBatchTransfer(
+          donor_batch_indices=(
+              no_live_transfer.donor_batch_indices.at[layer, 1, 0].set(0)
+          ),
+          transfer_mask=no_live_transfer.transfer_mask.at[
+              layer, 1, 0
+          ].set(True),
+      )
+
     transfer_interventions = dataclasses.replace(
-        no_interventions, post_attention_residual_transfer=live_transfer
+        no_interventions,
+        pre_attention_residual_transfer=self_transfer(6),
+        post_attention_residual_transfer=self_transfer(7),
+        post_mlp_residual_transfer=self_transfer(8),
     )
     (self_transferred_x, _, self_transferred_trace), _ = traced_fn.apply(
         normal_params,
@@ -493,8 +818,16 @@ class InterpretabilityTest(absltest.TestCase):
     )
     np.testing.assert_array_equal(self_transferred_x, traced_x)
     np.testing.assert_array_equal(
-        self_transferred_trace.effective_post_attention_residuals,
-        trace.effective_post_attention_residuals,
+        self_transferred_trace.effective_pre_attention_residuals[6, 1, 0],
+        trace.pre_attention_residuals[6, 0, 0],
+    )
+    np.testing.assert_array_equal(
+        self_transferred_trace.effective_post_attention_residuals[7, 1, 0],
+        trace.post_attention_residuals[7, 0, 0],
+    )
+    np.testing.assert_array_equal(
+        self_transferred_trace.effective_post_mlp_residuals[8, 1, 0],
+        trace.post_mlp_residuals[8, 0, 0],
     )
 
     empty_residual = interpretability.no_sequence_residual_replacement(
@@ -622,6 +955,84 @@ class InterpretabilityTest(absltest.TestCase):
     chex.assert_shape(pallas_trace.head_value_outputs, (9, 1, 3, 8, 192))
     chex.assert_shape(pallas_trace.pre_attention_residuals, (9, 1, 3, 1536))
 
+  def test_route_census_factory_consumes_standard_checkpoint_tree(self):
+    track_metadata = track_data.TrackMetadata(
+        pd.DataFrame({
+            'name': ['track_0', 'track_1'],
+            'nonzero_mean': [1.0, 1.0],
+        })
+    )
+    metadata = {
+        public_dna_model.Organism.HOMO_SAPIENS: (
+            metadata_lib.AlphaGenomeOutputMetadata(atac=track_metadata)
+        )
+    }
+    init, _, _, _, _ = dna_model.create_model(metadata)
+    dna = jax.ShapeDtypeStruct((1, 2048, 4), jnp.float32)
+    organism = jax.ShapeDtypeStruct((1,), jnp.int32)
+    params, state = jax.eval_shape(init, jax.random.key(25), dna, organism)
+    selection = self._route_selection()
+    interventions = interpretability.no_causal_route_interventions(
+        selection, batch_size=1, num_edges=2
+    )
+    route_apply = dna_model.create_paired_targeted_route_census_apply(
+        metadata,
+        interpretability.TargetSpec(
+            head_name='atac', prediction_key='scaled_predictions_1bp'
+        ),
+    )
+
+    target, trace = jax.eval_shape(
+        route_apply,
+        params,
+        state,
+        dna,
+        organism,
+        selection,
+        interventions,
+        interpretability.PairedTargetSelection(
+            position_indices=jnp.array([0], jnp.int32),
+            track_indices=jnp.array([0], jnp.int32),
+            valid_mask=jnp.array([True]),
+        ),
+    )
+
+    chex.assert_shape(target.mean, (1,))
+    self.assertLen(trace.encoder_outputs, 8)
+    self.assertLen(trace.decoder_skip_states, 7)
+    self.assertLen(trace.decoder_outputs, 7)
+    self.assertLen(trace.final_embeddings, 2)
+    chex.assert_shape(trace.encoder_outputs[0], (1, 2, 768))
+    chex.assert_shape(trace.encoder_outputs[7], (1, 2, 1536))
+    chex.assert_shape(trace.final_embeddings[0], (1, 2, 3072))
+    chex.assert_shape(trace.final_embeddings[1], (1, 2, 1536))
+    chex.assert_shape(
+        trace.transformer.post_mlp_residuals, (9, 1, 3, 1536)
+    )
+    pallas_route_apply = dna_model.create_paired_targeted_route_census_apply(
+        metadata,
+        interpretability.TargetSpec(
+            head_name='atac', prediction_key='scaled_predictions_1bp'
+        ),
+        attention_backend=attention.ATTENTION_BACKEND_PALLAS_TILED,
+    )
+    pallas_target, pallas_trace = jax.eval_shape(
+        pallas_route_apply,
+        params,
+        state,
+        jax.ShapeDtypeStruct((1, 8192, 4), jnp.float32),
+        organism,
+        selection,
+        interventions,
+        interpretability.PairedTargetSelection(
+            position_indices=jnp.array([0], jnp.int32),
+            track_indices=jnp.array([0], jnp.int32),
+            valid_mask=jnp.array([True]),
+        ),
+    )
+    chex.assert_shape(pallas_target.mean, (1,))
+    self.assertLen(pallas_trace.encoder_outputs, 8)
+
   def test_target_reducer_and_targeted_factory_use_checkpoint(self):
     predictions = jnp.arange(2 * 5 * 4, dtype=jnp.float32).reshape(2, 5, 4)
     target_selection = interpretability.TargetSelection(
@@ -691,6 +1102,38 @@ class InterpretabilityTest(absltest.TestCase):
     np.testing.assert_array_equal(target.mean, jnp.array([11.0, 31.0]))
     self.assertEqual(target.num_values, 2)
 
+  def test_splice_logit_margin_reducer_is_shift_invariant_for_six_rows(self):
+    logits = jnp.zeros((6, 4, 5), dtype=jnp.float32)
+    logits = logits.at[:, 1, 1].set(jnp.arange(4.0, 10.0))
+    logits = logits.at[:, 1, 4].set(1.0)
+    logits = logits.at[:, 3, 0].set(jnp.arange(7.0, 1.0, -1.0))
+    logits = logits.at[:, 3, 4].set(2.0)
+    # Wrong-position cross terms must not enter the paired endpoint target.
+    logits = logits.at[:, 1, 0].set(1000.0)
+    logits = logits.at[:, 3, 1].set(1000.0)
+    selection = interpretability.SpliceClassificationLogitMarginSelection(
+        canonical_position_indices=jnp.array([1, 3], jnp.int32),
+        canonical_track_indices=jnp.array([1, 0], jnp.int32),
+        padding_track_index=jnp.array(4, jnp.int32),
+    )
+
+    target = interpretability.reduce_splice_classification_logit_margin(
+        logits, selection
+    )
+    common_shift = (
+        jnp.arange(6 * 4, dtype=jnp.float32).reshape(6, 4, 1) * 0.25
+    )
+    shifted = interpretability.reduce_splice_classification_logit_margin(
+        logits + common_shift, selection
+    )
+
+    chex.assert_shape(target.mean, (6,))
+    np.testing.assert_array_equal(target.total, jnp.full((6,), 8.0))
+    np.testing.assert_array_equal(target.mean, jnp.full((6,), 4.0))
+    np.testing.assert_array_equal(shifted.total, target.total)
+    np.testing.assert_array_equal(shifted.mean, target.mean)
+    self.assertEqual(target.num_values, 2)
+
   def test_paired_targeted_factory_uses_standard_checkpoint_tree(self):
     track_metadata = track_data.TrackMetadata(
         pd.DataFrame({
@@ -734,6 +1177,58 @@ class InterpretabilityTest(absltest.TestCase):
     chex.assert_shape(summary.total, (1,))
     self.assertEqual(summary.num_values.shape, ())
     chex.assert_shape(trace.pre_attention_residuals, (9, 1, 3, 1536))
+
+  def test_splice_logit_margin_route_factory_uses_checkpoint_for_six_rows(self):
+    track_metadata = track_data.TrackMetadata(
+        pd.DataFrame({
+            'name': ['donor', 'acceptor', 'donor', 'acceptor', 'padding'],
+            'strand': ['+', '+', '-', '-', '.'],
+        })
+    )
+    metadata = {
+        public_dna_model.Organism.HOMO_SAPIENS: (
+            metadata_lib.AlphaGenomeOutputMetadata(splice_sites=track_metadata)
+        )
+    }
+    init, _, _, _, _ = dna_model.create_model(metadata)
+    checkpoint_dna = jax.ShapeDtypeStruct((1, 2048, 4), jnp.float32)
+    checkpoint_organism = jax.ShapeDtypeStruct((1,), jnp.int32)
+    params, state = jax.eval_shape(
+        init, jax.random.key(31), checkpoint_dna, checkpoint_organism
+    )
+    selection = self._route_selection()
+    interventions = interpretability.no_causal_route_interventions(
+        selection, batch_size=6, num_edges=2
+    )
+    route_apply = (
+        dna_model.create_splice_classification_logit_margin_route_census_apply(
+            metadata
+        )
+    )
+
+    target, trace = jax.eval_shape(
+        route_apply,
+        params,
+        state,
+        jax.ShapeDtypeStruct((6, 2048, 4), jnp.float32),
+        jax.ShapeDtypeStruct((6,), jnp.int32),
+        selection,
+        interventions,
+        interpretability.SpliceClassificationLogitMarginSelection(
+            canonical_position_indices=jnp.array([100, 150], jnp.int32),
+            canonical_track_indices=jnp.array([1, 0], jnp.int32),
+            padding_track_index=jnp.array(4, jnp.int32),
+        ),
+    )
+
+    chex.assert_shape(target.total, (6,))
+    chex.assert_shape(target.mean, (6,))
+    self.assertEqual(target.num_values.shape, ())
+    chex.assert_shape(trace.encoder_outputs[0], (6, 2, 768))
+    chex.assert_shape(trace.final_embeddings[1], (6, 2, 1536))
+    chex.assert_shape(
+        trace.transformer.post_mlp_residuals, (9, 6, 3, 1536)
+    )
 
 
 if __name__ == '__main__':

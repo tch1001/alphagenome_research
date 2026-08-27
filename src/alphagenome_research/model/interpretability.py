@@ -36,6 +36,67 @@ from jaxtyping import (  # pylint: disable=g-multiple-import
 
 
 NUM_TRANSFORMER_LAYERS = 9
+ENCODER_ROUTE_RESOLUTIONS = (1, 2, 4, 8, 16, 32, 64, 128)
+DECODER_ROUTE_RESOLUTIONS = (64, 32, 16, 8, 4, 2, 1)
+FINAL_EMBEDDING_ROUTE_RESOLUTIONS = (128, 1)
+PAIRED_CAUSAL_BATCH_SIZE = 6
+PAIRED_CAUSAL_DONOR_ROWS = (0, 1, 0, 1, 1, 0)
+
+
+@dataclasses.dataclass(frozen=True)
+class CausalRouteFamilyMetadata:
+  """Static route-family layout for census enumeration and target reducers."""
+
+  name: str
+  resolutions_bp: tuple[int, ...]
+  channel_widths: tuple[int, ...]
+  seam: str
+
+
+CAUSAL_ROUTE_FAMILIES = (
+    CausalRouteFamilyMetadata(
+        name='encoder_outputs',
+        resolutions_bp=ENCODER_ROUTE_RESOLUTIONS,
+        channel_widths=(768, 896, 1024, 1152, 1280, 1408, 1536, 1536),
+        seam='after_encoder_stage_before_skip_storage_or_next_stage',
+    ),
+    CausalRouteFamilyMetadata(
+        name='transformer_pre_attention',
+        resolutions_bp=(128,) * NUM_TRANSFORMER_LAYERS,
+        channel_widths=(1536,) * NUM_TRANSFORMER_LAYERS,
+        seam='before_attention_update',
+    ),
+    CausalRouteFamilyMetadata(
+        name='transformer_post_attention',
+        resolutions_bp=(128,) * NUM_TRANSFORMER_LAYERS,
+        channel_widths=(1536,) * NUM_TRANSFORMER_LAYERS,
+        seam='after_attention_residual_before_mlp',
+    ),
+    CausalRouteFamilyMetadata(
+        name='transformer_post_mlp',
+        resolutions_bp=(128,) * NUM_TRANSFORMER_LAYERS,
+        channel_widths=(1536,) * NUM_TRANSFORMER_LAYERS,
+        seam='after_mlp_residual',
+    ),
+    CausalRouteFamilyMetadata(
+        name='decoder_skip_states',
+        resolutions_bp=DECODER_ROUTE_RESOLUTIONS,
+        channel_widths=(1536, 1408, 1280, 1152, 1024, 896, 768),
+        seam='after_skip_lookup_before_upres_block',
+    ),
+    CausalRouteFamilyMetadata(
+        name='decoder_outputs',
+        resolutions_bp=DECODER_ROUTE_RESOLUTIONS,
+        channel_widths=(1536, 1408, 1280, 1152, 1024, 896, 768),
+        seam='after_upres_block',
+    ),
+    CausalRouteFamilyMetadata(
+        name='final_embeddings',
+        resolutions_bp=FINAL_EMBEDDING_ROUTE_RESOLUTIONS,
+        channel_widths=(3072, 1536),
+        seam='after_output_embedder',
+    ),
+)
 
 
 @dataclasses.dataclass(frozen=True, kw_only=True)
@@ -76,6 +137,21 @@ class PairedTargetSelection:
   position_indices: Int[Array, 'Q']
   track_indices: Int[Array, 'Q']
   valid_mask: Bool[Array, 'Q']
+
+
+@chex.dataclass(frozen=True)
+class SpliceClassificationLogitMarginSelection:
+  """The locked acceptor/donor class-vs-padding splice target.
+
+  Both arrays have exactly two entries ordered ``[acceptor, donor]``.  The
+  track indices must already be resolved for the exon strand.  There is no
+  validity mask because both canonical endpoints are mandatory for this
+  biological target.
+  """
+
+  canonical_position_indices: Int[Array, '2']
+  canonical_track_indices: Int[Array, '2']
+  padding_track_index: Int[Array, '']
 
 
 @chex.dataclass(frozen=True)
@@ -220,6 +296,53 @@ class TransformerTrace:
   effective_post_attention_residuals: Float[Array, 'L B R D']
   post_mlp_residuals: Float[Array, 'L B R D']
   effective_post_mlp_residuals: Float[Array, 'L B R D']
+
+
+@chex.dataclass(frozen=True)
+class CausalRouteTraceSelection:
+  """Fixed padded positions for every sequence route in the trunk.
+
+  Stage axes follow the exported resolution constants above. Encoder output
+  stage 128 is the post-pool trunk; the other encoder stages are also the U-Net
+  skip tensors. ``decoder_skip`` selects those skip tensors at their isolated
+  point of consumption, while ``decoder_output`` selects each UpResBlock output.
+  """
+
+  transformer: TransformerTraceSelection
+  encoder_positions: Int[Array, '8 RE']
+  encoder_valid_mask: Bool[Array, '8 RE']
+  decoder_skip_positions: Int[Array, '7 RS']
+  decoder_skip_valid_mask: Bool[Array, '7 RS']
+  decoder_output_positions: Int[Array, '7 RD']
+  decoder_output_valid_mask: Bool[Array, '7 RD']
+  final_embedding_positions: Int[Array, '2 RF']
+  final_embedding_valid_mask: Bool[Array, '2 RF']
+
+
+@chex.dataclass(frozen=True)
+class CausalRouteInterventions:
+  """Opt-in live batch transfers spanning the complete sequence route."""
+
+  transformer: TransformerInterventions
+  encoder_outputs: SequenceResidualBatchTransfer
+  decoder_skip_states: SequenceResidualBatchTransfer
+  decoder_outputs: SequenceResidualBatchTransfer
+  final_embeddings: SequenceResidualBatchTransfer
+
+
+@chex.dataclass(frozen=True)
+class CausalRouteTrace:
+  """Compact selected values before/effectively after every route seam."""
+
+  transformer: TransformerTrace
+  encoder_outputs: tuple[Array, ...]
+  effective_encoder_outputs: tuple[Array, ...]
+  decoder_skip_states: tuple[Array, ...]
+  effective_decoder_skip_states: tuple[Array, ...]
+  decoder_outputs: tuple[Array, ...]
+  effective_decoder_outputs: tuple[Array, ...]
+  final_embeddings: tuple[Array, ...]
+  effective_final_embeddings: tuple[Array, ...]
 
 
 def validate_transformer_interventions(
@@ -374,6 +497,238 @@ def no_transformer_interventions(
   )
 
 
+def no_sequence_route_batch_transfer(
+    *,
+    num_stages: int,
+    batch_size: int,
+    num_positions: int,
+) -> SequenceResidualBatchTransfer:
+  """Builds a fixed-shape all-false transfer for arbitrary sequence seams."""
+  shape = (num_stages, batch_size, num_positions)
+  donors = jnp.broadcast_to(
+      jnp.arange(batch_size, dtype=jnp.int32)[None, :, None], shape
+  )
+  return SequenceResidualBatchTransfer(
+      donor_batch_indices=donors,
+      transfer_mask=jnp.zeros(shape, dtype=jnp.bool),
+  )
+
+
+def paired_six_row_batch_transfer(
+    component_mask: Bool[Array, 'N R'],
+) -> SequenceResidualBatchTransfer:
+  """Expands a route-component mask into the frozen six-row donor protocol.
+
+  Rows are REF baseline, ALT baseline, REF->ALT, ALT->ALT, ALT->REF, and
+  REF->REF. Baseline rows are never replaced. ``component_mask`` remains a
+  dynamic JAX argument, so route/stage/slot sweeps reuse one executable shape.
+  """
+  if component_mask.ndim != 2:
+    raise ValueError('component_mask must have shape [stage, position].')
+  num_stages, num_positions = component_mask.shape
+  donor_rows = jnp.asarray(PAIRED_CAUSAL_DONOR_ROWS, dtype=jnp.int32)
+  donors = jnp.broadcast_to(
+      donor_rows[None, :, None],
+      (num_stages, PAIRED_CAUSAL_BATCH_SIZE, num_positions),
+  )
+  recipient_rows = jnp.array(
+      [False, False, True, True, True, True], dtype=jnp.bool
+  )
+  transfer_mask = (
+      component_mask[:, None, :] & recipient_rows[None, :, None]
+  )
+  return SequenceResidualBatchTransfer(
+      donor_batch_indices=donors, transfer_mask=transfer_mask
+  )
+
+
+def _validate_route_selection_axis(
+    name: str,
+    positions: Array,
+    valid_mask: Array,
+    expected_stages: int,
+) -> int:
+  if positions.ndim != 2 or valid_mask.ndim != 2:
+    raise ValueError(f'{name} selection arrays must have rank 2.')
+  if positions.shape != valid_mask.shape:
+    raise ValueError(f'{name} selection arrays must have the same shape.')
+  if positions.shape[0] != expected_stages:
+    raise ValueError(
+        f'{name} must have {expected_stages} stages, got {positions.shape[0]}.'
+    )
+  return positions.shape[1]
+
+
+def _validate_route_transfer(
+    name: str,
+    transfer: SequenceResidualBatchTransfer,
+    *,
+    num_stages: int,
+    batch_size: int,
+    num_positions: int,
+) -> None:
+  expected_shape = (num_stages, batch_size, num_positions)
+  if transfer.donor_batch_indices.shape != expected_shape:
+    raise ValueError(
+        f'{name}.donor_batch_indices must have shape {expected_shape}, got '
+        f'{transfer.donor_batch_indices.shape}.'
+    )
+  if transfer.transfer_mask.shape != expected_shape:
+    raise ValueError(
+        f'{name}.transfer_mask must have shape {expected_shape}, got '
+        f'{transfer.transfer_mask.shape}.'
+    )
+
+
+def validate_causal_route_interventions(
+    selection: CausalRouteTraceSelection,
+    interventions: CausalRouteInterventions,
+    *,
+    batch_size: int,
+) -> None:
+  """Validates all non-transformer route axes and transfer shapes."""
+  if selection.transformer.residual_positions is None:
+    raise ValueError(
+        'A complete causal route census requires transformer residual '
+        'positions.'
+    )
+  route_specs = (
+      (
+          'encoder_outputs',
+          selection.encoder_positions,
+          selection.encoder_valid_mask,
+          len(ENCODER_ROUTE_RESOLUTIONS),
+          interventions.encoder_outputs,
+      ),
+      (
+          'decoder_skip_states',
+          selection.decoder_skip_positions,
+          selection.decoder_skip_valid_mask,
+          len(DECODER_ROUTE_RESOLUTIONS),
+          interventions.decoder_skip_states,
+      ),
+      (
+          'decoder_outputs',
+          selection.decoder_output_positions,
+          selection.decoder_output_valid_mask,
+          len(DECODER_ROUTE_RESOLUTIONS),
+          interventions.decoder_outputs,
+      ),
+      (
+          'final_embeddings',
+          selection.final_embedding_positions,
+          selection.final_embedding_valid_mask,
+          len(FINAL_EMBEDDING_ROUTE_RESOLUTIONS),
+          interventions.final_embeddings,
+      ),
+  )
+  for name, positions, valid_mask, num_stages, transfer in route_specs:
+    num_positions = _validate_route_selection_axis(
+        name, positions, valid_mask, num_stages
+    )
+    _validate_route_transfer(
+        name,
+        transfer,
+        num_stages=num_stages,
+        batch_size=batch_size,
+        num_positions=num_positions,
+    )
+
+
+def no_causal_route_interventions(
+    selection: CausalRouteTraceSelection,
+    *,
+    batch_size: int,
+    num_edges: int,
+    num_heads: int = 8,
+    dtype=jnp.float32,
+) -> CausalRouteInterventions:
+  """Builds an all-false fixed pytree for a complete route-census apply."""
+  if selection.transformer.residual_positions is None:
+    raise ValueError(
+        'A complete causal route census requires transformer residual '
+        'positions.'
+    )
+  transformer = no_transformer_interventions(
+      batch_size=batch_size,
+      num_edges=num_edges,
+      num_heads=num_heads,
+      dtype=dtype,
+  )
+  num_transformer_positions = (
+      selection.transformer.residual_positions.positions.shape[0]
+  )
+  transformer_transfer = no_sequence_route_batch_transfer(
+      num_stages=NUM_TRANSFORMER_LAYERS,
+      batch_size=batch_size,
+      num_positions=num_transformer_positions,
+  )
+  transformer = dataclasses.replace(
+      transformer,
+      pre_attention_residual_transfer=transformer_transfer,
+      post_attention_residual_transfer=transformer_transfer,
+      post_mlp_residual_transfer=transformer_transfer,
+  )
+  return CausalRouteInterventions(
+      transformer=transformer,
+      encoder_outputs=no_sequence_route_batch_transfer(
+          num_stages=len(ENCODER_ROUTE_RESOLUTIONS),
+          batch_size=batch_size,
+          num_positions=selection.encoder_positions.shape[1],
+      ),
+      decoder_skip_states=no_sequence_route_batch_transfer(
+          num_stages=len(DECODER_ROUTE_RESOLUTIONS),
+          batch_size=batch_size,
+          num_positions=selection.decoder_skip_positions.shape[1],
+      ),
+      decoder_outputs=no_sequence_route_batch_transfer(
+          num_stages=len(DECODER_ROUTE_RESOLUTIONS),
+          batch_size=batch_size,
+          num_positions=selection.decoder_output_positions.shape[1],
+      ),
+      final_embeddings=no_sequence_route_batch_transfer(
+          num_stages=len(FINAL_EMBEDDING_ROUTE_RESOLUTIONS),
+          batch_size=batch_size,
+          num_positions=selection.final_embedding_positions.shape[1],
+      ),
+  )
+
+
+def route_stage_selection(
+    positions: Int[Array, 'N R'],
+    valid_mask: Bool[Array, 'N R'],
+    stage: int,
+) -> SequenceResidualSelection:
+  """Returns the sequence selection for one statically unrolled route stage."""
+  return SequenceResidualSelection(
+      positions=positions[stage], valid_mask=valid_mask[stage]
+  )
+
+
+def trace_and_transfer_route_stage(
+    values: Float[Array, 'B S D'],
+    positions: Int[Array, 'N R'],
+    valid_mask: Bool[Array, 'N R'],
+    transfer: SequenceResidualBatchTransfer,
+    stage: int,
+) -> tuple[
+    Float[Array, 'B S D'],
+    Float[Array, 'B R D'],
+    Float[Array, 'B R D'],
+]:
+  """Captures and applies one transfer, returning effective route values."""
+  selection = route_stage_selection(positions, valid_mask, stage)
+  natural = gather_sequence_residuals(values, selection)
+  effective_values = transfer_sequence_residuals_within_batch(
+      values,
+      selection,
+      transfer.donor_batch_indices[stage],
+      transfer.transfer_mask[stage],
+  )
+  effective = gather_sequence_residuals(effective_values, selection)
+  return effective_values, natural, effective
+
+
 def no_sequence_residual_replacement(
     *,
     batch_size: int,
@@ -504,6 +859,56 @@ def reduce_paired_target(
   num_values = jnp.sum(selection.valid_mask, dtype=jnp.int32)
   mean = total / jnp.maximum(num_values, 1)
   return TargetSummary(total=total, mean=mean, num_values=num_values)
+
+
+def reduce_splice_classification_logit_margin(
+    logits: Float[Array, 'B S 5'],
+    selection: SpliceClassificationLogitMarginSelection,
+) -> TargetSummary:
+  """Returns the mean canonical class-minus-padding pre-softmax margin.
+
+  This reducer is intentionally separate from :func:`reduce_paired_target`.
+  It consumes the classification head's internal logits and subtracts the
+  padding/background logit at each exact canonical endpoint before taking the
+  symmetric acceptor/donor mean.  A common shift of all five logits at either
+  endpoint therefore cannot change the target.
+  """
+  if logits.ndim != 3:
+    raise ValueError(
+        'Splice-classification logits must have shape [batch, position, track].'
+    )
+  if logits.shape[2] != 5:
+    raise ValueError(
+        'Splice-classification logit margin requires exactly five tracks.'
+    )
+  if selection.canonical_position_indices.shape != (2,):
+    raise ValueError('Canonical position indices must have shape [2].')
+  if selection.canonical_track_indices.shape != (2,):
+    raise ValueError('Canonical track indices must have shape [2].')
+  if selection.padding_track_index.ndim != 0:
+    raise ValueError('Padding track index must be a scalar.')
+
+  safe_positions = jnp.clip(
+      selection.canonical_position_indices, 0, logits.shape[1] - 1
+  )
+  safe_relevant_tracks = jnp.clip(
+      selection.canonical_track_indices, 0, logits.shape[2] - 1
+  )
+  safe_padding_track = jnp.clip(
+      selection.padding_track_index, 0, logits.shape[2] - 1
+  )
+  relevant_logits = logits[
+      :, safe_positions, safe_relevant_tracks
+  ].astype(jnp.float32)
+  padding_logits = logits[:, safe_positions, safe_padding_track].astype(
+      jnp.float32
+  )
+  margins = relevant_logits - padding_logits
+  total = jnp.sum(margins, axis=1, dtype=jnp.float32)
+  num_values = jnp.asarray(2, dtype=jnp.int32)
+  return TargetSummary(
+      total=total, mean=total / num_values, num_values=num_values
+  )
 
 
 def _validate_edge_selection(

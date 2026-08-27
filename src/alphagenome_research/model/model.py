@@ -56,6 +56,48 @@ class SequenceEncoder(hk.Module):
       x = layers.pool(x)
     return x, intermediates
 
+  @hk.name_like('__call__')
+  def forward_with_route_census(
+      self,
+      dna_sequence: Float[Array, 'B S 4'],
+      *,
+      is_training: bool,
+      positions: Int[Array, '8 R'],
+      valid_mask: Shaped[Array, '8 R'],
+      transfer: interpretability.SequenceResidualBatchTransfer,
+  ) -> tuple[Array, dict[str, Array], tuple[Array, ...], tuple[Array, ...]]:
+    """Runs the encoder with compact live-transfer seams at every resolution."""
+    intermediates = {}
+    natural_traces = []
+    effective_traces = []
+    x = convolutions.DnaEmbedder()(dna_sequence, is_training=is_training)
+    x, natural, effective = interpretability.trace_and_transfer_route_stage(
+        x, positions, valid_mask, transfer, 0
+    )
+    natural_traces.append(natural)
+    effective_traces.append(effective)
+    intermediates['bin_size_1'] = x
+    x = layers.pool(x)
+    for stage, (block_idx, bin_size) in enumerate(
+        zip(range(6), (2, 4, 8, 16, 32, 64), strict=True), start=1
+    ):
+      x = convolutions.DownResBlock(f'downres_block_{block_idx}')(
+          x, is_training=is_training
+      )
+      x, natural, effective = interpretability.trace_and_transfer_route_stage(
+          x, positions, valid_mask, transfer, stage
+      )
+      natural_traces.append(natural)
+      effective_traces.append(effective)
+      intermediates[f'bin_size_{bin_size}'] = x
+      x = layers.pool(x)
+    x, natural, effective = interpretability.trace_and_transfer_route_stage(
+        x, positions, valid_mask, transfer, 7
+    )
+    natural_traces.append(natural)
+    effective_traces.append(effective)
+    return x, intermediates, tuple(natural_traces), tuple(effective_traces)
+
 
 class SequenceDecoder(hk.Module):
   """Decodes a sequence of embeddings."""
@@ -73,6 +115,68 @@ class SequenceDecoder(hk.Module):
           x, intermediates[f'bin_size_{bin_size}'], is_training=is_training
       )
     return x
+
+  @hk.name_like('__call__')
+  def forward_with_route_census(
+      self,
+      x: Float[Array, 'B S D'],
+      intermediates: dict[str, Array],
+      *,
+      is_training: bool,
+      skip_positions: Int[Array, '7 RS'],
+      skip_valid_mask: Shaped[Array, '7 RS'],
+      skip_transfer: interpretability.SequenceResidualBatchTransfer,
+      output_positions: Int[Array, '7 RD'],
+      output_valid_mask: Shaped[Array, '7 RD'],
+      output_transfer: interpretability.SequenceResidualBatchTransfer,
+  ) -> tuple[
+      Array,
+      tuple[Array, ...],
+      tuple[Array, ...],
+      tuple[Array, ...],
+      tuple[Array, ...],
+  ]:
+    """Runs all U-Net skip-consumption and decoder-output route seams."""
+    natural_skip_traces = []
+    effective_skip_traces = []
+    natural_output_traces = []
+    effective_output_traces = []
+    for stage, bin_size in enumerate(
+        interpretability.DECODER_ROUTE_RESOLUTIONS
+    ):
+      unet_skip = intermediates[f'bin_size_{bin_size}']
+      unet_skip, natural_skip, effective_skip = (
+          interpretability.trace_and_transfer_route_stage(
+              unet_skip,
+              skip_positions,
+              skip_valid_mask,
+              skip_transfer,
+              stage,
+          )
+      )
+      natural_skip_traces.append(natural_skip)
+      effective_skip_traces.append(effective_skip)
+      x = convolutions.UpResBlock()(
+          x, unet_skip, is_training=is_training
+      )
+      x, natural_output, effective_output = (
+          interpretability.trace_and_transfer_route_stage(
+              x,
+              output_positions,
+              output_valid_mask,
+              output_transfer,
+              stage,
+          )
+      )
+      natural_output_traces.append(natural_output)
+      effective_output_traces.append(effective_output)
+    return (
+        x,
+        tuple(natural_skip_traces),
+        tuple(effective_skip_traces),
+        tuple(natural_output_traces),
+        tuple(effective_output_traces),
+    )
 
 
 class TransformerTower(hk.Module):
@@ -521,6 +625,121 @@ class AlphaGenome(hk.Module):
     if self._freeze_trunk_embeddings:
       embeddings = jax.lax.stop_gradient(embeddings)
     return embeddings, trace
+
+  @hk.name_like('__call__')
+  def forward_trunk_with_route_census(
+      self,
+      dna_sequence: Float[Array, 'B S 4'],
+      organism_index: Int[Array, 'B'],
+      *,
+      trace_selection: interpretability.CausalRouteTraceSelection,
+      interventions: interpretability.CausalRouteInterventions,
+      is_training: bool = False,
+  ) -> tuple[
+      embeddings_module.Embeddings, interpretability.CausalRouteTrace
+  ]:
+    """Runs the complete sequence route with compact live causal seams."""
+    interpretability.validate_causal_route_interventions(
+        trace_selection, interventions, batch_size=dna_sequence.shape[0]
+    )
+    (
+        trunk,
+        intermediates,
+        encoder_traces,
+        effective_encoder_traces,
+    ) = SequenceEncoder().forward_with_route_census(
+        dna_sequence,
+        is_training=is_training,
+        positions=trace_selection.encoder_positions,
+        valid_mask=trace_selection.encoder_valid_mask,
+        transfer=interventions.encoder_outputs,
+    )
+    if self._num_organisms >= 1:
+      organism_embedding_trunk = embeddings_module.create_default_embedding(
+          self._num_organisms, trunk.shape[-1]
+      )(organism_index)
+      trunk += organism_embedding_trunk[:, None, :]
+    trunk, pair_activations, transformer_trace = TransformerTower(
+        attention_backend=self._attention_backend
+    ).forward_with_intermediates(
+        trunk,
+        is_training=is_training,
+        trace_selection=trace_selection.transformer,
+        interventions=interventions.transformer,
+    )
+
+    (
+        x,
+        decoder_skip_traces,
+        effective_decoder_skip_traces,
+        decoder_output_traces,
+        effective_decoder_output_traces,
+    ) = SequenceDecoder().forward_with_route_census(
+        trunk,
+        intermediates,
+        is_training=is_training,
+        skip_positions=trace_selection.decoder_skip_positions,
+        skip_valid_mask=trace_selection.decoder_skip_valid_mask,
+        skip_transfer=interventions.decoder_skip_states,
+        output_positions=trace_selection.decoder_output_positions,
+        output_valid_mask=trace_selection.decoder_output_valid_mask,
+        output_transfer=interventions.decoder_outputs,
+    )
+
+    natural_final_embeddings = []
+    effective_final_embeddings = []
+    embeddings_128bp = embeddings_module.OutputEmbedder(self._num_organisms)(
+        trunk, organism_index, is_training=is_training
+    )
+    embeddings_128bp, natural, effective = (
+        interpretability.trace_and_transfer_route_stage(
+            embeddings_128bp,
+            trace_selection.final_embedding_positions,
+            trace_selection.final_embedding_valid_mask,
+            interventions.final_embeddings,
+            0,
+        )
+    )
+    natural_final_embeddings.append(natural)
+    effective_final_embeddings.append(effective)
+    embeddings_1bp = embeddings_module.OutputEmbedder(self._num_organisms)(
+        x,
+        organism_index,
+        is_training=is_training,
+        skip_x=embeddings_128bp,
+    )
+    embeddings_1bp, natural, effective = (
+        interpretability.trace_and_transfer_route_stage(
+            embeddings_1bp,
+            trace_selection.final_embedding_positions,
+            trace_selection.final_embedding_valid_mask,
+            interventions.final_embeddings,
+            1,
+        )
+    )
+    natural_final_embeddings.append(natural)
+    effective_final_embeddings.append(effective)
+    embeddings_pair = embeddings_module.OutputPair(self._num_organisms)(
+        pair_activations, organism_index
+    )
+    embeddings = embeddings_module.Embeddings(
+        embeddings_1bp=embeddings_1bp,
+        embeddings_128bp=embeddings_128bp,
+        embeddings_pair=embeddings_pair,
+    )
+    if self._freeze_trunk_embeddings:
+      embeddings = jax.lax.stop_gradient(embeddings)
+    return embeddings, interpretability.CausalRouteTrace(
+        transformer=transformer_trace,
+        encoder_outputs=encoder_traces,
+        effective_encoder_outputs=effective_encoder_traces,
+        decoder_skip_states=decoder_skip_traces,
+        effective_decoder_skip_states=effective_decoder_skip_traces,
+        decoder_outputs=decoder_output_traces,
+        effective_decoder_outputs=effective_decoder_output_traces,
+        final_embeddings=tuple(natural_final_embeddings),
+        effective_final_embeddings=tuple(effective_final_embeddings),
+    )
 
   @hk.name_like('__call__')
   def forward_heads(
