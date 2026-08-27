@@ -22,6 +22,7 @@ from alphagenome_research.model import attention
 from alphagenome_research.model import convolutions
 from alphagenome_research.model import embeddings as embeddings_module
 from alphagenome_research.model import heads as heads_module
+from alphagenome_research.model import interpretability
 from alphagenome_research.model import layers
 from alphagenome_research.model import schemas
 from alphagenome_research.model import splicing
@@ -104,6 +105,174 @@ class TransformerTower(hk.Module):
       )
       x += attention.MLPBlock()(x, is_training=is_training)
     return x, pair_x
+
+  @hk.name_like('__call__')
+  def forward_with_intermediates(
+      self,
+      x: Float[Array, 'B S C'],
+      *,
+      is_training: bool,
+      trace_selection: interpretability.TransformerTraceSelection,
+      interventions: interpretability.TransformerInterventions,
+  ) -> tuple[
+      Float[Array, 'B S C'],
+      Float[Array, 'B S//16 S//16 F'] | None,
+      interpretability.TransformerTrace,
+  ]:
+    """Runs the tower with selected traces and dynamic causal interventions."""
+    interpretability.validate_transformer_interventions(
+        interventions,
+        trace_selection,
+        batch_size=x.shape[0],
+        num_heads=8,
+        hidden_size=x.shape[-1],
+        value_width=192,
+    )
+    pair_x = None
+    compact_bias_traces = []
+    effective_compact_bias_traces = []
+    head_output_traces = []
+    effective_head_output_traces = []
+    pre_attention_residual_traces = []
+    effective_pre_attention_residual_traces = []
+    post_attention_residual_traces = []
+    effective_post_attention_residual_traces = []
+    post_mlp_residual_traces = []
+    effective_post_mlp_residual_traces = []
+    for i in range(interpretability.NUM_TRANSFORMER_LAYERS):
+      pre_attention_residual_traces.append(
+          interpretability.gather_sequence_residuals(
+              x, trace_selection.residual_positions
+          )
+      )
+      pre_attention_replacement = interventions.pre_attention_residual
+      x = interpretability.replace_sequence_residuals(
+          x,
+          trace_selection.residual_positions,
+          None
+          if pre_attention_replacement is None
+          else pre_attention_replacement.values[i],
+          None
+          if pre_attention_replacement is None
+          else pre_attention_replacement.replace_mask[i],
+      )
+      effective_pre_attention_residual_traces.append(
+          interpretability.gather_sequence_residuals(
+              x, trace_selection.residual_positions
+          )
+      )
+      if i % 2 == 0:
+        pair_x = attention.PairUpdateBlock()(x, pair_x)
+      replacement = interpretability.PairBiasReplacement(
+          selection=trace_selection.pair_bias_edges,
+          values=interventions.pair_bias_values[i],
+          replace_mask=interventions.pair_bias_replace_mask[i],
+      )
+      mha_bias, bias_trace = attention.AttentionBiasBlock(
+          attention_backend=self._attention_backend
+      ).forward_with_intermediates(
+          pair_x,
+          is_training,
+          edge_selection=trace_selection.pair_bias_edges,
+          replacement=replacement,
+      )
+      mha_update, mha_trace = attention.MHABlock(
+          attention_backend=self._attention_backend
+      ).forward_with_intermediates(
+          x,
+          mha_bias,
+          is_training=is_training,
+          head_output_selection=trace_selection.head_output_positions,
+          head_mask=interventions.head_masks[i],
+          head_output_replacement_values=(
+              None
+              if interventions.head_value_output_replacement is None
+              else interventions.head_value_output_replacement.values[i]
+          ),
+          head_output_replace_mask=(
+              None
+              if interventions.head_value_output_replacement is None
+              else interventions.head_value_output_replacement.replace_mask[i]
+          ),
+      )
+      x += mha_update
+      post_attention_residual_traces.append(
+          interpretability.gather_sequence_residuals(
+              x, trace_selection.residual_positions
+          )
+      )
+      post_attention_replacement = interventions.post_attention_residual
+      x = interpretability.replace_sequence_residuals(
+          x,
+          trace_selection.residual_positions,
+          None
+          if post_attention_replacement is None
+          else post_attention_replacement.values[i],
+          None
+          if post_attention_replacement is None
+          else post_attention_replacement.replace_mask[i],
+      )
+      effective_post_attention_residual_traces.append(
+          interpretability.gather_sequence_residuals(
+              x, trace_selection.residual_positions
+          )
+      )
+      x += attention.MLPBlock()(x, is_training=is_training)
+      post_mlp_residual_traces.append(
+          interpretability.gather_sequence_residuals(
+              x, trace_selection.residual_positions
+          )
+      )
+      post_mlp_replacement = interventions.post_mlp_residual
+      x = interpretability.replace_sequence_residuals(
+          x,
+          trace_selection.residual_positions,
+          None
+          if post_mlp_replacement is None
+          else post_mlp_replacement.values[i],
+          None
+          if post_mlp_replacement is None
+          else post_mlp_replacement.replace_mask[i],
+      )
+      effective_post_mlp_residual_traces.append(
+          interpretability.gather_sequence_residuals(
+              x, trace_selection.residual_positions
+          )
+      )
+      assert bias_trace.compact_edges is not None
+      assert bias_trace.effective_compact_edges is not None
+      assert mha_trace.head_value_outputs is not None
+      assert mha_trace.effective_head_value_outputs is not None
+      compact_bias_traces.append(bias_trace.compact_edges)
+      effective_compact_bias_traces.append(
+          bias_trace.effective_compact_edges
+      )
+      head_output_traces.append(mha_trace.head_value_outputs)
+      effective_head_output_traces.append(
+          mha_trace.effective_head_value_outputs
+      )
+    return x, pair_x, interpretability.TransformerTrace(
+        compact_pair_bias_edges=jnp.stack(compact_bias_traces),
+        effective_compact_pair_bias_edges=jnp.stack(
+            effective_compact_bias_traces
+        ),
+        head_value_outputs=jnp.stack(head_output_traces),
+        effective_head_value_outputs=jnp.stack(
+            effective_head_output_traces
+        ),
+        pre_attention_residuals=jnp.stack(pre_attention_residual_traces),
+        effective_pre_attention_residuals=jnp.stack(
+            effective_pre_attention_residual_traces
+        ),
+        post_attention_residuals=jnp.stack(post_attention_residual_traces),
+        effective_post_attention_residuals=jnp.stack(
+            effective_post_attention_residual_traces
+        ),
+        post_mlp_residuals=jnp.stack(post_mlp_residual_traces),
+        effective_post_mlp_residuals=jnp.stack(
+            effective_post_mlp_residual_traces
+        ),
+    )
 
 
 class AlphaGenome(hk.Module):
@@ -268,6 +437,53 @@ class AlphaGenome(hk.Module):
     if self._freeze_trunk_embeddings:
       embeddings = jax.lax.stop_gradient(embeddings)
     return embeddings
+
+  @hk.name_like('__call__')
+  def forward_trunk_with_intermediates(
+      self,
+      dna_sequence: Float[Array, 'B S 4'],
+      organism_index: Int[Array, 'B'],
+      *,
+      trace_selection: interpretability.TransformerTraceSelection,
+      interventions: interpretability.TransformerInterventions,
+      is_training: bool = False,
+  ) -> tuple[embeddings_module.Embeddings, interpretability.TransformerTrace]:
+    """Runs the trunk and returns selected sequence-attention internals."""
+    trunk, intermediates = SequenceEncoder()(
+        dna_sequence, is_training=is_training
+    )
+    if self._num_organisms >= 1:
+      organism_embedding_trunk = embeddings_module.create_default_embedding(
+          self._num_organisms, trunk.shape[-1]
+      )(organism_index)
+      trunk += organism_embedding_trunk[:, None, :]
+    trunk, pair_activations, trace = TransformerTower(
+        attention_backend=self._attention_backend
+    ).forward_with_intermediates(
+        trunk,
+        is_training=is_training,
+        trace_selection=trace_selection,
+        interventions=interventions,
+    )
+
+    x = SequenceDecoder()(trunk, intermediates, is_training=is_training)
+    embeddings_128bp = embeddings_module.OutputEmbedder(self._num_organisms)(
+        trunk, organism_index, is_training=is_training
+    )
+    embeddings_1bp = embeddings_module.OutputEmbedder(self._num_organisms)(
+        x, organism_index, is_training=is_training, skip_x=embeddings_128bp
+    )
+    embeddings_pair = embeddings_module.OutputPair(self._num_organisms)(
+        pair_activations, organism_index
+    )
+    embeddings = embeddings_module.Embeddings(
+        embeddings_1bp=embeddings_1bp,
+        embeddings_128bp=embeddings_128bp,
+        embeddings_pair=embeddings_pair,
+    )
+    if self._freeze_trunk_embeddings:
+      embeddings = jax.lax.stop_gradient(embeddings)
+    return embeddings, trace
 
   @hk.name_like('__call__')
   def forward_heads(

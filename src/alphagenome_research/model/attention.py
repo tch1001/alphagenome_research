@@ -16,6 +16,7 @@
 
 import math
 from alphagenome import typing
+from alphagenome_research.model import interpretability
 from alphagenome_research.model import layers
 from alphagenome_research.model import pallas_tiled_attention
 import chex
@@ -212,6 +213,110 @@ class MHABlock(hk.Module):
     )(y.reshape(batch_size, seq_len, -1))
     return layers.RMSBatchNorm()(y, is_training=is_training)
 
+  @hk.name_like('__call__')
+  def forward_with_intermediates(
+      self,
+      x: Float[Array, 'B S D'],
+      attention_bias: Array,
+      *,
+      is_training: bool,
+      head_output_selection: interpretability.HeadOutputSelection | None = None,
+      head_mask: Float[Array, 'H'] | None = None,
+      head_output_replacement_values: Array | None = None,
+      head_output_replace_mask: Array | None = None,
+  ) -> tuple[Float[Array, 'B S D'], interpretability.MHATrace]:
+    """Runs attention while tracing and optionally masking raw head outputs.
+
+    This experimental method intentionally mirrors ``__call__`` while sharing
+    its Haiku name.  It creates exactly the same parameters and state.  The
+    Local replacements and the dynamic mask are applied to the weighted-value
+    result ``[B, S, H, V]`` before heads are concatenated and projected back to
+    the residual width.  Local replacement happens first, so a zero global head
+    mask remains an absolute ablation.
+    """
+    batch_size, seq_len, _ = x.shape
+    h = layers.RMSBatchNorm()(x, is_training=is_training)
+    q = layers.LayerNorm(name='norm_q')(
+        hk.Linear(8 * 128, with_bias=False, name='q_layer')(h).reshape(
+            batch_size, seq_len, 8, 128
+        )
+    )
+    k = layers.LayerNorm(name='norm_k')(
+        hk.Linear(128, with_bias=False, name='k_layer')(h).reshape(
+            batch_size, seq_len, 1, 128
+        )
+    )
+    v = layers.LayerNorm(name='norm_v')(
+        hk.Linear(192, with_bias=False, name='v_layer')(h).reshape(
+            batch_size, seq_len, 1, 192
+        )
+    )
+    q = apply_rope(q, None, max_position=_MAX_RELATIVE_DISTANCE)
+    k = apply_rope(k, None, max_position=_MAX_RELATIVE_DISTANCE)
+
+    if self._attention_backend == ATTENTION_BACKEND_PALLAS_TILED:
+      head_outputs = pallas_tiled_attention.pallas_tiled_attention(
+          q, k, v, attention_bias
+      )
+    else:
+      logits_dtype = jnp.float32
+      attention_logits = jnp.einsum(
+          'bshc,bS1c->bhsS',
+          q,
+          k,
+          precision=jax.lax.DotAlgorithmPreset.BF16_BF16_F32,
+          preferred_element_type=logits_dtype,
+      )
+      attention_logits = attention_logits / math.sqrt(128.0)
+      attention_logits = (attention_logits + attention_bias).astype(
+          logits_dtype
+      )
+      logits_soft_cap = 5.0
+      attention_logits = (
+          jnp.tanh(attention_logits / logits_soft_cap) * logits_soft_cap
+      )
+      attention_weights = jax.nn.softmax(attention_logits, axis=-1)
+      head_outputs = jnp.einsum(
+          'bhsS,bS1c->bshc',
+          attention_weights,
+          v,
+          precision=jax.lax.DotAlgorithmPreset.BF16_BF16_F32,
+      ).astype(q.dtype)
+
+    captured_head_outputs = (
+        interpretability.gather_head_outputs(
+            head_outputs, head_output_selection
+        )
+        if head_output_selection is not None
+        else None
+    )
+    replaced_head_outputs = interpretability.replace_head_value_outputs(
+        head_outputs,
+        head_output_selection,
+        head_output_replacement_values,
+        head_output_replace_mask,
+    )
+    effective_head_outputs = interpretability.apply_head_mask(
+        replaced_head_outputs, head_mask
+    )
+    captured_effective_head_outputs = (
+        interpretability.gather_head_outputs(
+            effective_head_outputs, head_output_selection
+        )
+        if head_output_selection is not None
+        else None
+    )
+    y = hk.Linear(
+        x.shape[-1],
+        name='linear_embedding',
+        w_init=hk.initializers.TruncatedNormal(stddev=1e-6),
+    )(effective_head_outputs.reshape(batch_size, seq_len, -1))
+    y = layers.RMSBatchNorm()(y, is_training=is_training)
+    return y, interpretability.MHATrace(
+        head_value_outputs=captured_head_outputs,
+        effective_head_value_outputs=captured_effective_head_outputs,
+    )
+
 
 class AttentionBiasBlock(hk.Module):
   """Generates attention bias for Multi-Head Attention."""
@@ -237,6 +342,45 @@ class AttentionBiasBlock(hk.Module):
     for axis in [1, 2]:
       x = jnp.repeat(x, repeats=16, axis=axis)  # [B S S H]
     return jnp.moveaxis(x, 3, 1)
+
+  @hk.name_like('__call__')
+  def forward_with_intermediates(
+      self,
+      x: Float[Array, 'B s s D'],
+      is_training: bool,
+      *,
+      edge_selection: interpretability.PairBiasEdgeSelection | None = None,
+      replacement: interpretability.PairBiasReplacement | None = None,
+  ) -> tuple[Array, interpretability.AttentionBiasTrace]:
+    """Generates bias while tracing and optionally replacing compact edges."""
+    x = jax.nn.gelu(layers.RMSBatchNorm()(x, is_training=is_training))
+    compact_bias = hk.Linear(8, with_bias=False, w_init=jnp.zeros)(x)
+    captured_edges = (
+        interpretability.gather_pair_bias_edges(compact_bias, edge_selection)
+        if edge_selection is not None
+        else None
+    )
+    effective_compact_bias = interpretability.replace_pair_bias_edges(
+        compact_bias, replacement
+    )
+    captured_effective_edges = (
+        interpretability.gather_pair_bias_edges(
+            effective_compact_bias, edge_selection
+        )
+        if edge_selection is not None
+        else None
+    )
+    if self._attention_backend == ATTENTION_BACKEND_PALLAS_TILED:
+      attention_bias = effective_compact_bias
+    else:
+      attention_bias = effective_compact_bias
+      for axis in [1, 2]:
+        attention_bias = jnp.repeat(attention_bias, repeats=16, axis=axis)
+      attention_bias = jnp.moveaxis(attention_bias, 3, 1)
+    return attention_bias, interpretability.AttentionBiasTrace(
+        compact_edges=captured_edges,
+        effective_compact_edges=captured_effective_edges,
+    )
 
 
 class RowAttentionBlock(hk.Module):

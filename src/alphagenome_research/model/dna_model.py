@@ -39,6 +39,7 @@ from alphagenome_research.model import augmentation
 from alphagenome_research.model import attention
 from alphagenome_research.model import embeddings as embeddings_lib
 from alphagenome_research.model import indel_stitch_utils
+from alphagenome_research.model import interpretability
 from alphagenome_research.model import model
 from alphagenome_research.model import one_hot_encoder
 from alphagenome_research.model import splicing
@@ -119,6 +120,29 @@ HeadsApplyFn = Callable[
         Int32[Array, 'B'],
     ],
     PyTree[Array],
+]
+InterpretabilityApplyFn = Callable[
+    [
+        hk.Params,
+        hk.State,
+        Float32[Array, 'B S 4'],
+        Int32[Array, 'B'],
+        interpretability.TransformerTraceSelection,
+        interpretability.TransformerInterventions,
+    ],
+    tuple[embeddings_lib.Embeddings, interpretability.TransformerTrace],
+]
+TargetedInterpretabilityApplyFn = Callable[
+    [
+        hk.Params,
+        hk.State,
+        Float32[Array, 'B S 4'],
+        Int32[Array, 'B'],
+        interpretability.TransformerTraceSelection,
+        interpretability.TransformerInterventions,
+        interpretability.TargetSelection,
+    ],
+    tuple[interpretability.TargetSummary, interpretability.TransformerTrace],
 ]
 
 
@@ -1674,6 +1698,144 @@ def create_model(
       _heads_apply_fn,
       _junctions_apply_fn,
   )
+
+
+def create_interpretability_apply(
+    metadata: Mapping[dna_model.Organism, AlphaGenomeOutputMetadata],
+    *,
+    num_splice_sites: int = model.DEFAULT_NUM_SPLICE_SITES,
+    splice_site_threshold: float = model.DEFAULT_SPLICE_SITE_THRESHOLD,
+    attention_backend: str = attention.ATTENTION_BACKEND_DENSE,
+) -> InterpretabilityApplyFn:
+  """Creates an experimental trunk apply function with selected traces.
+
+  This factory deliberately returns only an apply function.  Restore parameters
+  and state using the unchanged initializer returned by ``create_model``; the
+  instrumented transform adds no parameters or state and consumes that exact
+  checkpoint tree.  It is not installed on ``AlphaGenomeModel`` and therefore
+  does not alter the normal public prediction API.
+  """
+  jmp_policy = jmp.get_policy('params=float32,compute=bfloat16,output=bfloat16')
+
+  @hk.transform_with_state
+  def _forward_with_intermediates(
+      dna_sequence: Float[Array, 'B S 4'],
+      organism_index: Int32[Array, 'B'],
+      trace_selection: interpretability.TransformerTraceSelection,
+      interventions: interpretability.TransformerInterventions,
+  ):
+    with hk.mixed_precision.push_policy(model.AlphaGenome, jmp_policy):
+      return model.AlphaGenome(
+          metadata,
+          num_splice_sites=num_splice_sites,
+          splice_site_threshold=splice_site_threshold,
+          attention_backend=attention_backend,
+      ).forward_trunk_with_intermediates(
+          dna_sequence,
+          organism_index,
+          trace_selection=trace_selection,
+          interventions=interventions,
+      )
+
+  def _apply_fn(
+      params: hk.Params,
+      state: hk.State,
+      dna_sequence: Float32[Array, 'B S 4'],
+      organism_index: Int32[Array, 'B'],
+      trace_selection: interpretability.TransformerTraceSelection,
+      interventions: interpretability.TransformerInterventions,
+  ) -> tuple[embeddings_lib.Embeddings, interpretability.TransformerTrace]:
+    output, _ = _forward_with_intermediates.apply(
+        params,
+        state,
+        None,
+        dna_sequence,
+        organism_index,
+        trace_selection,
+        interventions,
+    )
+    return output
+
+  return _apply_fn
+
+
+def create_targeted_interpretability_apply(
+    metadata: Mapping[dna_model.Organism, AlphaGenomeOutputMetadata],
+    target_spec: interpretability.TargetSpec,
+    *,
+    num_splice_sites: int = model.DEFAULT_NUM_SPLICE_SITES,
+    splice_site_threshold: float = model.DEFAULT_SPLICE_SITE_THRESHOLD,
+    attention_backend: str = attention.ATTENTION_BACKEND_DENSE,
+) -> TargetedInterpretabilityApplyFn:
+  """Creates a fused causal-trace apply function for a scalar output target.
+
+  The selected output is reduced to a sum and mean inside the same compiled
+  computation as the instrumented trunk.  This lets XLA discard unrelated
+  heads and avoids retaining or transferring every genomic output track.  The
+  transform adds no parameters or state and consumes the normal checkpoint.
+  """
+  jmp_policy = jmp.get_policy('params=float32,compute=bfloat16,output=bfloat16')
+
+  @hk.transform_with_state
+  def _forward_targeted(
+      dna_sequence: Float[Array, 'B S 4'],
+      organism_index: Int32[Array, 'B'],
+      trace_selection: interpretability.TransformerTraceSelection,
+      interventions: interpretability.TransformerInterventions,
+      target_selection: interpretability.TargetSelection,
+  ):
+    with hk.mixed_precision.push_policy(model.AlphaGenome, jmp_policy):
+      alphagenome = model.AlphaGenome(
+          metadata,
+          num_splice_sites=num_splice_sites,
+          splice_site_threshold=splice_site_threshold,
+          attention_backend=attention_backend,
+      )
+      embeddings, trace = alphagenome.forward_trunk_with_intermediates(
+          dna_sequence,
+          organism_index,
+          trace_selection=trace_selection,
+          interventions=interventions,
+      )
+      predictions = alphagenome.forward_heads(embeddings, organism_index)
+      try:
+        target_predictions = predictions[target_spec.head_name][
+            target_spec.prediction_key
+        ]
+      except KeyError as error:
+        raise ValueError(
+            'Unknown interpretability target '
+            f'{target_spec.head_name!r}/{target_spec.prediction_key!r}.'
+        ) from error
+      target = interpretability.reduce_target(
+          target_predictions, target_selection
+      )
+      return target, trace
+
+  def _apply_fn(
+      params: hk.Params,
+      state: hk.State,
+      dna_sequence: Float32[Array, 'B S 4'],
+      organism_index: Int32[Array, 'B'],
+      trace_selection: interpretability.TransformerTraceSelection,
+      interventions: interpretability.TransformerInterventions,
+      target_selection: interpretability.TargetSelection,
+  ) -> tuple[
+      interpretability.TargetSummary, interpretability.TransformerTrace
+  ]:
+    output, _ = _forward_targeted.apply(
+        params,
+        state,
+        None,
+        dna_sequence,
+        organism_index,
+        trace_selection,
+        interventions,
+        target_selection,
+    )
+    return output
+
+  return _apply_fn
 
 
 def create(

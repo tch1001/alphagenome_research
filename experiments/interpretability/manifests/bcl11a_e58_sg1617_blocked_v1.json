@@ -1,0 +1,204 @@
+{
+  "manifest_version": "1.0.0",
+  "experiment_id": "bcl11a_e58_sg1617",
+  "status": "blocked_missing_exact_alleles",
+  "role": "substantive_evaluation",
+  "role_note": "Unlike TAL1 and COL6A2, this is intended to test generalization of a frozen interpretability method. Do not run it until exact published alleles are encoded and reference-validated.",
+  "assembly": {
+    "name": "GRCh38",
+    "alias": "hg38"
+  },
+  "locus": {
+    "gene": "BCL11A",
+    "chromosome": "chr2",
+    "enhancer": "erythroid E+58",
+    "sg1617_target_interval": {
+      "coordinate_convention": "1-based closed interval reported in the primary paper",
+      "start": 60495264,
+      "end": 60495283,
+      "reference_forward_sequence": "GTGATAAAAGCAACTGTTAG"
+    },
+    "enhancer_rna_tss": {
+      "coordinate_convention": "1-based position reported in the primary paper",
+      "position": 60495297
+    }
+  },
+  "perturbation": {
+    "type": "CRISPR_Cas9_indel",
+    "guide": {
+      "name": "sg1617",
+      "spacer_5_to_3": "CTAACAGTTGCTTTTATCAC",
+      "source": "Supplemental Table S2",
+      "orientation_validation": "The published spacer is the reverse complement of the hg38 forward sequence at chr2:60495264-60495283."
+    },
+    "published_clone_classes": [
+      {
+        "label": "+1bp",
+        "description": "Homozygous one-base insertion; the paper text describes the predominant HSPC edit as insertion of A into the GATA1 motif.",
+        "exact_variant": null
+      },
+      {
+        "label": "-13bp",
+        "description": "Homozygous 13-base deletion overlapping the targeted enhancer sequence.",
+        "exact_variant": null
+      },
+      {
+        "label": "-15bp",
+        "description": "Homozygous 15-base deletion overlapping the targeted enhancer sequence.",
+        "exact_variant": null
+      }
+    ],
+    "variants": []
+  },
+  "reference_validation": {
+    "target_interval_status": "passed",
+    "exact_allele_status": "not_run_missing_exact_alleles",
+    "checked_on": "2026-08-27",
+    "method": "UCSC getData sequence API on hg38",
+    "request_url": "https://api.genome.ucsc.edu/getData/sequence?genome=hg38;chrom=chr2;start=60495263;end=60495283",
+    "queried_interval_0_based_half_open": {
+      "chromosome": "chr2",
+      "start": 60495263,
+      "end": 60495283
+    },
+    "observed_reference_bases": "GTGATAAAAGCAACTGTTAG",
+    "guide_reverse_complement": "CTAACAGTTGCTTTTATCAC"
+  },
+  "blocker": {
+    "reason": "No machine-readable supplementary table provides an unambiguous anchored REF/ALT representation for the +1, -13 or -15 HUDEP-2 alleles.",
+    "sources_checked": [
+      "Primary article text and Europe PMC full-text XML.",
+      "BLOOD_BLD-2025-030211-mmc1.pdf: Supplemental Figures 5 and 17 contain image-based alignments, which were not transcribed or inferred under the experiment's provenance rule.",
+      "BLOOD_BLD-2025-030211-mmc2.xlsx: Table S1 contains dataset/sample labels and Table S2 contains the guide and PCR primers, but neither contains exact clone allele strings.",
+      "GSE292698 series metadata and filelist: processed tracks are labeled +1bp, 13bp and 15bp, but no amplicon allele/CRISPResso table is deposited."
+    ],
+    "resolution_required": "Obtain exact clone sequences or a machine-readable amplicon allele table from the authors or an archival source, then left-normalize each allele against GRCh38 and increment this manifest version.",
+    "prohibited_shortcut": "Do not reconstruct coordinates or allele strings by reading bases from the Sanger/amplicon figures."
+  },
+  "model_context": {
+    "organism": "Homo sapiens",
+    "model_track_context": "K562 erythroid-like tracks",
+    "experimental_context": "HUDEP-2 and primary CD34-positive erythroid progenitors",
+    "context_mismatch": "AlphaGenome's locally available K562 tracks are useful but do not exactly match HUDEP-2 or primary erythroblasts; this must be reported as a limitation.",
+    "sequence_lengths_bp": {
+      "development": 131072,
+      "final_confirmation": 1048576
+    },
+    "interval_rule": "Center a supported-length interval so that the E+58 edit, BCL11A promoter and BCL11A transcriptional readout remain inside the output interval."
+  },
+  "expected_outputs": [
+    {
+      "output_type": "chip_tf",
+      "track_selector": "GATA1 in K562",
+      "region": "sg1617/GATA1 motif",
+      "direction_alt_minus_ref": "decrease",
+      "priority": "mechanistic"
+    },
+    {
+      "output_type": "procap",
+      "track_selector": "K562",
+      "region": "E+58 enhancer RNA TSS around chr2:60495297",
+      "direction_alt_minus_ref": "decrease",
+      "priority": "primary"
+    },
+    {
+      "output_type": "atac",
+      "track_selector": "K562",
+      "region": "E+58 enhancer and BCL11A promoter",
+      "direction_alt_minus_ref": "decrease",
+      "priority": "supporting"
+    },
+    {
+      "output_type": "dnase",
+      "track_selector": "K562",
+      "region": "E+58 enhancer and BCL11A promoter",
+      "direction_alt_minus_ref": "decrease",
+      "priority": "supporting"
+    },
+    {
+      "output_type": "chip_histone",
+      "track_selector": "H3K27ac in K562",
+      "region": "E+58 enhancer and BCL11A promoter",
+      "direction_alt_minus_ref": "decrease",
+      "priority": "supporting"
+    },
+    {
+      "output_type": "chip_histone",
+      "track_selector": "H3K27me3 in K562",
+      "region": "BCL11A promoter and gene body",
+      "direction_alt_minus_ref": "increase",
+      "priority": "supporting"
+    },
+    {
+      "output_type": "rna_seq",
+      "track_selector": "K562",
+      "region": "BCL11A",
+      "direction_alt_minus_ref": "decrease",
+      "priority": "primary"
+    },
+    {
+      "output_type": "contact_maps",
+      "track_selector": "best available compatible hematopoietic track",
+      "region": "E+58-to-BCL11A-promoter contacts",
+      "direction_alt_minus_ref": "decrease",
+      "priority": "secondary_due_to_resolution_and_context"
+    }
+  ],
+  "out_of_scope_outputs": [
+    "HBG1/HBG2 activation and fetal-haemoglobin rescue are trans effects on chromosome 11 and cannot be inferred from the chromosome-2 AlphaGenome input window."
+  ],
+  "controls": [
+    "Unedited hg38 reference sequence.",
+    "Matched local edits of the same size outside the GATA1 motif, to be frozen only after exact primary alleles are recovered.",
+    "Dinucleotide-preserving sequence controls and matched random internal interventions.",
+    "sgAAVS is the experimental negative control in primary cells but is not a local cis sequence control for this AlphaGenome window."
+  ],
+  "experimental_datasets": [
+    {
+      "clone_class": "+1bp",
+      "geo_samples": ["GSM8863799", "GSM8863809", "GSM8863819", "GSM8864675", "GSM8864680", "GSM8864686"]
+    },
+    {
+      "clone_class": "-13bp",
+      "geo_samples": ["GSM8863025", "GSM8863800", "GSM8863810", "GSM8863820", "GSM8864676", "GSM8864681", "GSM8864687"]
+    },
+    {
+      "clone_class": "-15bp",
+      "geo_samples": ["GSM8863026", "GSM8863801", "GSM8863811", "GSM8863821", "GSM8864677", "GSM8864682", "GSM8864688"]
+    }
+  ],
+  "sources": [
+    {
+      "type": "primary_experimental_paper",
+      "citation": "Wang et al., Blood (2025), doi:10.1182/blood.2025030211",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13077484/",
+      "supports": "Exact target interval and eRNA TSS, clone size classes, GATA1 motif disruption and experimentally observed output directions."
+    },
+    {
+      "type": "primary_supplement_pdf",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/instance/13077484/bin/BLOOD_BLD-2025-030211-mmc1.pdf",
+      "filename": "BLOOD_BLD-2025-030211-mmc1.pdf",
+      "md5_from_europe_pmc_xml": "58092bb6d1ae114d4002d602103f252b",
+      "supports": "Supplemental methods and image-based Sanger/amplicon alignments; not used to infer allele strings."
+    },
+    {
+      "type": "primary_supplement_workbook",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/instance/13077484/bin/BLOOD_BLD-2025-030211-mmc2.xlsx",
+      "filename": "BLOOD_BLD-2025-030211-mmc2.xlsx",
+      "md5_from_europe_pmc_xml": "1ececaebf9f7f241e086b0538c8df9a6",
+      "supports": "Table S1 GEO sample mapping; Table S2 exact sg1617 spacer and genotyping primers."
+    },
+    {
+      "type": "supplement_archive_endpoint",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13077484/supplementaryFiles",
+      "supports": "Downloadable archive containing both primary supplementary files."
+    },
+    {
+      "type": "primary_dataset",
+      "accession": "GSE292698",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE292698",
+      "filelist_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE292nnn/GSE292698/suppl/filelist.txt",
+      "supports": "Processed ATAC, histone, TF/cohesin, PRO-seq and contact datasets for reference and sg1617-edited cells."
+    }
+  ]
+}
