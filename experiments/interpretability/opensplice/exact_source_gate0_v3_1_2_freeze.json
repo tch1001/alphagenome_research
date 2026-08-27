@@ -1,0 +1,45 @@
+{
+  "attempt_id": "opensplice-v3.1.2-exact-source-gate0-one-shot",
+  "environment_contract": {
+    "LD_LIBRARY_PATH": "absent",
+    "XLA_PYTHON_CLIENT_PREALLOCATE": "false"
+  },
+  "expected_compute_capability": "8.6",
+  "expected_device_kind": "NVIDIA GeForce RTX 3090",
+  "expected_gpu_uuid": "GPU-64111645-1e42-a96d-f192-4abbec4b8090",
+  "initial_transitive_import_tree_sha256": "87ff31dd8ade0a958376eb2e4adcb5c2fa08caef3099512d54962dfb5733697c",
+  "lock_commit": "fd4dc6913335a6966420d60ef04bc4643b751a27",
+  "mixed_precision": {
+    "constructor_expression": "jmp.get_policy('params=float32,compute=bfloat16,output=bfloat16')",
+    "policy": "params=float32,compute=bfloat16,output=bfloat16",
+    "scope": "hk.mixed_precision policy pushed for model.AlphaGenome",
+    "source_occurrences": 6,
+    "source_path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/model/dna_model.py",
+    "source_sha256": "5d11021edd88f38ef55e6a385c2e20b1c39e4dd6c48139041477e5033b78b2bb"
+  },
+  "output_dir": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_1_2_exact_source_gate0_identity_one_shot",
+  "preflight_dir": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_1_2_device_preflight",
+  "preflight_script_version": "opensplice-device-preflight-v3.1.2",
+  "preflight_sha256": "d5e8520131392c4649a7cc6d4be5f457294e9379b910b000976f59559b3e4c14",
+  "proto_build_manifest_sha256": "e8d8cdf31923ae7735e780d57dee78d22de9f14526c93ca254e8b300c50b6117",
+  "protocol_sha256": "5134bda6a004f101c948b0aabfa3a992849398e4a768fd24f329736fa03d2822",
+  "runner_script_version": "opensplice-exact-source-gate0-v3.1.2",
+  "runner_sha256": "f33cb331f0c51b66098fba2c0ab638601a19b6a55d2074e07176f2fff3c53680",
+  "test_sha256": "431630e27679aecea0311a0f780f804a8d73678edbea94abad1d5741a509b549",
+  "v3_1_1_base_runner_sha256": "a878bc366f9a31ed6ee76eea311a0e84d66b682d590e6ae61d3ba8c0f1abb09d",
+  "v3_1_1_failure": {
+    "active_interventions": 0,
+    "bundle_commit": "c95c7c284487227fc6bcc2d1ae05a00088e37b17",
+    "compiled_model_executables": 0,
+    "confirmation_calls": 0,
+    "identity_calls": 0,
+    "partial_failure_path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_1_1_exact_source_gate0_identity_one_shot/PARTIAL_FAILURE.md",
+    "partial_failure_sha256": "c3e09b9503ef4e84875719bcc2f85131bfca428c11a3458ccfc9389bc7bc0ab7",
+    "start_only_tree_sha256": "a310ecddcace66bc9362e18249b08506c8e84ed7217a594a17e464ffb130d510",
+    "start_path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_1_1_exact_source_gate0_identity_one_shot/ATTEMPT_STARTED.json",
+    "start_sha256": "1c1d24219e49e089806a02956bf8d7a44bdbd103e28adad6217eb3f94b424587",
+    "status": "partial_infrastructure_failure_never_resume_or_retry"
+  },
+  "v3_1_1_freeze_sha256": "a60a30fa61349fc1c221a9f6dc01a3981f44c491513e452f81c4774aa59c9c38",
+  "wrapper_sha256": "8809098e2640f560fc0d743b1242c69f54538f6dab163d09b779b09a4d47d9ad"
+}

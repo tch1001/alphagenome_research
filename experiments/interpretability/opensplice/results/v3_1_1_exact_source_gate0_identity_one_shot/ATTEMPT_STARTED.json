@@ -1,0 +1,869 @@
+{
+  "attempt_id": "opensplice-v3.1.1-exact-source-gate0-one-shot",
+  "checkpoint_path": "/home/degen2/.cache/huggingface/hub/models--google--alphagenome-all-folds/snapshots/a8f293a76ee73d5b57f3bf2ae146510589fcf187",
+  "checkpoint_snapshot": "a8f293a76ee73d5b57f3bf2ae146510589fcf187",
+  "generated_proto_build_artifact": {
+    "generated_bindings": {
+      "src/alphagenome_research/protos/calibration_scores_pb2.py": {
+        "sha256": "c56a2e0d78633e8224882e95e87185c58047613e68a1f9add534f01a5c0ceb27",
+        "size_bytes": 2794
+      },
+      "src/alphagenome_research/protos/calibration_scores_pb2.pyi": {
+        "sha256": "ca3d7b5fb1003e1deca2502cf42a97d3d629cd4b1c285e43432a232937c8885d",
+        "size_bytes": 1788
+      }
+    },
+    "source_proto": {
+      "path": "src/alphagenome_research/protos/calibration_scores.proto",
+      "sha256": "356f08689a4bafa0761f88f08dac08468a2de2c8aef38dcef093457eceee2f34"
+    },
+    "tracked_source_unchanged": true,
+    "unexpected_untracked_files": []
+  },
+  "generated_proto_build_provenance": {
+    "build_recipe": {
+      "hatch_build_py_sha256": "2a3dea991f65bf91107bf4acea3c8007e0188c2b1393b76226b4e5f40241f3f3",
+      "pyproject_toml_sha256": "9c809953f4703929ac9e92f9a44f7ce3c59c8ed57247d2b568f6c6e124909498"
+    },
+    "command_argv": [
+      "/home/degen2/anaconda3/bin/protoc-29.3.0",
+      "--proto_path=/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src",
+      "--proto_path=/home/degen2/alphafold-stuff/alphagenome/src",
+      "--python_out=/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src",
+      "--pyi_out=/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src",
+      "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/protos/calibration_scores.proto"
+    ],
+    "created_at_unix_s": 1787865005.4924092,
+    "generated_outputs": {
+      "src/alphagenome_research/protos/calibration_scores_pb2.py": {
+        "sha256": "c56a2e0d78633e8224882e95e87185c58047613e68a1f9add534f01a5c0ceb27",
+        "size_bytes": 2794
+      },
+      "src/alphagenome_research/protos/calibration_scores_pb2.pyi": {
+        "sha256": "ca3d7b5fb1003e1deca2502cf42a97d3d629cd4b1c285e43432a232937c8885d",
+        "size_bytes": 1788
+      }
+    },
+    "generation_disclosure": {
+      "grpcio_tools_used": false,
+      "grpcio_tools_version": null,
+      "hatch_build_hook_invoked": false,
+      "historical_generated_bytes_or_toolchain_reproduced": false,
+      "interpretation": "semantically generated from the exact locked proto and declared dependency; not evidence of byte-identical historical build output",
+      "standalone_protoc_used": true,
+      "vector": "standalone_protoc_29_3_command_not_hatch_build_hook"
+    },
+    "include_roots": [
+      "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src",
+      "/home/degen2/alphafold-stuff/alphagenome/src"
+    ],
+    "initial_outputs_absent": true,
+    "input_protos": {
+      "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/protos/dna_model.proto": "d19a7208ec34953ca021efbff32516f1aa277f0477276f7699d9567fd616329a",
+      "src/alphagenome_research/protos/calibration_scores.proto": "356f08689a4bafa0761f88f08dac08468a2de2c8aef38dcef093457eceee2f34"
+    },
+    "locked_commit": "fd4dc6913335a6966420d60ef04bc4643b751a27",
+    "manifest_path": "/home/degen2/alphafold-stuff/.alphagenome_research_exact_fd4dc6913335.v3_1_1_proto_build.json",
+    "manifest_sha256": "e8d8cdf31923ae7735e780d57dee78d22de9f14526c93ca254e8b300c50b6117",
+    "purpose": "declared_repository_build_hook_output_not_model_source_patch",
+    "reused": true,
+    "status": "complete",
+    "stderr": "",
+    "stdout": "",
+    "tool": {
+      "grpcio_tools_version": null,
+      "protobuf_version": "7.35.1",
+      "protoc_path": "/home/degen2/anaconda3/bin/protoc-29.3.0",
+      "protoc_version": {
+        "returncode": 0,
+        "status": "available",
+        "stderr": "",
+        "stdout": "libprotoc 29.3"
+      },
+      "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:09:02) [GCC 11.2.0]"
+    },
+    "tracked_source_clean_before_generation": true
+  },
+  "import_resolution": {
+    "alphagenome_dependency_binding": {
+      "dna_model_pb2_module_record": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/protos/dna_model_pb2.py",
+        "provenance_class": "declared_third_party_alphagenome_source",
+        "relative_path": "alphagenome/protos/dna_model_pb2.py",
+        "sha256": "d97564536e77ec09bdf144ba1204d4e08f79095fb9ed6c0cba7b065dc6f252ee",
+        "size_bytes": 16279
+      },
+      "dna_model_pb2_path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/protos/dna_model_pb2.py",
+      "dna_model_pb2_sha256": "d97564536e77ec09bdf144ba1204d4e08f79095fb9ed6c0cba7b065dc6f252ee",
+      "dna_model_proto_path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/protos/dna_model.proto",
+      "dna_model_proto_sha256": "d19a7208ec34953ca021efbff32516f1aa277f0477276f7699d9567fd616329a"
+    },
+    "alphagenome_package_source": {
+      "head": "95cdbfce7981411453e5e094519bcf0605720199",
+      "repository_root": "/home/degen2/alphafold-stuff/alphagenome",
+      "tracked_clean": true,
+      "tracked_status": ""
+    },
+    "declared_roots": {
+      "exact_opensplice_helpers": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/experiments/interpretability/opensplice",
+      "exact_worktree": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335",
+      "third_party_alphagenome_source": "/home/degen2/alphafold-stuff/alphagenome/src"
+    },
+    "module_count": 69,
+    "module_tree_sha256": "87ff31dd8ade0a958376eb2e4adcb5c2fa08caef3099512d54962dfb5733697c",
+    "modules": {
+      "alphagenome": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/__init__.py",
+        "provenance_class": "declared_third_party_alphagenome_source",
+        "relative_path": "alphagenome/__init__.py",
+        "sha256": "d14801267d115e6085b9076fdbd4d8736deaa10d7ecfbb772e62154844897d2d",
+        "size_bytes": 667
+      },
+      "alphagenome.data": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/data/__init__.py",
+        "provenance_class": "declared_third_party_alphagenome_source",
+        "relative_path": "alphagenome/data/__init__.py",
+        "sha256": "adffb9b8877c4105bd0ab53cf2222588cd839a890387d3274f871af439f99854",
+        "size_bytes": 644
+      },
+      "alphagenome.data.gene_annotation": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/data/gene_annotation.py",
+        "provenance_class": "declared_third_party_alphagenome_source",
+        "relative_path": "alphagenome/data/gene_annotation.py",
+        "sha256": "8b2935434fa8e314ff96ba57e8228569275ef99d6642670ad7d1255fa1a14734",
+        "size_bytes": 15629
+      },
+      "alphagenome.data.genome": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/data/genome.py",
+        "provenance_class": "declared_third_party_alphagenome_source",
+        "relative_path": "alphagenome/data/genome.py",
+        "sha256": "4c297b2dde8f751c62211a1295ec243280eff412255b915cdf13c411b5168b61",
+        "size_bytes": 39244
+      },
+      "alphagenome.data.junction_data": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/data/junction_data.py",
+        "provenance_class": "declared_third_party_alphagenome_source",
+        "relative_path": "alphagenome/data/junction_data.py",
+        "sha256": "915d5a248889409933a6922920339ee9d4981084e8009e4ec2ad6530bc8c511c",
+        "size_bytes": 8538
+      },
+      "alphagenome.data.ontology": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/data/ontology.py",
+        "provenance_class": "declared_third_party_alphagenome_source",
+        "relative_path": "alphagenome/data/ontology.py",
+        "sha256": "61ade86be9fa4d0e980e9c28ec182cc1fbfa2c22f0e38df46b766468825fb954",
+        "size_bytes": 3378
+      },
+      "alphagenome.data.track_data": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/data/track_data.py",
+        "provenance_class": "declared_third_party_alphagenome_source",
+        "relative_path": "alphagenome/data/track_data.py",
+        "sha256": "199197ae3a3c83b563bfe1c75b3d9584168d927051a7e7114c7f2f3bd41439e3",
+        "size_bytes": 32313
+      },
+      "alphagenome.interpretation": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/interpretation/__init__.py",
+        "provenance_class": "declared_third_party_alphagenome_source",
+        "relative_path": "alphagenome/interpretation/__init__.py",
+        "sha256": "096845f130be50112d7b28a4fbfef927023b1d39c7d52d3d36b719943ac1169b",
+        "size_bytes": 650
+      },
+      "alphagenome.interpretation.ism": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/interpretation/ism.py",
+        "provenance_class": "declared_third_party_alphagenome_source",
+        "relative_path": "alphagenome/interpretation/ism.py",
+        "sha256": "bd3d0691ee41381fbdbde9ccbf046e900da6d5fd4e589cfef0405933faf39c53",
+        "size_bytes": 5898
+      },
+      "alphagenome.io": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/io/__init__.py",
+        "provenance_class": "declared_third_party_alphagenome_source",
+        "relative_path": "alphagenome/io/__init__.py",
+        "sha256": "b911675aa1ff9f8d8f114e7bcd1d0fe45d5108bec383e63df448d7f780ee14ad",
+        "size_bytes": 623
+      },
+      "alphagenome.io.fasta": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/io/fasta.py",
+        "provenance_class": "declared_third_party_alphagenome_source",
+        "relative_path": "alphagenome/io/fasta.py",
+        "sha256": "9ba867ff419a750d3e0ae3d3bd31cca5a3240805b0a4494776819f7cc2af8b84",
+        "size_bytes": 3026
+      },
+      "alphagenome.models": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/models/__init__.py",
+        "provenance_class": "declared_third_party_alphagenome_source",
+        "relative_path": "alphagenome/models/__init__.py",
+        "sha256": "f006894d9ee4565844b50fe7207e633e9fde59b3c7f37a214e8b25b03b7bff27",
+        "size_bytes": 639
+      },
+      "alphagenome.models.dna_client": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/models/dna_client.py",
+        "provenance_class": "declared_third_party_alphagenome_source",
+        "relative_path": "alphagenome/models/dna_client.py",
+        "sha256": "223cb0eb1a9535177bef78da062ec4e91e7c6e92a775d98350e9aa6fbd595a83",
+        "size_bytes": 32678
+      },
+      "alphagenome.models.dna_model": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/models/dna_model.py",
+        "provenance_class": "declared_third_party_alphagenome_source",
+        "relative_path": "alphagenome/models/dna_model.py",
+        "sha256": "17e7f689b40938a061e675ddcefb85ec7151d3e5d0ac43812a891df7bb914678",
+        "size_bytes": 18027
+      },
+      "alphagenome.models.dna_output": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/models/dna_output.py",
+        "provenance_class": "declared_third_party_alphagenome_source",
+        "relative_path": "alphagenome/models/dna_output.py",
+        "sha256": "c90c908238e5c3161160628c181164ae6604762616e2ed029cb6021d585eed1d",
+        "size_bytes": 14887
+      },
+      "alphagenome.models.interval_scorers": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/models/interval_scorers.py",
+        "provenance_class": "declared_third_party_alphagenome_source",
+        "relative_path": "alphagenome/models/interval_scorers.py",
+        "sha256": "aeb0984cab4d57fb5f311ad14187897bbe566d0a0f61fa628aa6d8c9378fe7b3",
+        "size_bytes": 4401
+      },
+      "alphagenome.models.junction_data_utils": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/models/junction_data_utils.py",
+        "provenance_class": "declared_third_party_alphagenome_source",
+        "relative_path": "alphagenome/models/junction_data_utils.py",
+        "sha256": "652c205e2b1930843d1446d810eefc99b2603edefe4e19732cc40bf14020ed14",
+        "size_bytes": 6508
+      },
+      "alphagenome.models.track_data_utils": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/models/track_data_utils.py",
+        "provenance_class": "declared_third_party_alphagenome_source",
+        "relative_path": "alphagenome/models/track_data_utils.py",
+        "sha256": "84050cc8f0c64473a8ebba54b1fc28d09a8b2c106d0fc8a8a1ab5cd754018ba6",
+        "size_bytes": 8624
+      },
+      "alphagenome.models.variant_scorers": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/models/variant_scorers.py",
+        "provenance_class": "declared_third_party_alphagenome_source",
+        "relative_path": "alphagenome/models/variant_scorers.py",
+        "sha256": "1191e86d4b5eb49ad939cf92ff7e02c91eb288dddd30c591ffd49587673c8899",
+        "size_bytes": 31841
+      },
+      "alphagenome.protos": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/protos/__init__.py",
+        "provenance_class": "declared_third_party_alphagenome_source",
+        "relative_path": "alphagenome/protos/__init__.py",
+        "sha256": "6ba9c46461790bfb033a8a5841d538955d321fac55833425e38eb50cadd2a845",
+        "size_bytes": 637
+      },
+      "alphagenome.protos.dna_model_pb2": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/protos/dna_model_pb2.py",
+        "provenance_class": "declared_third_party_alphagenome_source",
+        "relative_path": "alphagenome/protos/dna_model_pb2.py",
+        "sha256": "d97564536e77ec09bdf144ba1204d4e08f79095fb9ed6c0cba7b065dc6f252ee",
+        "size_bytes": 16279
+      },
+      "alphagenome.protos.dna_model_service_pb2": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/protos/dna_model_service_pb2.py",
+        "provenance_class": "declared_third_party_alphagenome_source",
+        "relative_path": "alphagenome/protos/dna_model_service_pb2.py",
+        "sha256": "062ed92fd13a0757c3c029275edd698c2327ea56be4a5e074a28d91fa0dabd6a",
+        "size_bytes": 10114
+      },
+      "alphagenome.protos.dna_model_service_pb2_grpc": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/protos/dna_model_service_pb2_grpc.py",
+        "provenance_class": "declared_third_party_alphagenome_source",
+        "relative_path": "alphagenome/protos/dna_model_service_pb2_grpc.py",
+        "sha256": "db3816f2f0ccfe08d0e6bec0771079bbca6cfc399bd58e79e928cb1264bdaeb3",
+        "size_bytes": 16361
+      },
+      "alphagenome.protos.tensor_pb2": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/protos/tensor_pb2.py",
+        "provenance_class": "declared_third_party_alphagenome_source",
+        "relative_path": "alphagenome/protos/tensor_pb2.py",
+        "sha256": "dea7a5207e82601b6763e95ee4b69356345e95bc2de91632928d6161f873cdb8",
+        "size_bytes": 3155
+      },
+      "alphagenome.tensor_utils": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/tensor_utils.py",
+        "provenance_class": "declared_third_party_alphagenome_source",
+        "relative_path": "alphagenome/tensor_utils.py",
+        "sha256": "0f133099149a8323b17dc69a20453983bc91354fee11275b59b19ff3299d42df",
+        "size_bytes": 5992
+      },
+      "alphagenome.typing": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/typing.py",
+        "provenance_class": "declared_third_party_alphagenome_source",
+        "relative_path": "alphagenome/typing.py",
+        "sha256": "ccebeacf8984a075020ffcabd771657b226b21d6af75915c239c452dc90c2649",
+        "size_bytes": 1253
+      },
+      "alphagenome_research": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/__init__.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/__init__.py",
+        "sha256": "9b6cfa770707abaaba2e3fc807f4774f4f74aa3c2c0f65ec41ac1a7608045af5",
+        "size_bytes": 628
+      },
+      "alphagenome_research.io": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/io/__init__.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/io/__init__.py",
+        "sha256": "b911675aa1ff9f8d8f114e7bcd1d0fe45d5108bec383e63df448d7f780ee14ad",
+        "size_bytes": 623
+      },
+      "alphagenome_research.io.bundles": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/io/bundles.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/io/bundles.py",
+        "sha256": "95cd2d328f049df06658dfe6a1ef7bc6dcead751853c31915ef93be394324238",
+        "size_bytes": 3154
+      },
+      "alphagenome_research.io.genome": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/io/genome.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/io/genome.py",
+        "sha256": "22b37fe05459626668c0c0e4e6b0ded8166a5a9db762706db3b1a1f09af88037",
+        "size_bytes": 4718
+      },
+      "alphagenome_research.io.splicing": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/io/splicing.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/io/splicing.py",
+        "sha256": "47cd2ec60bf0c23cf76fc9b68c56c05e3a84c32b2ba1ea273e651cdc5946dba3",
+        "size_bytes": 6131
+      },
+      "alphagenome_research.model": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/model/__init__.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/model/__init__.py",
+        "sha256": "4b86d6f532fd00c022643e4b9a9a18f1d13ef6b7aa7175e2dfdd1dac3eb73898",
+        "size_bytes": 602
+      },
+      "alphagenome_research.model.attention": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/model/attention.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/model/attention.py",
+        "sha256": "c2acb9a97752497373c8b8b831ac77e63d5c21f2a93fdb602dd2d53731419444",
+        "size_bytes": 16958
+      },
+      "alphagenome_research.model.augmentation": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/model/augmentation.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/model/augmentation.py",
+        "sha256": "a85e750f1f4ca9b3b125eef4704f98725b1a8c2299294ed1f779541167a1f928",
+        "size_bytes": 4851
+      },
+      "alphagenome_research.model.convolutions": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/model/convolutions.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/model/convolutions.py",
+        "sha256": "757efdc485647afbb2469713f4bf69aaf4dd1323bcf58055a1987403cd69bae5",
+        "size_bytes": 5422
+      },
+      "alphagenome_research.model.dna_model": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/model/dna_model.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/model/dna_model.py",
+        "sha256": "5d11021edd88f38ef55e6a385c2e20b1c39e4dd6c48139041477e5033b78b2bb",
+        "size_bytes": 83321
+      },
+      "alphagenome_research.model.embeddings": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/model/embeddings.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/model/embeddings.py",
+        "sha256": "c9f80d7c222ce2d0c011a115c7fc02609ca82a4e30a798c17d90aee8f1198501",
+        "size_bytes": 3970
+      },
+      "alphagenome_research.model.heads": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/model/heads.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/model/heads.py",
+        "sha256": "11f2f72a5a23bcf8b9eb6a1ffe586d17b254047d9ea988e86f25807e943a52e4",
+        "size_bytes": 43188
+      },
+      "alphagenome_research.model.indel_stitch_utils": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/model/indel_stitch_utils.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/model/indel_stitch_utils.py",
+        "sha256": "0b4366171283381773a3d1eace501ad078946786a9d2ff212fb31fd9143677f3",
+        "size_bytes": 5754
+      },
+      "alphagenome_research.model.interpretability": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/model/interpretability.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/model/interpretability.py",
+        "sha256": "36a55fb546c83aab7cf0b76c7fa1ed6dbe5de8fd216dd6d915d777e6c4a5d926",
+        "size_bytes": 42445
+      },
+      "alphagenome_research.model.interval_scoring": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/model/interval_scoring/__init__.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/model/interval_scoring/__init__.py",
+        "sha256": "8554958835981181321f45b9290f045077016c91868a9ef46cb6df45ba5ce2de",
+        "size_bytes": 613
+      },
+      "alphagenome_research.model.interval_scoring.gene_mask": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/model/interval_scoring/gene_mask.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/model/interval_scoring/gene_mask.py",
+        "sha256": "6628178f4da14485903291b6e453876f5c0a6264f4ae288e46a1a03b8f8ba723",
+        "size_bytes": 5071
+      },
+      "alphagenome_research.model.interval_scoring.interval_scoring": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/model/interval_scoring/interval_scoring.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/model/interval_scoring/interval_scoring.py",
+        "sha256": "377e06b6d7c4c3c58b63af6a8772eaf421d85ce76a218718b7519b943b74a28d",
+        "size_bytes": 3779
+      },
+      "alphagenome_research.model.layers": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/model/layers.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/model/layers.py",
+        "sha256": "16f970e2530f6f0556e33d810acdeaa05f101cc18e493315f591939d5dc6f483",
+        "size_bytes": 4581
+      },
+      "alphagenome_research.model.losses": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/model/losses.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/model/losses.py",
+        "sha256": "904ca738c13d35eca053c1cc941fec3cb6b91695d11675c9a0e4d52e889190b8",
+        "size_bytes": 6275
+      },
+      "alphagenome_research.model.metadata": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/model/metadata/__init__.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/model/metadata/__init__.py",
+        "sha256": "da6e119c3d47070e5bf54f498f198d09bc4011a6ceed4c81527e2fd7afb4678e",
+        "size_bytes": 611
+      },
+      "alphagenome_research.model.metadata.metadata": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/model/metadata/metadata.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/model/metadata/metadata.py",
+        "sha256": "b3edc4092e95ccc4fa766d3ce8c3b115a2499d50d26e035a0dcd537b8ff09d5f",
+        "size_bytes": 5625
+      },
+      "alphagenome_research.model.model": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/model/model.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/model/model.py",
+        "sha256": "e6a5f130d3be66927a19b008501e87f031012c5295779e1437c810cc30ae8436",
+        "size_bytes": 30994
+      },
+      "alphagenome_research.model.one_hot_encoder": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/model/one_hot_encoder.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/model/one_hot_encoder.py",
+        "sha256": "e80f6edecdf0a3dc3422ddd611828bf67daa5707a6a3b75fcd1a70f1058c8d95",
+        "size_bytes": 1877
+      },
+      "alphagenome_research.model.pallas_tiled_attention": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/model/pallas_tiled_attention.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/model/pallas_tiled_attention.py",
+        "sha256": "19219345ff89f2a55297731974e5deca50afc3f6a94557a2b1b0fe28d037fd00",
+        "size_bytes": 8439
+      },
+      "alphagenome_research.model.schemas": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/model/schemas.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/model/schemas.py",
+        "sha256": "0ed930ebffbf2b1e14f6290ec761a052beaa008876cc84b873cad216612a3f1a",
+        "size_bytes": 3836
+      },
+      "alphagenome_research.model.splicing": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/model/splicing.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/model/splicing.py",
+        "sha256": "b923c3a7cb432f133b7d85536974169f0c91fb3223e9d60153b080273aff6594",
+        "size_bytes": 2725
+      },
+      "alphagenome_research.model.variant_scoring": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/model/variant_scoring/__init__.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/model/variant_scoring/__init__.py",
+        "sha256": "2e4bc740f5524665e2101b9dec5978ccb2dd742368f9bf387095dd4967967152",
+        "size_bytes": 612
+      },
+      "alphagenome_research.model.variant_scoring.calibration": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/model/variant_scoring/calibration/__init__.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/model/variant_scoring/calibration/__init__.py",
+        "sha256": "69cb0008a5f09e27e80cde73fc9a983101b3ac66e3917a3b16117de44e462fa8",
+        "size_bytes": 615
+      },
+      "alphagenome_research.model.variant_scoring.calibration.calibration": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/model/variant_scoring/calibration/calibration.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/model/variant_scoring/calibration/calibration.py",
+        "sha256": "a11c9da1e4e7088983ee3b982d00d61c940437899fa98a1da9ef603474d48224",
+        "size_bytes": 6534
+      },
+      "alphagenome_research.model.variant_scoring.center_mask": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/model/variant_scoring/center_mask.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/model/variant_scoring/center_mask.py",
+        "sha256": "d6256a8913d74b34a940a477bddd6d11cf4a4126087ff8a78594bfbbd923dcf9",
+        "size_bytes": 6258
+      },
+      "alphagenome_research.model.variant_scoring.contact_map": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/model/variant_scoring/contact_map.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/model/variant_scoring/contact_map.py",
+        "sha256": "0761cdaac52489c615b8d0269df31f27525cf17203a665e30bc72bd590804070",
+        "size_bytes": 4783
+      },
+      "alphagenome_research.model.variant_scoring.gene_mask": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/model/variant_scoring/gene_mask.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/model/variant_scoring/gene_mask.py",
+        "sha256": "b668443c242eab0b102b20b62b04221c41ab742ab20ad0218d4aa7bba8a7efff",
+        "size_bytes": 7532
+      },
+      "alphagenome_research.model.variant_scoring.gene_mask_extractor": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/model/variant_scoring/gene_mask_extractor.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/model/variant_scoring/gene_mask_extractor.py",
+        "sha256": "0eac91fe16fe3b637e34abbc7c5084cc41f6ec747334da4e6281570e9785fbc1",
+        "size_bytes": 15242
+      },
+      "alphagenome_research.model.variant_scoring.polyadenylation": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/model/variant_scoring/polyadenylation.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/model/variant_scoring/polyadenylation.py",
+        "sha256": "b6472d524ac374f929ba77880216e218365b321a9542a9fac0b9e36a73bfb646",
+        "size_bytes": 8442
+      },
+      "alphagenome_research.model.variant_scoring.splice_junction": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/model/variant_scoring/splice_junction.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/model/variant_scoring/splice_junction.py",
+        "sha256": "47f84d74393ee4d830e58c668a9b33e746e2697efac296b586bf1fa26e75978f",
+        "size_bytes": 11537
+      },
+      "alphagenome_research.model.variant_scoring.variant_scoring": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/model/variant_scoring/variant_scoring.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/model/variant_scoring/variant_scoring.py",
+        "sha256": "3b59a3a47441b88198a5db2753e16b41fdc1e3d108937138b2056a59872e3659",
+        "size_bytes": 12879
+      },
+      "alphagenome_research.protos": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/protos/__init__.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/protos/__init__.py",
+        "sha256": "081e376d763211e874472e9ca7a3dc7980ffe825919c535813d8080afcf3f568",
+        "size_bytes": 626
+      },
+      "alphagenome_research.protos.calibration_scores_pb2": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/protos/calibration_scores_pb2.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/protos/calibration_scores_pb2.py",
+        "sha256": "c56a2e0d78633e8224882e95e87185c58047613e68a1f9add534f01a5c0ceb27",
+        "size_bytes": 2794
+      },
+      "alphagenome_research.typing": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/typing.py",
+        "provenance_class": "exact_fd4dc69_worktree",
+        "relative_path": "src/alphagenome_research/typing.py",
+        "sha256": "10ee945993b2eb966b8e969840a5f5117482233db6c0c881c8f640bf7a28dae6",
+        "size_bytes": 931
+      },
+      "run_inference_trace": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/experiments/interpretability/opensplice/run_inference_trace.py",
+        "provenance_class": "exact_fd4dc69_opensplice_helper",
+        "relative_path": "experiments/interpretability/opensplice/run_inference_trace.py",
+        "sha256": "2ff015c9a1440d6bad8048a207bca74e8ced545ada357844529436ec20a87684",
+        "size_bytes": 55525
+      },
+      "run_phase_r_v3": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/experiments/interpretability/opensplice/run_phase_r_v3.py",
+        "provenance_class": "exact_fd4dc69_opensplice_helper",
+        "relative_path": "experiments/interpretability/opensplice/run_phase_r_v3.py",
+        "sha256": "e2430f700165bc0224ed2cd07130f568119f2dc4aad5a73eb5069f1efcdb0d74",
+        "size_bytes": 18636
+      },
+      "run_route_census_v3": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/experiments/interpretability/opensplice/run_route_census_v3.py",
+        "provenance_class": "exact_fd4dc69_opensplice_helper",
+        "relative_path": "experiments/interpretability/opensplice/run_route_census_v3.py",
+        "sha256": "ed873dc3d538097fe8c8646e4449e48914608a0bffb942f46067018427f6a06a",
+        "size_bytes": 35932
+      },
+      "target_reducers_v3": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/experiments/interpretability/opensplice/target_reducers_v3.py",
+        "provenance_class": "exact_fd4dc69_opensplice_helper",
+        "relative_path": "experiments/interpretability/opensplice/target_reducers_v3.py",
+        "sha256": "da890039805b81cf3ad4923aa10bf075cae96fede869af94035fc5007ea3a41e",
+        "size_bytes": 15754
+      }
+    }
+  },
+  "launch_freeze": {
+    "alphagenome_dependency_binding": {
+      "dna_model_pb2_module_record": {
+        "kind": "filesystem_module",
+        "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/protos/dna_model_pb2.py",
+        "provenance_class": "declared_third_party_alphagenome_source",
+        "relative_path": "alphagenome/protos/dna_model_pb2.py",
+        "sha256": "d97564536e77ec09bdf144ba1204d4e08f79095fb9ed6c0cba7b065dc6f252ee",
+        "size_bytes": 16279
+      },
+      "dna_model_pb2_path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/protos/dna_model_pb2.py",
+      "dna_model_pb2_sha256": "d97564536e77ec09bdf144ba1204d4e08f79095fb9ed6c0cba7b065dc6f252ee",
+      "dna_model_proto_path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/protos/dna_model.proto",
+      "dna_model_proto_sha256": "d19a7208ec34953ca021efbff32516f1aa277f0477276f7699d9567fd616329a"
+    },
+    "attempt_id": "opensplice-v3.1.1-exact-source-gate0-one-shot",
+    "generated_output_sha256": {
+      "src/alphagenome_research/protos/calibration_scores_pb2.py": "c56a2e0d78633e8224882e95e87185c58047613e68a1f9add534f01a5c0ceb27",
+      "src/alphagenome_research/protos/calibration_scores_pb2.pyi": "ca3d7b5fb1003e1deca2502cf42a97d3d629cd4b1c285e43432a232937c8885d"
+    },
+    "initial_transitive_import_tree_sha256": "87ff31dd8ade0a958376eb2e4adcb5c2fa08caef3099512d54962dfb5733697c",
+    "launcher_sha256": "a878bc366f9a31ed6ee76eea311a0e84d66b682d590e6ae61d3ba8c0f1abb09d",
+    "lock_commit": "fd4dc6913335a6966420d60ef04bc4643b751a27",
+    "mixed_precision": {
+      "constructor_expression": "jmp.get_policy('params=float32,compute=bfloat16,output=bfloat16')",
+      "policy": "params=float32,compute=bfloat16,output=bfloat16",
+      "scope": "hk.mixed_precision policy pushed for model.AlphaGenome",
+      "source_occurrences": 6,
+      "source_path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/model/dna_model.py",
+      "source_sha256": "5d11021edd88f38ef55e6a385c2e20b1c39e4dd6c48139041477e5033b78b2bb"
+    },
+    "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/exact_source_gate0_v3_1_1_freeze.json",
+    "proto_build_manifest_sha256": "e8d8cdf31923ae7735e780d57dee78d22de9f14526c93ca254e8b300c50b6117",
+    "proto_generation": {
+      "build_recipe": {
+        "hatch_build_py_sha256": "2a3dea991f65bf91107bf4acea3c8007e0188c2b1393b76226b4e5f40241f3f3",
+        "pyproject_toml_sha256": "9c809953f4703929ac9e92f9a44f7ce3c59c8ed57247d2b568f6c6e124909498"
+      },
+      "command_argv": [
+        "/home/degen2/anaconda3/bin/protoc-29.3.0",
+        "--proto_path=/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src",
+        "--proto_path=/home/degen2/alphafold-stuff/alphagenome/src",
+        "--python_out=/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src",
+        "--pyi_out=/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src",
+        "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/protos/calibration_scores.proto"
+      ],
+      "grpcio_tools_used": false,
+      "grpcio_tools_version": null,
+      "input_protos": {
+        "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/protos/dna_model.proto": "d19a7208ec34953ca021efbff32516f1aa277f0477276f7699d9567fd616329a",
+        "src/alphagenome_research/protos/calibration_scores.proto": "356f08689a4bafa0761f88f08dac08468a2de2c8aef38dcef093457eceee2f34"
+      },
+      "protoc_path": "/home/degen2/anaconda3/bin/protoc-29.3.0",
+      "protoc_version": {
+        "returncode": 0,
+        "status": "available",
+        "stderr": "",
+        "stdout": "libprotoc 29.3"
+      },
+      "vector": "standalone_protoc_not_grpc_tools"
+    },
+    "protocol_sha256": "fe0ca92a2e56bca168361c68d4103da637a1fc0a2ba8831fb8059c72574477c3",
+    "script_version": "opensplice-exact-source-gate0-v3.1.1",
+    "sha256": "a60a30fa61349fc1c221a9f6dc01a3981f44c491513e452f81c4774aa59c9c38",
+    "wrapper_sha256": "2a47394c8b9c50177d8d81cf7aaba242fe43a754462ce970e76dbd2256af0d51"
+  },
+  "launcher_path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/run_exact_source_gate0_v3_1_1.py",
+  "launcher_sha256": "a878bc366f9a31ed6ee76eea311a0e84d66b682d590e6ae61d3ba8c0f1abb09d",
+  "locked_phase_r_identity_tree_sha256": "ff7182be96e4b5be52e022e613ac16f476651924ff36d6a11b397b95613a3436",
+  "locked_sources": {
+    "locked_five_file_sha256": {
+      "experiments/interpretability/opensplice/run_route_census_v3.py": "ed873dc3d538097fe8c8646e4449e48914608a0bffb942f46067018427f6a06a",
+      "experiments/interpretability/opensplice/target_reducers_v3.py": "da890039805b81cf3ad4923aa10bf075cae96fede869af94035fc5007ea3a41e",
+      "src/alphagenome_research/model/dna_model.py": "5d11021edd88f38ef55e6a385c2e20b1c39e4dd6c48139041477e5033b78b2bb",
+      "src/alphagenome_research/model/interpretability.py": "36a55fb546c83aab7cf0b76c7fa1ed6dbe5de8fd216dd6d915d777e6c4a5d926",
+      "src/alphagenome_research/model/model.py": "e6a5f130d3be66927a19b008501e87f031012c5295779e1437c810cc30ae8436"
+    },
+    "locked_helper_sha256": {
+      "experiments/interpretability/opensplice/run_inference_trace.py": "2ff015c9a1440d6bad8048a207bca74e8ced545ada357844529436ec20a87684",
+      "experiments/interpretability/opensplice/run_phase_r_v3.py": "e2430f700165bc0224ed2cd07130f568119f2dc4aad5a73eb5069f1efcdb0d74"
+    }
+  },
+  "mixed_precision": {
+    "constructor_expression": "jmp.get_policy('params=float32,compute=bfloat16,output=bfloat16')",
+    "policy": "params=float32,compute=bfloat16,output=bfloat16",
+    "scope": "hk.mixed_precision policy pushed for model.AlphaGenome",
+    "source_occurrences": 6,
+    "source_path": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335/src/alphagenome_research/model/dna_model.py",
+    "source_sha256": "5d11021edd88f38ef55e6a385c2e20b1c39e4dd6c48139041477e5033b78b2bb"
+  },
+  "one_shot_policy": {
+    "active_interventions": 0,
+    "calls_per_identity": 2,
+    "identity_units": 20,
+    "overwrite": false,
+    "resume": false,
+    "retry": false
+  },
+  "protocol_path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/v3_wider_mechanism/exact_source_gate0_diagnostic_v3_1_1.md",
+  "protocol_sha256": "fe0ca92a2e56bca168361c68d4103da637a1fc0a2ba8831fb8059c72574477c3",
+  "runtime_before_model_creation": {
+    "captured_at_unix_s": 1787866015.6299667,
+    "compiler_environment": {
+      "ALPHAGENOME_PROTOC_BIN": {
+        "state": "set",
+        "value": "/home/degen2/anaconda3/bin/protoc"
+      },
+      "HOME": {
+        "state": "set",
+        "value": "/home/degen2"
+      },
+      "LD_LIBRARY_PATH": {
+        "state": "set",
+        "value": "/usr/local/cuda-12.6/lib64:/usr/local/lib:"
+      },
+      "PATH": {
+        "state": "set",
+        "value": "/home/degen2/.elan/bin:/home/degen2/.local/share/solana/install/active_release/bin:/home/degen2/.local/bin:/home/degen2/bin:/home/degen2/.codex/packages/standalone/releases/0.147.0-x86_64-unknown-linux-musl/codex-path:/home/degen2/.codex/tmp/arg0/codex-arg0tunF7n:/home/degen2/.local/bin:/home/degen2/.elan/bin:/home/degen2/.local/share/solana/install/active_release/bin:/home/degen2/.local/bin:/home/degen2/.opencode/bin:/home/degen2/android-sdk/cmdline-tools/latest/bin:/home/degen2/android-sdk/platform-tools:/home/degen2/android-sdk/emulator:/home/degen2/vivado-labs/Xilinx/2025.2/Vivado/bin:/home/degen2/vivado-labs/Xilinx/2025.2/Vitis/bin:/home/degen2/vivado-labs/Xilinx/DocNav:/home/degen2/vivado-labs/Xilinx/2025.2/Vitis/bin:/home/degen2/vivado-labs/Xilinx/2025.2/Vitis/gnu/riscv/linux_toolchain/lin32/bin:/home/degen2/vivado-labs/Xilinx/2025.2/Vitis/gnu/riscv/linux_toolchain/lin64/bin:/home/degen2/.opam/cuda-parser/bin:/home/degen2/anaconda3/bin:/home/degen2/anaconda3/condabin:/usr/local/cuda-12.6/bin:/home/degen2/.bun/bin:/home/degen2/.juliaup/bin:/home/degen2/.nvm/versions/node/v22.12.0/bin:/home/degen2/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/degen2/.foundry/bin:/home/degen2/.huff/bin:/usr/local/go/bin:/home/degen2/.suave/bin:/home/degen2/.risc0/bin:/home/degen2/.sp1/bin:/home/degen2/Documents/depot_tools"
+      },
+      "TF_XLA_FLAGS": {
+        "state": "unset",
+        "value": null
+      },
+      "XDG_CACHE_HOME": {
+        "state": "unset",
+        "value": null
+      },
+      "XLA_FLAGS": {
+        "state": "unset",
+        "value": null
+      }
+    },
+    "devices": [
+      {
+        "client_platform": "cpu",
+        "device_kind": "cpu",
+        "id": 0,
+        "platform": "cpu",
+        "visible_order": 0
+      }
+    ],
+    "hostname": "degen2-MS-7C91",
+    "jax_default_matmul_precision": "unavailable: For flags with a corresponding contextmanager, read their value via e.g. `config.jax_default_matmul_precision` rather than `config.FLAGS.jax_default_matmul_precision`.",
+    "kernel": "6.8.0-136-generic",
+    "mixed_precision_policy_runtime": {
+      "compute_dtype": "<class 'jax.numpy.bfloat16'>",
+      "dm_haiku_version": "0.0.17",
+      "expected_dtypes_asserted_before_lowering": true,
+      "input_literal": "params=float32,compute=bfloat16,output=bfloat16",
+      "jmp_version": "0.0.4",
+      "output_dtype": "<class 'jax.numpy.bfloat16'>",
+      "param_dtype": "<class 'jax.numpy.float32'>",
+      "repr": "Policy(param_dtype=<class 'jax.numpy.float32'>, compute_dtype=<class 'jax.numpy.bfloat16'>, output_dtype=<class 'jax.numpy.bfloat16'>)",
+      "str": "p=full,c=bf16,o=bf16"
+    },
+    "nvcc": {
+      "returncode": 0,
+      "status": "available",
+      "stderr": "",
+      "stdout": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2024 NVIDIA Corporation\nBuilt on Tue_Oct_29_23:50:19_PDT_2024\nCuda compilation tools, release 12.6, V12.6.85\nBuild cuda_12.6.r12.6/compiler.35059454_0"
+    },
+    "nvidia_smi": {
+      "returncode": 0,
+      "status": "available",
+      "stderr": "",
+      "stdout": "0, NVIDIA GeForce RTX 3090, GPU-64111645-1e42-a96d-f192-4abbec4b8090, 8.6, 94.02.42.C0.05, 560.35.05"
+    },
+    "packages": {
+      "dm-haiku": "0.0.17",
+      "jax": "0.11.0",
+      "jax-cuda12-pjrt": "0.11.0",
+      "jax-cuda12-plugin": "0.11.0",
+      "jaxlib": "0.11.0",
+      "jmp": "0.0.4",
+      "numpy": "2.5.2",
+      "nvidia-cublas-cu12": "12.9.2.10",
+      "nvidia-cuda-runtime-cu12": "12.9.79",
+      "nvidia-cudnn-cu12": "9.24.0.43"
+    },
+    "pid": 2109612,
+    "platform": "Linux-6.8.0-136-generic-x86_64-with-glibc2.35",
+    "protoc": {
+      "returncode": 0,
+      "status": "available",
+      "stderr": "",
+      "stdout": "libprotoc 29.3"
+    },
+    "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:09:02) [GCC 11.2.0]"
+  },
+  "script_version": "opensplice-exact-source-gate0-v3.1.1",
+  "started_at_unix_s": 1787866015.6988113,
+  "status": "started_append_only_one_shot",
+  "worktree": {
+    "detached": true,
+    "head": "fd4dc6913335a6966420d60ef04bc4643b751a27",
+    "root": "/home/degen2/alphafold-stuff/alphagenome_research_exact_fd4dc6913335",
+    "tracked_clean": true,
+    "tracked_dirty_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}
