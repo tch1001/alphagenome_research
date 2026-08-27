@@ -91,13 +91,17 @@ each manifest entry the corrected analyzer must apply all of the following:
 2. If the lexical entry is not a symlink, require its resolved path to remain
    inside the pinned snapshot.
 3. If it is a symlink, allow it only for the exact layout
-   `models--google--alphagenome-all-folds/snapshots/<pinned snapshot>`. Require
-   one relative link of the form `../../blobs/<blob-id>`, with no additional
-   path component. Require the normalized target to be a direct child of that
-   model repository's `blobs/` directory, require the blob to be a regular
-   non-symlink file, and reject dangling, chained, absolute, cross-repository,
-   or escaping links. `<blob-id>` must be lowercase hexadecimal with the
-   content-addressed length used by the pinned cache (`40` or `64`).
+   `models--google--alphagenome-all-folds/snapshots/<pinned snapshot>`. The
+   link must contain exactly `len(relative.parts) + 1` leading `..`
+   components, followed by `blobs/<blob-id>`, with no other component. Thus a
+   top-level entry uses `../../blobs/<blob-id>`, `d/<entry>` uses
+   `../../../blobs/<blob-id>`, and `ocdbt.process_0/d/<entry>` uses
+   `../../../../blobs/<blob-id>`. Require the normalized target to be a direct
+   child of that model repository's `blobs/` directory, require the blob to be
+   a regular non-symlink file, and reject dangling, chained, absolute,
+   cross-repository, nested-target, or escaping links. `<blob-id>` must be
+   lowercase hexadecimal with the content-addressed length used by the pinned
+   cache (`40` or `64`).
 4. In both cases, follow the validated entry and independently recompute its
    regular-file size and SHA-256. Both must exactly equal the frozen manifest
    row and the recorded attempt binding.
