@@ -38,7 +38,7 @@ import jax.numpy as jnp
 import numpy as np
 
 
-SCRIPT_VERSION = 'opensplice-inference-trace-v1.0.1'
+SCRIPT_VERSION = 'opensplice-inference-trace-v1.1.0'
 DEFAULT_SELECTED = Path(__file__).with_name('selected_variants_v2.tsv')
 DEFAULT_EXONS = Path(__file__).with_name('frozen_exons_v2.tsv')
 DEFAULT_OUTPUT_DIR = Path(__file__).with_name('results').joinpath('v2')
@@ -188,6 +188,15 @@ def _parse_args() -> argparse.Namespace:
       type=float,
       default=PREDICTED_EFFECT_THRESHOLD,
       help='Minimum absolute predicted mean delta required by the output gate.',
+  )
+  parser.add_argument(
+      '--attention-backend',
+      choices=sorted(attention.ATTENTION_BACKENDS),
+      default=attention.ATTENTION_BACKEND_DENSE,
+      help=(
+          'Attention implementation. Dense is the causal-reference default; '
+          'pallas_tiled is an optional numerical replication.'
+      ),
   )
   parser.add_argument('--dry-run', action='store_true')
   return parser.parse_args()
@@ -745,6 +754,7 @@ def baseline_configuration(
     exons_sha256: str,
     checkpoint: Path,
     predicted_effect_threshold: float,
+    attention_backend: str,
 ) -> dict[str, Any]:
   return {
       'script_version': SCRIPT_VERSION,
@@ -754,7 +764,7 @@ def baseline_configuration(
       'selected_sha256': selected_sha256,
       'frozen_exons_sha256': exons_sha256,
       'checkpoint': str(checkpoint),
-      'attention_backend': attention.ATTENTION_BACKEND_PALLAS_TILED,
+      'attention_backend': attention_backend,
       'score_protocol': 'mean_canonical_acceptor_and_donor_probability',
       'direction_gate_protocol': 'sign_delta_logit_and_min_abs_prediction',
       'predicted_effect_threshold': predicted_effect_threshold,
@@ -1174,6 +1184,7 @@ def build_dry_run_plan(
     trace_stages: Sequence[str],
     trace_max_groups_per_variant: int,
     predicted_effect_threshold: float,
+    attention_backend: str,
     selected_sha256: str,
     exons_sha256: str,
 ) -> dict[str, Any]:
@@ -1182,6 +1193,7 @@ def build_dry_run_plan(
       'dry_run': True,
       'selected_sha256': selected_sha256,
       'frozen_exons_sha256': exons_sha256,
+      'attention_backend': attention_backend,
       'variant_count': len(cases),
       'effect_count': sum(case.is_effect for case in cases),
       'neutral_count': sum(not case.is_effect for case in cases),
@@ -1268,6 +1280,7 @@ def main() -> None:
       trace_stages=stages,
       trace_max_groups_per_variant=args.trace_max_groups_per_variant,
       predicted_effect_threshold=args.prediction_effect_threshold,
+      attention_backend=args.attention_backend,
       selected_sha256=selected_sha256,
       exons_sha256=exons_sha256,
   )
@@ -1279,7 +1292,7 @@ def main() -> None:
   model_instance = dna_model.create(
       checkpoint,
       model_settings=dna_model.ModelSettings(
-          attention_backend=attention.ATTENTION_BACKEND_PALLAS_TILED
+          attention_backend=args.attention_backend
       ),
   )
   baselines = {}
@@ -1292,6 +1305,7 @@ def main() -> None:
           exons_sha256=exons_sha256,
           checkpoint=checkpoint,
           predicted_effect_threshold=args.prediction_effect_threshold,
+          attention_backend=args.attention_backend,
       )
       path = _baseline_path(args.output_dir, context_bp, case)
       baselines[(case.variant_id, context_bp)] = _run_baseline(
@@ -1311,7 +1325,7 @@ def main() -> None:
             head_name='splice_sites_classification',
             prediction_key='predictions',
         ),
-        attention_backend=attention.ATTENTION_BACKEND_PALLAS_TILED,
+        attention_backend=args.attention_backend,
     )
     paired_apply = jax.jit(paired_apply)
     passing = [
@@ -1327,7 +1341,7 @@ def main() -> None:
         'selected_sha256': selected_sha256,
         'frozen_exons_sha256': exons_sha256,
         'checkpoint': str(checkpoint),
-        'attention_backend': attention.ATTENTION_BACKEND_PALLAS_TILED,
+        'attention_backend': args.attention_backend,
         'score_protocol': 'paired_canonical_acceptor_and_donor_probability',
         'control_protocol': (
             'same_cardinality_relative_offsets_starting_'

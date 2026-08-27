@@ -80,6 +80,11 @@ experiments/interpretability/opensplice/run_inference_trace.sh \
   --max-variants 1
 ```
 
+The runner defaults to dense attention for causal measurements because it is
+the numerical reference implementation and fits the 16/131-kb contexts used by
+this benchmark. `--attention-backend pallas_tiled` is an optional replication,
+not a replacement for the dense result.
+
 Tracing is separately bounded and remains disabled by default. For example, add
 `--trace-max-variants 1 --trace-max-groups-per-variant 2` to run at most two
 stage/layer/region groups (four directional/self-control patches per group) on
