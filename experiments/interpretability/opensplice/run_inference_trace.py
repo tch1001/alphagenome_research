@@ -4,8 +4,9 @@
 The primary score exactly follows OpenSplice's genome-mode processing: the mean
 of the ALT-minus-REF probabilities at the strand-aware canonical acceptor and
 donor.  Baselines use the normal public variant API and request only splice-site
-classification.  The optional causal pilot uses an opt-in paired-target apply
-function and exports only selected residuals and scalar target summaries.
+classification. The optional causal pilot uses an opt-in paired-target apply
+function and transfers residuals between six live rows in one model call, so
+self controls cannot drift through separately compiled or executed traces.
 
 The frozen v2 benchmark is SNV-only.  This runner deliberately fails closed on
 indels because exact REF/ALT residual patching requires token-aligned sequences;
@@ -38,7 +39,7 @@ import jax.numpy as jnp
 import numpy as np
 
 
-SCRIPT_VERSION = 'opensplice-inference-trace-v1.1.0'
+SCRIPT_VERSION = 'opensplice-inference-trace-v1.2.0'
 DEFAULT_SELECTED = Path(__file__).with_name('selected_variants_v2.tsv')
 DEFAULT_EXONS = Path(__file__).with_name('frozen_exons_v2.tsv')
 DEFAULT_OUTPUT_DIR = Path(__file__).with_name('results').joinpath('v2')
@@ -48,6 +49,15 @@ NUM_TRACE_SLOTS = 24
 CONTROL_START_DISTANCE_TOKENS = 4
 PAIR_PADDING_SIZE = 1
 HEAD_PADDING_SIZE = 1
+TRACE_BATCH_SIZE = 6
+TRACE_BATCH_ROLES = (
+    'reference_baseline',
+    'alternate_baseline',
+    'reference_into_alternate',
+    'alternate_into_alternate_self_control',
+    'alternate_into_reference',
+    'reference_into_reference_self_control',
+)
 PREDICTED_EFFECT_THRESHOLD = 0.01
 # Public prediction and instrumented tracing are separately compiled BF16
 # graphs. Near probability 1.0, one BF16 ULP is 2**-8. This cross-graph guard is
@@ -168,7 +178,7 @@ def _parse_args() -> argparse.Namespace:
       '--trace-max-groups-per-variant',
       type=int,
       default=12,
-      help='Maximum stage/layer/region groups; each group runs four patches.',
+      help='Maximum stage/layer/region groups; each group runs one six-row call.',
   )
   parser.add_argument(
       '--trace-layers',
@@ -659,6 +669,71 @@ def _residual_patch(
   return interpretability.TransformerInterventions(**kwargs)
 
 
+def _live_batch_residual_transfer(
+    identity: interpretability.TransformerInterventions,
+    *,
+    stage: str | None,
+    layer: int = 0,
+    slots: Sequence[int] = (),
+) -> interpretability.TransformerInterventions:
+  """Builds the six-row same-executable residual-transfer intervention.
+
+  Batch roles are REF baseline, ALT baseline, REF->ALT, ALT->ALT, ALT->REF,
+  and REF->REF. The last four rows receive live residuals from baseline rows
+  0 or 1 at the selected seam; no captured trace is replayed.
+  """
+  if identity.pair_bias_values.shape[1] != TRACE_BATCH_SIZE:
+    raise ValueError(
+        f'Live tracing requires exactly {TRACE_BATCH_SIZE} batch rows.'
+    )
+  num_positions = NUM_TRACE_SLOTS
+  donor_indices = jnp.broadcast_to(
+      jnp.arange(TRACE_BATCH_SIZE, dtype=jnp.int32)[None, :, None],
+      (
+          interpretability.NUM_TRANSFORMER_LAYERS,
+          TRACE_BATCH_SIZE,
+          num_positions,
+      ),
+  )
+  transfer_mask = jnp.zeros(
+      (
+          interpretability.NUM_TRANSFORMER_LAYERS,
+          TRACE_BATCH_SIZE,
+          num_positions,
+      ),
+      jnp.bool,
+  )
+  if stage is not None:
+    slot_indices = jnp.asarray(slots, jnp.int32)
+    # recipient row -> baseline donor row
+    for recipient, donor in ((2, 0), (3, 1), (4, 1), (5, 0)):
+      donor_indices = donor_indices.at[layer, recipient, slot_indices].set(
+          donor
+      )
+      transfer_mask = transfer_mask.at[
+          layer, recipient, slot_indices
+      ].set(True)
+  disabled = interpretability.SequenceResidualBatchTransfer(
+      donor_batch_indices=jnp.broadcast_to(
+          jnp.arange(TRACE_BATCH_SIZE, dtype=jnp.int32)[None, :, None],
+          donor_indices.shape,
+      ),
+      transfer_mask=jnp.zeros_like(transfer_mask),
+  )
+  transfers = {
+      f'{name}_residual_transfer': disabled
+      for name in ('pre_attention', 'post_attention', 'post_mlp')
+  }
+  if stage is not None:
+    transfers[f'{stage}_residual_transfer'] = (
+        interpretability.SequenceResidualBatchTransfer(
+            donor_batch_indices=donor_indices,
+            transfer_mask=transfer_mask,
+        )
+    )
+  return dataclasses.replace(identity, **transfers)
+
+
 def _checkpoint_path(explicit: Path | None) -> Path:
   if explicit is not None:
     result = explicit.expanduser().resolve()
@@ -865,6 +940,154 @@ def _trace_group_path(
   )
 
 
+def _identity_audit_path(
+    output_dir: Path, context_bp: int, case: Case
+) -> Path:
+  return output_dir.joinpath(
+      'trace',
+      f'{context_bp}bp',
+      f'{case.order:03d}_{_slug(case.variant_id)}',
+      'gate0_identity_repeat.json',
+  )
+
+
+def unpack_trace_batch_target_means(
+    target: interpretability.TargetSummary,
+) -> dict[str, float]:
+  """Maps the fixed six target rows to their causal protocol roles."""
+  means = np.asarray(target.mean)
+  if means.shape != (TRACE_BATCH_SIZE,):
+    raise ValueError(
+        f'Expected {TRACE_BATCH_SIZE} target rows, got shape {means.shape}.'
+    )
+  if not np.isfinite(means).all():
+    raise ValueError(f'Non-finite value in six-row targets: {means}.')
+  return {
+      role: float(means[index])
+      for index, role in enumerate(TRACE_BATCH_ROLES)
+  }
+
+
+def validate_identity_repeat_audit(
+    first_target: interpretability.TargetSummary,
+    first_trace: interpretability.TransformerTrace,
+    second_target: interpretability.TargetSummary,
+    second_trace: interpretability.TransformerTrace,
+) -> dict[str, Any]:
+  """Fails closed unless the all-false six-row executable is exact."""
+  first = unpack_trace_batch_target_means(first_target)
+  second = unpack_trace_batch_target_means(second_target)
+  target_repeat_exact = all(first[role] == second[role] for role in first)
+  ref_rows_exact = (
+      first['reference_baseline']
+      == first['alternate_into_reference']
+      == first['reference_into_reference_self_control']
+  )
+  alt_rows_exact = (
+      first['alternate_baseline']
+      == first['reference_into_alternate']
+      == first['alternate_into_alternate_self_control']
+  )
+  first_trace_leaves = jax.tree.leaves(first_trace)
+  second_trace_leaves = jax.tree.leaves(second_trace)
+  trace_repeat_exact = all(
+      np.array_equal(np.asarray(first_leaf), np.asarray(second_leaf))
+      for first_leaf, second_leaf in zip(
+          first_trace_leaves, second_trace_leaves, strict=True
+      )
+  )
+  trace_duplicate_rows_exact = True
+  for leaf in first_trace_leaves:
+    values = np.asarray(leaf)
+    if values.ndim < 2 or values.shape[1] != TRACE_BATCH_SIZE:
+      raise ValueError(
+          'Unexpected trace leaf shape for six-row identity audit: '
+          f'{values.shape}.'
+      )
+    trace_duplicate_rows_exact &= bool(
+        np.array_equal(values[:, 0], values[:, 4])
+        and np.array_equal(values[:, 0], values[:, 5])
+        and np.array_equal(values[:, 1], values[:, 2])
+        and np.array_equal(values[:, 1], values[:, 3])
+    )
+  passed = (
+      target_repeat_exact
+      and ref_rows_exact
+      and alt_rows_exact
+      and trace_repeat_exact
+      and trace_duplicate_rows_exact
+  )
+  result = {
+      'passed': passed,
+      'target_repeat_exact': target_repeat_exact,
+      'reference_duplicate_rows_exact': ref_rows_exact,
+      'alternate_duplicate_rows_exact': alt_rows_exact,
+      'trace_repeat_exact': trace_repeat_exact,
+      'trace_duplicate_rows_exact': trace_duplicate_rows_exact,
+      'first_target_means': first,
+      'second_target_means': second,
+  }
+  if not passed:
+    raise ValueError(f'Gate 0 six-row identity/repeat audit failed: {result}.')
+  return result
+
+
+def validate_live_self_transfer_trace(
+    trace: interpretability.TransformerTrace,
+    *,
+    stage: str,
+    layer: int,
+    slots: Sequence[int],
+) -> dict[str, Any]:
+  """Checks that same-allele recipients received exact live donor vectors."""
+  natural = np.asarray(getattr(trace, f'{stage}_residuals'))
+  effective = np.asarray(getattr(trace, f'effective_{stage}_residuals'))
+  slot_indices = np.asarray(slots, dtype=np.int32)
+  alt_self_exact = np.array_equal(
+      natural[layer, 1, slot_indices], effective[layer, 3, slot_indices]
+  )
+  ref_self_exact = np.array_equal(
+      natural[layer, 0, slot_indices], effective[layer, 5, slot_indices]
+  )
+  result = {
+      'passed': bool(alt_self_exact and ref_self_exact),
+      'alternate_self_natural_donor_to_effective_recipient_exact': bool(
+          alt_self_exact
+      ),
+      'reference_self_natural_donor_to_effective_recipient_exact': bool(
+          ref_self_exact
+      ),
+      'layer': layer,
+      'stage': stage,
+      'slots': list(slots),
+  }
+  if not result['passed']:
+    raise ValueError(f'Live self-transfer residual audit failed: {result}.')
+  return result
+
+
+def validate_live_self_target_identity(
+    batch_values: Mapping[str, float],
+) -> dict[str, bool]:
+  """Fails closed unless both same-allele target patches are bit-exact."""
+  alt_exact = (
+      batch_values['alternate_into_alternate_self_control']
+      == batch_values['alternate_baseline']
+  )
+  ref_exact = (
+      batch_values['reference_into_reference_self_control']
+      == batch_values['reference_baseline']
+  )
+  result = {
+      'passed': alt_exact and ref_exact,
+      'alternate_self_target_exact': alt_exact,
+      'reference_self_target_exact': ref_exact,
+  }
+  if not result['passed']:
+    raise ValueError(f'Live self-transfer target audit failed: {result}.')
+  return result
+
+
 def _recovery(
     patched: float, self_recipient: float, donor: float, recipient: float
 ) -> float | None:
@@ -916,7 +1139,9 @@ def _run_trace_variant(
   trace_selection = transformer_trace_selection(position_sets)
   target_selection = paired_target_selection(case, interval)
   identity = interpretability.no_transformer_interventions(
-      batch_size=1, num_edges=PAIR_PADDING_SIZE, dtype=jnp.float32
+      batch_size=TRACE_BATCH_SIZE,
+      num_edges=PAIR_PADDING_SIZE,
+      dtype=jnp.float32,
   )
   extractor = model_instance._get_fasta_extractor(  # pylint: disable=protected-access
       public_dna_model.Organism.HOMO_SAPIENS
@@ -943,48 +1168,88 @@ def _run_trace_variant(
   encoder = model_instance._one_hot_encoder  # pylint: disable=protected-access
   reference = jnp.asarray(encoder.encode(reference_sequence))[None]
   alternate = jnp.asarray(encoder.encode(alternate_sequence))[None]
-  organism_index = jnp.array([0], jnp.int32)
+  trace_batch = jnp.concatenate(
+      (reference, alternate, alternate, alternate, reference, reference),
+      axis=0,
+  )
+  organism_index = jnp.zeros((TRACE_BATCH_SIZE,), jnp.int32)
   common = (
       model_instance._params,  # pylint: disable=protected-access
       model_instance._state,  # pylint: disable=protected-access
       organism_index,
       trace_selection,
   )
-  (reference_target, reference_trace), reference_seconds = _timed_apply(
-      paired_apply,
-      common[0],
-      common[1],
-      reference,
-      common[2],
-      common[3],
-      identity,
-      target_selection,
-  )
-  (alternate_target, alternate_trace), alternate_seconds = _timed_apply(
-      paired_apply,
-      common[0],
-      common[1],
-      alternate,
-      common[2],
-      common[3],
-      identity,
-      target_selection,
-  )
-  reference_value = float(reference_target.mean[0])
-  alternate_value = float(alternate_target.mean[0])
-  public_score = baseline['prediction']
-  public_deltas = validate_public_paired_target(
-      public_score, reference_value, alternate_value
-  )
-  direct_baseline = {
-      'reference_mean': reference_value,
-      'alternate_mean': alternate_value,
-      'mean_delta_splice': alternate_value - reference_value,
-      **public_deltas,
-      'public_equivalence_tolerance': PUBLIC_PAIRED_TARGET_TOLERANCE,
-      'reference_seconds_compile_and_run': reference_seconds,
-      'alternate_seconds_warm': alternate_seconds,
+
+  audit_configuration = {
+      **base_configuration,
+      'kind': 'gate0_six_row_identity_repeat_audit',
+      'context_bp': context_bp,
+      'case': _case_record(case),
+      'baseline_fingerprint': baseline['fingerprint'],
+      'batch_roles': TRACE_BATCH_ROLES,
+      'transfer_masks': 'all_false',
+      'repeat_requirement': 'bit_exact_target_and_selected_traces',
   }
+  audit_fingerprint = _fingerprint(audit_configuration)
+  audit_path = _identity_audit_path(output_dir, context_bp, case)
+  identity_audit = _load_completed(audit_path, audit_fingerprint)
+  if identity_audit is None:
+    all_false_transfer = _live_batch_residual_transfer(identity, stage=None)
+    (first_target, first_trace), first_seconds = _timed_apply(
+        paired_apply,
+        common[0],
+        common[1],
+        trace_batch,
+        common[2],
+        common[3],
+        all_false_transfer,
+        target_selection,
+    )
+    (second_target, second_trace), second_seconds = _timed_apply(
+        paired_apply,
+        common[0],
+        common[1],
+        trace_batch,
+        common[2],
+        common[3],
+        all_false_transfer,
+        target_selection,
+    )
+    audit_checks = validate_identity_repeat_audit(
+        first_target, first_trace, second_target, second_trace
+    )
+    audit_means = audit_checks['first_target_means']
+    public_deltas = validate_public_paired_target(
+        baseline['prediction'],
+        audit_means['reference_baseline'],
+        audit_means['alternate_baseline'],
+    )
+    paired_direction_gate = direction_result(
+        audit_means['alternate_baseline']
+        - audit_means['reference_baseline'],
+        case.delta_logit,
+        is_effect=case.is_effect,
+        predicted_effect_threshold=baseline['direction_gate'][
+            'predicted_effect_threshold'
+        ],
+    )
+    if not paired_direction_gate['gated_for_tracing']:
+      raise ValueError(
+          'Gate 0 paired identity rows failed the independent direction and '
+          f'minimum-effect gate: {paired_direction_gate}.'
+      )
+    identity_audit = {
+        'status': 'complete',
+        'fingerprint': audit_fingerprint,
+        'configuration': audit_configuration,
+        'checks': audit_checks,
+        'public_target_deltas': public_deltas,
+        'paired_direction_gate': paired_direction_gate,
+        'first_seconds_compile_and_run': first_seconds,
+        'second_seconds_exact_repeat': second_seconds,
+        'created_at_unix_s': time.time(),
+    }
+    _write_atomic(audit_path, identity_audit)
 
   planned = [
       (stage, layer, position_set)
@@ -1003,6 +1268,7 @@ def _run_trace_variant(
         'stage': stage,
         'layer': layer,
         'position_set': dataclasses.asdict(position_set),
+        'execution_protocol': 'six_row_live_batch_residual_transfer',
         'direct_sequence_sha256': {
             'reference': hashlib.sha256(
                 reference_sequence.encode('ascii')
@@ -1025,89 +1291,71 @@ def _run_trace_variant(
       outputs.append(completed)
       continue
 
-    ref_into_alt = _residual_patch(
+    live_transfer = _live_batch_residual_transfer(
         identity,
-        reference_trace,
         stage=stage,
         layer=layer,
         slots=position_set.slots,
     )
-    (ref_alt_target, _), ref_alt_seconds = _timed_apply(
+    (batch_target, batch_trace), batch_seconds = _timed_apply(
         paired_apply,
         common[0],
         common[1],
-        alternate,
+        trace_batch,
         common[2],
         common[3],
-        ref_into_alt,
+        live_transfer,
         target_selection,
     )
-    alt_into_alt = _residual_patch(
-        identity,
-        alternate_trace,
+    live_self_transfer_audit = validate_live_self_transfer_trace(
+        batch_trace,
         stage=stage,
         layer=layer,
         slots=position_set.slots,
     )
-    (alt_alt_target, _), alt_alt_seconds = _timed_apply(
-        paired_apply,
-        common[0],
-        common[1],
-        alternate,
-        common[2],
-        common[3],
-        alt_into_alt,
-        target_selection,
+    batch_values = unpack_trace_batch_target_means(batch_target)
+    live_self_target_audit = validate_live_self_target_identity(batch_values)
+    reference_value = batch_values['reference_baseline']
+    alternate_value = batch_values['alternate_baseline']
+    ref_alt_value = batch_values['reference_into_alternate']
+    alt_alt_value = batch_values['alternate_into_alternate_self_control']
+    alt_ref_value = batch_values['alternate_into_reference']
+    ref_ref_value = batch_values['reference_into_reference_self_control']
+    audit_means = identity_audit['checks']['first_target_means']
+    if (
+        reference_value != audit_means['reference_baseline']
+        or alternate_value != audit_means['alternate_baseline']
+    ):
+      raise ValueError(
+          'Live-transfer baseline rows drifted from the exact Gate 0 identity '
+          f'run: live={batch_values}, gate0={audit_means}.'
+      )
+    public_deltas = validate_public_paired_target(
+        baseline['prediction'], reference_value, alternate_value
     )
-    alt_into_ref = _residual_patch(
-        identity,
-        alternate_trace,
-        stage=stage,
-        layer=layer,
-        slots=position_set.slots,
-    )
-    (alt_ref_target, _), alt_ref_seconds = _timed_apply(
-        paired_apply,
-        common[0],
-        common[1],
-        reference,
-        common[2],
-        common[3],
-        alt_into_ref,
-        target_selection,
-    )
-    ref_into_ref = _residual_patch(
-        identity,
-        reference_trace,
-        stage=stage,
-        layer=layer,
-        slots=position_set.slots,
-    )
-    (ref_ref_target, _), ref_ref_seconds = _timed_apply(
-        paired_apply,
-        common[0],
-        common[1],
-        reference,
-        common[2],
-        common[3],
-        ref_into_ref,
-        target_selection,
-    )
-    ref_alt_value = float(ref_alt_target.mean[0])
-    alt_alt_value = float(alt_alt_target.mean[0])
-    alt_ref_value = float(alt_ref_target.mean[0])
-    ref_ref_value = float(ref_ref_target.mean[0])
+    direct_baseline = {
+        'reference_mean': reference_value,
+        'alternate_mean': alternate_value,
+        'mean_delta_splice': alternate_value - reference_value,
+        **public_deltas,
+        'public_equivalence_tolerance': PUBLIC_PAIRED_TARGET_TOLERANCE,
+        'same_executable_batch_rows': TRACE_BATCH_ROLES,
+        'gate0_identity_repeat_fingerprint': audit_fingerprint,
+        'gate0_identity_repeat_passed': identity_audit['checks']['passed'],
+        'paired_batch_seconds_compile_and_run': batch_seconds,
+    }
     result = {
         'status': 'complete',
         'fingerprint': fingerprint,
         'configuration': group_configuration,
         'direct_baseline': direct_baseline,
+        'live_self_transfer_audit': live_self_transfer_audit,
+        'live_self_target_audit': live_self_target_audit,
         'patches': {
             'reference_into_alternate': {
                 'donor_allele': 'reference',
                 'recipient_allele': 'alternate',
                 'target_mean': ref_alt_value,
-                'seconds': ref_alt_seconds,
                 'self_control_corrected_recovery': _recovery(
                     ref_alt_value,
                     alt_alt_value,
@@ -1120,13 +1368,11 @@ def _run_trace_variant(
                 'recipient_allele': 'alternate',
                 'target_mean': alt_alt_value,
                 'delta_from_baseline': alt_alt_value - alternate_value,
-                'seconds': alt_alt_seconds,
             },
             'alternate_into_reference': {
                 'donor_allele': 'alternate',
                 'recipient_allele': 'reference',
                 'target_mean': alt_ref_value,
-                'seconds': alt_ref_seconds,
                 'self_control_corrected_recovery': _recovery(
                     alt_ref_value,
                     ref_ref_value,
@@ -1139,7 +1385,6 @@ def _run_trace_variant(
                 'recipient_allele': 'reference',
                 'target_mean': ref_ref_value,
                 'delta_from_baseline': ref_ref_value - reference_value,
-                'seconds': ref_ref_seconds,
             },
         },
         'created_at_unix_s': time.time(),
@@ -1206,7 +1451,9 @@ def build_dry_run_plan(
           'layers': list(trace_layers),
           'stages': list(trace_stages),
           'max_groups_per_variant': trace_max_groups_per_variant,
-          'calls_per_group': 4,
+          'calls_per_group': 1,
+          'gate0_calls_per_variant': 2,
+          'batch_rows_per_call': TRACE_BATCH_SIZE,
           'indel_policy': 'fail_closed_snv_only',
           'direction_gate': {
               'experimental_sign': 'delta_logit',

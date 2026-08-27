@@ -25,3 +25,8 @@ MANIFEST
 
 # Local, checksum-pinned OpenSplice inputs (downloaded on demand).
 experiments/interpretability/opensplice/local_data/
+
+# Resume-safe OpenSplice raw inference artifacts; commit aggregate audits only.
+experiments/interpretability/opensplice/results/*/baseline/
+experiments/interpretability/opensplice/results/*/trace/
+experiments/interpretability/opensplice/results/*/summary.json

@@ -87,10 +87,12 @@ not a replacement for the dense result.
 
 Tracing is separately bounded and remains disabled by default. For example, add
 `--trace-max-variants 1 --trace-max-groups-per-variant 2` to run at most two
-stage/layer/region groups (four directional/self-control patches per group) on
-the first effect variant that passes the output-direction gate. Every baseline
-and trace group is atomically written to its own fingerprinted JSON file, so the
-same command resumes without repeating completed work. Use
+stage/layer/region groups on the first effect variant that passes the
+output-direction gate. Each group places two baselines, two reciprocal patches,
+and two same-allele controls in one six-row execution, transferring live
+residuals without a host round trip. Every baseline, Gate 0 audit, and trace
+group is atomically written to its own fingerprinted JSON file, so the same
+command resumes without repeating completed work. Use
 `--confirmation-131kb` only after reviewing the 16-kb gate.
 
 The primary scalar exactly reproduces the upstream genome-mode definition: the
@@ -104,8 +106,11 @@ residual patching requires aligned REF/ALT transformer tokens.
 
 The public predictor and instrumented tracer are separate BF16-compiled graphs.
 Their baseline scalar must agree within one BF16 output ULP near probability
-one (`2^-8 = 0.00390625`). This cross-graph equivalence check is not the
-protocol's same-executable repeat check, which remains `1e-6`.
+one (`2^-8 = 0.00390625`). Before any live patch, a resume-safe Gate 0 artifact
+also requires an all-false six-row batch to have exact duplicate-allele rows
+and selected traces across two identical executions. Every live group then
+requires exact same-allele target identity and exact donor-to-effective-
+recipient residual equality at the selected seam.
 
 The v2 manifest is `selected_variants_v2.tsv`; its SHA-256 is
 `09cf0003317d742dfa742481ff6a96896b679342717867b31c85283262a6fdf6`.

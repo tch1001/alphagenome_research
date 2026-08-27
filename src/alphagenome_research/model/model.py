@@ -156,6 +156,19 @@ class TransformerTower(hk.Module):
           if pre_attention_replacement is None
           else pre_attention_replacement.replace_mask[i],
       )
+      pre_attention_transfer = (
+          interventions.pre_attention_residual_transfer
+      )
+      x = interpretability.transfer_sequence_residuals_within_batch(
+          x,
+          trace_selection.residual_positions,
+          None
+          if pre_attention_transfer is None
+          else pre_attention_transfer.donor_batch_indices[i],
+          None
+          if pre_attention_transfer is None
+          else pre_attention_transfer.transfer_mask[i],
+      )
       effective_pre_attention_residual_traces.append(
           interpretability.gather_sequence_residuals(
               x, trace_selection.residual_positions
@@ -212,6 +225,19 @@ class TransformerTower(hk.Module):
           if post_attention_replacement is None
           else post_attention_replacement.replace_mask[i],
       )
+      post_attention_transfer = (
+          interventions.post_attention_residual_transfer
+      )
+      x = interpretability.transfer_sequence_residuals_within_batch(
+          x,
+          trace_selection.residual_positions,
+          None
+          if post_attention_transfer is None
+          else post_attention_transfer.donor_batch_indices[i],
+          None
+          if post_attention_transfer is None
+          else post_attention_transfer.transfer_mask[i],
+      )
       effective_post_attention_residual_traces.append(
           interpretability.gather_sequence_residuals(
               x, trace_selection.residual_positions
@@ -233,6 +259,17 @@ class TransformerTower(hk.Module):
           None
           if post_mlp_replacement is None
           else post_mlp_replacement.replace_mask[i],
+      )
+      post_mlp_transfer = interventions.post_mlp_residual_transfer
+      x = interpretability.transfer_sequence_residuals_within_batch(
+          x,
+          trace_selection.residual_positions,
+          None
+          if post_mlp_transfer is None
+          else post_mlp_transfer.donor_batch_indices[i],
+          None
+          if post_mlp_transfer is None
+          else post_mlp_transfer.transfer_mask[i],
       )
       effective_post_mlp_residual_traces.append(
           interpretability.gather_sequence_residuals(

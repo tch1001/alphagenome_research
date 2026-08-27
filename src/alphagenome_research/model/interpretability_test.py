@@ -12,6 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import dataclasses
+
 from absl.testing import absltest
 from alphagenome.data import track_data
 from alphagenome.models import dna_model as public_dna_model
@@ -365,11 +367,45 @@ class InterpretabilityTest(absltest.TestCase):
     chex.assert_shape(captured, (1, 3, 4))
     np.testing.assert_array_equal(captured[:, 2], 0)
 
+  def test_live_batch_residual_transfer_is_exact_for_bf16_self_controls(self):
+    row_a = jnp.arange(5 * 4, dtype=jnp.bfloat16).reshape(5, 4)
+    row_b = (row_a + jnp.asarray(100, jnp.bfloat16)).astype(jnp.bfloat16)
+    residuals = jnp.stack([row_a, row_a, row_b, row_b])
+    selection = interpretability.SequenceResidualSelection(
+        # The duplicate valid position exercises deterministic masked updates.
+        positions=jnp.array([1, 3, 1, 99], jnp.int32),
+        valid_mask=jnp.array([True, True, True, False]),
+    )
+    donors = jnp.broadcast_to(
+        jnp.arange(4, dtype=jnp.int32)[:, None], (4, 4)
+    )
+    mask = jnp.zeros((4, 4), jnp.bool)
+    # Same-input donor 0 -> recipient 1 must be an exact self no-op.
+    donors = donors.at[1, 0].set(0)
+    mask = mask.at[1, 0].set(True)
+    # A real cross transfer copies row A into row B at position 3.
+    donors = donors.at[3, 1].set(0)
+    mask = mask.at[3, 1].set(True)
+    # An enabled padded slot and an invalid donor both fail safely as no-ops.
+    donors = donors.at[2, 3].set(0).at[2, 2].set(99)
+    mask = mask.at[2, 3].set(True).at[2, 2].set(True)
+
+    transferred = jax.jit(
+        interpretability.transfer_sequence_residuals_within_batch
+    )(residuals, selection, donors, mask)
+
+    self.assertEqual(transferred.dtype, jnp.bfloat16)
+    np.testing.assert_array_equal(transferred[1], residuals[1])
+    np.testing.assert_array_equal(transferred[3, 3], residuals[0, 3])
+    np.testing.assert_array_equal(transferred[3, 1], residuals[3, 1])
+    np.testing.assert_array_equal(transferred[2], residuals[2])
+
   def test_transformer_tower_stacks_traces_and_preserves_parameter_tree(self):
-    x = jax.random.normal(jax.random.key(9), (1, 16, 32))
+    one_x = jax.random.normal(jax.random.key(9), (1, 16, 32))
+    x = jnp.repeat(one_x, 2, axis=0)
     selection = self._tower_selection()
     no_interventions = interpretability.no_transformer_interventions(
-        batch_size=1, num_edges=2
+        batch_size=2, num_edges=2
     )
 
     def normal(inputs):
@@ -408,11 +444,11 @@ class InterpretabilityTest(absltest.TestCase):
     )
     np.testing.assert_array_equal(normal_x, traced_x)
     np.testing.assert_array_equal(normal_pair, traced_pair)
-    chex.assert_shape(trace.compact_pair_bias_edges, (9, 1, 2, 8))
-    chex.assert_shape(trace.head_value_outputs, (9, 1, 3, 8, 192))
-    chex.assert_shape(trace.pre_attention_residuals, (9, 1, 3, 32))
-    chex.assert_shape(trace.post_attention_residuals, (9, 1, 3, 32))
-    chex.assert_shape(trace.post_mlp_residuals, (9, 1, 3, 32))
+    chex.assert_shape(trace.compact_pair_bias_edges, (9, 2, 2, 8))
+    chex.assert_shape(trace.head_value_outputs, (9, 2, 3, 8, 192))
+    chex.assert_shape(trace.pre_attention_residuals, (9, 2, 3, 32))
+    chex.assert_shape(trace.post_attention_residuals, (9, 2, 3, 32))
+    chex.assert_shape(trace.post_mlp_residuals, (9, 2, 3, 32))
     np.testing.assert_array_equal(
         trace.compact_pair_bias_edges,
         trace.effective_compact_pair_bias_edges,
@@ -435,8 +471,34 @@ class InterpretabilityTest(absltest.TestCase):
     np.testing.assert_array_equal(trace.head_value_outputs[:, :, 2], 0)
     np.testing.assert_array_equal(trace.pre_attention_residuals[:, :, 2], 0)
 
+    donor_indices = jnp.broadcast_to(
+        jnp.arange(2, dtype=jnp.int32)[None, :, None], (9, 2, 3)
+    ).at[4, 1, 0].set(0)
+    transfer_mask = jnp.zeros((9, 2, 3), jnp.bool).at[4, 1, 0].set(
+        True
+    )
+    live_transfer = interpretability.SequenceResidualBatchTransfer(
+        donor_batch_indices=donor_indices, transfer_mask=transfer_mask
+    )
+    transfer_interventions = dataclasses.replace(
+        no_interventions, post_attention_residual_transfer=live_transfer
+    )
+    (self_transferred_x, _, self_transferred_trace), _ = traced_fn.apply(
+        normal_params,
+        normal_state,
+        None,
+        x,
+        selection,
+        transfer_interventions,
+    )
+    np.testing.assert_array_equal(self_transferred_x, traced_x)
+    np.testing.assert_array_equal(
+        self_transferred_trace.effective_post_attention_residuals,
+        trace.effective_post_attention_residuals,
+    )
+
     empty_residual = interpretability.no_sequence_residual_replacement(
-        batch_size=1, num_positions=3, hidden_size=32
+        batch_size=2, num_positions=3, hidden_size=32
     )
     pre_attention_residual = interpretability.SequenceResidualReplacement(
         values=empty_residual.values.at[1, 0, 0].set(3),
@@ -451,7 +513,7 @@ class InterpretabilityTest(absltest.TestCase):
         replace_mask=empty_residual.replace_mask.at[3, 0, 0].set(True),
     )
     empty_head_output = interpretability.no_head_value_output_replacement(
-        batch_size=1, num_positions=3
+        batch_size=2, num_positions=3
     )
     head_value_output_replacement = interpretability.HeadValueOutputReplacement(
         values=empty_head_output.values.at[5, 0, 0, 6].set(6),

@@ -219,6 +219,109 @@ class RunInferenceTraceTest(unittest.TestCase):
         intervention.pre_attention_residual.replace_mask, expected
     )
 
+  def test_live_batch_transfer_encodes_all_four_patch_directions(self):
+    identity = (
+        run_inference_trace.interpretability.no_transformer_interventions(
+            batch_size=run_inference_trace.TRACE_BATCH_SIZE, num_edges=1
+        )
+    )
+
+    intervention = run_inference_trace._live_batch_residual_transfer(  # pylint: disable=protected-access
+        identity,
+        stage='post_attention',
+        layer=3,
+        slots=(1, 4, 7),
+    )
+
+    transfer = intervention.post_attention_residual_transfer
+    self.assertIsNotNone(transfer)
+    expected_mask = np.zeros((9, 6, 24), dtype=bool)
+    expected_donors = np.broadcast_to(
+        np.arange(6, dtype=np.int32)[None, :, None], (9, 6, 24)
+    ).copy()
+    for recipient, donor in ((2, 0), (3, 1), (4, 1), (5, 0)):
+      expected_mask[3, recipient, [1, 4, 7]] = True
+      expected_donors[3, recipient, [1, 4, 7]] = donor
+    np.testing.assert_array_equal(transfer.transfer_mask, expected_mask)
+    np.testing.assert_array_equal(
+        transfer.donor_batch_indices, expected_donors
+    )
+    self.assertFalse(
+        np.asarray(
+            intervention.pre_attention_residual_transfer.transfer_mask
+        ).any()
+    )
+    self.assertFalse(
+        np.asarray(intervention.post_mlp_residual_transfer.transfer_mask).any()
+    )
+
+  def test_six_row_target_mapping_and_identity_repeat_audit(self):
+    means = jnp.array([1, 2, 2, 2, 1, 1], jnp.float32)
+    target = run_inference_trace.interpretability.TargetSummary(
+        total=means * 2,
+        mean=means,
+        num_values=jnp.array(2, jnp.int32),
+    )
+    trace_leaf = jnp.array([[[1], [2], [2], [2], [1], [1]]], jnp.float32)
+    trace = run_inference_trace.interpretability.TransformerTrace(
+        compact_pair_bias_edges=trace_leaf,
+        effective_compact_pair_bias_edges=trace_leaf,
+        head_value_outputs=trace_leaf,
+        effective_head_value_outputs=trace_leaf,
+        pre_attention_residuals=trace_leaf,
+        effective_pre_attention_residuals=trace_leaf,
+        post_attention_residuals=trace_leaf,
+        effective_post_attention_residuals=trace_leaf,
+        post_mlp_residuals=trace_leaf,
+        effective_post_mlp_residuals=trace_leaf,
+    )
+
+    mapped = run_inference_trace.unpack_trace_batch_target_means(target)
+    self.assertEqual(mapped['reference_baseline'], 1)
+    self.assertEqual(mapped['alternate_baseline'], 2)
+    self.assertEqual(mapped['reference_into_alternate'], 2)
+    self.assertEqual(mapped['alternate_into_reference'], 1)
+    self.assertTrue(
+        run_inference_trace.validate_live_self_target_identity(mapped)[
+            'passed'
+        ]
+    )
+    audit = run_inference_trace.validate_identity_repeat_audit(
+        target, trace, target, trace
+    )
+    self.assertTrue(audit['passed'])
+    live_audit = run_inference_trace.validate_live_self_transfer_trace(
+        trace, stage='post_attention', layer=0, slots=(0,)
+    )
+    self.assertTrue(live_audit['passed'])
+
+    bad_target = run_inference_trace.interpretability.TargetSummary(
+        total=target.total.at[2].set(6),
+        mean=target.mean.at[2].set(3),
+        num_values=target.num_values,
+    )
+    with self.assertRaisesRegex(ValueError, 'Gate 0'):
+      run_inference_trace.validate_identity_repeat_audit(
+          bad_target, trace, bad_target, trace
+      )
+    with self.assertRaisesRegex(ValueError, 'target audit'):
+      bad_self_target = run_inference_trace.dataclasses.replace(
+          target, mean=target.mean.at[3].set(3)
+      )
+      run_inference_trace.validate_live_self_target_identity(
+          run_inference_trace.unpack_trace_batch_target_means(bad_self_target)
+      )
+    bad_trace = run_inference_trace.dataclasses.replace(
+        trace,
+        effective_post_attention_residuals=(
+            trace.effective_post_attention_residuals.at[0, 3, 0].set(9)
+        ),
+    )
+    with self.assertRaisesRegex(ValueError, 'self-transfer'):
+      run_inference_trace.validate_live_self_transfer_trace(
+          bad_trace, stage='post_attention', layer=0, slots=(0,)
+      )
+
   def test_public_and_paired_target_must_match(self):
     public = {'reference_mean': 0.2, 'alternate_mean': 0.4}
     deltas = run_inference_trace.validate_public_paired_target(

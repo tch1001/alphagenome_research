@@ -139,6 +139,20 @@ class SequenceResidualReplacement:
 
 
 @chex.dataclass(frozen=True)
+class SequenceResidualBatchTransfer:
+  """Layer-stacked live residual transfers between rows of one batch.
+
+  For each enabled ``[layer, recipient, position]`` entry, the selected
+  residual vector is gathered from ``donor_batch_indices`` at the same
+  selected sequence position. Donors are read from the unmodified residual
+  tensor at that seam, so transfers cannot cascade through other recipients.
+  """
+
+  donor_batch_indices: Int[Array, 'L B R']
+  transfer_mask: Bool[Array, 'L B R']
+
+
+@chex.dataclass(frozen=True)
 class HeadValueOutputReplacement:
   """Layer-stacked local head-vector replacements at selected positions."""
 
@@ -187,6 +201,9 @@ class TransformerInterventions:
   pre_attention_residual: SequenceResidualReplacement | None = None
   post_attention_residual: SequenceResidualReplacement | None = None
   post_mlp_residual: SequenceResidualReplacement | None = None
+  pre_attention_residual_transfer: SequenceResidualBatchTransfer | None = None
+  post_attention_residual_transfer: SequenceResidualBatchTransfer | None = None
+  post_mlp_residual_transfer: SequenceResidualBatchTransfer | None = None
 
 
 @chex.dataclass(frozen=True)
@@ -284,23 +301,53 @@ def validate_transformer_interventions(
       batch_size,
       num_positions,
   )
-  for name, replacement in (
-      ('pre_attention_residual', interventions.pre_attention_residual),
-      ('post_attention_residual', interventions.post_attention_residual),
-      ('post_mlp_residual', interventions.post_mlp_residual),
-  ):
-    if replacement is None:
-      continue
-    if replacement.values.shape != expected_residual_values_shape:
+  residual_interventions = (
+      (
+          'pre_attention_residual',
+          interventions.pre_attention_residual,
+          interventions.pre_attention_residual_transfer,
+      ),
+      (
+          'post_attention_residual',
+          interventions.post_attention_residual,
+          interventions.post_attention_residual_transfer,
+      ),
+      (
+          'post_mlp_residual',
+          interventions.post_mlp_residual,
+          interventions.post_mlp_residual_transfer,
+      ),
+  )
+  for name, replacement, transfer in residual_interventions:
+    if replacement is not None and transfer is not None:
       raise ValueError(
-          f'{name}.values must have shape {expected_residual_values_shape}, '
-          f'got {replacement.values.shape}.'
+          f'{name} cannot use an external replacement and live batch '
+          'transfer simultaneously.'
       )
-    if replacement.replace_mask.shape != expected_residual_mask_shape:
+    if replacement is not None:
+      if replacement.values.shape != expected_residual_values_shape:
+        raise ValueError(
+            f'{name}.values must have shape {expected_residual_values_shape}, '
+            f'got {replacement.values.shape}.'
+        )
+      if replacement.replace_mask.shape != expected_residual_mask_shape:
+        raise ValueError(
+            f'{name}.replace_mask must have shape '
+            f'{expected_residual_mask_shape}, '
+            f'got {replacement.replace_mask.shape}.'
+        )
+    if transfer is None:
+      continue
+    if transfer.donor_batch_indices.shape != expected_residual_mask_shape:
       raise ValueError(
-          f'{name}.replace_mask must have shape '
-          f'{expected_residual_mask_shape}, '
-          f'got {replacement.replace_mask.shape}.'
+          f'{name}_transfer.donor_batch_indices must have shape '
+          f'{expected_residual_mask_shape}, got '
+          f'{transfer.donor_batch_indices.shape}.'
+      )
+    if transfer.transfer_mask.shape != expected_residual_mask_shape:
+      raise ValueError(
+          f'{name}_transfer.transfer_mask must have shape '
+          f'{expected_residual_mask_shape}, got {transfer.transfer_mask.shape}.'
       )
 
 
@@ -682,3 +729,68 @@ def replace_sequence_residuals(
       selection.valid_mask, selection.positions, sequence_length
   )
   return residuals.at[:, scatter_positions, :].set(updates, mode='drop')
+
+
+def transfer_sequence_residuals_within_batch(
+    residuals: Float[Array, 'B S D'],
+    selection: SequenceResidualSelection | None,
+    donor_batch_indices: Int[Array, 'B R'] | None,
+    transfer_mask: Bool[Array, 'B R'] | None,
+) -> Float[Array, 'B S D']:
+  """Transfers live selected residuals between rows of the same batch.
+
+  Donor values always come from the input ``residuals`` at this seam, rather
+  than from a previously updated recipient. This makes the operation a true
+  simultaneous transfer and prevents recipient-to-recipient cascades.
+  """
+  if donor_batch_indices is None and transfer_mask is None:
+    return residuals
+  if selection is None:
+    raise ValueError('A residual selection is required for batch transfer.')
+  if donor_batch_indices is None or transfer_mask is None:
+    raise ValueError(
+        'Residual donor indices and transfer mask are both required.'
+    )
+  _validate_residual_selection(selection, residuals)
+  batch_size, sequence_length, _ = residuals.shape
+  num_positions = selection.positions.shape[0]
+  expected_shape = (batch_size, num_positions)
+  if donor_batch_indices.shape != expected_shape:
+    raise ValueError(
+        f'Residual donor indices must have shape {expected_shape}.'
+    )
+  if transfer_mask.shape != expected_shape:
+    raise ValueError(
+        f'Residual transfer mask must have shape {expected_shape}.'
+    )
+
+  valid_donors = (donor_batch_indices >= 0) & (
+      donor_batch_indices < batch_size
+  )
+  safe_donors = jnp.clip(donor_batch_indices, 0, batch_size - 1)
+  safe_positions = jnp.clip(selection.positions, 0, sequence_length - 1)
+  donor_values = residuals[
+      safe_donors,
+      jnp.broadcast_to(safe_positions[None, :], expected_shape),
+      :,
+  ]
+  effective_mask = (
+      transfer_mask
+      & valid_donors
+      & selection.valid_mask[None, :]
+  )
+
+  # Apply only enabled slots. This deterministic per-slot update is important
+  # when several padded protocol labels map to the same 128-bp token: a later
+  # disabled duplicate must not overwrite an earlier enabled transfer.
+  output = residuals
+  for position_slot in range(num_positions):
+    position = safe_positions[position_slot]
+    current = output[:, position, :]
+    updates = jnp.where(
+        effective_mask[:, position_slot, None],
+        donor_values[:, position_slot, :].astype(residuals.dtype),
+        current,
+    )
+    output = output.at[:, position, :].set(updates)
+  return output
