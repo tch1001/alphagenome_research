@@ -31,4 +31,5 @@ experiments/interpretability/opensplice/results/*/baseline/
 experiments/interpretability/opensplice/results/*/trace/
 experiments/interpretability/opensplice/results/*/identity/
 experiments/interpretability/opensplice/results/*/components/
+experiments/interpretability/opensplice/results/*/groups/
 experiments/interpretability/opensplice/results/*/summary.json

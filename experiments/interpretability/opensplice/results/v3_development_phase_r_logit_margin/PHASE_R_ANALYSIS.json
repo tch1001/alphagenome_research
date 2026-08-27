@@ -1,0 +1,1506 @@
+{
+  "analysis_version": "opensplice-phase-r-analysis-v3.0.0",
+  "scope": "development_only_confirmation_unopened",
+  "source_script_version": "opensplice-phase-r-v3.0.0",
+  "run_dir": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_development_phase_r_logit_margin",
+  "hash_tree": {
+    "raw_artifact_count": 2613,
+    "raw_json_tree_sha256": "0b24d58491e33f14277c55396614714061d2143ba6dd7641671fab0c854298e9",
+    "summary_sha256": "72c90e9793f1e614fe6033b7cc771a7b281fdb59ccb8624ca42062171fc92188",
+    "identity_tree_sha256": "ff7182be96e4b5be52e022e613ac16f476651924ff36d6a11b397b95613a3436",
+    "groups_tree_sha256": "deee152d110bb00b383de259b8913b17b8e99882e6269c8d1358445689a57461",
+    "shared_configuration_sha256": "214908a0dfdc0aa3fcc269b6d882dfeade019a743d12ed92a25ac3b558d4698f"
+  },
+  "audit": {
+    "gate0_all_identities_pass": true,
+    "eligibility_gate_passes": true,
+    "completeness_passes": true,
+    "identity_count": 20,
+    "eligible_effect_count": 12,
+    "group_count": 2592,
+    "groups_per_eligible_effect": 216,
+    "eligibility_by_exon": [
+      {
+        "gene": "BRAF",
+        "eligible_effects": 6,
+        "effect_total": 6,
+        "neutral_total": 4,
+        "ineligible_effect_variants": []
+      },
+      {
+        "gene": "SLC25A48",
+        "eligible_effects": 6,
+        "effect_total": 6,
+        "neutral_total": 4,
+        "ineligible_effect_variants": []
+      }
+    ]
+  },
+  "development_search": {
+    "candidate_count": 72,
+    "top_candidate": {
+      "stage": "pre_attention",
+      "layer": 4,
+      "position_set": "S",
+      "Q": 0.05725906755099286,
+      "per_exon": {
+        "BRAF": {
+          "median_B": 0.18156184486373167,
+          "median_q": 0.18673218029350108,
+          "eligible_effects": 6
+        },
+        "SLC25A48": {
+          "median_B": 0.05765747392549485,
+          "median_q": 0.05725906755099286,
+          "eligible_effects": 6
+        }
+      },
+      "passes_development_selection_gate": false,
+      "rank": 1
+    },
+    "any_candidate_passes": false,
+    "rankings": [
+      {
+        "stage": "pre_attention",
+        "layer": 4,
+        "position_set": "S",
+        "Q": 0.05725906755099286,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.18156184486373167,
+            "median_q": 0.18673218029350108,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.05765747392549485,
+            "median_q": 0.05725906755099286,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 1
+      },
+      {
+        "stage": "post_attention",
+        "layer": 3,
+        "position_set": "S",
+        "Q": 0.05725906755099286,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.18156184486373167,
+            "median_q": 0.18673218029350108,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.05765747392549485,
+            "median_q": 0.05725906755099286,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 2
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 3,
+        "position_set": "S",
+        "Q": 0.05725906755099286,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.18156184486373167,
+            "median_q": 0.18673218029350108,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.05765747392549485,
+            "median_q": 0.05725906755099286,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 3
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 1,
+        "position_set": "S",
+        "Q": 0.055342867893961284,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.24916142557651993,
+            "median_q": 0.2442295597484277,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.055342867893961284,
+            "median_q": 0.055342867893961284,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 4
+      },
+      {
+        "stage": "post_attention",
+        "layer": 0,
+        "position_set": "S",
+        "Q": 0.055342867893961284,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.24916142557651993,
+            "median_q": 0.2442295597484277,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.055342867893961284,
+            "median_q": 0.055342867893961284,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 5
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 0,
+        "position_set": "S",
+        "Q": 0.055342867893961284,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.24916142557651993,
+            "median_q": 0.2442295597484277,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.055342867893961284,
+            "median_q": 0.055342867893961284,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 6
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 3,
+        "position_set": "S",
+        "Q": 0.054234486173923804,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.2110782620249801,
+            "median_q": 0.22405320813771518,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.055267035678482894,
+            "median_q": 0.054234486173923804,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 7
+      },
+      {
+        "stage": "post_attention",
+        "layer": 2,
+        "position_set": "S",
+        "Q": 0.054234486173923804,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.2110782620249801,
+            "median_q": 0.22405320813771518,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.055267035678482894,
+            "median_q": 0.054234486173923804,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 8
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 2,
+        "position_set": "S",
+        "Q": 0.054234486173923804,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.2110782620249801,
+            "median_q": 0.22405320813771518,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.055267035678482894,
+            "median_q": 0.054234486173923804,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 9
+      },
+      {
+        "stage": "post_attention",
+        "layer": 5,
+        "position_set": "S",
+        "Q": 0.053749242395953314,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.16065727699530516,
+            "median_q": 0.15117370892018778,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.0549065454117201,
+            "median_q": 0.053749242395953314,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 10
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 5,
+        "position_set": "S",
+        "Q": 0.053749242395953314,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.16065727699530516,
+            "median_q": 0.15117370892018778,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.0549065454117201,
+            "median_q": 0.053749242395953314,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 11
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 5,
+        "position_set": "S",
+        "Q": 0.05342666823692971,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.17044600938967136,
+            "median_q": 0.17834898278560252,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.054944461519459295,
+            "median_q": 0.05342666823692971,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 12
+      },
+      {
+        "stage": "post_attention",
+        "layer": 4,
+        "position_set": "S",
+        "Q": 0.05342666823692971,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.17044600938967136,
+            "median_q": 0.17834898278560252,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.054944461519459295,
+            "median_q": 0.05342666823692971,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 13
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 4,
+        "position_set": "S",
+        "Q": 0.05342666823692971,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.17044600938967136,
+            "median_q": 0.17834898278560252,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.054944461519459295,
+            "median_q": 0.05342666823692971,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 14
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 2,
+        "position_set": "S",
+        "Q": 0.05306617797016691,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.23176838810641626,
+            "median_q": 0.2381298904538341,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.053825074611431704,
+            "median_q": 0.05306617797016691,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 15
+      },
+      {
+        "stage": "post_attention",
+        "layer": 1,
+        "position_set": "S",
+        "Q": 0.05306617797016691,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.23176838810641626,
+            "median_q": 0.2381298904538341,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.053825074611431704,
+            "median_q": 0.05306617797016691,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 16
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 1,
+        "position_set": "S",
+        "Q": 0.05306617797016691,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.23176838810641626,
+            "median_q": 0.2381298904538341,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.053825074611431704,
+            "median_q": 0.05306617797016691,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 17
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 0,
+        "position_set": "S",
+        "Q": 0.050827404154111744,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.2437391991629109,
+            "median_q": 0.24727993442572085,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.050827404154111744,
+            "median_q": 0.050827404154111744,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 18
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 5,
+        "position_set": "V",
+        "Q": 0.03240505892795078,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.058920187793427226,
+            "median_q": 0.0675039123630673,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.03240505892795078,
+            "median_q": 0.03240505892795078,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 19
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 5,
+        "position_set": "A",
+        "Q": 0.03240505892795078,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.09806405903753714,
+            "median_q": 0.10707319616862794,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.03240505892795078,
+            "median_q": 0.03240505892795078,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 20
+      },
+      {
+        "stage": "post_attention",
+        "layer": 4,
+        "position_set": "V",
+        "Q": 0.03240505892795078,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.058920187793427226,
+            "median_q": 0.0675039123630673,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.03240505892795078,
+            "median_q": 0.03240505892795078,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 21
+      },
+      {
+        "stage": "post_attention",
+        "layer": 4,
+        "position_set": "A",
+        "Q": 0.03240505892795078,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.09806405903753714,
+            "median_q": 0.10707319616862794,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.03240505892795078,
+            "median_q": 0.03240505892795078,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 22
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 4,
+        "position_set": "V",
+        "Q": 0.03240505892795078,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.058920187793427226,
+            "median_q": 0.0675039123630673,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.03240505892795078,
+            "median_q": 0.03240505892795078,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 23
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 4,
+        "position_set": "A",
+        "Q": 0.03240505892795078,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.09806405903753714,
+            "median_q": 0.10707319616862794,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.03240505892795078,
+            "median_q": 0.03240505892795078,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 24
+      },
+      {
+        "stage": "post_attention",
+        "layer": 5,
+        "position_set": "V",
+        "Q": 0.03196873644570959,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.06114241001564945,
+            "median_q": 0.06571418921201068,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.03196873644570959,
+            "median_q": 0.03196873644570959,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 25
+      },
+      {
+        "stage": "post_attention",
+        "layer": 5,
+        "position_set": "A",
+        "Q": 0.03196873644570959,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.09001295508902471,
+            "median_q": 0.0911298031133992,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.03196873644570959,
+            "median_q": 0.03196873644570959,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 26
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 5,
+        "position_set": "V",
+        "Q": 0.03196873644570959,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.06114241001564945,
+            "median_q": 0.06571418921201068,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.03196873644570959,
+            "median_q": 0.03196873644570959,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 27
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 5,
+        "position_set": "A",
+        "Q": 0.03196873644570959,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.09001295508902471,
+            "median_q": 0.0911298031133992,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.03196873644570959,
+            "median_q": 0.03196873644570959,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 28
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 4,
+        "position_set": "V",
+        "Q": 0.031570330071207596,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.09506289308176101,
+            "median_q": 0.09464360587002096,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.031646162286685986,
+            "median_q": 0.031570330071207596,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 29
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 4,
+        "position_set": "A",
+        "Q": 0.031570330071207596,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.13672955974842765,
+            "median_q": 0.13242138364779873,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.031646162286685986,
+            "median_q": 0.031570330071207596,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 30
+      },
+      {
+        "stage": "post_attention",
+        "layer": 3,
+        "position_set": "V",
+        "Q": 0.031570330071207596,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.09506289308176101,
+            "median_q": 0.09464360587002096,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.031646162286685986,
+            "median_q": 0.031570330071207596,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 31
+      },
+      {
+        "stage": "post_attention",
+        "layer": 3,
+        "position_set": "A",
+        "Q": 0.031570330071207596,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.13672955974842765,
+            "median_q": 0.13242138364779873,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.031646162286685986,
+            "median_q": 0.031570330071207596,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 32
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 3,
+        "position_set": "V",
+        "Q": 0.031570330071207596,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.09506289308176101,
+            "median_q": 0.09464360587002096,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.031646162286685986,
+            "median_q": 0.031570330071207596,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 33
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 3,
+        "position_set": "A",
+        "Q": 0.031570330071207596,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.13672955974842765,
+            "median_q": 0.13242138364779873,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.031646162286685986,
+            "median_q": 0.031570330071207596,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 34
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 3,
+        "position_set": "V",
+        "Q": 0.03096309786089959,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.08503912363067292,
+            "median_q": 0.08674491392801251,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.03096309786089959,
+            "median_q": 0.03096309786089959,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 35
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 3,
+        "position_set": "A",
+        "Q": 0.03096309786089959,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.14613451147134376,
+            "median_q": 0.15248914872885108,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.03096309786089959,
+            "median_q": 0.03096309786089959,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 36
+      },
+      {
+        "stage": "post_attention",
+        "layer": 2,
+        "position_set": "V",
+        "Q": 0.03096309786089959,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.08503912363067292,
+            "median_q": 0.08674491392801251,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.03096309786089959,
+            "median_q": 0.03096309786089959,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 37
+      },
+      {
+        "stage": "post_attention",
+        "layer": 2,
+        "position_set": "A",
+        "Q": 0.03096309786089959,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.14613451147134376,
+            "median_q": 0.15248914872885108,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.03096309786089959,
+            "median_q": 0.03096309786089959,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 38
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 2,
+        "position_set": "V",
+        "Q": 0.03096309786089959,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.08503912363067292,
+            "median_q": 0.08674491392801251,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.03096309786089959,
+            "median_q": 0.03096309786089959,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 39
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 2,
+        "position_set": "A",
+        "Q": 0.03096309786089959,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.14613451147134376,
+            "median_q": 0.15248914872885108,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.03096309786089959,
+            "median_q": 0.03096309786089959,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 40
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 2,
+        "position_set": "V",
+        "Q": 0.030526775378658402,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.10425006177415369,
+            "median_q": 0.10471954534222881,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.030526775378658402,
+            "median_q": 0.030526775378658402,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 41
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 2,
+        "position_set": "A",
+        "Q": 0.030526775378658402,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.15293427230046946,
+            "median_q": 0.15229264475743348,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.030526775378658402,
+            "median_q": 0.030526775378658402,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 42
+      },
+      {
+        "stage": "post_attention",
+        "layer": 1,
+        "position_set": "V",
+        "Q": 0.030526775378658402,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.10425006177415369,
+            "median_q": 0.10471954534222881,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.030526775378658402,
+            "median_q": 0.030526775378658402,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 43
+      },
+      {
+        "stage": "post_attention",
+        "layer": 1,
+        "position_set": "A",
+        "Q": 0.030526775378658402,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.15293427230046946,
+            "median_q": 0.15229264475743348,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.030526775378658402,
+            "median_q": 0.030526775378658402,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 44
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 1,
+        "position_set": "V",
+        "Q": 0.030526775378658402,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.10425006177415369,
+            "median_q": 0.10471954534222881,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.030526775378658402,
+            "median_q": 0.030526775378658402,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 45
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 1,
+        "position_set": "A",
+        "Q": 0.030526775378658402,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.15293427230046946,
+            "median_q": 0.15229264475743348,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.030526775378658402,
+            "median_q": 0.030526775378658402,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 46
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 0,
+        "position_set": "V",
+        "Q": 0.029008982096128823,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.10222222222222221,
+            "median_q": 0.10901408450704225,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.027491188813599243,
+            "median_q": 0.029008982096128823,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 47
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 0,
+        "position_set": "A",
+        "Q": 0.029008982096128823,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.13742138364779874,
+            "median_q": 0.14212729205421207,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.027491188813599243,
+            "median_q": 0.029008982096128823,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 48
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 1,
+        "position_set": "V",
+        "Q": 0.028971065988389628,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.10429245283018868,
+            "median_q": 0.09995020964360588,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.028572659613887635,
+            "median_q": 0.028971065988389628,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 49
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 1,
+        "position_set": "A",
+        "Q": 0.028971065988389628,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.1515146750524109,
+            "median_q": 0.15661687631027255,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.028572659613887635,
+            "median_q": 0.028971065988389628,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 50
+      },
+      {
+        "stage": "post_attention",
+        "layer": 0,
+        "position_set": "V",
+        "Q": 0.028971065988389628,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.10429245283018868,
+            "median_q": 0.09995020964360588,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.028572659613887635,
+            "median_q": 0.028971065988389628,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 51
+      },
+      {
+        "stage": "post_attention",
+        "layer": 0,
+        "position_set": "A",
+        "Q": 0.028971065988389628,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.1515146750524109,
+            "median_q": 0.15661687631027255,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.028572659613887635,
+            "median_q": 0.028971065988389628,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 52
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 0,
+        "position_set": "V",
+        "Q": 0.028971065988389628,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.10429245283018868,
+            "median_q": 0.09995020964360588,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.028572659613887635,
+            "median_q": 0.028971065988389628,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 53
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 0,
+        "position_set": "A",
+        "Q": 0.028971065988389628,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.1515146750524109,
+            "median_q": 0.15661687631027255,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.028572659613887635,
+            "median_q": 0.028971065988389628,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 54
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 2,
+        "position_set": "D",
+        "Q": 0.025537073048828476,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.046352820442379344,
+            "median_q": 0.05367634889109566,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.025935479423330472,
+            "median_q": 0.025537073048828476,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 55
+      },
+      {
+        "stage": "post_attention",
+        "layer": 1,
+        "position_set": "D",
+        "Q": 0.025537073048828476,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.046352820442379344,
+            "median_q": 0.05367634889109566,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.025935479423330472,
+            "median_q": 0.025537073048828476,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 56
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 1,
+        "position_set": "D",
+        "Q": 0.025537073048828476,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.046352820442379344,
+            "median_q": 0.05367634889109566,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.025935479423330472,
+            "median_q": 0.025537073048828476,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 57
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 4,
+        "position_set": "D",
+        "Q": 0.02481609251530288,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.04789308176100629,
+            "median_q": 0.05631813417190776,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.02481609251530288,
+            "median_q": 0.02481609251530288,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 58
+      },
+      {
+        "stage": "post_attention",
+        "layer": 3,
+        "position_set": "D",
+        "Q": 0.02481609251530288,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.04789308176100629,
+            "median_q": 0.05631813417190776,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.02481609251530288,
+            "median_q": 0.02481609251530288,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 59
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 3,
+        "position_set": "D",
+        "Q": 0.02481609251530288,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.04789308176100629,
+            "median_q": 0.05631813417190776,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.02481609251530288,
+            "median_q": 0.02481609251530288,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 60
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 0,
+        "position_set": "D",
+        "Q": 0.024455602248540084,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.07405320813771518,
+            "median_q": 0.07849765258215963,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.02485400862304208,
+            "median_q": 0.024455602248540084,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 61
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 3,
+        "position_set": "D",
+        "Q": 0.024455602248540084,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.047395178197064985,
+            "median_q": 0.04719049983449189,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.025214498889804877,
+            "median_q": 0.024455602248540084,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 62
+      },
+      {
+        "stage": "post_attention",
+        "layer": 2,
+        "position_set": "D",
+        "Q": 0.024455602248540084,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.047395178197064985,
+            "median_q": 0.04719049983449189,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.025214498889804877,
+            "median_q": 0.024455602248540084,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 63
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 2,
+        "position_set": "D",
+        "Q": 0.024455602248540084,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.047395178197064985,
+            "median_q": 0.04719049983449189,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.025214498889804877,
+            "median_q": 0.024455602248540084,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 64
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 1,
+        "position_set": "D",
+        "Q": 0.02413634057469674,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.07099916580509472,
+            "median_q": 0.07355932285275332,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.025214498889804877,
+            "median_q": 0.02413634057469674,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 65
+      },
+      {
+        "stage": "post_attention",
+        "layer": 0,
+        "position_set": "D",
+        "Q": 0.02413634057469674,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.07099916580509472,
+            "median_q": 0.07355932285275332,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.025214498889804877,
+            "median_q": 0.02413634057469674,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 66
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 0,
+        "position_set": "D",
+        "Q": 0.02413634057469674,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.07099916580509472,
+            "median_q": 0.07355932285275332,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.025214498889804877,
+            "median_q": 0.02413634057469674,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 67
+      },
+      {
+        "stage": "post_attention",
+        "layer": 5,
+        "position_set": "D",
+        "Q": 0.022615234806986906,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.052209983069171614,
+            "median_q": 0.056647907302944125,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.023013641181488895,
+            "median_q": 0.022615234806986906,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 68
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 5,
+        "position_set": "D",
+        "Q": 0.022615234806986906,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.052209983069171614,
+            "median_q": 0.056647907302944125,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.023013641181488895,
+            "median_q": 0.022615234806986906,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 69
+      },
+      {
+        "stage": "pre_attention",
+        "layer": 5,
+        "position_set": "D",
+        "Q": 0.02168427849754454,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.04953051643192488,
+            "median_q": 0.057548395651020955,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.022357679170945215,
+            "median_q": 0.02168427849754454,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 70
+      },
+      {
+        "stage": "post_attention",
+        "layer": 4,
+        "position_set": "D",
+        "Q": 0.02168427849754454,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.04953051643192488,
+            "median_q": 0.057548395651020955,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.022357679170945215,
+            "median_q": 0.02168427849754454,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 71
+      },
+      {
+        "stage": "post_mlp",
+        "layer": 4,
+        "position_set": "D",
+        "Q": 0.02168427849754454,
+        "per_exon": {
+          "BRAF": {
+            "median_B": 0.04953051643192488,
+            "median_q": 0.057548395651020955,
+            "eligible_effects": 6
+          },
+          "SLC25A48": {
+            "median_B": 0.022357679170945215,
+            "median_q": 0.02168427849754454,
+            "eligible_effects": 6
+          }
+        },
+        "passes_development_selection_gate": false,
+        "rank": 72
+      }
+    ]
+  },
+  "decision": "phase_r_negative_continue_wider_ladder_confirmation_closed"
+}
