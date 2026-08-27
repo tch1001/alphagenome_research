@@ -280,6 +280,18 @@ class StageABranchesV3Test(unittest.TestCase):
     records = runner.load_locked_phase_r_identities(self.cases)
     self.assertEqual(len(records), 20)
     record = records[self.case.variant_id]
+    self.assertEqual(
+        record['configuration']['phase_runner_sha256'],
+        runner.v2._sha256(  # pylint: disable=protected-access
+            runner.PHASE_R_RUNNER_PATH
+        ),
+    )
+    self.assertEqual(
+        record['configuration']['v2_runner_sha256'],
+        runner.v2._sha256(  # pylint: disable=protected-access
+            runner.V2_RUNNER_PATH
+        ),
+    )
     means = [
         record['checks']['target_means'][role]
         for role in runner.route_v3.TRACE_BATCH_ROLES
@@ -290,8 +302,80 @@ class StageABranchesV3Test(unittest.TestCase):
     self.assertTrue(result['passed'])
     drifted = list(means)
     drifted[0] += runner.CROSS_EXECUTABLE_TARGET_TOLERANCE * 2
-    with self.assertRaisesRegex(ValueError, 'differs from locked'):
+    with self.assertRaisesRegex(ValueError, 'differs from its locked'):
       runner.validate_locked_phase_r_identity(self.case, drifted, record)
+
+  def test_current_phase_r_case_inputs_link_exactly_to_lock(self):
+    record = runner.load_locked_phase_r_identities(self.cases)[
+        self.case.variant_id
+    ]
+    interval = runner.v2.centered_interval(
+        self.case, runner.route_v3.CONTEXT_BP
+    )
+    position_sets = runner.v2.trace_position_sets(self.case, interval)
+    linkage = runner.validate_locked_phase_r_linkage(
+        self.case,
+        interval,
+        self.resolved,
+        record['configuration']['sequence_sha256'],
+        position_sets,
+        record,
+    )
+    self.assertTrue(linkage['passed'])
+    with self.assertRaisesRegex(ValueError, 'resolved_position_sets'):
+      runner.validate_locked_phase_r_linkage(
+          self.case,
+          interval,
+          self.resolved,
+          record['configuration']['sequence_sha256'],
+          position_sets[:-1],
+          record,
+      )
+
+  def test_frozen_configuration_binds_final_amendment_bytes(self):
+    record = runner.load_locked_phase_r_identities(self.cases)[
+        self.case.variant_id
+    ]
+    frozen = runner.frozen_configuration(Path(
+        record['configuration']['checkpoint_path']
+    ))
+    self.assertEqual(
+        frozen['dual_reference_amendment']['sha256'],
+        runner.v2._sha256(  # pylint: disable=protected-access
+            runner.DUAL_REFERENCE_AMENDMENT_PATH
+        ),
+    )
+    self.assertEqual(
+        frozen['phase_r_runner_sha256'],
+        record['configuration']['phase_runner_sha256'],
+    )
+    self.assertEqual(
+        frozen['v2_runner_sha256'],
+        record['configuration']['v2_runner_sha256'],
+    )
+
+  def test_dual_reference_records_drift_without_relaxing_locked_gate(self):
+    reference = (2.546875, 3.5869140625, 3.5869140625,
+                 3.5869140625, 2.546875, 2.546875)
+    stage = list(reference)
+    for row in (1, 2, 3):
+      stage[row] += 0.0048828125
+    diagnostic = runner.compare_stage_a_to_phase_r_reference(stage, reference)
+    self.assertTrue(diagnostic['diagnostic_only_not_a_gate'])
+    self.assertEqual(
+        diagnostic['maximum_absolute_difference'], 0.0048828125
+    )
+    records = runner.load_locked_phase_r_identities(self.cases)
+    locked = records['BRAF_e14_T71A']
+    runner.validate_locked_phase_r_identity(
+        self.cases[1], reference, locked
+    )
+    bad_reference = list(reference)
+    bad_reference[1] += 0.0048828125
+    with self.assertRaisesRegex(ValueError, 'differs from its locked'):
+      runner.validate_locked_phase_r_identity(
+          self.cases[1], bad_reference, locked
+      )
 
   def test_shapley_uses_raw_empty_T_E_and_joint_targets(self):
     identity = _record((1, 3, 3, 3, 1, 1))
@@ -315,6 +399,21 @@ class StageABranchesV3Test(unittest.TestCase):
     self.assertEqual(plan['component_calls_per_eligible_effect'], 4)
     self.assertEqual(plan['mandatory_closure_calls_per_effect'], 2)
     self.assertEqual(plan['isolated_branch_calls_per_eligible_effect'], 2)
+    self.assertEqual(plan['stage_a_identity_calls_per_variant'], 2)
+    self.assertEqual(plan['phase_r_semantic_reference_calls_per_variant'], 2)
+    self.assertEqual(
+        plan['execution_order'][:2],
+        (
+            'all_20_current_phase_r_references',
+            'all_20_stage_a_identities',
+        ),
+    )
+    self.assertEqual(
+        plan['dual_reference_amendment_sha256'],
+        runner.v2._sha256(  # pylint: disable=protected-access
+            runner.DUAL_REFERENCE_AMENDMENT_PATH
+        ),
+    )
     self.assertEqual(plan['confirmation_access'], 'disabled')
     self.assertIn('receptive_field', plan['remaining_stage_a_work'])
     encoded = str(plan)

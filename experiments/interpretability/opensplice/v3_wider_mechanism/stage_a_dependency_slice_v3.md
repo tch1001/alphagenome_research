@@ -32,15 +32,48 @@ backends, and checkpoint restoration are unchanged.
 
 ## Runner order and failure policy
 
-`run_stage_a_branches_v3.py` first runs an all-false duplicate/repeat Gate 0
-for the 20 frozen development rows. It compares Stage-A target identities to
-the locked Phase-R identity tree at an absolute threshold of `2^-8`. The locked
+`run_stage_a_branches_v3.py` first runs the exact current Phase-R factory,
+trace selection and all-false intervention twice for all 20 frozen development
+rows. It compares that semantic reference to the locked Phase-R identity tree
+at an absolute threshold of `2^-8`. Only after every reference passes does it
+run the separate Stage-A all-false duplicate/repeat Gate 0 for all 20 rows.
+The locked
 identity-tree SHA256 is
 `ff7182be96e4b5be52e022e613ac16f476651924ff36d6a11b397b95613a3436`
 and `PHASE_R_ANALYSIS.json` SHA256 is
 `0131d591197fb187b9f291479e028c32c87313e40addd411235cb650df018a21`.
 For effects, both executables must also have absolute ALT-REF logit-margin
 delta at least `0.01` and the same sign as experimental `delta_logit`.
+
+This dual-reference policy was frozen after the first full-cohort Stage-A
+attempt stopped before any branch artifact. `BRAF_e14_T71A` had locked REF/ALT values
+`2.546875` and `3.5869140625`; the Stage-A/locked absolute-difference vector was
+`[0, 0.0048828125, 0.0048828125, 0.0048828125, 0, 0]`, exceeding `2^-8` on
+the three identical ALT rows. The failed process raised before writing its raw
+Stage-A values, so the sign of that cross-graph difference was not persisted.
+The first variant was exact. That 20-row process produced no closure or
+isolated-branch result. A separate earlier one-variant smoke had already
+produced final-A/D and joint-T+E closure artifacts, but no isolated T/E,
+Shapley or ranking result; its hashes and claim boundary are frozen in
+`gate0_dual_reference_amendment_v3_1.md`.
+
+Stage A and Phase R return different trace pytrees and insert different
+all-false `where`/gather operations. Under BF16, XLA fusion and reassociation
+are therefore not guaranteed to produce bit-identical output logits even when
+both graphs are semantic no-ops. Making the new graph structurally resemble
+Phase R would still change its outputs and offers no proof that the compiler
+will choose the frozen Phase-R arithmetic. Precision/barrier changes would
+likewise create a third graph that cannot be compared to the already locked
+artifact.
+
+The current Phase-R reference must still pass the unchanged `2^-8` lock and
+exact duplicate/repeat audits. The Stage-A graph separately must pass exact
+within-graph repeats, same-allele baselines, no-op checks, self transfers and
+both target closures. Its difference from the current Phase-R graph is written
+as a diagnostic and is not used for eligibility, ranking or thresholding.
+This does not assert exact equality between distinct compiled graphs; it
+separates semantic/checkpoint identity from the causal graph's internal
+contrasts without modifying either frozen artifact or threshold.
 
 For every frozen development effect, regardless of isolated-branch
 eligibility, the runner completes both mandatory controls across the entire

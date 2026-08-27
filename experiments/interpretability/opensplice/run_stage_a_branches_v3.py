@@ -32,10 +32,11 @@ _HERE = Path(__file__).resolve().parent
 if str(_HERE) not in sys.path:
   sys.path.insert(0, str(_HERE))
 import run_inference_trace as v2  # pylint: disable=g-import-not-at-top
+import run_phase_r_v3 as phase_r_v3  # pylint: disable=g-import-not-at-top
 import run_route_census_v3 as route_v3  # pylint: disable=g-import-not-at-top
 
 
-SCRIPT_VERSION = 'opensplice-stage-a-branches-v3.0.2'
+SCRIPT_VERSION = 'opensplice-stage-a-branches-v3.1.0'
 COMPONENTS = (
     'final_embedding_A_D_closure',
     'joint_T_plus_E_closure',
@@ -43,7 +44,7 @@ COMPONENTS = (
     'whole_E',
 )
 DEFAULT_OUTPUT_DIR = (
-    _HERE / 'results' / 'v3_development_stage_a_branches'
+    _HERE / 'results' / 'v3_development_stage_a_branches_dual_reference'
 )
 LOCKED_PHASE_R_DIR = (
     _HERE / 'results' / 'v3_development_phase_r_logit_margin'
@@ -55,6 +56,13 @@ LOCKED_PHASE_R_ANALYSIS_SHA256 = (
     '0131d591197fb187b9f291479e028c32c87313e40addd411235cb650df018a21'
 )
 CROSS_EXECUTABLE_TARGET_TOLERANCE = 2**-8
+PHASE_R_RUNNER_PATH = _HERE / 'run_phase_r_v3.py'
+V2_RUNNER_PATH = _HERE / 'run_inference_trace.py'
+DUAL_REFERENCE_AMENDMENT_PATH = (
+    _HERE
+    / 'v3_wider_mechanism'
+    / 'gate0_dual_reference_amendment_v3_1.md'
+)
 
 
 @dataclasses.dataclass(frozen=True)
@@ -448,6 +456,12 @@ def load_locked_phase_r_identities(
     raise ValueError('Locked Phase-R identity tree hash mismatch.')
 
   allowed = {case.variant_id: case for case in cases}
+  current_phase_r_sha = v2._sha256(  # pylint: disable=protected-access
+      PHASE_R_RUNNER_PATH
+  )
+  current_v2_sha = v2._sha256(  # pylint: disable=protected-access
+      V2_RUNNER_PATH
+  )
   records = {}
   for path in paths:
     record = json.loads(path.read_text(encoding='utf-8'))
@@ -459,6 +473,15 @@ def load_locked_phase_r_identities(
       raise ValueError(f'Unexpected locked Phase-R variant: {variant_id!r}.')
     if case_record.get('gene') not in route_v3.DEVELOPMENT_GENES:
       raise ValueError('Locked Phase-R identity is outside development genes.')
+    locked_configuration = record['configuration']
+    if locked_configuration.get('phase_runner_sha256') != current_phase_r_sha:
+      raise ValueError(
+          f'Current Phase-R runner differs from lock for {variant_id}.'
+      )
+    if locked_configuration.get('v2_runner_sha256') != current_v2_sha:
+      raise ValueError(
+          f'Current v2 helper runner differs from lock for {variant_id}.'
+      )
     if variant_id in records:
       raise ValueError(f'Duplicate locked Phase-R variant: {variant_id}.')
     means = record.get('checks', {}).get('target_means', {})
@@ -474,31 +497,85 @@ def load_locked_phase_r_identities(
   return records
 
 
-def validate_locked_phase_r_identity(
+def _json_normalized(value: Any) -> Any:
+  return json.loads(json.dumps(
+      v2._to_json(value),  # pylint: disable=protected-access
+      sort_keys=True,
+      separators=(',', ':'),
+      allow_nan=False,
+  ))
+
+
+def validate_locked_phase_r_linkage(
     case: v2.Case,
-    stage_target_means: Sequence[float],
+    interval,
+    resolved_target,
+    sequence_sha256: Mapping[str, str],
+    position_sets: Sequence[Any],
     locked_record: Mapping[str, Any],
 ) -> dict[str, Any]:
-  """Fails closed if Stage-A and locked Phase-R identity graphs drift."""
-  stage = np.asarray(stage_target_means, np.float64)
-  if stage.shape != (interpretability.PAIRED_CAUSAL_BATCH_SIZE,):
-    raise ValueError(f'Expected six Stage-A target means, got {stage.shape}.')
+  """Binds a prospective reference call to its exact locked Phase-R inputs."""
+  locked = locked_record['configuration']
+  current = {
+      'case': v2._case_record(case),  # pylint: disable=protected-access
+      'interval': {
+          'chromosome': interval.chromosome,
+          'start_0based': interval.start,
+          'end_0based_exclusive': interval.end,
+      },
+      'sequence_sha256': dict(sequence_sha256),
+      'canonical_target': {
+          'endpoints': [
+              dataclasses.asdict(endpoint)
+              for endpoint in resolved_target.endpoints
+          ],
+          'padding_track_index': resolved_target.padding_track_index,
+      },
+      'resolved_position_sets': [
+          dataclasses.asdict(position_set) for position_set in position_sets
+      ],
+  }
+  for name, value in current.items():
+    if _json_normalized(value) != _json_normalized(locked.get(name)):
+      raise ValueError(
+          f'Current Phase-R {name} differs from lock for {case.variant_id}.'
+      )
+  return {
+      'passed': True,
+      'fields_exact': tuple(current),
+      'phase_runner_sha256': locked['phase_runner_sha256'],
+      'v2_runner_sha256': locked['v2_runner_sha256'],
+  }
+
+
+def validate_locked_phase_r_identity(
+    case: v2.Case,
+    reference_target_means: Sequence[float],
+    locked_record: Mapping[str, Any],
+) -> dict[str, Any]:
+  """Fails closed if a current Phase-R graph drifts from its frozen identity."""
+  reference = np.asarray(reference_target_means, np.float64)
+  if reference.shape != (interpretability.PAIRED_CAUSAL_BATCH_SIZE,):
+    raise ValueError(
+        f'Expected six Phase-R reference target means, got {reference.shape}.'
+    )
   locked_map = locked_record['checks']['target_means']
   locked = np.asarray(
       [locked_map[role] for role in route_v3.TRACE_BATCH_ROLES], np.float64
   )
-  differences = np.abs(stage - locked)
-  if not np.isfinite(stage).all() or not np.isfinite(locked).all():
+  differences = np.abs(reference - locked)
+  if not np.isfinite(reference).all() or not np.isfinite(locked).all():
     raise ValueError(
         'Cross-executable target identity contains non-finite values.'
     )
   if not (differences <= CROSS_EXECUTABLE_TARGET_TOLERANCE).all():
     raise ValueError(
-        'Stage-A target graph differs from locked Phase-R identity by more '
+        'Current Phase-R reference graph differs from its locked identity by '
+        'more '
         f'than {CROSS_EXECUTABLE_TARGET_TOLERANCE}: {differences.tolist()}.'
     )
 
-  stage_delta = float(stage[1] - stage[0])
+  reference_delta = float(reference[1] - reference[0])
   locked_delta = float(locked[1] - locked[0])
   denominator_gate = None
   if case.is_effect:
@@ -506,14 +583,14 @@ def validate_locked_phase_r_identity(
     denominator_gate = {
         'minimum_absolute_logit_margin_delta': route_v3.EFFECT_THRESHOLD,
         'experimental_delta_logit_sign': experimental_sign,
-        'stage_a_absolute_delta_passes': (
-            abs(stage_delta) >= route_v3.EFFECT_THRESHOLD
+        'reference_graph_absolute_delta_passes': (
+            abs(reference_delta) >= route_v3.EFFECT_THRESHOLD
         ),
         'locked_phase_r_absolute_delta_passes': (
             abs(locked_delta) >= route_v3.EFFECT_THRESHOLD
         ),
-        'stage_a_direction_matches': (
-            int(np.sign(stage_delta)) == experimental_sign
+        'reference_graph_direction_matches': (
+            int(np.sign(reference_delta)) == experimental_sign
         ),
         'locked_phase_r_direction_matches': (
             int(np.sign(locked_delta)) == experimental_sign
@@ -527,7 +604,7 @@ def validate_locked_phase_r_identity(
         )
     ):
       raise ValueError(
-          'Stage-A/Phase-R effect denominator or direction gate failed: '
+          'Current/locked Phase-R denominator or direction gate failed: '
           f'{denominator_gate}.'
       )
   return {
@@ -537,15 +614,51 @@ def validate_locked_phase_r_identity(
       'locked_target_means': dict(zip(
           route_v3.TRACE_BATCH_ROLES, locked.tolist(), strict=True
       )),
-      'stage_a_target_means': dict(zip(
-          route_v3.TRACE_BATCH_ROLES, stage.tolist(), strict=True
+      'current_phase_r_reference_target_means': dict(zip(
+          route_v3.TRACE_BATCH_ROLES, reference.tolist(), strict=True
       )),
       'absolute_differences': dict(zip(
           route_v3.TRACE_BATCH_ROLES, differences.tolist(), strict=True
       )),
       'locked_alt_minus_ref_logit_margin': locked_delta,
-      'stage_a_alt_minus_ref_logit_margin': stage_delta,
+      'current_phase_r_alt_minus_ref_logit_margin': reference_delta,
       'effect_denominator_and_direction_gate': denominator_gate,
+  }
+
+
+def compare_stage_a_to_phase_r_reference(
+    stage_target_means: Sequence[float],
+    reference_target_means: Sequence[float],
+) -> dict[str, Any]:
+  """Records, but never uses, cross-graph BF16 drift for causal ranking."""
+  stage = np.asarray(stage_target_means, np.float64)
+  reference = np.asarray(reference_target_means, np.float64)
+  expected = (interpretability.PAIRED_CAUSAL_BATCH_SIZE,)
+  if stage.shape != expected or reference.shape != expected:
+    raise ValueError('Dual-reference diagnostics require two six-row targets.')
+  if not np.isfinite(stage).all() or not np.isfinite(reference).all():
+    raise ValueError('Dual-reference target contains non-finite values.')
+  differences = np.abs(stage - reference)
+  return {
+      'diagnostic_only_not_a_gate': True,
+      'reason': (
+          'the distinct Stage-A and Phase-R transformed graphs can compile '
+          'to different BF16 arithmetic; Stage-A causal contrasts use only '
+          'its exact within-graph baselines and self controls'
+      ),
+      'stage_a_target_means': dict(zip(
+          route_v3.TRACE_BATCH_ROLES, stage.tolist(), strict=True
+      )),
+      'current_phase_r_reference_target_means': dict(zip(
+          route_v3.TRACE_BATCH_ROLES, reference.tolist(), strict=True
+      )),
+      'absolute_differences': dict(zip(
+          route_v3.TRACE_BATCH_ROLES, differences.tolist(), strict=True
+      )),
+      'maximum_absolute_difference': float(differences.max()),
+      'frozen_cross_executable_tolerance_for_reference_graph': (
+          CROSS_EXECUTABLE_TARGET_TOLERANCE
+      ),
   }
 
 
@@ -562,8 +675,31 @@ def frozen_configuration(checkpoint: Path) -> dict[str, Any]:
       'protocol_sha256': v2._sha256(  # pylint: disable=protected-access
           protocol
       ),
+      'phase_r_runner_sha256': v2._sha256(  # pylint: disable=protected-access
+          PHASE_R_RUNNER_PATH
+      ),
+      'v2_runner_sha256': v2._sha256(  # pylint: disable=protected-access
+          V2_RUNNER_PATH
+      ),
+      'dual_reference_amendment': {
+          'path': str(DUAL_REFERENCE_AMENDMENT_PATH.resolve()),
+          'sha256': v2._sha256(  # pylint: disable=protected-access
+              DUAL_REFERENCE_AMENDMENT_PATH
+          ),
+      },
       'components': COMPONENTS,
       'whole_tensor_host_policy': 'return_exact_boolean_audits_only',
+      'dual_reference_design': {
+          'semantic_reference': (
+              'current create_splice_classification_logit_margin_route_census_'
+              'apply with exact frozen Phase-R selection and all-false pytree'
+          ),
+          'causal_graph': (
+              'Stage-A whole-branch apply with exact internal baselines and '
+              'self controls'
+          ),
+          'cross_graph_stage_a_difference': 'diagnostic_only_not_a_gate',
+      },
       'locked_phase_r': {
           'path': str(LOCKED_PHASE_R_DIR.resolve()),
           'identity_tree_sha256': LOCKED_PHASE_R_IDENTITY_TREE_SHA256,
@@ -616,13 +752,123 @@ def _artifact_path(output_dir: Path, case: v2.Case, component=None) -> Path:
   return output_dir / 'components' / case_name / f'{component.key}.json'
 
 
-def _run_identity(
+def _phase_r_reference_path(output_dir: Path, case: v2.Case) -> Path:
+  slug = v2._slug(case.variant_id)  # pylint: disable=protected-access
+  return output_dir / 'phase_r_reference' / f'{case.order:03d}_{slug}.json'
+
+
+def _run_phase_r_reference(
     model_instance,
-    apply_fn,
+    phase_r_reference_apply_fn,
     case: v2.Case,
     frozen: Mapping[str, Any],
     output_dir: Path,
     locked_phase_r_identity: Mapping[str, Any],
+) -> dict[str, Any]:
+  interval = v2.centered_interval(case, route_v3.CONTEXT_BP)
+  metadata = model_instance._metadata[  # pylint: disable=protected-access
+      public_dna_model.Organism.HOMO_SAPIENS
+  ].splice_sites
+  target, resolved = route_v3.target_selection(metadata, case, interval)
+  phase_r_position_sets = v2.trace_position_sets(case, interval)
+  phase_r_selection = phase_r_v3.phase_r_trace_selection(
+      phase_r_position_sets
+  )
+  build_batch = (  # pylint: disable=protected-access
+      route_v3._build_six_row_batch
+  )
+  dna_batch, sequence_sha = build_batch(
+      model_instance, case, interval
+  )
+  linkage = validate_locked_phase_r_linkage(
+      case,
+      interval,
+      resolved,
+      sequence_sha,
+      phase_r_position_sets,
+      locked_phase_r_identity,
+  )
+  configuration = {
+      **_case_configuration(
+          frozen, case, interval, resolved, sequence_sha
+      ),
+      'kind': 'exact_current_phase_r_gate0_dual_reference',
+      'resolved_position_sets': [
+          dataclasses.asdict(position_set)
+          for position_set in phase_r_position_sets
+      ],
+      'locked_input_linkage': linkage,
+      'locked_phase_r_identity_fingerprint': locked_phase_r_identity[
+          'fingerprint'
+      ],
+  }
+  fingerprint = (  # pylint: disable=protected-access
+      v2._fingerprint(configuration)
+  )
+  path = _phase_r_reference_path(output_dir, case)
+  completed = v2._load_completed(  # pylint: disable=protected-access
+      path, fingerprint
+  )
+  organism = jnp.zeros((6,), jnp.int32)
+  common = (
+      model_instance._params,  # pylint: disable=protected-access
+      model_instance._state,  # pylint: disable=protected-access
+      dna_batch,
+      organism,
+      phase_r_selection,
+  )
+  if completed is None:
+    timed_apply = route_v3._timed_apply  # pylint: disable=protected-access
+    phase_r_interventions = phase_r_v3.group_interventions(
+        phase_r_selection, None
+    )
+    phase_r_first, phase_r_first_seconds = timed_apply(
+        phase_r_reference_apply_fn,
+        *common,
+        phase_r_interventions,
+        target,
+    )
+    phase_r_second, phase_r_second_seconds = timed_apply(
+        phase_r_reference_apply_fn,
+        *common,
+        phase_r_interventions,
+        target,
+    )
+    phase_r_current_checks = route_v3.validate_identity_audit(
+        phase_r_first[0],
+        phase_r_first[1],
+        phase_r_second[0],
+        phase_r_second[1],
+    )
+    phase_r_comparison = validate_locked_phase_r_identity(
+        case, np.asarray(phase_r_first[0].mean), locked_phase_r_identity
+    )
+    completed = {
+        'status': 'complete',
+        'fingerprint': fingerprint,
+        'configuration': configuration,
+        'checks': phase_r_current_checks,
+        'phase_r_cross_executable_identity': phase_r_comparison,
+        'direction_gate': route_v3.direction_gate(
+            case, np.asarray(phase_r_first[0].mean)
+        ),
+        'seconds': {
+            'first_compile_and_run': phase_r_first_seconds,
+            'exact_repeat': phase_r_second_seconds,
+        },
+        'created_at_unix_s': time.time(),
+    }
+    v2._write_atomic(path, completed)  # pylint: disable=protected-access
+  return completed
+
+
+def _run_identity(
+    model_instance,
+    stage_apply_fn,
+    case: v2.Case,
+    frozen: Mapping[str, Any],
+    output_dir: Path,
+    phase_r_reference: Mapping[str, Any],
 ):
   interval = v2.centered_interval(case, route_v3.CONTEXT_BP)
   metadata = model_instance._metadata[  # pylint: disable=protected-access
@@ -630,23 +876,22 @@ def _run_identity(
   ].splice_sites
   target, resolved = route_v3.target_selection(metadata, case, interval)
   selection = branch_selection(resolved)
-  build_batch = (  # pylint: disable=protected-access
-      route_v3._build_six_row_batch
+  dna_batch, sequence_sha = (  # pylint: disable=protected-access
+      route_v3._build_six_row_batch(model_instance, case, interval)
   )
-  dna_batch, sequence_sha = build_batch(
-      model_instance, case, interval
-  )
+  if _json_normalized(sequence_sha) != _json_normalized(
+      phase_r_reference['configuration']['sequence_sha256']
+  ):
+    raise ValueError('Stage-A sequence differs from its Phase-R reference.')
   configuration = {
       **_case_configuration(
           frozen, case, interval, resolved, sequence_sha
       ),
       'kind': 'stage_a_all_false_identity_duplicate_repeat',
-      'locked_phase_r_identity_fingerprint': locked_phase_r_identity[
-          'fingerprint'
-      ],
+      'phase_r_reference_fingerprint': phase_r_reference['fingerprint'],
   }
-  fingerprint = (  # pylint: disable=protected-access
-      v2._fingerprint(configuration)
+  fingerprint = v2._fingerprint(  # pylint: disable=protected-access
+      configuration
   )
   path = _artifact_path(output_dir, case)
   completed = v2._load_completed(  # pylint: disable=protected-access
@@ -664,21 +909,25 @@ def _run_identity(
     interventions = component_interventions(selection, None)
     timed_apply = route_v3._timed_apply  # pylint: disable=protected-access
     first, first_seconds = timed_apply(
-        apply_fn, *common, interventions, target
+        stage_apply_fn, *common, interventions, target
     )
     second, second_seconds = timed_apply(
-        apply_fn, *common, interventions, target
+        stage_apply_fn, *common, interventions, target
     )
     checks = validate_identity_audit(first[0], first[1], second[0], second[1])
-    phase_r_comparison = validate_locked_phase_r_identity(
-        case, np.asarray(first[0].mean), locked_phase_r_identity
+    reference_means = tuple(
+        phase_r_reference['checks']['target_means'][role]
+        for role in route_v3.TRACE_BATCH_ROLES
+    )
+    diagnostic = compare_stage_a_to_phase_r_reference(
+        np.asarray(first[0].mean), reference_means
     )
     completed = {
         'status': 'complete',
         'fingerprint': fingerprint,
         'configuration': configuration,
         'checks': checks,
-        'phase_r_cross_executable_identity': phase_r_comparison,
+        'stage_a_vs_phase_r_cross_graph_diagnostic': diagnostic,
         'direction_gate': route_v3.direction_gate(
             case, np.asarray(first[0].mean)
         ),
@@ -768,11 +1017,35 @@ def build_dry_run_plan(
       'attention_backend': route_v3.ATTENTION_BACKEND,
       'target_head_key': 'splice_sites_classification/logits',
       'target_scalar': 'TargetSummary.mean',
-      'identity_calls_per_variant': 2,
+      'stage_a_identity_calls_per_variant': 2,
+      'phase_r_semantic_reference_calls_per_variant': 2,
+      'dual_reference_policy': (
+          'locked threshold applies to an exact current Phase-R graph; '
+          'Stage-A cross-graph difference is diagnostic only'
+      ),
+      'execution_order': (
+          'all_20_current_phase_r_references',
+          'all_20_stage_a_identities',
+          'all_12_final_embedding_closures',
+          'all_12_joint_T_plus_E_closures',
+          'eligible_isolated_whole_T_and_E',
+      ),
+      'bounded_gpu_execution': 'forbidden_after_v3.1_amendment',
       'locked_phase_r_identity_tree_sha256': (
           LOCKED_PHASE_R_IDENTITY_TREE_SHA256
       ),
       'locked_phase_r_analysis_sha256': LOCKED_PHASE_R_ANALYSIS_SHA256,
+      'phase_r_runner_sha256': v2._sha256(  # pylint: disable=protected-access
+          PHASE_R_RUNNER_PATH
+      ),
+      'v2_runner_sha256': v2._sha256(  # pylint: disable=protected-access
+          V2_RUNNER_PATH
+      ),
+      'dual_reference_amendment_sha256': (
+          v2._sha256(  # pylint: disable=protected-access
+              DUAL_REFERENCE_AMENDMENT_PATH
+          )
+      ),
       'cross_executable_target_tolerance': (
           CROSS_EXECUTABLE_TARGET_TOLERANCE
       ),
@@ -841,6 +1114,11 @@ def main() -> None:
         allow_nan=False,
     ))
     return
+  if args.max_variants or args.max_components:
+    raise ValueError(
+        'v3.1 GPU execution is all-or-nothing: all 20 references and '
+        'identities must pass before active components.'
+    )
 
   checkpoint = (  # pylint: disable=protected-access
       v2._checkpoint_path(args.checkpoint)
@@ -852,24 +1130,43 @@ def main() -> None:
           attention_backend=route_v3.ATTENTION_BACKEND
       ),
   )
-  apply_fn = (
+  stage_apply_fn = (
       dna_model.create_splice_classification_logit_margin_stage_a_branch_apply(
           model_instance._metadata,  # pylint: disable=protected-access
           attention_backend=route_v3.ATTENTION_BACKEND,
       )
   )
-  apply_fn = jax.jit(apply_fn)
+  stage_apply_fn = jax.jit(stage_apply_fn)
+  phase_r_reference_apply_fn = jax.jit(
+      dna_model.create_splice_classification_logit_margin_route_census_apply(
+          model_instance._metadata,  # pylint: disable=protected-access
+          attention_backend=route_v3.ATTENTION_BACKEND,
+      )
+  )
 
+  # Pass 1 is intentionally complete before the first Stage-A identity call.
+  phase_r_references = {}
+  for case in cases:
+    phase_r_references[case.variant_id] = _run_phase_r_reference(
+        model_instance,
+        phase_r_reference_apply_fn,
+        case,
+        frozen,
+        args.output_dir,
+        locked_phase_r_identities[case.variant_id],
+    )
+
+  # Pass 2 completes all Stage-A identities before any active component.
   identities = {}
   live_inputs = {}
   for case in cases:
     identity, common, target, selection, resolved = _run_identity(
         model_instance,
-        apply_fn,
+        stage_apply_fn,
         case,
         frozen,
         args.output_dir,
-        locked_phase_r_identities[case.variant_id],
+        phase_r_references[case.variant_id],
     )
     identities[case.variant_id] = identity
     live_inputs[case.variant_id] = (common, target, selection, resolved)
@@ -904,12 +1201,12 @@ def main() -> None:
 
   # Every available mandatory closure is completed across the entire
   # development cohort before any isolated branch result is produced.
-  for case in effect_cases:
-    identity = identities[case.variant_id]
-    common, target, selection, resolved = live_inputs[case.variant_id]
-    for component in closure_components:
+  for component in closure_components:
+    for case in effect_cases:
+      identity = identities[case.variant_id]
+      common, target, selection, resolved = live_inputs[case.variant_id]
       component_results[case.variant_id][component.name] = _run_component(
-          apply_fn,
+          stage_apply_fn,
           case,
           identity,
           common,
@@ -927,7 +1224,7 @@ def main() -> None:
     results = component_results[case.variant_id]
     for component in branch_components:
       results[component.name] = _run_component(
-          apply_fn,
+          stage_apply_fn,
           case,
           identity,
           common,
@@ -960,7 +1257,14 @@ def main() -> None:
       'status': 'complete',
       'script_version': SCRIPT_VERSION,
       'partition': 'development_only',
+      'runner_sha256': frozen['runner_sha256'],
+      'phase_r_runner_sha256': frozen['phase_r_runner_sha256'],
+      'v2_runner_sha256': frozen['v2_runner_sha256'],
+      'dual_reference_amendment': frozen['dual_reference_amendment'],
+      'locked_phase_r': frozen['locked_phase_r'],
       'variant_count': len(cases),
+      'completed_phase_r_reference_count': len(phase_r_references),
+      'completed_stage_a_identity_count': len(identities),
       'eligible_effect_count': sum(
           identities[case.variant_id]['direction_gate'][
               'eligible_for_causal_census'
