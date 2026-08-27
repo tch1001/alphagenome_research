@@ -38,7 +38,7 @@ import jax.numpy as jnp
 import numpy as np
 
 
-SCRIPT_VERSION = 'opensplice-inference-trace-v1'
+SCRIPT_VERSION = 'opensplice-inference-trace-v1.0.1'
 DEFAULT_SELECTED = Path(__file__).with_name('selected_variants_v2.tsv')
 DEFAULT_EXONS = Path(__file__).with_name('frozen_exons_v2.tsv')
 DEFAULT_OUTPUT_DIR = Path(__file__).with_name('results').joinpath('v2')
@@ -49,7 +49,10 @@ CONTROL_START_DISTANCE_TOKENS = 4
 PAIR_PADDING_SIZE = 1
 HEAD_PADDING_SIZE = 1
 PREDICTED_EFFECT_THRESHOLD = 0.01
-PUBLIC_PAIRED_TARGET_TOLERANCE = 1e-6
+# Public prediction and instrumented tracing are separately compiled BF16
+# graphs. Near probability 1.0, one BF16 ULP is 2**-8. This cross-graph guard is
+# deliberately distinct from the protocol's 1e-6 same-executable repeat gate.
+PUBLIC_PAIRED_TARGET_TOLERANCE = 2**-8
 
 REQUIRED_SELECTED_COLUMNS = frozenset({
     'selection_version',
@@ -868,7 +871,7 @@ def validate_public_paired_target(
     *,
     tolerance: float = PUBLIC_PAIRED_TARGET_TOLERANCE,
 ) -> dict[str, float]:
-  """Checks that the public and compact paired-target paths are equivalent."""
+  """Checks public and instrumented targets within one BF16 output ULP."""
   deltas = {
       'reference_delta_from_public': (
           reference_value - float(public_score['reference_mean'])

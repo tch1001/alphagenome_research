@@ -97,6 +97,11 @@ with same-cardinality controls shifted at least four 128-bp tokens while
 preserving relative offsets. The causal path fails closed on non-SNVs because
 residual patching requires aligned REF/ALT transformer tokens.
 
+The public predictor and instrumented tracer are separate BF16-compiled graphs.
+Their baseline scalar must agree within one BF16 output ULP near probability
+one (`2^-8 = 0.00390625`). This cross-graph equivalence check is not the
+protocol's same-executable repeat check, which remains `1e-6`.
+
 The v2 manifest is `selected_variants_v2.tsv`; its SHA-256 is
 `09cf0003317d742dfa742481ff6a96896b679342717867b31c85283262a6fdf6`.
 Full checks are in `selection_validation_v2.json`. The CPU-only v2 tests are:

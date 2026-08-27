@@ -225,6 +225,15 @@ class RunInferenceTraceTest(unittest.TestCase):
         public, 0.2, 0.4
     )
     self.assertEqual(deltas['reference_delta_from_public'], 0)
+    accepted = run_inference_trace.validate_public_paired_target(
+        public,
+        0.2 + run_inference_trace.PUBLIC_PAIRED_TARGET_TOLERANCE,
+        0.4,
+    )
+    self.assertAlmostEqual(
+        accepted['reference_delta_from_public'],
+        run_inference_trace.PUBLIC_PAIRED_TARGET_TOLERANCE,
+    )
     with self.assertRaisesRegex(ValueError, 'disagrees'):
       run_inference_trace.validate_public_paired_target(
           public, 0.21, 0.4
