@@ -1,0 +1,3 @@
+selection_order	gene	exon_id	ensembl_exon_id	chromosome	strand	exon_start_1based	exon_end_1based	exon_length_bp	selection_basis
+1	BRAF	BRAF_e14	ENSE00003649805	chr7	-	140754187	140754233	47	First entry in the upstream paper's frozen 30-exon curated splice-map list.
+2	SLC25A48	SLC25A48_e8	ENSE00003835789	chr5	+	135880773	135880910	138	Second entry in the upstream paper's frozen 30-exon curated splice-map list.

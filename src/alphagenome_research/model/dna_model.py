@@ -192,6 +192,21 @@ SpliceClassificationLogitMarginStageABranchApplyFn = Callable[
     ],
     tuple[interpretability.TargetSummary, interpretability.StageABranchTrace],
 ]
+SpliceClassificationLogitMarginSupersetGraphApplyFn = Callable[
+    [
+        hk.Params,
+        hk.State,
+        Float32[Array, '6 S 4'],
+        Int32[Array, '6'],
+        interpretability.SupersetGraphSelection,
+        interpretability.SupersetGraphInterventions,
+        interpretability.SpliceClassificationLogitMarginSelection,
+    ],
+    tuple[
+        interpretability.SpliceClassificationLogitMarginEvidence,
+        interpretability.SupersetGraphTrace,
+    ],
+]
 
 
 def extract_predictions(
@@ -2194,6 +2209,86 @@ def create_splice_classification_logit_margin_stage_a_branch_apply(
       ),
   ) -> tuple[
       interpretability.TargetSummary, interpretability.StageABranchTrace
+  ]:
+    output, _ = _forward_targeted.apply(
+        params,
+        state,
+        None,
+        dna_sequence,
+        organism_index,
+        selection,
+        interventions,
+        target_selection,
+    )
+    return output
+
+  return _apply_fn
+
+
+def create_splice_classification_logit_margin_superset_graph_apply(
+    metadata: Mapping[dna_model.Organism, AlphaGenomeOutputMetadata],
+    *,
+    num_splice_sites: int = model.DEFAULT_NUM_SPLICE_SITES,
+    splice_site_threshold: float = model.DEFAULT_SPLICE_SITE_THRESHOLD,
+    attention_backend: str = attention.ATTENTION_BACKEND_DENSE,
+) -> SpliceClassificationLogitMarginSupersetGraphApplyFn:
+  """Creates the single v3.2 residual plus whole-route causal graph.
+
+  Every selector and intervention is a fixed-shape runtime pytree. The normal
+  public model factory and checkpoint parameter/state tree remain unchanged.
+  """
+  jmp_policy = jmp.get_policy('params=float32,compute=bfloat16,output=bfloat16')
+
+  @hk.transform_with_state
+  def _forward_targeted(
+      dna_sequence: Float[Array, '6 S 4'],
+      organism_index: Int32[Array, '6'],
+      selection: interpretability.SupersetGraphSelection,
+      interventions: interpretability.SupersetGraphInterventions,
+      target_selection: (
+          interpretability.SpliceClassificationLogitMarginSelection
+      ),
+  ):
+    if dna_sequence.shape[0] != interpretability.PAIRED_CAUSAL_BATCH_SIZE:
+      raise ValueError('The v3.2 superset graph requires exactly six rows.')
+    with hk.mixed_precision.push_policy(model.AlphaGenome, jmp_policy):
+      alphagenome = model.AlphaGenome(
+          metadata,
+          num_splice_sites=num_splice_sites,
+          splice_site_threshold=splice_site_threshold,
+          attention_backend=attention_backend,
+      )
+      embeddings, trace = alphagenome.forward_trunk_with_superset_graph(
+          dna_sequence,
+          organism_index,
+          selection=selection,
+          interventions=interventions,
+      )
+      predictions = alphagenome.forward_heads(embeddings, organism_index)
+      try:
+        logits = predictions['splice_sites_classification']['logits']
+      except KeyError as error:
+        raise ValueError(
+            'The splice-classification internal logits are unavailable.'
+        ) from error
+      evidence = interpretability.splice_classification_logit_margin_evidence(
+          logits, target_selection
+      )
+      return evidence, trace
+
+  def _apply_fn(
+      params: hk.Params,
+      state: hk.State,
+      dna_sequence: Float32[Array, '6 S 4'],
+      organism_index: Int32[Array, '6'],
+      selection: interpretability.SupersetGraphSelection,
+      interventions: interpretability.SupersetGraphInterventions,
+      target_selection: (
+          interpretability.SpliceClassificationLogitMarginSelection
+      ),
+  ) -> tuple[
+      interpretability.SpliceClassificationLogitMarginEvidence,
+      interpretability.SupersetGraphTrace,
   ]:
     output, _ = _forward_targeted.apply(
         params,

@@ -893,6 +893,123 @@ class AlphaGenome(hk.Module):
     )
 
   @hk.name_like('__call__')
+  def forward_trunk_with_superset_graph(
+      self,
+      dna_sequence: Float[Array, 'B S 4'],
+      organism_index: Int[Array, 'B'],
+      *,
+      selection: interpretability.SupersetGraphSelection,
+      interventions: interpretability.SupersetGraphInterventions,
+      is_training: bool = False,
+  ) -> tuple[
+      embeddings_module.Embeddings, interpretability.SupersetGraphTrace
+  ]:
+    """Runs the integrated residual and whole-branch causal graph."""
+    interpretability.validate_stage_a_branch_interventions(
+        selection.stage_a,
+        interventions.stage_a,
+        batch_size=dna_sequence.shape[0],
+    )
+    trunk, intermediates = SequenceEncoder()(
+        dna_sequence, is_training=is_training
+    )
+    if self._num_organisms >= 1:
+      organism_embedding_trunk = embeddings_module.create_default_embedding(
+          self._num_organisms, trunk.shape[-1]
+      )(organism_index)
+      trunk += organism_embedding_trunk[:, None, :]
+    trunk, pair_activations, transformer_trace = TransformerTower(
+        attention_backend=self._attention_backend
+    ).forward_with_intermediates(
+        trunk,
+        is_training=is_training,
+        trace_selection=selection.transformer,
+        interventions=interventions.transformer,
+    )
+    (
+        trunk,
+        transformer_natural_matches,
+        transformer_effective_matches_natural,
+        transformer_effective_matches_donor,
+        transformer_fingerprint,
+    ) = interpretability.transfer_whole_sequence_within_batch(
+        trunk, interventions.stage_a.transformer_output, 0
+    )
+
+    (
+        x,
+        skip_natural_matches,
+        skip_effective_matches_natural,
+        skip_effective_matches_donor,
+        skip_fingerprints,
+    ) = SequenceDecoder().forward_with_whole_skip_transfers(
+        trunk,
+        intermediates,
+        is_training=is_training,
+        skip_transfer=interventions.stage_a.encoder_skips,
+    )
+    embeddings_128bp = embeddings_module.OutputEmbedder(self._num_organisms)(
+        trunk, organism_index, is_training=is_training
+    )
+    embeddings_1bp = embeddings_module.OutputEmbedder(self._num_organisms)(
+        x,
+        organism_index,
+        is_training=is_training,
+        skip_x=embeddings_128bp,
+    )
+    final_selection = interpretability.SequenceResidualSelection(
+        positions=selection.stage_a.final_embedding_positions,
+        valid_mask=selection.stage_a.final_embedding_valid_mask,
+    )
+    natural_final = interpretability.gather_sequence_residuals(
+        embeddings_1bp, final_selection
+    )
+    embeddings_1bp = interpretability.transfer_sequence_residuals_within_batch(
+        embeddings_1bp,
+        final_selection,
+        interventions.stage_a.final_embedding.donor_batch_indices[0],
+        interventions.stage_a.final_embedding.transfer_mask[0],
+    )
+    effective_final = interpretability.gather_sequence_residuals(
+        embeddings_1bp, final_selection
+    )
+    embeddings_pair = embeddings_module.OutputPair(self._num_organisms)(
+        pair_activations, organism_index
+    )
+    embeddings = embeddings_module.Embeddings(
+        embeddings_1bp=embeddings_1bp,
+        embeddings_128bp=embeddings_128bp,
+        embeddings_pair=embeddings_pair,
+    )
+    if self._freeze_trunk_embeddings:
+      embeddings = jax.lax.stop_gradient(embeddings)
+    stage_a_trace = interpretability.StageABranchTrace(
+        transformer_output_natural_matches_identity=(
+            transformer_natural_matches
+        ),
+        transformer_output_effective_matches_natural=(
+            transformer_effective_matches_natural
+        ),
+        transformer_output_effective_matches_intervention_donor=(
+            transformer_effective_matches_donor
+        ),
+        transformer_output_natural_fingerprint=transformer_fingerprint,
+        encoder_skips_natural_match_identity=skip_natural_matches,
+        encoder_skips_effective_match_natural=(
+            skip_effective_matches_natural
+        ),
+        encoder_skips_effective_match_intervention_donor=(
+            skip_effective_matches_donor
+        ),
+        encoder_skips_natural_fingerprints=skip_fingerprints,
+        natural_final_embeddings=natural_final,
+        effective_final_embeddings=effective_final,
+    )
+    return embeddings, interpretability.SupersetGraphTrace(
+        transformer=transformer_trace, stage_a=stage_a_trace
+    )
+
+  @hk.name_like('__call__')
   def forward_heads(
       self,
       embeddings: embeddings_module.Embeddings,

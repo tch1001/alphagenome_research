@@ -1188,12 +1188,38 @@ class InterpretabilityTest(absltest.TestCase):
         logits + common_shift, selection
     )
 
-    chex.assert_shape(target.mean, (6,))
     np.testing.assert_array_equal(target.total, jnp.full((6,), 8.0))
     np.testing.assert_array_equal(target.mean, jnp.full((6,), 4.0))
     np.testing.assert_array_equal(shifted.total, target.total)
     np.testing.assert_array_equal(shifted.mean, target.mean)
     self.assertEqual(target.num_values, 2)
+
+  def test_splice_logit_margin_evidence_preserves_endpoint_algebra(self):
+    logits = jnp.arange(2 * 4 * 5, dtype=jnp.float32).reshape(2, 4, 5)
+    selection = interpretability.SpliceClassificationLogitMarginSelection(
+        canonical_position_indices=jnp.array([1, 3], jnp.int32),
+        canonical_track_indices=jnp.array([3, 2], jnp.int32),
+        padding_track_index=jnp.array(4, jnp.int32),
+    )
+
+    evidence = interpretability.splice_classification_logit_margin_evidence(
+        logits, selection
+    )
+    shifted = interpretability.splice_classification_logit_margin_evidence(
+        logits + 7.5, selection
+    )
+
+    chex.assert_shape(evidence.selected_logits, (2, 2, 2))
+    chex.assert_shape(evidence.margins, (2, 2))
+    np.testing.assert_array_equal(
+        evidence.selected_logits[..., 0] - evidence.selected_logits[..., 1],
+        evidence.margins,
+    )
+    np.testing.assert_array_equal(
+        evidence.margins.mean(axis=1), evidence.target.mean
+    )
+    np.testing.assert_array_equal(shifted.margins, evidence.margins)
+    np.testing.assert_array_equal(shifted.target.mean, evidence.target.mean)
 
   def test_paired_targeted_factory_uses_standard_checkpoint_tree(self):
     track_metadata = track_data.TrackMetadata(
@@ -1353,6 +1379,91 @@ class InterpretabilityTest(absltest.TestCase):
     chex.assert_shape(trace.encoder_skips_natural_fingerprints, (7, 6, 4))
     chex.assert_shape(trace.natural_final_embeddings, (6, 2, 1536))
     chex.assert_shape(trace.effective_final_embeddings, (6, 2, 1536))
+
+  def test_superset_factory_uses_one_checkpoint_tree_and_fixed_trace(self):
+    track_metadata = track_data.TrackMetadata(
+        pd.DataFrame({
+            'name': ['donor', 'acceptor', 'donor', 'acceptor', 'padding'],
+            'strand': ['+', '+', '-', '-', '.'],
+        })
+    )
+    metadata = {
+        public_dna_model.Organism.HOMO_SAPIENS: (
+            metadata_lib.AlphaGenomeOutputMetadata(splice_sites=track_metadata)
+        )
+    }
+    init, _, _, _, _ = dna_model.create_model(metadata)
+    params, state = jax.eval_shape(
+        init,
+        jax.random.key(33),
+        jax.ShapeDtypeStruct((1, 2048, 4), jnp.float32),
+        jax.ShapeDtypeStruct((1,), jnp.int32),
+    )
+    selection = interpretability.SupersetGraphSelection(
+        transformer=self._tower_selection(),
+        stage_a=interpretability.StageABranchSelection(
+            final_embedding_positions=jnp.array([100, 150], jnp.int32),
+            final_embedding_valid_mask=jnp.ones((2,), jnp.bool),
+        ),
+    )
+    interventions = interpretability.no_superset_graph_interventions(
+        selection, batch_size=6, num_edges=2
+    )
+    residual_mask = jnp.zeros((9, 3), jnp.bool).at[0, 0].set(True)
+    active_transfer = interpretability.paired_six_row_batch_transfer(
+        residual_mask
+    )
+    active = dataclasses.replace(
+        interventions,
+        transformer=dataclasses.replace(
+            interventions.transformer,
+            pre_attention_residual_transfer=active_transfer,
+        ),
+    )
+    self.assertEqual(
+        jax.tree.structure(interventions), jax.tree.structure(active)
+    )
+    chex.assert_shape(
+        interventions.transformer.pre_attention_residual_transfer.transfer_mask,
+        (9, 6, 3),
+    )
+    apply_fn = (
+        dna_model
+        .create_splice_classification_logit_margin_superset_graph_apply(
+            metadata
+        )
+    )
+
+    target, trace = jax.eval_shape(
+        apply_fn,
+        params,
+        state,
+        jax.ShapeDtypeStruct((6, 2048, 4), jnp.float32),
+        jax.ShapeDtypeStruct((6,), jnp.int32),
+        selection,
+        interventions,
+        interpretability.SpliceClassificationLogitMarginSelection(
+            canonical_position_indices=jnp.array([100, 150], jnp.int32),
+            canonical_track_indices=jnp.array([1, 0], jnp.int32),
+            padding_track_index=jnp.array(4, jnp.int32),
+        ),
+    )
+
+    chex.assert_shape(target.selected_logits, (6, 2, 2))
+    chex.assert_shape(target.margins, (6, 2))
+    chex.assert_shape(target.target.mean, (6,))
+    chex.assert_shape(
+        trace.transformer.post_mlp_residuals, (9, 6, 3, 1536)
+    )
+    chex.assert_shape(
+        trace.stage_a.transformer_output_natural_matches_identity, (6,)
+    )
+    chex.assert_shape(
+        trace.stage_a.encoder_skips_natural_match_identity, (7, 6)
+    )
+    chex.assert_shape(
+        trace.stage_a.natural_final_embeddings, (6, 2, 1536)
+    )
 
 
 if __name__ == '__main__':

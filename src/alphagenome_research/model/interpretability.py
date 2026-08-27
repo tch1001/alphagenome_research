@@ -166,6 +166,19 @@ class TargetSummary:
 
 
 @chex.dataclass(frozen=True)
+class SpliceClassificationLogitMarginEvidence:
+  """Raw canonical logits and every step of the two-endpoint reducer.
+
+  The final axis of ``selected_logits`` is ordered ``[relevant, padding]``;
+  the endpoint axis is ordered ``[acceptor, donor]``.
+  """
+
+  selected_logits: Float[Array, 'B 2 2']
+  margins: Float[Array, 'B 2']
+  target: TargetSummary
+
+
+@chex.dataclass(frozen=True)
 class PairBiasEdgeSelection:
   """Directional coarse pair-bias edges to capture or replace.
 
@@ -393,6 +406,30 @@ class StageABranchTrace:
   encoder_skips_natural_fingerprints: Int[Array, '7 B 4']
   natural_final_embeddings: Float[Array, 'B R D']
   effective_final_embeddings: Float[Array, 'B R D']
+
+
+@chex.dataclass(frozen=True)
+class SupersetGraphSelection:
+  """Fixed selections for the integrated Phase-R and Stage-A graph."""
+
+  transformer: TransformerTraceSelection
+  stage_a: StageABranchSelection
+
+
+@chex.dataclass(frozen=True)
+class SupersetGraphInterventions:
+  """Runtime-only residual and whole-route controls for one executable."""
+
+  transformer: TransformerInterventions
+  stage_a: StageABranchInterventions
+
+
+@chex.dataclass(frozen=True)
+class SupersetGraphTrace:
+  """Compact transformer traces and exact whole-route transfer audits."""
+
+  transformer: TransformerTrace
+  stage_a: StageABranchTrace
 
 
 def validate_transformer_interventions(
@@ -741,6 +778,44 @@ def no_stage_a_branch_interventions(
           num_stages=1,
           batch_size=batch_size,
           num_positions=num_positions,
+      ),
+  )
+
+
+def no_superset_graph_interventions(
+    selection: SupersetGraphSelection,
+    *,
+    batch_size: int,
+    num_edges: int,
+    num_heads: int = 8,
+) -> SupersetGraphInterventions:
+  """Builds one fixed-shape all-false intervention pytree for v3.2."""
+  if selection.transformer.residual_positions is None:
+    raise ValueError(
+        'The v3.2 superset graph requires transformer residual positions.'
+    )
+  transformer = no_transformer_interventions(
+      batch_size=batch_size,
+      num_edges=num_edges,
+      num_heads=num_heads,
+  )
+  residual_transfer = no_sequence_route_batch_transfer(
+      num_stages=NUM_TRANSFORMER_LAYERS,
+      batch_size=batch_size,
+      num_positions=(
+          selection.transformer.residual_positions.positions.shape[0]
+      ),
+  )
+  transformer = dataclasses.replace(
+      transformer,
+      pre_attention_residual_transfer=residual_transfer,
+      post_attention_residual_transfer=residual_transfer,
+      post_mlp_residual_transfer=residual_transfer,
+  )
+  return SupersetGraphInterventions(
+      transformer=transformer,
+      stage_a=no_stage_a_branch_interventions(
+          selection.stage_a, batch_size=batch_size
       ),
   )
 
@@ -1116,6 +1191,14 @@ def reduce_splice_classification_logit_margin(
   symmetric acceptor/donor mean.  A common shift of all five logits at either
   endpoint therefore cannot change the target.
   """
+  return splice_classification_logit_margin_evidence(logits, selection).target
+
+
+def splice_classification_logit_margin_evidence(
+    logits: Float[Array, 'B S 5'],
+    selection: SpliceClassificationLogitMarginSelection,
+) -> SpliceClassificationLogitMarginEvidence:
+  """Returns raw relevant/padding logits, margins, and the target summary."""
   if logits.ndim != 3:
     raise ValueError(
         'Splice-classification logits must have shape [batch, position, track].'
@@ -1149,8 +1232,13 @@ def reduce_splice_classification_logit_margin(
   margins = relevant_logits - padding_logits
   total = jnp.sum(margins, axis=1, dtype=jnp.float32)
   num_values = jnp.asarray(2, dtype=jnp.int32)
-  return TargetSummary(
+  target = TargetSummary(
       total=total, mean=total / num_values, num_values=num_values
+  )
+  return SpliceClassificationLogitMarginEvidence(
+      selected_logits=jnp.stack((relevant_logits, padding_logits), axis=-1),
+      margins=margins,
+      target=target,
   )
 
 
