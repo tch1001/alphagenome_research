@@ -284,6 +284,14 @@ random-position and output-specificity controls.
 - No confirmation baseline, target, attribution, activation, trace, patch,
   ranking, example selection or figure may be computed before a later immutable
   circuit lock.
+- **Post-freeze process disclosure:** during v3.2 implementation, an agent
+  mistakenly printed later rows of the already frozen selected-variant and exon
+  metadata tables while diagnosing the development-projection loader. No
+  AlphaGenome prediction, activation, attribution, patch, ranking or result
+  artifact for those rows was opened or computed, and the scientific protocol
+  had already been frozen. Subsequent code reads committed development-only
+  projections. The later exons therefore remain model-output and intervention
+  blind, but v3.2 must not claim complete metadata- or label-blindness.
 - The v3.2 protocol was designed after seeing the historical-lock failures,
   the earlier development Phase-R negative and the disclosed one-variant
   closure smoke. Those facts must be reported. No confirmation result informed
