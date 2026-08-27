@@ -108,6 +108,11 @@ intermediate value.
 1. **Preflight.** Reuse the v3.1.2 environment contract: absent
    `LD_LIBRARY_PATH`, `XLA_PYTHON_CLIENT_PREALLOCATE=false`, an external JAX-only
    exact-RTX-3090/UUID gate, and the same-process gate before attempt creation.
+   Additionally require `JAX_ENABLE_COMPILATION_CACHE=false` and absent
+   `XLA_FLAGS`, `JAX_COMPILATION_CACHE_DIR`, `JAX_PERSISTENT_CACHE_*` and any
+   autotune load/dump/cache environment setting. Record every environment
+   variable whose name starts with `XLA`, `JAX`, `CUDA`, `CUDNN`, `CUBLAS` or
+   `TRITON`. No persistent executable or autotune artifact may be consumed.
 2. **Start and compile.** Create a new append-only v3.2 attempt and compile the
    committed superset graph once. Persist compiler and import provenance.
 3. **Identity cohort.** In manifest order 0--19, run the all-false superset
@@ -153,6 +158,14 @@ For every one of the 20 rows require:
 - exact target duplicate rows and exact two-endpoint reducer algebra;
 - fixed-shape selector audit and no candidate-specific compilation; and
 - no failed donor, index, cast, finite-value or linkage assertion.
+
+Each identity and active artifact must persist, for all six rows and both
+canonical endpoints, the selected relevant-class and padding-class raw logits
+with shape `[6, 2, 2]`, plus their `[6, 2]` endpoint margins and `[6]` means.
+The offline analyzer must independently recompute `L_site`, `L_exon`, the
+two-endpoint denominator, strand/class mapping and every baseline/patch target
+from these values. A runner-emitted boolean is not sufficient evidence for
+this reducer algebra.
 
 There is deliberately no comparison with `R_lock`, v3.1.2 targets or another
 compiled graph. There is no numerical tolerance for within-graph identities:
@@ -229,9 +242,10 @@ For each candidate, compute per-exon median `B` and median `q`, and
 `pre_attention`, `post_attention`, `post_mlp`, then layer 0--5, then
 `V`, `A`, `D`, `S`. A candidate passes only if both exons have at least three
 eligible effects, median `B >= 0.25`, and median `q > 0`. The first passing
-ranked candidate is the only Phase-R candidate eligible for a later circuit
-lock. If none passes, the frozen Phase-R family is negative in the superset
-graph.
+ranked candidate is the only Phase-R candidate eligible for a later, separately
+frozen localization-and-specificity study. It is not yet a circuit lock and
+cannot open confirmation. If none passes, the frozen Phase-R family is negative
+in the superset graph.
 
 ### 6.2 Stage-A branch accounting
 
@@ -252,6 +266,15 @@ controls required by protocol v3 Sections 7.2--7.4. Report their per-exon median
 `B`, reciprocity, raw Shapley terms and interaction. Even `B >= 0.25` in both
 exons may only nominate a route for a new prospectively frozen localized census;
 it cannot be the final circuit and cannot open confirmation.
+
+The eight development neutral variants are behavior controls only in v3.2 and
+do not receive intervention grids. The frozen residual grid has two
+width-matched spatial controls per candidate, but v3.2 does not run the earlier
+32 random-region controls, wrong-strand/non-target-output patches or a neutral
+intervention grid. Therefore even a passing residual candidate is only a
+development hypothesis. Before any circuit lock or held-out confirmation, a
+separate prospective localized protocol must restore neutral-variant,
+random-position and output-specificity controls.
 
 ## 7. Leakage and retry rules
 
@@ -285,11 +308,11 @@ it cannot be the final circuit and cannot open confirmation.
 |---|---|
 | Superset identity or closure fails | The integrated instrumentation failed its tooling gate. No mechanism result exists. |
 | Target eligibility fails | The frozen AlphaGenome logit-margin target did not align with enough development effects for this causal benchmark. |
-| Phase-R grid passes | One frozen transformer-residual patch family recovers at least one quarter of the target effect beyond matched spatial controls in both development exons, in this superset graph. |
+| Phase-R grid passes | One frozen transformer-residual patch family recovers at least one quarter of the target effect beyond two matched spatial controls in both development exons, in this superset graph; it still requires random, neutral and output-specificity controls. |
 | Phase-R grid is negative | None of the 72 frozen residual candidates met the two-exon development gate in this superset graph. |
 | Stage-A closures pass | The superset graph can causally transfer complete selected paths to the target. This validates tooling, not localization. |
 | Isolated T/E results | Descriptive whole-route upper bounds and computational Shapley/interaction accounting in two development exons. |
-| A later localized candidate passes controls | A development computational-mechanism candidate ready to be locked before held-out confirmation. |
+| A later localized candidate passes all separately frozen random, neutral and output-specificity controls | A development computational-mechanism candidate ready to be locked before held-out confirmation. |
 
 No v3.2 outcome establishes an RBP, spliceosome step, biochemical pathway,
 endogenous molecular mechanism or experimental replication. It does not prove
@@ -310,6 +333,10 @@ is development-only.
       committed freeze.
 - [ ] Require one compiled superset executable and persist its compiler
       provenance before active calls.
+- [ ] Persist raw relevant/padding endpoint logits and independently recompute
+      every endpoint margin and mean in the offline analyzer.
+- [ ] Disable the persistent JAX compilation cache and fail closed on ambient
+      compiler/autotune cache flags.
 - [ ] Confirm both new v3.2 output directories are absent.
 - [ ] Run the external and same-process exact-RTX-3090 gates.
 - [ ] Run once, audit completely, and stop with confirmation blind.
