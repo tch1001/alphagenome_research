@@ -374,6 +374,22 @@ def _validate_group(
   if name not in POSITION_SET_ORDER:
     raise ValueError(f'{label} has unexpected position set {name!r}.')
   _position_set_contract(position_set, name)
+  identity_position_sets = identity['configuration'].get(
+      'resolved_position_sets'
+  )
+  if not isinstance(identity_position_sets, list):
+    raise ValueError(f'{label} linked Gate 0 has no resolved position sets.')
+  identity_by_name = {
+      value.get('name'): value
+      for value in identity_position_sets
+      if isinstance(value, Mapping)
+  }
+  if set(identity_by_name) != set(POSITION_SET_ORDER):
+    raise ValueError(f'{label} linked Gate 0 has invalid position-set names.')
+  if position_set != identity_by_name[name]:
+    raise ValueError(
+        f'{label} position-set definition differs from linked Gate 0.'
+    )
   expected_order = (
       STAGE_ORDER.index(stage) * len(LAYERS) * len(POSITION_SET_ORDER)
       + int(layer) * len(POSITION_SET_ORDER)
@@ -648,6 +664,14 @@ def analyze(
         ),
     })
   top = rankings[0]
+  first_passing = next(
+      (
+          row
+          for row in rankings
+          if row['passes_development_selection_gate']
+      ),
+      None,
+  )
   return {
       'analysis_version': ANALYSIS_VERSION,
       'scope': 'development_only_confirmation_unopened',
@@ -674,14 +698,13 @@ def analyze(
       'development_search': {
           'candidate_count': len(rankings),
           'top_candidate': top,
-          'any_candidate_passes': any(
-              row['passes_development_selection_gate'] for row in rankings
-          ),
+          'first_passing_candidate': first_passing,
+          'any_candidate_passes': first_passing is not None,
           'rankings': rankings,
       },
       'decision': (
-          'lock_top_phase_r_candidate_stop_wider_search'
-          if top['passes_development_selection_gate']
+          'lock_first_passing_phase_r_candidate_stop_wider_search'
+          if first_passing is not None
           else 'phase_r_negative_continue_wider_ladder_confirmation_closed'
       ),
   }
@@ -732,9 +755,10 @@ def render_markdown(result: Mapping[str, Any]) -> str:
     )
   lines.extend([
       '',
-      'The ranking is development-only. A passing top candidate is a locked '
-      'logit-margin residual hypothesis, not biological validation; a failing '
-      'top candidate leaves confirmation closed.',
+      'The ranking is development-only. The first passing ranked candidate, '
+      'if one exists, is a locked logit-margin residual hypothesis rather than '
+      'biological validation. If no candidate passes, confirmation remains '
+      'closed.',
       '',
       f"Raw JSON tree SHA-256: "
       f"`{result['hash_tree']['raw_json_tree_sha256']}`",

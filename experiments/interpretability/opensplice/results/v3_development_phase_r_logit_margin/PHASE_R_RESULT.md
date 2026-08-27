@@ -28,6 +28,6 @@ Top candidate: `pre_attention/layer4/S`; Q = 0.0572591; gate pass = False.
 | 9 | post_mlp/L2/S | 0.0542345 | 0.211078/0.224053 | 0.055267/0.0542345 | False |
 | 10 | post_attention/L5/S | 0.0537492 | 0.160657/0.151174 | 0.0549065/0.0537492 | False |
 
-The ranking is development-only. A passing top candidate is a locked logit-margin residual hypothesis, not biological validation; a failing top candidate leaves confirmation closed.
+The ranking is development-only. The first passing ranked candidate, if one exists, is a locked logit-margin residual hypothesis rather than biological validation. If no candidate passes, confirmation remains closed.
 
 Raw JSON tree SHA-256: `0b24d58491e33f14277c55396614714061d2143ba6dd7641671fab0c854298e9`

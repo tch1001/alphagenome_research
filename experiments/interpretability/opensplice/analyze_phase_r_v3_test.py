@@ -293,7 +293,11 @@ class PhaseRAnalyzerTest(unittest.TestCase):
     self.assertAlmostEqual(top['per_exon']['BRAF']['median_B'], 0.6)
     self.assertTrue(top['passes_development_selection_gate'])
     self.assertEqual(
-        result['decision'], 'lock_top_phase_r_candidate_stop_wider_search'
+        result['development_search']['first_passing_candidate'], top
+    )
+    self.assertEqual(
+        result['decision'],
+        'lock_first_passing_phase_r_candidate_stop_wider_search',
     )
     tied = result['development_search']['rankings'][1:5]
     self.assertEqual(
@@ -328,6 +332,19 @@ class PhaseRAnalyzerTest(unittest.TestCase):
     _write(path, value)
     try:
       with self.assertRaisesRegex(ValueError, 'fingerprint mismatch'):
+        analyzer.analyze(self.run_dir)
+    finally:
+      path.write_bytes(saved)
+
+  def test_group_position_set_must_match_linked_gate0(self):
+    path = next((self.run_dir / 'groups').glob('*/*.json'))
+    saved = path.read_bytes()
+    value = json.loads(saved)
+    value['configuration']['position_set']['tokens'][0] += 1
+    value['fingerprint'] = analyzer._fingerprint(value['configuration'])
+    _write(path, value)
+    try:
+      with self.assertRaisesRegex(ValueError, 'differs from linked Gate 0'):
         analyzer.analyze(self.run_dir)
     finally:
       path.write_bytes(saved)

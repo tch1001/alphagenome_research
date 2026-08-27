@@ -58,6 +58,7 @@
       "passes_development_selection_gate": false,
       "rank": 1
     },
+    "first_passing_candidate": null,
     "any_candidate_passes": false,
     "rankings": [
       {
