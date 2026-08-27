@@ -173,6 +173,9 @@ controls are retained and reported but are not assumed to be AlphaGenome-null.
 
 For every enabled Phase-R or Stage-A recipient require:
 
+- rows 0/1 natural baselines equal that variant's frozen superset-identity REF
+  and ALT targets bit-for-bit in every active call; this equality must also hold
+  across the `empty`, `T`, `E` and `T+E` calls used in one Shapley account;
 - its selected effective tensor equals the requested live donor tensor exactly;
 - same-allele self tensors and targets equal their natural baselines exactly;
 - disabled tensors equal their natural values exactly;
@@ -181,7 +184,14 @@ For every enabled Phase-R or Stage-A recipient require:
 
 One failure invalidates that group. More than 5% invalid groups in any family
 stops that family as a tooling failure; missing groups are failures, never
-dropped observations.
+dropped observations. Even below that family-level threshold, a Phase-R
+candidate is unselectable if its candidate group or either matched-control
+group is invalid or missing for any frozen eligible effect. No median, `q` or
+`Q` may silently omit such an effect. The isolated Stage-A branch account is
+interpretable only if every required `T` and `E` call for every eligible effect
+is valid and complete; otherwise it is reported as a failed route family with
+no Shapley summary. These stricter decision rules take precedence over the 5%
+family threshold and use no sentinel value or post-hoc imputation.
 
 Both Stage-A closure families are stricter: for every one of the 12 effects and
 both directions, the patched target must equal the live donor target bit-for-
