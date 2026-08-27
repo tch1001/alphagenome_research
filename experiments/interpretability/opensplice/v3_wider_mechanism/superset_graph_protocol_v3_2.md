@@ -18,7 +18,10 @@ maximum difference was `0.0078125` and its maximum was `0.03125`. At the same
 time, duplicate/repeat controls passed in all 20 rows and all 12 effects retained
 the experimental direction with `abs(DeltaL) >= 0.01`.
 
-This pattern supports graph-dependent BF16 arithmetic, not a threshold change.
+This pattern establishes cross-executable BF16 numerical disagreement, not a
+threshold change. The saved artifacts cannot distinguish differences caused by
+the JAX/XLA graph and fusion schedule from cold-compilation autotuning or kernel
+selection, so v3.2 does not assign a specific cause.
 The old lock remains a failed historical diagnostic and is never reclassified.
 Version 3.2 removes cross-executable saved-target equality from the decision
 path. It prospectively creates one superset graph that contains both the frozen

@@ -45,10 +45,15 @@ The 20 per-row maximum absolute differences had the following exact counts:
 | 0.015625 | 1 |
 | 0.03125 | 1 |
 
-## Controls recomputed from raw JSON
+## Controls checked from raw JSON and recorded assertions
 
-All 20 identities independently satisfied every within-executable control
-serialized by the runner:
+All 20 identities recorded every within-executable control as passing. The six
+target means allow the duplicate-target checks to be recomputed independently.
+The compact trace checks, endpoint-total relation and input-linkage checks are
+persisted as booleans produced by the audited runner; the raw trace tensors,
+trace fingerprints and separate endpoint logits were not serialized, so those
+particular assertions cannot be reconstructed independently from the result
+files alone:
 
 - exact REF and ALT duplicate target rows;
 - exact target repeat;
@@ -73,7 +78,9 @@ attempt started.
 
 ## Integrity recomputation
 
-The summary's 27-entry artifact hash map matches every non-summary file. The
+The summary's 27-entry artifact hash map matches all 27 run-generated files
+listed by the summary. The later independent-audit markdown is not part of that
+frozen map. The
 independently recomputed artifact-tree SHA-256 is
 `88e756dbbc1370a4e1b129d47ee15d90472100588df525b1e213993276b42dbd`,
 identical to the summary.
