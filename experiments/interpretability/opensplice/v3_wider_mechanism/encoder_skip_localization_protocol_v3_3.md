@@ -210,12 +210,16 @@ The resolution attempt has an exact expected scientific raw-record count:
 ```
 
 Each record contains first/repeat endpoint outputs and compact exactness
-evidence, not full skip tensors. At the approximately `0.115` seconds per
-already-compiled apply observed in v3.2, the 10,440 first/repeat applies imply
-about 20 minutes of model-call time, excluding compilation, validation and
-persistence. This estimate is capacity planning only and cannot justify
-dropping masks after attempt start. Freeze a conservative wall-time/storage
-budget and fail append-only if it is exceeded.
+evidence, not full skip tensors. A main identity or coalition record uses two
+applies (first and repeat). Each OOD anchor record contains two separately
+selected calls in the same eight-row executable--intended donor and unrelated
+donor--and repeats both, so it uses four applies. The exact total is therefore
+`20*2 + 5,120*2 + 80*4 = 10,600` applies. At the approximately `0.115`
+seconds per already-compiled apply observed in v3.2, this implies about 20
+minutes of model-call time, excluding compilation, validation and persistence.
+This estimate is capacity planning only and cannot justify dropping masks
+after attempt start. Freeze a conservative wall-time/storage budget and fail
+append-only if it is exceeded.
 
 ## 5. Frozen estimands
 
