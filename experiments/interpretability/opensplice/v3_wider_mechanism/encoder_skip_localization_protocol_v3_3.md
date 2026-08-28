@@ -164,9 +164,22 @@ t = 1: IDs 128..255, donor T transferred
 ```
 
 Thus ID 0 is empty, ID 127 is all E, ID 128 is T alone, and ID 255 is
-`T+all-E`. Within each variant, run IDs 0 through 255 in increasing order.
-Variants run in frozen order 0 through 19. This is 5,120 six-row coalition
-calls, before exact repeats and the separately triggered controls below.
+`T+all-E`. The exact execution order is dependency-first rather than global
+numeric manifest order:
+
+1. after identities, run Gate-0 anchors ID 0 and ID 255 for all variants in
+   manifest order 0 through 19;
+2. run the remaining IDs 1 through 254, in increasing order and excluding the
+   already completed ID 255, for effect orders
+   `(0,1,2,3,4,5,10,11,12,13,14,15)`; and
+3. run the same remaining IDs for neutral orders
+   `(6,7,8,9,16,17,18,19)`.
+
+Together the 40 anchor records and 5,080 remaining records are exactly 5,120
+six-row coalition calls. ID 0/255 records are referenced rather than rerun in
+the later cube; no duplicate scientific record is permitted. This ordering
+honors Gate 0 and the effect-before-neutral dependency in Section 8. No
+alternative reading of numeric variant order is permitted.
 
 The requested 128-subset encoder census is IDs 0--127. IDs 128--255 are a
 predeclared mirrored alternative, not an adaptive retry. They permit skip
@@ -516,15 +529,18 @@ spliceosome step or biochemical pathway and does not itself open confirmation.
 The run is single-use and append-only:
 
 1. committed preflight and freeze validation;
-2. all 20 repeated identities and Gate 0 closures;
-3. complete effect coalition cubes, in variant then coalition order;
-4. complete neutral coalition cubes in frozen order;
-5. include the four frozen unrelated/shuffled anchor controls in the same
+2. all 20 repeated identities in manifest order;
+3. ID 0 and ID 255 Gate-0 anchors for all 20 variants in manifest order;
+4. the remaining ID 1--254 effect coalitions, effect order then increasing
+   coalition ID as fixed in Section 4.1;
+5. the remaining ID 1--254 neutral coalitions, neutral order then increasing
+   coalition ID as fixed in Section 4.1;
+6. include the four frozen unrelated/shuffled anchor controls in the same
    append-only raw cohort, using their separately frozen eight-row executable;
-6. persist a raw manifest and stop the GPU process;
-7. CPU-only analysis computes all frozen estimands and one resolution
+7. persist a raw manifest and stop the GPU process;
+8. CPU-only analysis computes all frozen estimands and one resolution
    nomination; and
-8. if eligible, commit a separately versioned spatial manifest whose one-shot
+9. if eligible, commit a separately versioned spatial manifest whose one-shot
    control graph includes the nominated intended and unrelated donor calls,
    then perform one spatial attempt.
 
