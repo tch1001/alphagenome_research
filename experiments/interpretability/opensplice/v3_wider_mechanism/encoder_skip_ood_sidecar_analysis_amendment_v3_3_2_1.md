@@ -33,7 +33,7 @@ bindings before opening any compiler artifact:
 | All three import-provenance SHA-256 values | `a74f3c9658e9d2286724680b52f4ea788d492f4fa9d7c52b20a53c90d57edc99` |
 | `PROTOBUF_PROVENANCE.json` SHA-256 | `2498a940f6ee15e54e72e8f51587d4c42ffc1b49851873c31ad09085315d0ba8` |
 | Whole run file count / tree SHA-256 | `11` / `4ac66e45a4d7d65af2785904d11b23bf7e809e07f3f617e190772242b2e7a4ab` |
-| Compiler file count / tree SHA-256 | `4` / `e27cc2478d6c5a8fcae950ac950e949168c9f68f526bc825982216f90d0b034f` |
+| Compiler file count / tree SHA-256 | `4` / `4378048568ff58a2bbee55ba9da750498b89fdef72c97911815cf895c8a8b7d1` |
 
 The tree framing is the v3.3 framing: sort POSIX paths relative to the stated
 root; for each regular non-symlink file append the UTF-8 path, one NUL byte,
@@ -118,10 +118,16 @@ the new fingerprint is
 A read-only HLO audit found both changed source/debug metadata and changed
 backend autotune choices. For example, repeated backend dot tile sizes change
 from 64 to 32, Triton block-level fusion tile/stage choices change, and cuDNN
-convolution algorithm/workspace configurations differ. Therefore the compiled
-HLO mismatch must not be described as only a filename, line-number, ordering,
-or debug-metadata difference. Identical StableHLO and pre-backend HLO establish
-the same pre-backend graph, but do not establish byte-identical backend code.
+convolution algorithm/workspace configurations differ. Both artifacts contain
+1,545 computations and 80,400 instruction records, and the entry module line
+is exact after replacing only `fingerprint_before_lhs`; nevertheless, nested
+Triton fusions increase from 115 to 124 and recorded Triton configurations
+from 104 to 112. At two convolution sites, the observed choice changes from
+algorithm 10 with 36,175,888 bytes of workspace to algorithm 23 with
+48,760,495 bytes. Therefore the compiled HLO mismatch must not be described as
+only a filename, line-number, ordering, or debug-metadata difference.
+Identical StableHLO and pre-backend HLO establish the same pre-backend graph,
+but do not establish byte-identical backend code.
 
 The only claim permitted from v3.3.2 is: **the frozen infrastructure gate
 stopped a graph-identical/pre-backend-identical attempt because its fresh
