@@ -58,15 +58,103 @@ the exact empty manifest with tree SHA-256
 `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`.
 These predicates must be recomputed, not trusted from this table.
 
-The prospective v3.3.2.1 CPU-only controlled-stop amendment is
-`encoder_skip_ood_sidecar_analysis_amendment_v3_3_2_1.md`, SHA-256
-`81a4f4c126b83225b02c7de5cf0dc6fd0baf6085b84b9ed5dd7a3677744090ba`
-at the time this document was finalized. v3.3.3 may not run until a committed
-v3.3.2.1 analyzer has successfully archived
-`controlled_stop_compiler_graph_mismatch`; its final attempt/output paths,
-files, sizes, SHA-256 values, and tree digests must be added to the v3.3.3
-machine-readable freeze before v3.3.3 is committed. No scientific value from
-that structural audit may be read because none exists.
+### 1.1 Consumed v3.3.2.1 analyzer failure
+
+The v3.3.2.1 CPU-only analyzer did **not** successfully archive the stop. Its
+single attempt is consumed and immutable at:
+
+`/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_2_development_ood_sidecar_analysis_v3_3_2_1_attempt`
+
+The bound implementation commit is
+`b43051aa4a893e24a38e932900d349278c9ead88`. Rehash the live files and their
+exact `git show <commit>:<path>` blobs independently:
+
+| Bound source | SHA-256 |
+|---|---|
+| v3.3.2.1 amendment | `81a4f4c126b83225b02c7de5cf0dc6fd0baf6085b84b9ed5dd7a3677744090ba` |
+| v3.3.2.1 analyzer | `35db9ca198cb5d7f03621ccf322ea116f98cea3bfdc711006dfd20bc809e8048` |
+| v3.3.2.1 analyzer test | `a8733f3ffb35920dda2f6a856076cbe82a9e90aa2fe483169150dbad4421a1b8` |
+| v3.3.2.1 freeze | `3871ab41b16105a94673e89381d32d7253b014c64eda5c6789eaecf16477c061` |
+| v3.3.2.1 shell wrapper | `ea5cce6ae631ba3fa2bf0082d691d0896ef0fed7b20f0d908034e17775060caa` |
+
+The attempt contains exactly two regular non-symlink files:
+
+| Relative path | Size (bytes) | SHA-256 |
+|---|---:|---|
+| `ANALYSIS_ATTEMPT_STARTED.json` | 8616 | `a87c4e15ed67a363d07c434ca232540687950d145e67492b9ed9c17d9adebf1d` |
+| `ANALYSIS_FAILURE.json` | 2163 | `1cd933623ecdfb328d5db458b16df909e632a560361dbb547f83c22cf13ab7c7` |
+
+The two-file attempt tree SHA-256 is
+`5e97b191e781c5141d2f308deefacfa8f6a196449fd7e11f36c22828a13f036a`.
+`ANALYSIS_FAILURE.json` records `RecursionError: maximum recursion depth
+exceeded`, zero model applies, no scientific summary, no Shapley or
+nomination, and `combined_analysis_permitted=false`. Its analysis output path,
+`/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_2_development_ood_sidecar_analysis_v3_3_2_1`,
+is absent. Reject any extra, missing, changed, symlinked, or special entry, any
+later terminal file, or any newly created output. The v3.3.2.1 attempt must
+remain visibly failed; it may not be normalized into a success prerequisite.
+
+### 1.2 Completed v3.3.2.2 structural archive
+
+The separately versioned saved-validator repair is the successful structural
+archive required by v3.3.3. Bind all three commits:
+
+| Role | Commit |
+|---|---|
+| Prospective v3.3.2.2 amendment | `2a2cc59136f5b83f3a7c265b5197e30cdecd7c11` |
+| Committed v3.3.2.2 implementation used by START | `67abe303082c62fd925c3c23d9a23b3e0f4526f6` |
+| Immutable v3.3.2.2 production archive | `2f73f8750384c7fc5c73bded379e667a642c5d0a` |
+
+Rehash the live source files and exact blobs at the declared implementation
+commit; also verify the amendment at its prospective amendment commit:
+
+| Bound source | SHA-256 |
+|---|---|
+| v3.3.2.2 amendment | `3188b44f85d8315eb4a099b42930b2d08f76074ffb190ef11b67a9f39e788a3d` |
+| v3.3.2.2 analyzer | `70be2f80e598f6c307511dfcad1a550a2438766b3348014be1e6ff25c9b99221` |
+| v3.3.2.2 analyzer test | `cb7541e75dd65130f7f123643d88adac4f82e984afce4856babfc58284723a4d` |
+| v3.3.2.2 freeze | `e7c3fe72c9d9ca5b23299dfbc2a2991643b19722cf9a5c386debf73f367fa520` |
+| v3.3.2.2 shell wrapper | `7eb4d6b8dda1a415881a6934d6cf9e30cbfc707fd531eb1a1d19df3b90b1a2f9` |
+
+The append-only attempt and output roots are, respectively:
+
+```text
+/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_2_development_ood_sidecar_analysis_v3_3_2_2_attempt
+/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_2_development_ood_sidecar_analysis_v3_3_2_2
+```
+
+Their complete production membership is:
+
+| Root | Relative path | Size (bytes) | SHA-256 |
+|---|---|---:|---|
+| Attempt | `ANALYSIS_ATTEMPT_STARTED.json` | 11042 | `bdbcc6f37093924ddc79ed38e674d084761e044aefeec065d25c6692605028af` |
+| Attempt | `ANALYSIS_COMPLETE.json` | 789 | `5bf9d45c3b890fff7653b5d9ee57ffa959ac09933c3620069edf513eca3473f5` |
+| Output | `ANALYSIS.json` | 60844 | `9af699921344ff8528260f7b6b2d2d57a529b9863c40edf99757929934e44b61` |
+| Output | `RESULT.md` | 811 | `be9f9c7fe31363f926999de78085b3d10c5552a80e14d0b5432deb9fb7adfc03` |
+
+The two-file attempt tree SHA-256 is
+`bc703c43e8afe4a01b18621180bb5d3e90c2a49c4902d175e622e0c48eeea29d`;
+the two-file output tree SHA-256 is
+`581392f933c909fe4a56d51cd03089f6c506bdc058dfdbd902abfc49c8332a0c`.
+Use the same path/NUL/raw-digest framing defined above. Independently require
+exact live bytes, exact archive-commit blobs, exact membership, sizes, hashes,
+tree digests, and terminal-to-START/output linkage.
+
+The only accepted result is
+`decision=controlled_stop_compiler_graph_mismatch`, with zero model applies,
+zero raw records/artifacts/hashes, no completed ID-0 or ID-255 control, no
+scientific summary, Shapley, interaction, resolution, or nomination, and
+`combined_analysis_permitted=false`. The saved frozen validator was called
+directly and restored exactly; the CPU-only analyzer imported no JAX,
+AlphaGenome, or model module, and confirmation outputs, activations, and
+interventions remained unopened. These are structural provenance predicates,
+not scientific values.
+
+Before any v3.3.3 code is committed or run, its bootstrap, freeze, START, and
+offline analyzer must bind and independently rehash **both** the exact failed
+v3.3.2.1 attempt in Section 1.1 and the exact successful v3.3.2.2 archive in
+this section. Neither may be edited, resumed, overwritten, retried, or used as
+a scientific-value input.
 
 ## 2. Exact compiler diagnosis
 
@@ -149,7 +237,8 @@ failure.
 Revalidate all 75 entries in
 `encoder_skip_ood_sidecar_v3_3_2_freeze.json`, the original v3.3 61-file
 bundle, the complete original v3.3 run tree, the complete v3.3.2 run tree, and
-the completed v3.3.2.1 structural audit. Core model/factory/reducer,
+both the consumed failed v3.3.2.1 analyzer attempt and the completed v3.3.2.2
+structural archive from Section 1. Core model/factory/reducer,
 interpretability instrumentation, OpenSplice pins, development manifests,
 sequences, source protos/generated bindings, import inventories, checkpoint,
 reference object, and mixed-precision policy
@@ -221,8 +310,10 @@ retry, process retry, per-record retry, or replacement executable.
 
 Use fresh append-only destinations whose exact paths are frozen before launch,
 including a new `v3_3_3` output directory and a new preflight directory. Every
-v3.3/v3.3.2/v3.3.2.1 directory remains immutable and is never resumed,
-completed, copied into, or used as a raw-value input.
+v3.3/v3.3.2/v3.3.2.1/v3.3.2.2 directory remains immutable and is never
+resumed, completed, copied into, or used as a raw-value input. In particular,
+the failed v3.3.2.1 attempt and successful v3.3.2.2 attempt/output trees must
+retain their exact, distinct terminal states.
 
 The run is exactly:
 
@@ -271,8 +362,11 @@ CPU/synthetic tests must cover:
   family arithmetic;
 - every v3.3.2 row, donor, invariant, repeat, route, closure, target, and
   provenance tamper;
-- complete rehash of v3.3, v3.3.2, and v3.3.2.1 artifacts, including empty
-  v3.3.2 raw/tree predicates;
+- complete rehash of v3.3 and v3.3.2 artifacts, including empty v3.3.2
+  raw/tree predicates, plus independent exact validation of the consumed
+  failed v3.3.2.1 attempt and completed v3.3.2.2 source/attempt/output/archive
+  commits, memberships, sizes, hashes, trees, linkage, and no-science
+  predicates;
 - global tracked-clean, fresh-output, sanitized environment, cache absence,
   same-process PID/device, append-only start, and terminal persistence; and
 - confirmation path isolation and proof that no real score is embedded in a
@@ -302,6 +396,8 @@ warning, not a null distribution, rescue criterion, rejection criterion,
 mechanism, or held-out validation. Shapley/resolution evidence can come only
 from the unchanged frozen v3.3 six-row cube under its original gates. Every
 report must disclose the earlier v3.3 OOD tooling stop, the v3.3.2 zero-apply
-compiled-byte stop, this prospectively revised compiler boundary, and the lack
-of confirmation validation. Confirmation remains closed until a later,
-separately frozen circuit protocol authorizes it.
+compiled-byte stop, the consumed v3.3.2.1 analyzer recursion failure, the
+successful no-science v3.3.2.2 structural archive, this prospectively revised
+compiler boundary, and the lack of confirmation validation. Confirmation
+remains closed until a later, separately frozen circuit protocol authorizes
+it.
