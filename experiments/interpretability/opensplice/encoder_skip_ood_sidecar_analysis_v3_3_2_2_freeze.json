@@ -1,0 +1,30 @@
+{
+  "analysis_dir": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_2_development_ood_sidecar_analysis_v3_3_2_2",
+  "analysis_version": "opensplice-encoder-skip-ood-sidecar-analysis-v3.3.2.2",
+  "amendment_commit": "2a2cc59136f5b83f3a7c265b5197e30cdecd7c11",
+  "amendment_path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_ood_sidecar_analysis_amendment_v3_3_2_2.md",
+  "amendment_sha256": "3188b44f85d8315eb4a099b42930b2d08f76074ffb190ef11b67a9f39e788a3d",
+  "attempt_dir": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_2_development_ood_sidecar_analysis_v3_3_2_2_attempt",
+  "file_sha256": {
+    "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_2.py": "90f00a6d51f33ac456a0fd799f2b9caf456b58944928886dc1577731707f205e",
+    "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_2_1.py": "35db9ca198cb5d7f03621ccf322ea116f98cea3bfdc711006dfd20bc809e8048",
+    "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_2_1_test.py": "a8733f3ffb35920dda2f6a856076cbe82a9e90aa2fe483169150dbad4421a1b8",
+    "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_2_2.py": "70be2f80e598f6c307511dfcad1a550a2438766b3348014be1e6ff25c9b99221",
+    "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_2_2_test.py": "cb7541e75dd65130f7f123643d88adac4f82e984afce4856babfc58284723a4d",
+    "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_2_test.py": "2e7424a76840c776ff550db3961c1fb1b63dee273bd8d030800efd27bf81d11e",
+    "experiments/interpretability/opensplice/encoder_skip_ood_sidecar_analysis_v3_3_2_1_freeze.json": "3871ab41b16105a94673e89381d32d7253b014c64eda5c6789eaecf16477c061",
+    "experiments/interpretability/opensplice/encoder_skip_ood_sidecar_v3_3_2_freeze.json": "baa257dfa8d0bd1afca40b11038d71c9157499eeb654523ad59df119eb2c0295",
+    "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_analysis_v3_3_2_1.sh": "ea5cce6ae631ba3fa2bf0082d691d0896ef0fed7b20f0d908034e17775060caa",
+    "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_analysis_v3_3_2_2.sh": "7eb4d6b8dda1a415881a6934d6cf9e30cbfc707fd531eb1a1d19df3b90b1a2f9",
+    "experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_ood_sidecar_analysis_amendment_v3_3_2_1.md": "81a4f4c126b83225b02c7de5cf0dc6fd0baf6085b84b9ed5dd7a3677744090ba",
+    "experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_ood_sidecar_analysis_amendment_v3_3_2_2.md": "3188b44f85d8315eb4a099b42930b2d08f76074ffb190ef11b67a9f39e788a3d"
+  },
+  "preflight_dir": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_2_device_preflight",
+  "run_dir": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_2_development_ood_sidecar_one_shot",
+  "v3_3_2_1_attempt_dir": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_2_development_ood_sidecar_analysis_v3_3_2_1_attempt",
+  "v3_3_2_1_attempt_file_count": 2,
+  "v3_3_2_1_attempt_tree_sha256": "5e97b191e781c5141d2f308deefacfa8f6a196449fd7e11f36c22828a13f036a",
+  "v3_3_2_1_commit": "b43051aa4a893e24a38e932900d349278c9ead88",
+  "v3_3_2_1_failure_sha256": "1cd933623ecdfb328d5db458b16df909e632a560361dbb547f83c22cf13ab7c7",
+  "v3_3_2_1_start_sha256": "a87c4e15ed67a363d07c434ca232540687950d145e67492b9ed9c17d9adebf1d"
+}
