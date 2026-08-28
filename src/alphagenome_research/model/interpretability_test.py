@@ -1465,6 +1465,92 @@ class InterpretabilityTest(absltest.TestCase):
         trace.stage_a.natural_final_embeddings, (6, 2, 1536)
     )
 
+  def test_eight_row_superset_factory_preserves_checkpoint_tree(self):
+    track_metadata = track_data.TrackMetadata(
+        pd.DataFrame({
+            'name': ['donor', 'acceptor', 'donor', 'acceptor', 'padding'],
+            'strand': ['+', '+', '-', '-', '.'],
+        })
+    )
+    metadata = {
+        public_dna_model.Organism.HOMO_SAPIENS: (
+            metadata_lib.AlphaGenomeOutputMetadata(splice_sites=track_metadata)
+        )
+    }
+    init, _, _, _, _ = dna_model.create_model(metadata)
+    params, state = jax.eval_shape(
+        init,
+        jax.random.key(34),
+        jax.ShapeDtypeStruct((1, 2048, 4), jnp.float32),
+        jax.ShapeDtypeStruct((1,), jnp.int32),
+    )
+    selection = interpretability.SupersetGraphSelection(
+        transformer=self._tower_selection(),
+        stage_a=interpretability.StageABranchSelection(
+            final_embedding_positions=jnp.array([100, 150], jnp.int32),
+            final_embedding_valid_mask=jnp.ones((2,), jnp.bool),
+        ),
+    )
+    transformer = interpretability.no_transformer_interventions(
+        batch_size=8, num_edges=2
+    )
+    residual_transfer = interpretability.no_sequence_route_batch_transfer(
+        num_stages=interpretability.NUM_TRANSFORMER_LAYERS,
+        batch_size=8,
+        num_positions=3,
+    )
+    transformer = dataclasses.replace(
+        transformer,
+        pre_attention_residual_transfer=residual_transfer,
+        post_attention_residual_transfer=residual_transfer,
+        post_mlp_residual_transfer=residual_transfer,
+    )
+    stage_a = interpretability.StageABranchInterventions(
+        transformer_output=interpretability.no_whole_sequence_batch_transfer(
+            num_stages=1, batch_size=8
+        ),
+        encoder_skips=interpretability.no_whole_sequence_batch_transfer(
+            num_stages=7, batch_size=8
+        ),
+        final_embedding=interpretability.no_sequence_route_batch_transfer(
+            num_stages=1, batch_size=8, num_positions=2
+        ),
+    )
+    interventions = interpretability.SupersetGraphInterventions(
+        transformer=transformer, stage_a=stage_a
+    )
+    apply_fn = (
+        dna_model
+        .create_splice_classification_logit_margin_eight_row_superset_graph_apply(
+            metadata
+        )
+    )
+    target, trace = jax.eval_shape(
+        apply_fn,
+        params,
+        state,
+        jax.ShapeDtypeStruct((8, 2048, 4), jnp.float32),
+        jax.ShapeDtypeStruct((8,), jnp.int32),
+        selection,
+        interventions,
+        interpretability.SpliceClassificationLogitMarginSelection(
+            canonical_position_indices=jnp.array([100, 150], jnp.int32),
+            canonical_track_indices=jnp.array([1, 0], jnp.int32),
+            padding_track_index=jnp.array(4, jnp.int32),
+        ),
+    )
+    chex.assert_shape(target.selected_logits, (8, 2, 2))
+    chex.assert_shape(target.target.mean, (8,))
+    chex.assert_shape(
+        trace.stage_a.transformer_output_natural_matches_identity, (8,)
+    )
+    chex.assert_shape(
+        trace.stage_a.encoder_skips_natural_match_identity, (7, 8)
+    )
+    chex.assert_shape(
+        trace.stage_a.natural_final_embeddings, (8, 2, 1536)
+    )
+
 
 if __name__ == '__main__':
   absltest.main()
