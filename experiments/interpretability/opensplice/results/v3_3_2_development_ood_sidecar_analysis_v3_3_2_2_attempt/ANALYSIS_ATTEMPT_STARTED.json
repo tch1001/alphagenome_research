@@ -1,0 +1,175 @@
+{
+  "amendment_binding": {
+    "amendment_sha256": "3188b44f85d8315eb4a099b42930b2d08f76074ffb190ef11b67a9f39e788a3d",
+    "analysis_freeze": {
+      "amendment_commit": "2a2cc59136f5b83f3a7c265b5197e30cdecd7c11",
+      "amendment_path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_ood_sidecar_analysis_amendment_v3_3_2_2.md",
+      "amendment_sha256": "3188b44f85d8315eb4a099b42930b2d08f76074ffb190ef11b67a9f39e788a3d",
+      "analysis_dir": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_2_development_ood_sidecar_analysis_v3_3_2_2",
+      "analysis_version": "opensplice-encoder-skip-ood-sidecar-analysis-v3.3.2.2",
+      "attempt_dir": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_2_development_ood_sidecar_analysis_v3_3_2_2_attempt",
+      "file_sha256": {
+        "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_2.py": "90f00a6d51f33ac456a0fd799f2b9caf456b58944928886dc1577731707f205e",
+        "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_2_1.py": "35db9ca198cb5d7f03621ccf322ea116f98cea3bfdc711006dfd20bc809e8048",
+        "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_2_1_test.py": "a8733f3ffb35920dda2f6a856076cbe82a9e90aa2fe483169150dbad4421a1b8",
+        "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_2_2.py": "70be2f80e598f6c307511dfcad1a550a2438766b3348014be1e6ff25c9b99221",
+        "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_2_2_test.py": "cb7541e75dd65130f7f123643d88adac4f82e984afce4856babfc58284723a4d",
+        "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_2_test.py": "2e7424a76840c776ff550db3961c1fb1b63dee273bd8d030800efd27bf81d11e",
+        "experiments/interpretability/opensplice/encoder_skip_ood_sidecar_analysis_v3_3_2_1_freeze.json": "3871ab41b16105a94673e89381d32d7253b014c64eda5c6789eaecf16477c061",
+        "experiments/interpretability/opensplice/encoder_skip_ood_sidecar_v3_3_2_freeze.json": "baa257dfa8d0bd1afca40b11038d71c9157499eeb654523ad59df119eb2c0295",
+        "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_analysis_v3_3_2_1.sh": "ea5cce6ae631ba3fa2bf0082d691d0896ef0fed7b20f0d908034e17775060caa",
+        "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_analysis_v3_3_2_2.sh": "7eb4d6b8dda1a415881a6934d6cf9e30cbfc707fd531eb1a1d19df3b90b1a2f9",
+        "experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_ood_sidecar_analysis_amendment_v3_3_2_1.md": "81a4f4c126b83225b02c7de5cf0dc6fd0baf6085b84b9ed5dd7a3677744090ba",
+        "experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_ood_sidecar_analysis_amendment_v3_3_2_2.md": "3188b44f85d8315eb4a099b42930b2d08f76074ffb190ef11b67a9f39e788a3d"
+      },
+      "preflight_dir": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_2_device_preflight",
+      "run_dir": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_2_development_ood_sidecar_one_shot",
+      "v3_3_2_1_attempt_dir": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_2_development_ood_sidecar_analysis_v3_3_2_1_attempt",
+      "v3_3_2_1_attempt_file_count": 2,
+      "v3_3_2_1_attempt_tree_sha256": "5e97b191e781c5141d2f308deefacfa8f6a196449fd7e11f36c22828a13f036a",
+      "v3_3_2_1_commit": "b43051aa4a893e24a38e932900d349278c9ead88",
+      "v3_3_2_1_failure_sha256": "1cd933623ecdfb328d5db458b16df909e632a560361dbb547f83c22cf13ab7c7",
+      "v3_3_2_1_start_sha256": "a87c4e15ed67a363d07c434ca232540687950d145e67492b9ed9c17d9adebf1d"
+    },
+    "analysis_freeze_sha256": "e7c3fe72c9d9ca5b23299dfbc2a2991643b19722cf9a5c386debf73f367fa520",
+    "analysis_version": "opensplice-encoder-skip-ood-sidecar-analysis-v3.3.2.2",
+    "confirmation_model_calls_permitted": 0,
+    "consumed_v3_3_2_1_attempt": {
+      "analysis_output_absent": true,
+      "exact_recursion_traceback_bound_by_file_hash": true,
+      "failure_sha256": "1cd933623ecdfb328d5db458b16df909e632a560361dbb547f83c22cf13ab7c7",
+      "file_count": 2,
+      "files": {
+        "ANALYSIS_ATTEMPT_STARTED.json": {
+          "sha256": "a87c4e15ed67a363d07c434ca232540687950d145e67492b9ed9c17d9adebf1d",
+          "size_bytes": 8616
+        },
+        "ANALYSIS_FAILURE.json": {
+          "sha256": "1cd933623ecdfb328d5db458b16df909e632a560361dbb547f83c22cf13ab7c7",
+          "size_bytes": 2163
+        }
+      },
+      "model_apply_count": 0,
+      "scientific_values_read": false,
+      "start_sha256": "a87c4e15ed67a363d07c434ca232540687950d145e67492b9ed9c17d9adebf1d",
+      "tree_sha256": "5e97b191e781c5141d2f308deefacfa8f6a196449fd7e11f36c22828a13f036a"
+    },
+    "git_head": "67abe303082c62fd925c3c23d9a23b3e0f4526f6",
+    "immutable_preflight": {
+      "file_count": 5,
+      "files": {
+        ".allocation.lock": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        ".preflight_0000.reserved": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        "preflight_0000.json": {
+          "sha256": "309bdec9544cd4ff2cdbc83207663e81d7f5d27ece83e4ad569e1859ba412a8c",
+          "size_bytes": 682921
+        },
+        "preflight_0000.stderr.log": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        "preflight_0000.stdout.log": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        }
+      },
+      "tree_sha256": "797211382478ba249fe94e7ccbcc11c7192d30423d5e289ce03cf3cea37f65f5"
+    },
+    "immutable_run": {
+      "file_count": 11,
+      "files": {
+        "ATTEMPT_STARTED.json": {
+          "sha256": "d1bb85b3c35d892f10f67a5510b85784eb1b6b989c9ae32290b8c0fdc3c8d235",
+          "size_bytes": 774186
+        },
+        "IMPORT_PROVENANCE.json": {
+          "sha256": "a74f3c9658e9d2286724680b52f4ea788d492f4fa9d7c52b20a53c90d57edc99",
+          "size_bytes": 41558
+        },
+        "IMPORT_PROVENANCE_POST_MODEL_PRECOMPILE.json": {
+          "sha256": "a74f3c9658e9d2286724680b52f4ea788d492f4fa9d7c52b20a53c90d57edc99",
+          "size_bytes": 41558
+        },
+        "IMPORT_PROVENANCE_PRE_MODEL.json": {
+          "sha256": "a74f3c9658e9d2286724680b52f4ea788d492f4fa9d7c52b20a53c90d57edc99",
+          "size_bytes": 41558
+        },
+        "PROTOBUF_PROVENANCE.json": {
+          "sha256": "2498a940f6ee15e54e72e8f51587d4c42ffc1b49851873c31ad09085315d0ba8",
+          "size_bytes": 3339
+        },
+        "RAW_MANIFEST.json": {
+          "sha256": "fadbff5ab512dea3d25edb39dc9a91ffe25473b73f1e33fd53f97b60fc8436fd",
+          "size_bytes": 145
+        },
+        "RUN_COMPLETE.json": {
+          "sha256": "d88c8becc96a24f1f56a1cee82da35fdd331ee3b40ba4108ae98f44ae24b4ad7",
+          "size_bytes": 15145
+        },
+        "compiler/eight_row/COMPILER_PROVENANCE.json": {
+          "sha256": "bd20e21a56a9ca5498d7119771bb1da9ac2e156ed3190d3ce3aa09ff2d2e312c",
+          "size_bytes": 8196
+        },
+        "compiler/eight_row/graph.compiled.hlo.txt": {
+          "sha256": "b436435ebb14b87cf9929ee9b16fc2c74d1764460c701f8160f1dc092687b718",
+          "size_bytes": 16601836
+        },
+        "compiler/eight_row/graph.pre_backend.hlo.txt": {
+          "sha256": "675b9cf26fe8f59a1d138e856ee84f48edb20d8c896ac9e539b6b064dcef2750",
+          "size_bytes": 1829833
+        },
+        "compiler/eight_row/graph.stablehlo.mlir": {
+          "sha256": "69dbf2a054cf89e56a9000dc0c04e5cd4ba425f016885ddc127d22c01661bddd",
+          "size_bytes": 3196162
+        }
+      },
+      "tree_sha256": "4ac66e45a4d7d65af2785904d11b23bf7e809e07f3f617e190772242b2e7a4ab"
+    },
+    "model_apply_count": 0,
+    "model_rerun_permitted": false,
+    "model_run_bundle": {
+      "all_current_and_historical_bytes_exact": true,
+      "frozen_file_count": 75,
+      "model_run_commit": "24e2214168eeca41d4f3b60b62094b6befcadcc1"
+    },
+    "saved_validator_is_frozen_original": true,
+    "scientific_values_read": false,
+    "tracked_head_clean": true,
+    "v3_3_2_1_bundle": {
+      "amendment_sha256": "81a4f4c126b83225b02c7de5cf0dc6fd0baf6085b84b9ed5dd7a3677744090ba",
+      "analyzer_sha256": "35db9ca198cb5d7f03621ccf322ea116f98cea3bfdc711006dfd20bc809e8048",
+      "commit": "b43051aa4a893e24a38e932900d349278c9ead88",
+      "freeze_sha256": "3871ab41b16105a94673e89381d32d7253b014c64eda5c6789eaecf16477c061",
+      "historical_commit_audit": {
+        "commit": "b43051aa4a893e24a38e932900d349278c9ead88",
+        "current_and_historical_bytes_exact": true,
+        "file_count": 5,
+        "file_sha256": {
+          "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_2_1.py": "35db9ca198cb5d7f03621ccf322ea116f98cea3bfdc711006dfd20bc809e8048",
+          "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_2_1_test.py": "a8733f3ffb35920dda2f6a856076cbe82a9e90aa2fe483169150dbad4421a1b8",
+          "experiments/interpretability/opensplice/encoder_skip_ood_sidecar_analysis_v3_3_2_1_freeze.json": "3871ab41b16105a94673e89381d32d7253b014c64eda5c6789eaecf16477c061",
+          "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_analysis_v3_3_2_1.sh": "ea5cce6ae631ba3fa2bf0082d691d0896ef0fed7b20f0d908034e17775060caa",
+          "experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_ood_sidecar_analysis_amendment_v3_3_2_1.md": "81a4f4c126b83225b02c7de5cf0dc6fd0baf6085b84b9ed5dd7a3677744090ba"
+        }
+      },
+      "shell_sha256": "ea5cce6ae631ba3fa2bf0082d691d0896ef0fed7b20f0d908034e17775060caa",
+      "test_sha256": "a8733f3ffb35920dda2f6a856076cbe82a9e90aa2fe483169150dbad4421a1b8"
+    }
+  },
+  "analysis_version": "opensplice-encoder-skip-ood-sidecar-analysis-v3.3.2.2",
+  "confirmation_model_calls_permitted": 0,
+  "model_rerun_permitted": false,
+  "output_json": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_2_development_ood_sidecar_analysis_v3_3_2_2/ANALYSIS.json",
+  "output_markdown": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_2_development_ood_sidecar_analysis_v3_3_2_2/RESULT.md",
+  "reason": "saved_frozen_validator_function_reference_repair",
+  "run_dir": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_2_development_ood_sidecar_one_shot",
+  "scientific_values_read_before_attempt": false,
+  "started_at_unix_s": 1787891972.4532704,
+  "status": "started_append_only_one_shot"
+}

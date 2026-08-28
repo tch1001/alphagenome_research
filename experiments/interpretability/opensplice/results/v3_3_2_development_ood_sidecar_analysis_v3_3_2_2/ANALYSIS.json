@@ -1,0 +1,1124 @@
+{
+  "analysis_version": "opensplice-encoder-skip-ood-sidecar-analysis-v3.3.2.2",
+  "analyzer_amendment": {
+    "amendment_binding": {
+      "amendment_sha256": "3188b44f85d8315eb4a099b42930b2d08f76074ffb190ef11b67a9f39e788a3d",
+      "analysis_freeze": {
+        "amendment_commit": "2a2cc59136f5b83f3a7c265b5197e30cdecd7c11",
+        "amendment_path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_ood_sidecar_analysis_amendment_v3_3_2_2.md",
+        "amendment_sha256": "3188b44f85d8315eb4a099b42930b2d08f76074ffb190ef11b67a9f39e788a3d",
+        "analysis_dir": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_2_development_ood_sidecar_analysis_v3_3_2_2",
+        "analysis_version": "opensplice-encoder-skip-ood-sidecar-analysis-v3.3.2.2",
+        "attempt_dir": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_2_development_ood_sidecar_analysis_v3_3_2_2_attempt",
+        "file_sha256": {
+          "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_2.py": "90f00a6d51f33ac456a0fd799f2b9caf456b58944928886dc1577731707f205e",
+          "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_2_1.py": "35db9ca198cb5d7f03621ccf322ea116f98cea3bfdc711006dfd20bc809e8048",
+          "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_2_1_test.py": "a8733f3ffb35920dda2f6a856076cbe82a9e90aa2fe483169150dbad4421a1b8",
+          "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_2_2.py": "70be2f80e598f6c307511dfcad1a550a2438766b3348014be1e6ff25c9b99221",
+          "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_2_2_test.py": "cb7541e75dd65130f7f123643d88adac4f82e984afce4856babfc58284723a4d",
+          "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_2_test.py": "2e7424a76840c776ff550db3961c1fb1b63dee273bd8d030800efd27bf81d11e",
+          "experiments/interpretability/opensplice/encoder_skip_ood_sidecar_analysis_v3_3_2_1_freeze.json": "3871ab41b16105a94673e89381d32d7253b014c64eda5c6789eaecf16477c061",
+          "experiments/interpretability/opensplice/encoder_skip_ood_sidecar_v3_3_2_freeze.json": "baa257dfa8d0bd1afca40b11038d71c9157499eeb654523ad59df119eb2c0295",
+          "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_analysis_v3_3_2_1.sh": "ea5cce6ae631ba3fa2bf0082d691d0896ef0fed7b20f0d908034e17775060caa",
+          "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_analysis_v3_3_2_2.sh": "7eb4d6b8dda1a415881a6934d6cf9e30cbfc707fd531eb1a1d19df3b90b1a2f9",
+          "experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_ood_sidecar_analysis_amendment_v3_3_2_1.md": "81a4f4c126b83225b02c7de5cf0dc6fd0baf6085b84b9ed5dd7a3677744090ba",
+          "experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_ood_sidecar_analysis_amendment_v3_3_2_2.md": "3188b44f85d8315eb4a099b42930b2d08f76074ffb190ef11b67a9f39e788a3d"
+        },
+        "preflight_dir": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_2_device_preflight",
+        "run_dir": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_2_development_ood_sidecar_one_shot",
+        "v3_3_2_1_attempt_dir": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_2_development_ood_sidecar_analysis_v3_3_2_1_attempt",
+        "v3_3_2_1_attempt_file_count": 2,
+        "v3_3_2_1_attempt_tree_sha256": "5e97b191e781c5141d2f308deefacfa8f6a196449fd7e11f36c22828a13f036a",
+        "v3_3_2_1_commit": "b43051aa4a893e24a38e932900d349278c9ead88",
+        "v3_3_2_1_failure_sha256": "1cd933623ecdfb328d5db458b16df909e632a560361dbb547f83c22cf13ab7c7",
+        "v3_3_2_1_start_sha256": "a87c4e15ed67a363d07c434ca232540687950d145e67492b9ed9c17d9adebf1d"
+      },
+      "analysis_freeze_sha256": "e7c3fe72c9d9ca5b23299dfbc2a2991643b19722cf9a5c386debf73f367fa520",
+      "analysis_version": "opensplice-encoder-skip-ood-sidecar-analysis-v3.3.2.2",
+      "confirmation_model_calls_permitted": 0,
+      "consumed_v3_3_2_1_attempt": {
+        "analysis_output_absent": true,
+        "exact_recursion_traceback_bound_by_file_hash": true,
+        "failure_sha256": "1cd933623ecdfb328d5db458b16df909e632a560361dbb547f83c22cf13ab7c7",
+        "file_count": 2,
+        "files": {
+          "ANALYSIS_ATTEMPT_STARTED.json": {
+            "sha256": "a87c4e15ed67a363d07c434ca232540687950d145e67492b9ed9c17d9adebf1d",
+            "size_bytes": 8616
+          },
+          "ANALYSIS_FAILURE.json": {
+            "sha256": "1cd933623ecdfb328d5db458b16df909e632a560361dbb547f83c22cf13ab7c7",
+            "size_bytes": 2163
+          }
+        },
+        "model_apply_count": 0,
+        "scientific_values_read": false,
+        "start_sha256": "a87c4e15ed67a363d07c434ca232540687950d145e67492b9ed9c17d9adebf1d",
+        "tree_sha256": "5e97b191e781c5141d2f308deefacfa8f6a196449fd7e11f36c22828a13f036a"
+      },
+      "git_head": "67abe303082c62fd925c3c23d9a23b3e0f4526f6",
+      "immutable_preflight": {
+        "file_count": 5,
+        "files": {
+          ".allocation.lock": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "size_bytes": 0
+          },
+          ".preflight_0000.reserved": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "size_bytes": 0
+          },
+          "preflight_0000.json": {
+            "sha256": "309bdec9544cd4ff2cdbc83207663e81d7f5d27ece83e4ad569e1859ba412a8c",
+            "size_bytes": 682921
+          },
+          "preflight_0000.stderr.log": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "size_bytes": 0
+          },
+          "preflight_0000.stdout.log": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "size_bytes": 0
+          }
+        },
+        "tree_sha256": "797211382478ba249fe94e7ccbcc11c7192d30423d5e289ce03cf3cea37f65f5"
+      },
+      "immutable_run": {
+        "file_count": 11,
+        "files": {
+          "ATTEMPT_STARTED.json": {
+            "sha256": "d1bb85b3c35d892f10f67a5510b85784eb1b6b989c9ae32290b8c0fdc3c8d235",
+            "size_bytes": 774186
+          },
+          "IMPORT_PROVENANCE.json": {
+            "sha256": "a74f3c9658e9d2286724680b52f4ea788d492f4fa9d7c52b20a53c90d57edc99",
+            "size_bytes": 41558
+          },
+          "IMPORT_PROVENANCE_POST_MODEL_PRECOMPILE.json": {
+            "sha256": "a74f3c9658e9d2286724680b52f4ea788d492f4fa9d7c52b20a53c90d57edc99",
+            "size_bytes": 41558
+          },
+          "IMPORT_PROVENANCE_PRE_MODEL.json": {
+            "sha256": "a74f3c9658e9d2286724680b52f4ea788d492f4fa9d7c52b20a53c90d57edc99",
+            "size_bytes": 41558
+          },
+          "PROTOBUF_PROVENANCE.json": {
+            "sha256": "2498a940f6ee15e54e72e8f51587d4c42ffc1b49851873c31ad09085315d0ba8",
+            "size_bytes": 3339
+          },
+          "RAW_MANIFEST.json": {
+            "sha256": "fadbff5ab512dea3d25edb39dc9a91ffe25473b73f1e33fd53f97b60fc8436fd",
+            "size_bytes": 145
+          },
+          "RUN_COMPLETE.json": {
+            "sha256": "d88c8becc96a24f1f56a1cee82da35fdd331ee3b40ba4108ae98f44ae24b4ad7",
+            "size_bytes": 15145
+          },
+          "compiler/eight_row/COMPILER_PROVENANCE.json": {
+            "sha256": "bd20e21a56a9ca5498d7119771bb1da9ac2e156ed3190d3ce3aa09ff2d2e312c",
+            "size_bytes": 8196
+          },
+          "compiler/eight_row/graph.compiled.hlo.txt": {
+            "sha256": "b436435ebb14b87cf9929ee9b16fc2c74d1764460c701f8160f1dc092687b718",
+            "size_bytes": 16601836
+          },
+          "compiler/eight_row/graph.pre_backend.hlo.txt": {
+            "sha256": "675b9cf26fe8f59a1d138e856ee84f48edb20d8c896ac9e539b6b064dcef2750",
+            "size_bytes": 1829833
+          },
+          "compiler/eight_row/graph.stablehlo.mlir": {
+            "sha256": "69dbf2a054cf89e56a9000dc0c04e5cd4ba425f016885ddc127d22c01661bddd",
+            "size_bytes": 3196162
+          }
+        },
+        "tree_sha256": "4ac66e45a4d7d65af2785904d11b23bf7e809e07f3f617e190772242b2e7a4ab"
+      },
+      "model_apply_count": 0,
+      "model_rerun_permitted": false,
+      "model_run_bundle": {
+        "all_current_and_historical_bytes_exact": true,
+        "frozen_file_count": 75,
+        "model_run_commit": "24e2214168eeca41d4f3b60b62094b6befcadcc1"
+      },
+      "saved_validator_is_frozen_original": true,
+      "scientific_values_read": false,
+      "tracked_head_clean": true,
+      "v3_3_2_1_bundle": {
+        "amendment_sha256": "81a4f4c126b83225b02c7de5cf0dc6fd0baf6085b84b9ed5dd7a3677744090ba",
+        "analyzer_sha256": "35db9ca198cb5d7f03621ccf322ea116f98cea3bfdc711006dfd20bc809e8048",
+        "commit": "b43051aa4a893e24a38e932900d349278c9ead88",
+        "freeze_sha256": "3871ab41b16105a94673e89381d32d7253b014c64eda5c6789eaecf16477c061",
+        "historical_commit_audit": {
+          "commit": "b43051aa4a893e24a38e932900d349278c9ead88",
+          "current_and_historical_bytes_exact": true,
+          "file_count": 5,
+          "file_sha256": {
+            "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_2_1.py": "35db9ca198cb5d7f03621ccf322ea116f98cea3bfdc711006dfd20bc809e8048",
+            "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_2_1_test.py": "a8733f3ffb35920dda2f6a856076cbe82a9e90aa2fe483169150dbad4421a1b8",
+            "experiments/interpretability/opensplice/encoder_skip_ood_sidecar_analysis_v3_3_2_1_freeze.json": "3871ab41b16105a94673e89381d32d7253b014c64eda5c6789eaecf16477c061",
+            "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_analysis_v3_3_2_1.sh": "ea5cce6ae631ba3fa2bf0082d691d0896ef0fed7b20f0d908034e17775060caa",
+            "experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_ood_sidecar_analysis_amendment_v3_3_2_1.md": "81a4f4c126b83225b02c7de5cf0dc6fd0baf6085b84b9ed5dd7a3677744090ba"
+          }
+        },
+        "shell_sha256": "ea5cce6ae631ba3fa2bf0082d691d0896ef0fed7b20f0d908034e17775060caa",
+        "test_sha256": "a8733f3ffb35920dda2f6a856076cbe82a9e90aa2fe483169150dbad4421a1b8"
+      }
+    },
+    "amendment_sha256": "3188b44f85d8315eb4a099b42930b2d08f76074ffb190ef11b67a9f39e788a3d",
+    "attempt_started_sha256": "bdbcc6f37093924ddc79ed38e674d084761e044aefeec065d25c6692605028af",
+    "combined_analysis_permitted": false,
+    "model_apply_count": 0,
+    "model_rerun_permitted": false,
+    "reason": "saved_frozen_validator_function_reference_repair",
+    "saved_frozen_validator_called_directly": true,
+    "saved_frozen_validator_restored_exactly": true,
+    "scientific_summary_computed": false,
+    "shapley_or_nomination_computed": false,
+    "v3_3_2_1_failure_preserved": {
+      "attempt_tree_sha256": "5e97b191e781c5141d2f308deefacfa8f6a196449fd7e11f36c22828a13f036a",
+      "failure_sha256": "1cd933623ecdfb328d5db458b16df909e632a560361dbb547f83c22cf13ab7c7",
+      "start_sha256": "a87c4e15ed67a363d07c434ca232540687950d145e67492b9ed9c17d9adebf1d"
+    }
+  },
+  "combined_analysis_permitted": false,
+  "combined_analysis_requirement": "A separately prospective analyzer is required before any Shapley, resolution, or nomination calculation.",
+  "confirmation_model_outputs_activations_interventions_unopened": true,
+  "confirmation_scope_disclosure": "Later-exon metadata/labels were exposed after protocol freeze; no later-exon model outputs, activations, or interventions are used.",
+  "controlled_stop": {
+    "audited_record_count": 0,
+    "message": "New eight-row graph/HLO differs from frozen v3.3.",
+    "reason": "compiler_graph_mismatch"
+  },
+  "decision": "controlled_stop_compiler_graph_mismatch",
+  "nomination": null,
+  "nomination_performed": false,
+  "provenance_audit": {
+    "amendment_sha256": "42cd43bbc25517d35b3e21dd5df7bf68a37ee46c51cb71bcdf363ac4de3b19e3",
+    "checkpoint_reference_audit": {
+      "checkpoint_file_count": 12,
+      "checkpoint_manifest_sha256": "1ed87db4c5bd7c5418c7734ec128faa4a9ecd186df2a024437484a8bc2b6e934",
+      "reference_bindings_sha256": "da712cdca50f82113ac1d00cb2fa7171f7368f31aedf06c48ce92dbdb5897dca",
+      "sequence_bindings": {
+        "0": {
+          "alternate": "9ab26dab184711808a13ac315be08609dc7c15a54cb484a18b472c3d14c26ca0",
+          "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+        },
+        "1": {
+          "alternate": "16610215488845b1c8ec5a672e183943ab9ef0e3f6068d146b54725914353066",
+          "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+        },
+        "2": {
+          "alternate": "a2e5da0b13d2af1504f049f9310876a440244fcac1f2aacaecfe8323327d0fac",
+          "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+        },
+        "3": {
+          "alternate": "23186c4b2ed7bcfded9caa8ee255fbc08956c56a740d5cace6d772f7c4e299f7",
+          "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+        },
+        "4": {
+          "alternate": "73ee48e4d990ff5a2269916aad6936ba7691940ddcf0f0811a6097def166ca73",
+          "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+        },
+        "5": {
+          "alternate": "5c9c32e989310f42db0201bba431bda6931f5ad4ff74e44c8968d33b0a823e16",
+          "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+        },
+        "6": {
+          "alternate": "c98c085eb8f0d16e1855fa6ed1cdfabfe228044bee59d676c5861c39aa9a1463",
+          "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+        },
+        "7": {
+          "alternate": "daeb714965852416e5cc03fb827e45bba4e7eb5aace1627588aaf44eb0782627",
+          "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+        },
+        "8": {
+          "alternate": "14b4edefa859d187ba9c44d746c04ed1fd19e106de766019ee4837d77dd48be6",
+          "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+        },
+        "9": {
+          "alternate": "73f23fbcf740987c29c73cd31d866594d73dca6e9074e1ff2b9cc937c4ba855b",
+          "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+        },
+        "10": {
+          "alternate": "c13334969256113b3253e9a4d01d054be2c973556a2940d7ab8746b3a438ec34",
+          "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+        },
+        "11": {
+          "alternate": "67f0f6c72c9061c6ca0483b6d09903ce9c4effa3e7060f1a6a2c6b63f70e2d0a",
+          "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+        },
+        "12": {
+          "alternate": "deea1db147a29040d8b5cb2cee0bd055c9d61724eac05814cc193861ffd505b6",
+          "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+        },
+        "13": {
+          "alternate": "93490b6827ee07eca8c88937c92f0285e03c4fa26f39c5a595d3b598e8601d54",
+          "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+        },
+        "14": {
+          "alternate": "b09cc02f279cec524ca71f9ffa815cf2f96413a3552a73f2e3e82219818a9268",
+          "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+        },
+        "15": {
+          "alternate": "9d72987f03329738392e4bd63dba6e1c16f912b8e8c7b8be4a4af5ba036937d2",
+          "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+        },
+        "16": {
+          "alternate": "1c0f8124952d8ac1e7eab936ed96f515a3c498a373f8e53a63187349ef808ef4",
+          "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+        },
+        "17": {
+          "alternate": "ed4e22cad1c33f44e7f9b4765f85d3964e8568fdf892a75da6d47b1a9b7defc0",
+          "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+        },
+        "18": {
+          "alternate": "19cacbad23bcd577559cc3c9529ad8434230cfc20f844f2632e82a3216e7558a",
+          "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+        },
+        "19": {
+          "alternate": "134d8132d34efd4a719b06f64afc2ba93ba3d5dbf8d067ae0118af19132390f6",
+          "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+        }
+      }
+    },
+    "compiler": {
+      "artifact_sha256": {
+        "compiled_hlo": "b436435ebb14b87cf9929ee9b16fc2c74d1764460c701f8160f1dc092687b718",
+        "hlo": "675b9cf26fe8f59a1d138e856ee84f48edb20d8c896ac9e539b6b064dcef2750",
+        "stablehlo": "69dbf2a054cf89e56a9000dc0c04e5cd4ba425f016885ddc127d22c01661bddd"
+      },
+      "executable_fingerprint": "e6e482d65d82dbe27a0d78da67b475200008e31fe1d3e2db4af19f59c3ff4934",
+      "graph_and_hlo_exact_to_original_v3_3": false
+    },
+    "external_exact_rtx3090_uuid_gate": true,
+    "external_preflight_sha256": "309bdec9544cd4ff2cdbc83207663e81d7f5d27ece83e4ad569e1859ba412a8c",
+    "freeze_sha256": "baa257dfa8d0bd1afca40b11038d71c9157499eeb654523ad59df119eb2c0295",
+    "generated_binding_audit": {
+      "all_current_bytes_verified": true,
+      "bootstrap_artifact_count": 7,
+      "bootstrap_role_order": [
+        "dependency_pb2",
+        "dependency_proto",
+        "generated_pb2",
+        "generated_pyi",
+        "source_proto",
+        "tensor_pb2",
+        "tensor_proto"
+      ],
+      "generated_output_count": 2,
+      "generated_output_roles": [
+        "generated_pb2",
+        "generated_pyi"
+      ],
+      "repair": "seven_role_two_generated_output_provenance_classification",
+      "scientific_gate_or_estimand_changed": false,
+      "source_dependency_roles": [
+        "dependency_pb2",
+        "dependency_proto",
+        "source_proto",
+        "tensor_pb2",
+        "tensor_proto"
+      ]
+    },
+    "git_head": "24e2214168eeca41d4f3b60b62094b6befcadcc1",
+    "imports": {
+      "lazy_additions": {
+        "post_model_precompile_to_postcompile": [],
+        "pre_model_to_post_model_precompile": []
+      },
+      "module_counts": {
+        "post_model_precompile": 78,
+        "postcompile": 78,
+        "pre_model": 78
+      },
+      "phase_sha256": {
+        "post_model_precompile": "a74f3c9658e9d2286724680b52f4ea788d492f4fa9d7c52b20a53c90d57edc99",
+        "postcompile": "a74f3c9658e9d2286724680b52f4ea788d492f4fa9d7c52b20a53c90d57edc99",
+        "pre_model": "a74f3c9658e9d2286724680b52f4ea788d492f4fa9d7c52b20a53c90d57edc99"
+      },
+      "seven_sidecar_source_bindings_exact": true,
+      "stable_shared_module_bytes": true
+    },
+    "model_run_commit_attestation_replayed_after_exact_byte_audit": true,
+    "original_cube_bound_separately": true,
+    "original_protocol_sha256": "85151029297cf4b4c1a07dd2a0f47b10b0663acd08ddfe25ba72b9898b1beea0",
+    "original_run_audit": {
+      "analyzer_sha256": "0a65a27a5c424bb9dddacb5475e02d28a0999fc7cd593d4dd63ba4be06c39a46",
+      "analyzer_test_sha256": "d027f73fb07682e8cb54d46653a5bd9aa900aaeac433b1748dbdf4886c6d5034",
+      "attempt_started_sha256": "b74081fd0cbd1c8d6ec5445b3b71661f40ac4d47dd77fd2d9bd3675b4cf9c3c3",
+      "compiler_file_count": 8,
+      "compiler_tree_sha256": "9a03dcbc9d439cb9bf197941af3bbdb3e6bda067cf661b90de6d7eab1f4d87eb",
+      "device_preflight_sha256": "b983c7f4910ef4fc5f68bc72486552063f4497f90bba64497eb29a09d3d1809d",
+      "freeze_sha256": "98860ed4e60c427a76ac05879d800f36b65c10a310f4b2b981819fa48af767b3",
+      "git_commit": "9e8324434a3c0b2d5c53d209ad04c2d88b99f4bc",
+      "import_provenance_sha256": "64a5538499e5b06e29cb506a2b08585bb002b3766bd1be210d1a568b9ec5110e",
+      "interpretability_sha256": "d00a4dd8a4e62c2d8a7d583a74cbf5632121f98892e901c7f8927539ee156500",
+      "model_sha256": "7aee357d776f1f10f9ef04b1602103496ad543d89f49d5e59af459afca217ea1",
+      "original_bundle_binding": {
+        "git_head": "9e8324434a3c0b2d5c53d209ad04c2d88b99f4bc",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/encoder_skip_factorial_v3_3_freeze.json",
+        "prior_v3_2_evidence": {
+          "analysis": {
+            "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_2_development_superset_graph_analysis/ANALYSIS.json",
+            "sha256": "a46c827e16fb4e054e7cf702f7147da70e0a3b35f677b430edf64e9a3055013c"
+          },
+          "protocol": {
+            "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/v3_wider_mechanism/superset_graph_protocol_v3_2.md",
+            "sha256": "1e87839250e838d1d9aa95162e76a3acb6b1eaab59b481c60dab943b62f6caea"
+          },
+          "raw_manifest": {
+            "artifact_count": 2660,
+            "artifact_tree_sha256": "4171d8aebae7fff3b9981d7ab0dc914c659c6fe2916cb9a48bbee87e205beed8",
+            "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_2_development_superset_graph_one_shot/RAW_MANIFEST.json",
+            "sha256": "2d63d7dfeaa69e2c1ad8cde731e656e134e37e639023f0745daadb564f17a665"
+          },
+          "result": {
+            "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_2_development_superset_graph_analysis/RESULT.md",
+            "sha256": "e4c8d45c1b35d8934734c4d8c18bd2ca10b78dd0099a9b37c296e60b15b7e52c"
+          }
+        },
+        "sha256": "98860ed4e60c427a76ac05879d800f36b65c10a310f4b2b981819fa48af767b3",
+        "tracked_head_clean": true,
+        "tracked_paths": [
+          "experiments/interpretability/opensplice/analyze_encoder_skip_localization_v3_3.py",
+          "experiments/interpretability/opensplice/analyze_encoder_skip_localization_v3_3_test.py",
+          "experiments/interpretability/opensplice/checkpoint_manifest_v3_2.tsv",
+          "experiments/interpretability/opensplice/encoder_skip_factorial_v3_3_freeze.json",
+          "experiments/interpretability/opensplice/launch_encoder_skip_factorial_v3_3.py",
+          "experiments/interpretability/opensplice/run_device_preflight_v3_1_2.py",
+          "experiments/interpretability/opensplice/run_device_preflight_v3_3.py",
+          "experiments/interpretability/opensplice/run_device_preflight_v3_3_test.py",
+          "experiments/interpretability/opensplice/run_encoder_skip_factorial_v3_3.py",
+          "experiments/interpretability/opensplice/run_encoder_skip_factorial_v3_3.sh",
+          "experiments/interpretability/opensplice/run_encoder_skip_factorial_v3_3_test.py",
+          "experiments/interpretability/opensplice/run_inference_trace.py",
+          "experiments/interpretability/opensplice/run_phase_r_v3.py",
+          "experiments/interpretability/opensplice/run_route_census_v3.py",
+          "experiments/interpretability/opensplice/run_stage_a_branches_v3.py",
+          "experiments/interpretability/opensplice/run_superset_graph_v3_2.py",
+          "experiments/interpretability/opensplice/superset_graph_v3_2_development_exons.tsv",
+          "experiments/interpretability/opensplice/superset_graph_v3_2_development_variants.tsv",
+          "experiments/interpretability/opensplice/superset_graph_v3_2_reference_bindings.json",
+          "experiments/interpretability/opensplice/target_reducers_v3.py",
+          "experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_localization_protocol_v3_3.md",
+          "experiments/interpretability/opensplice/v3_wider_mechanism/seven_skip_factorial_analysis_plan.md",
+          "experiments/interpretability/opensplice/v3_wider_mechanism/superset_graph_protocol_v3_2.md",
+          "experiments/interpretability/opensplice/validate_encoder_skip_bootstrap_v3_3.py",
+          "experiments/interpretability/opensplice/validate_superset_graph_bootstrap_v3_2.py",
+          "hatch_build.py",
+          "pyproject.toml",
+          "src/alphagenome_research/model/__init__.py",
+          "src/alphagenome_research/model/attention.py",
+          "src/alphagenome_research/model/augmentation.py",
+          "src/alphagenome_research/model/convolutions.py",
+          "src/alphagenome_research/model/dna_model.py",
+          "src/alphagenome_research/model/embeddings.py",
+          "src/alphagenome_research/model/heads.py",
+          "src/alphagenome_research/model/indel_stitch_utils.py",
+          "src/alphagenome_research/model/interpretability.py",
+          "src/alphagenome_research/model/interpretability_test.py",
+          "src/alphagenome_research/model/interval_scoring/__init__.py",
+          "src/alphagenome_research/model/interval_scoring/gene_mask.py",
+          "src/alphagenome_research/model/interval_scoring/interval_scoring.py",
+          "src/alphagenome_research/model/layers.py",
+          "src/alphagenome_research/model/losses.py",
+          "src/alphagenome_research/model/metadata/__init__.py",
+          "src/alphagenome_research/model/metadata/metadata.py",
+          "src/alphagenome_research/model/model.py",
+          "src/alphagenome_research/model/one_hot_encoder.py",
+          "src/alphagenome_research/model/pallas_tiled_attention.py",
+          "src/alphagenome_research/model/schemas.py",
+          "src/alphagenome_research/model/splicing.py",
+          "src/alphagenome_research/model/tiled_attention.py",
+          "src/alphagenome_research/model/variant_scoring/__init__.py",
+          "src/alphagenome_research/model/variant_scoring/calibration/__init__.py",
+          "src/alphagenome_research/model/variant_scoring/calibration/calibration.py",
+          "src/alphagenome_research/model/variant_scoring/center_mask.py",
+          "src/alphagenome_research/model/variant_scoring/contact_map.py",
+          "src/alphagenome_research/model/variant_scoring/gene_mask.py",
+          "src/alphagenome_research/model/variant_scoring/gene_mask_extractor.py",
+          "src/alphagenome_research/model/variant_scoring/polyadenylation.py",
+          "src/alphagenome_research/model/variant_scoring/splice_junction.py",
+          "src/alphagenome_research/model/variant_scoring/variant_scoring.py",
+          "src/alphagenome_research/protos/__init__.py",
+          "src/alphagenome_research/protos/calibration_scores.proto"
+        ],
+        "upstream_checkout": {
+          "generated_binding_exception": {
+            "embedded_headers": {
+              "alphagenome.protos.dna_model_pb2": [
+                "# -*- coding: utf-8 -*-",
+                "# Generated by the protocol buffer compiler.  DO NOT EDIT!",
+                "# NO CHECKED-IN PROTOBUF GENCODE",
+                "# source: alphagenome/protos/dna_model.proto",
+                "# Protobuf Python Version: 5.27.2"
+              ],
+              "alphagenome.protos.dna_model_service_pb2": [
+                "# -*- coding: utf-8 -*-",
+                "# Generated by the protocol buffer compiler.  DO NOT EDIT!",
+                "# NO CHECKED-IN PROTOBUF GENCODE",
+                "# source: alphagenome/protos/dna_model_service.proto",
+                "# Protobuf Python Version: 5.27.2"
+              ],
+              "alphagenome.protos.dna_model_service_pb2_grpc": [
+                "# Generated by the gRPC Python protocol compiler plugin. DO NOT EDIT!",
+                "GRPC_GENERATED_VERSION = '1.67.1'"
+              ],
+              "alphagenome.protos.tensor_pb2": [
+                "# -*- coding: utf-8 -*-",
+                "# Generated by the protocol buffer compiler.  DO NOT EDIT!",
+                "# NO CHECKED-IN PROTOBUF GENCODE",
+                "# source: alphagenome/protos/tensor.proto",
+                "# Protobuf Python Version: 5.27.2"
+              ]
+            },
+            "exact_regeneration_claim": false,
+            "generated_outputs": {
+              "alphagenome.protos.dna_model_pb2": {
+                "relative_path": "src/alphagenome/protos/dna_model_pb2.py",
+                "sha256": "d97564536e77ec09bdf144ba1204d4e08f79095fb9ed6c0cba7b065dc6f252ee",
+                "size_bytes": 16279
+              },
+              "alphagenome.protos.dna_model_service_pb2": {
+                "relative_path": "src/alphagenome/protos/dna_model_service_pb2.py",
+                "sha256": "062ed92fd13a0757c3c029275edd698c2327ea56be4a5e074a28d91fa0dabd6a",
+                "size_bytes": 10114
+              },
+              "alphagenome.protos.dna_model_service_pb2_grpc": {
+                "relative_path": "src/alphagenome/protos/dna_model_service_pb2_grpc.py",
+                "sha256": "db3816f2f0ccfe08d0e6bec0771079bbca6cfc399bd58e79e928cb1264bdaeb3",
+                "size_bytes": 16361
+              },
+              "alphagenome.protos.tensor_pb2": {
+                "relative_path": "src/alphagenome/protos/tensor_pb2.py",
+                "sha256": "dea7a5207e82601b6763e95ee4b69356345e95bc2de91632928d6161f873cdb8",
+                "size_bytes": 3155
+              }
+            },
+            "grpcio_runtime_version": "1.83.0",
+            "grpcio_tools": "unavailable_not_used",
+            "historical_generator": "unknown",
+            "historical_generator_argv": "unknown",
+            "module_names": [
+              "alphagenome.protos.dna_model_pb2",
+              "alphagenome.protos.dna_model_service_pb2",
+              "alphagenome.protos.dna_model_service_pb2_grpc",
+              "alphagenome.protos.tensor_pb2"
+            ],
+            "protobuf_runtime_version": "7.35.1",
+            "source_inputs": {
+              "hatch_build.py": {
+                "sha256": "7e517361e85e8f85ca0c5c8497b9281234f54215475e0e86a7695cdab7945d5b",
+                "size_bytes": 1739
+              },
+              "pyproject.toml": {
+                "sha256": "e4b06b106b2a4836d1b94d0fb97128ec23a2aeb0b7ebf043aed302a321075777",
+                "size_bytes": 3073
+              },
+              "src/alphagenome/.gitignore": {
+                "sha256": "7405614ddb7a97b8acdf99e14ba9f4adf07f2318480c733733da03f51cd704ec",
+                "size_bytes": 358
+              },
+              "src/alphagenome/protos/dna_model.proto": {
+                "sha256": "d19a7208ec34953ca021efbff32516f1aa277f0477276f7699d9567fd616329a",
+                "size_bytes": 15103
+              },
+              "src/alphagenome/protos/dna_model_service.proto": {
+                "sha256": "bdcfea14fb629fb4b6e9304909023a872267a69e5f0e3a23bdb9a769f26dc317",
+                "size_bytes": 8472
+              },
+              "src/alphagenome/protos/tensor.proto": {
+                "sha256": "07779023b2868377cbfc3c2ce96cd266ae425a0a1116aea755691c263d6238f7",
+                "size_bytes": 2856
+              }
+            }
+          },
+          "generated_imported_module_count": 4,
+          "git_head": "95cdbfce7981411453e5e094519bcf0605720199",
+          "imported_module_count": 26,
+          "imported_modules": {
+            "alphagenome": {
+              "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/__init__.py",
+              "relative_path": "src/alphagenome/__init__.py",
+              "sha256": "d14801267d115e6085b9076fdbd4d8736deaa10d7ecfbb772e62154844897d2d",
+              "size_bytes": 667,
+              "source_kind": "tracked"
+            },
+            "alphagenome.data": {
+              "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/data/__init__.py",
+              "relative_path": "src/alphagenome/data/__init__.py",
+              "sha256": "adffb9b8877c4105bd0ab53cf2222588cd839a890387d3274f871af439f99854",
+              "size_bytes": 644,
+              "source_kind": "tracked"
+            },
+            "alphagenome.data.gene_annotation": {
+              "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/data/gene_annotation.py",
+              "relative_path": "src/alphagenome/data/gene_annotation.py",
+              "sha256": "8b2935434fa8e314ff96ba57e8228569275ef99d6642670ad7d1255fa1a14734",
+              "size_bytes": 15629,
+              "source_kind": "tracked"
+            },
+            "alphagenome.data.genome": {
+              "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/data/genome.py",
+              "relative_path": "src/alphagenome/data/genome.py",
+              "sha256": "4c297b2dde8f751c62211a1295ec243280eff412255b915cdf13c411b5168b61",
+              "size_bytes": 39244,
+              "source_kind": "tracked"
+            },
+            "alphagenome.data.junction_data": {
+              "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/data/junction_data.py",
+              "relative_path": "src/alphagenome/data/junction_data.py",
+              "sha256": "915d5a248889409933a6922920339ee9d4981084e8009e4ec2ad6530bc8c511c",
+              "size_bytes": 8538,
+              "source_kind": "tracked"
+            },
+            "alphagenome.data.ontology": {
+              "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/data/ontology.py",
+              "relative_path": "src/alphagenome/data/ontology.py",
+              "sha256": "61ade86be9fa4d0e980e9c28ec182cc1fbfa2c22f0e38df46b766468825fb954",
+              "size_bytes": 3378,
+              "source_kind": "tracked"
+            },
+            "alphagenome.data.track_data": {
+              "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/data/track_data.py",
+              "relative_path": "src/alphagenome/data/track_data.py",
+              "sha256": "199197ae3a3c83b563bfe1c75b3d9584168d927051a7e7114c7f2f3bd41439e3",
+              "size_bytes": 32313,
+              "source_kind": "tracked"
+            },
+            "alphagenome.interpretation": {
+              "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/interpretation/__init__.py",
+              "relative_path": "src/alphagenome/interpretation/__init__.py",
+              "sha256": "096845f130be50112d7b28a4fbfef927023b1d39c7d52d3d36b719943ac1169b",
+              "size_bytes": 650,
+              "source_kind": "tracked"
+            },
+            "alphagenome.interpretation.ism": {
+              "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/interpretation/ism.py",
+              "relative_path": "src/alphagenome/interpretation/ism.py",
+              "sha256": "bd3d0691ee41381fbdbde9ccbf046e900da6d5fd4e589cfef0405933faf39c53",
+              "size_bytes": 5898,
+              "source_kind": "tracked"
+            },
+            "alphagenome.io": {
+              "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/io/__init__.py",
+              "relative_path": "src/alphagenome/io/__init__.py",
+              "sha256": "b911675aa1ff9f8d8f114e7bcd1d0fe45d5108bec383e63df448d7f780ee14ad",
+              "size_bytes": 623,
+              "source_kind": "tracked"
+            },
+            "alphagenome.io.fasta": {
+              "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/io/fasta.py",
+              "relative_path": "src/alphagenome/io/fasta.py",
+              "sha256": "9ba867ff419a750d3e0ae3d3bd31cca5a3240805b0a4494776819f7cc2af8b84",
+              "size_bytes": 3026,
+              "source_kind": "tracked"
+            },
+            "alphagenome.models": {
+              "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/models/__init__.py",
+              "relative_path": "src/alphagenome/models/__init__.py",
+              "sha256": "f006894d9ee4565844b50fe7207e633e9fde59b3c7f37a214e8b25b03b7bff27",
+              "size_bytes": 639,
+              "source_kind": "tracked"
+            },
+            "alphagenome.models.dna_client": {
+              "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/models/dna_client.py",
+              "relative_path": "src/alphagenome/models/dna_client.py",
+              "sha256": "223cb0eb1a9535177bef78da062ec4e91e7c6e92a775d98350e9aa6fbd595a83",
+              "size_bytes": 32678,
+              "source_kind": "tracked"
+            },
+            "alphagenome.models.dna_model": {
+              "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/models/dna_model.py",
+              "relative_path": "src/alphagenome/models/dna_model.py",
+              "sha256": "17e7f689b40938a061e675ddcefb85ec7151d3e5d0ac43812a891df7bb914678",
+              "size_bytes": 18027,
+              "source_kind": "tracked"
+            },
+            "alphagenome.models.dna_output": {
+              "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/models/dna_output.py",
+              "relative_path": "src/alphagenome/models/dna_output.py",
+              "sha256": "c90c908238e5c3161160628c181164ae6604762616e2ed029cb6021d585eed1d",
+              "size_bytes": 14887,
+              "source_kind": "tracked"
+            },
+            "alphagenome.models.interval_scorers": {
+              "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/models/interval_scorers.py",
+              "relative_path": "src/alphagenome/models/interval_scorers.py",
+              "sha256": "aeb0984cab4d57fb5f311ad14187897bbe566d0a0f61fa628aa6d8c9378fe7b3",
+              "size_bytes": 4401,
+              "source_kind": "tracked"
+            },
+            "alphagenome.models.junction_data_utils": {
+              "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/models/junction_data_utils.py",
+              "relative_path": "src/alphagenome/models/junction_data_utils.py",
+              "sha256": "652c205e2b1930843d1446d810eefc99b2603edefe4e19732cc40bf14020ed14",
+              "size_bytes": 6508,
+              "source_kind": "tracked"
+            },
+            "alphagenome.models.track_data_utils": {
+              "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/models/track_data_utils.py",
+              "relative_path": "src/alphagenome/models/track_data_utils.py",
+              "sha256": "84050cc8f0c64473a8ebba54b1fc28d09a8b2c106d0fc8a8a1ab5cd754018ba6",
+              "size_bytes": 8624,
+              "source_kind": "tracked"
+            },
+            "alphagenome.models.variant_scorers": {
+              "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/models/variant_scorers.py",
+              "relative_path": "src/alphagenome/models/variant_scorers.py",
+              "sha256": "1191e86d4b5eb49ad939cf92ff7e02c91eb288dddd30c591ffd49587673c8899",
+              "size_bytes": 31841,
+              "source_kind": "tracked"
+            },
+            "alphagenome.protos": {
+              "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/protos/__init__.py",
+              "relative_path": "src/alphagenome/protos/__init__.py",
+              "sha256": "6ba9c46461790bfb033a8a5841d538955d321fac55833425e38eb50cadd2a845",
+              "size_bytes": 637,
+              "source_kind": "tracked"
+            },
+            "alphagenome.protos.dna_model_pb2": {
+              "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/protos/dna_model_pb2.py",
+              "relative_path": "src/alphagenome/protos/dna_model_pb2.py",
+              "sha256": "d97564536e77ec09bdf144ba1204d4e08f79095fb9ed6c0cba7b065dc6f252ee",
+              "size_bytes": 16279,
+              "source_kind": "generated_exact_byte_exception"
+            },
+            "alphagenome.protos.dna_model_service_pb2": {
+              "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/protos/dna_model_service_pb2.py",
+              "relative_path": "src/alphagenome/protos/dna_model_service_pb2.py",
+              "sha256": "062ed92fd13a0757c3c029275edd698c2327ea56be4a5e074a28d91fa0dabd6a",
+              "size_bytes": 10114,
+              "source_kind": "generated_exact_byte_exception"
+            },
+            "alphagenome.protos.dna_model_service_pb2_grpc": {
+              "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/protos/dna_model_service_pb2_grpc.py",
+              "relative_path": "src/alphagenome/protos/dna_model_service_pb2_grpc.py",
+              "sha256": "db3816f2f0ccfe08d0e6bec0771079bbca6cfc399bd58e79e928cb1264bdaeb3",
+              "size_bytes": 16361,
+              "source_kind": "generated_exact_byte_exception"
+            },
+            "alphagenome.protos.tensor_pb2": {
+              "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/protos/tensor_pb2.py",
+              "relative_path": "src/alphagenome/protos/tensor_pb2.py",
+              "sha256": "dea7a5207e82601b6763e95ee4b69356345e95bc2de91632928d6161f873cdb8",
+              "size_bytes": 3155,
+              "source_kind": "generated_exact_byte_exception"
+            },
+            "alphagenome.tensor_utils": {
+              "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/tensor_utils.py",
+              "relative_path": "src/alphagenome/tensor_utils.py",
+              "sha256": "0f133099149a8323b17dc69a20453983bc91354fee11275b59b19ff3299d42df",
+              "size_bytes": 5992,
+              "source_kind": "tracked"
+            },
+            "alphagenome.typing": {
+              "path": "/home/degen2/alphafold-stuff/alphagenome/src/alphagenome/typing.py",
+              "relative_path": "src/alphagenome/typing.py",
+              "sha256": "ccebeacf8984a075020ffcabd771657b226b21d6af75915c239c452dc90c2649",
+              "size_bytes": 1253,
+              "source_kind": "tracked"
+            }
+          },
+          "tracked_head_clean": true,
+          "tracked_imported_module_count": 22
+        }
+      },
+      "preflight_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "preflight_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "protobuf_provenance_sha256": "2498a940f6ee15e54e72e8f51587d4c42ffc1b49851873c31ad09085315d0ba8",
+      "protocol_sha256": "85151029297cf4b4c1a07dd2a0f47b10b0663acd08ddfe25ba72b9898b1beea0",
+      "raw_artifact_count": 5142,
+      "raw_artifact_tree_sha256": "e7376062ce31090b349e88b91bd41700caf4e690511c15993e50f2bd0d47f770",
+      "raw_manifest_sha256": "6c50c86153fbce5136ed99205ca4726f87a00ef56216f1205dba5c25d3d27cd7",
+      "run_complete_sha256": "ddc8350361ae9091ac47878a2c2d043897c46ef1d7722a401869d8d69e4be463",
+      "runner_sha256": "56eef2cc5b87f3ff9ad5837d19b891b98bbb4a7e126e20713ea9bc8b21c409c5",
+      "seven_role_two_output_repair_verified": {
+        "all_current_bytes_verified": true,
+        "bootstrap_artifact_count": 7,
+        "bootstrap_role_order": [
+          "dependency_pb2",
+          "dependency_proto",
+          "generated_pb2",
+          "generated_pyi",
+          "source_proto",
+          "tensor_pb2",
+          "tensor_proto"
+        ],
+        "generated_output_count": 2,
+        "generated_output_roles": [
+          "generated_pb2",
+          "generated_pyi"
+        ],
+        "repair": "seven_role_two_generated_output_provenance_classification",
+        "scientific_gate_or_estimand_changed": false,
+        "source_dependency_roles": [
+          "dependency_pb2",
+          "dependency_proto",
+          "source_proto",
+          "tensor_pb2",
+          "tensor_proto"
+        ]
+      },
+      "start_provenance_audit": {
+        "checkpoint_file_count": 12,
+        "checkpoint_manifest_sha256": "1ed87db4c5bd7c5418c7734ec128faa4a9ecd186df2a024437484a8bc2b6e934",
+        "external_exact_rtx3090_uuid_gate": true,
+        "external_preflight_sha256": "b983c7f4910ef4fc5f68bc72486552063f4497f90bba64497eb29a09d3d1809d",
+        "freeze_sha256": "98860ed4e60c427a76ac05879d800f36b65c10a310f4b2b981819fa48af767b3",
+        "git_head": "9e8324434a3c0b2d5c53d209ad04c2d88b99f4bc",
+        "prior_v3_2_analysis_sha256": "a46c827e16fb4e054e7cf702f7147da70e0a3b35f677b430edf64e9a3055013c",
+        "prior_v3_2_protocol_sha256": "1e87839250e838d1d9aa95162e76a3acb6b1eaab59b481c60dab943b62f6caea",
+        "prior_v3_2_raw_artifact_count": 2660,
+        "prior_v3_2_raw_manifest_sha256": "2d63d7dfeaa69e2c1ad8cde731e656e134e37e639023f0745daadb564f17a665",
+        "prior_v3_2_raw_tree_sha256": "4171d8aebae7fff3b9981d7ab0dc914c659c6fe2916cb9a48bbee87e205beed8",
+        "prior_v3_2_result_sha256": "e4c8d45c1b35d8934734c4d8c18bd2ca10b78dd0099a9b37c296e60b15b7e52c",
+        "reference_bindings_sha256": "da712cdca50f82113ac1d00cb2fa7171f7368f31aedf06c48ce92dbdb5897dca",
+        "runtime_environment_verified": true,
+        "runtime_package_versions": {
+          "dm-haiku": "0.0.17",
+          "grpcio": "1.83.0",
+          "jax": "0.11.0",
+          "jax-cuda12-pjrt": "0.11.0",
+          "jax-cuda12-plugin": "0.11.0",
+          "jaxlib": "0.11.0",
+          "jmp": "0.0.4",
+          "numpy": "2.5.2",
+          "nvidia-cublas-cu12": "12.9.2.10",
+          "nvidia-cuda-runtime-cu12": "12.9.79",
+          "nvidia-cudnn-cu12": "9.24.0.43",
+          "nvidia-cusparse-cu12": "12.5.10.65",
+          "orbax-checkpoint": "0.12.4",
+          "protobuf": "7.35.1"
+        },
+        "runtime_version_manifest_verified": true,
+        "same_process_exact_rtx3090_uuid_gate": true,
+        "sequence_bindings": {
+          "0": {
+            "alternate": "9ab26dab184711808a13ac315be08609dc7c15a54cb484a18b472c3d14c26ca0",
+            "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+          },
+          "1": {
+            "alternate": "16610215488845b1c8ec5a672e183943ab9ef0e3f6068d146b54725914353066",
+            "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+          },
+          "2": {
+            "alternate": "a2e5da0b13d2af1504f049f9310876a440244fcac1f2aacaecfe8323327d0fac",
+            "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+          },
+          "3": {
+            "alternate": "23186c4b2ed7bcfded9caa8ee255fbc08956c56a740d5cace6d772f7c4e299f7",
+            "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+          },
+          "4": {
+            "alternate": "73ee48e4d990ff5a2269916aad6936ba7691940ddcf0f0811a6097def166ca73",
+            "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+          },
+          "5": {
+            "alternate": "5c9c32e989310f42db0201bba431bda6931f5ad4ff74e44c8968d33b0a823e16",
+            "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+          },
+          "6": {
+            "alternate": "c98c085eb8f0d16e1855fa6ed1cdfabfe228044bee59d676c5861c39aa9a1463",
+            "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+          },
+          "7": {
+            "alternate": "daeb714965852416e5cc03fb827e45bba4e7eb5aace1627588aaf44eb0782627",
+            "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+          },
+          "8": {
+            "alternate": "14b4edefa859d187ba9c44d746c04ed1fd19e106de766019ee4837d77dd48be6",
+            "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+          },
+          "9": {
+            "alternate": "73f23fbcf740987c29c73cd31d866594d73dca6e9074e1ff2b9cc937c4ba855b",
+            "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+          },
+          "10": {
+            "alternate": "c13334969256113b3253e9a4d01d054be2c973556a2940d7ab8746b3a438ec34",
+            "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+          },
+          "11": {
+            "alternate": "67f0f6c72c9061c6ca0483b6d09903ce9c4effa3e7060f1a6a2c6b63f70e2d0a",
+            "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+          },
+          "12": {
+            "alternate": "deea1db147a29040d8b5cb2cee0bd055c9d61724eac05814cc193861ffd505b6",
+            "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+          },
+          "13": {
+            "alternate": "93490b6827ee07eca8c88937c92f0285e03c4fa26f39c5a595d3b598e8601d54",
+            "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+          },
+          "14": {
+            "alternate": "b09cc02f279cec524ca71f9ffa815cf2f96413a3552a73f2e3e82219818a9268",
+            "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+          },
+          "15": {
+            "alternate": "9d72987f03329738392e4bd63dba6e1c16f912b8e8c7b8be4a4af5ba036937d2",
+            "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+          },
+          "16": {
+            "alternate": "1c0f8124952d8ac1e7eab936ed96f515a3c498a373f8e53a63187349ef808ef4",
+            "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+          },
+          "17": {
+            "alternate": "ed4e22cad1c33f44e7f9b4765f85d3964e8568fdf892a75da6d47b1a9b7defc0",
+            "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+          },
+          "18": {
+            "alternate": "19cacbad23bcd577559cc3c9529ad8434230cfc20f844f2632e82a3216e7558a",
+            "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+          },
+          "19": {
+            "alternate": "134d8132d34efd4a719b06f64afc2ba93ba3d5dbf8d067ae0118af19132390f6",
+            "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+          }
+        },
+        "tracked_head_clean_at_pre_import": true,
+        "upstream_generated_exception_verified": true,
+        "upstream_generated_imported_module_count": 4,
+        "upstream_git_head": "95cdbfce7981411453e5e094519bcf0605720199",
+        "upstream_imported_module_count": 26,
+        "upstream_imported_modules": {
+          "alphagenome": {
+            "relative_path": "src/alphagenome/__init__.py",
+            "sha256": "d14801267d115e6085b9076fdbd4d8736deaa10d7ecfbb772e62154844897d2d",
+            "size_bytes": 667
+          },
+          "alphagenome.data": {
+            "relative_path": "src/alphagenome/data/__init__.py",
+            "sha256": "adffb9b8877c4105bd0ab53cf2222588cd839a890387d3274f871af439f99854",
+            "size_bytes": 644
+          },
+          "alphagenome.data.gene_annotation": {
+            "relative_path": "src/alphagenome/data/gene_annotation.py",
+            "sha256": "8b2935434fa8e314ff96ba57e8228569275ef99d6642670ad7d1255fa1a14734",
+            "size_bytes": 15629
+          },
+          "alphagenome.data.genome": {
+            "relative_path": "src/alphagenome/data/genome.py",
+            "sha256": "4c297b2dde8f751c62211a1295ec243280eff412255b915cdf13c411b5168b61",
+            "size_bytes": 39244
+          },
+          "alphagenome.data.junction_data": {
+            "relative_path": "src/alphagenome/data/junction_data.py",
+            "sha256": "915d5a248889409933a6922920339ee9d4981084e8009e4ec2ad6530bc8c511c",
+            "size_bytes": 8538
+          },
+          "alphagenome.data.ontology": {
+            "relative_path": "src/alphagenome/data/ontology.py",
+            "sha256": "61ade86be9fa4d0e980e9c28ec182cc1fbfa2c22f0e38df46b766468825fb954",
+            "size_bytes": 3378
+          },
+          "alphagenome.data.track_data": {
+            "relative_path": "src/alphagenome/data/track_data.py",
+            "sha256": "199197ae3a3c83b563bfe1c75b3d9584168d927051a7e7114c7f2f3bd41439e3",
+            "size_bytes": 32313
+          },
+          "alphagenome.interpretation": {
+            "relative_path": "src/alphagenome/interpretation/__init__.py",
+            "sha256": "096845f130be50112d7b28a4fbfef927023b1d39c7d52d3d36b719943ac1169b",
+            "size_bytes": 650
+          },
+          "alphagenome.interpretation.ism": {
+            "relative_path": "src/alphagenome/interpretation/ism.py",
+            "sha256": "bd3d0691ee41381fbdbde9ccbf046e900da6d5fd4e589cfef0405933faf39c53",
+            "size_bytes": 5898
+          },
+          "alphagenome.io": {
+            "relative_path": "src/alphagenome/io/__init__.py",
+            "sha256": "b911675aa1ff9f8d8f114e7bcd1d0fe45d5108bec383e63df448d7f780ee14ad",
+            "size_bytes": 623
+          },
+          "alphagenome.io.fasta": {
+            "relative_path": "src/alphagenome/io/fasta.py",
+            "sha256": "9ba867ff419a750d3e0ae3d3bd31cca5a3240805b0a4494776819f7cc2af8b84",
+            "size_bytes": 3026
+          },
+          "alphagenome.models": {
+            "relative_path": "src/alphagenome/models/__init__.py",
+            "sha256": "f006894d9ee4565844b50fe7207e633e9fde59b3c7f37a214e8b25b03b7bff27",
+            "size_bytes": 639
+          },
+          "alphagenome.models.dna_client": {
+            "relative_path": "src/alphagenome/models/dna_client.py",
+            "sha256": "223cb0eb1a9535177bef78da062ec4e91e7c6e92a775d98350e9aa6fbd595a83",
+            "size_bytes": 32678
+          },
+          "alphagenome.models.dna_model": {
+            "relative_path": "src/alphagenome/models/dna_model.py",
+            "sha256": "17e7f689b40938a061e675ddcefb85ec7151d3e5d0ac43812a891df7bb914678",
+            "size_bytes": 18027
+          },
+          "alphagenome.models.dna_output": {
+            "relative_path": "src/alphagenome/models/dna_output.py",
+            "sha256": "c90c908238e5c3161160628c181164ae6604762616e2ed029cb6021d585eed1d",
+            "size_bytes": 14887
+          },
+          "alphagenome.models.interval_scorers": {
+            "relative_path": "src/alphagenome/models/interval_scorers.py",
+            "sha256": "aeb0984cab4d57fb5f311ad14187897bbe566d0a0f61fa628aa6d8c9378fe7b3",
+            "size_bytes": 4401
+          },
+          "alphagenome.models.junction_data_utils": {
+            "relative_path": "src/alphagenome/models/junction_data_utils.py",
+            "sha256": "652c205e2b1930843d1446d810eefc99b2603edefe4e19732cc40bf14020ed14",
+            "size_bytes": 6508
+          },
+          "alphagenome.models.track_data_utils": {
+            "relative_path": "src/alphagenome/models/track_data_utils.py",
+            "sha256": "84050cc8f0c64473a8ebba54b1fc28d09a8b2c106d0fc8a8a1ab5cd754018ba6",
+            "size_bytes": 8624
+          },
+          "alphagenome.models.variant_scorers": {
+            "relative_path": "src/alphagenome/models/variant_scorers.py",
+            "sha256": "1191e86d4b5eb49ad939cf92ff7e02c91eb288dddd30c591ffd49587673c8899",
+            "size_bytes": 31841
+          },
+          "alphagenome.protos": {
+            "relative_path": "src/alphagenome/protos/__init__.py",
+            "sha256": "6ba9c46461790bfb033a8a5841d538955d321fac55833425e38eb50cadd2a845",
+            "size_bytes": 637
+          },
+          "alphagenome.protos.dna_model_pb2": {
+            "relative_path": "src/alphagenome/protos/dna_model_pb2.py",
+            "sha256": "d97564536e77ec09bdf144ba1204d4e08f79095fb9ed6c0cba7b065dc6f252ee",
+            "size_bytes": 16279
+          },
+          "alphagenome.protos.dna_model_service_pb2": {
+            "relative_path": "src/alphagenome/protos/dna_model_service_pb2.py",
+            "sha256": "062ed92fd13a0757c3c029275edd698c2327ea56be4a5e074a28d91fa0dabd6a",
+            "size_bytes": 10114
+          },
+          "alphagenome.protos.dna_model_service_pb2_grpc": {
+            "relative_path": "src/alphagenome/protos/dna_model_service_pb2_grpc.py",
+            "sha256": "db3816f2f0ccfe08d0e6bec0771079bbca6cfc399bd58e79e928cb1264bdaeb3",
+            "size_bytes": 16361
+          },
+          "alphagenome.protos.tensor_pb2": {
+            "relative_path": "src/alphagenome/protos/tensor_pb2.py",
+            "sha256": "dea7a5207e82601b6763e95ee4b69356345e95bc2de91632928d6161f873cdb8",
+            "size_bytes": 3155
+          },
+          "alphagenome.tensor_utils": {
+            "relative_path": "src/alphagenome/tensor_utils.py",
+            "sha256": "0f133099149a8323b17dc69a20453983bc91354fee11275b59b19ff3299d42df",
+            "size_bytes": 5992
+          },
+          "alphagenome.typing": {
+            "relative_path": "src/alphagenome/typing.py",
+            "sha256": "ccebeacf8984a075020ffcabd771657b226b21d6af75915c239c452dc90c2649",
+            "size_bytes": 1253
+          }
+        },
+        "upstream_tracked_head_clean": true,
+        "upstream_tracked_imported_module_count": 22
+      },
+      "target_eligibility_sha256": "b216692d8028faab09b5f6590e3e68d9c8805d3c715ddedd99e8956019cedcf0",
+      "whole_run_file_count": 5158,
+      "whole_run_tree_sha256": "2d8125fe6d13773ba9621e527870361b6a195c516c5b4f044c7dad64c9310aaa"
+    },
+    "protobuf": {
+      "generated_output_count": 2,
+      "seven_role_two_generated_output_repair_exact": true,
+      "sha256": "2498a940f6ee15e54e72e8f51587d4c42ffc1b49851873c31ad09085315d0ba8"
+    },
+    "runtime_audit": {
+      "runtime_package_versions": {
+        "dm-haiku": "0.0.17",
+        "grpcio": "1.83.0",
+        "jax": "0.11.0",
+        "jax-cuda12-pjrt": "0.11.0",
+        "jax-cuda12-plugin": "0.11.0",
+        "jaxlib": "0.11.0",
+        "jmp": "0.0.4",
+        "numpy": "2.5.2",
+        "nvidia-cublas-cu12": "12.9.2.10",
+        "nvidia-cuda-runtime-cu12": "12.9.79",
+        "nvidia-cudnn-cu12": "9.24.0.43",
+        "nvidia-cusparse-cu12": "12.5.10.65",
+        "orbax-checkpoint": "0.12.4",
+        "protobuf": "7.35.1"
+      },
+      "runtime_version_manifest_verified": true
+    },
+    "same_process_exact_rtx3090_uuid_gate": true,
+    "seven_role_two_generated_output_repair_exact": true,
+    "sidecar_bound_separately": true,
+    "v3_3_1_status": {
+      "amendment_commit": "186c25f",
+      "amendment_path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_analysis_amendment_v3_3_1.md",
+      "amendment_sha256": "37e23b251f53ab87bae99b63024a381c367ce33bbc950a2227b3267fbc9668d1",
+      "analysis_dir": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_development_encoder_skip_factorial_analysis",
+      "analysis_file_count": 2,
+      "analysis_files": {
+        "ANALYSIS.json": {
+          "sha256": "ed18cce580c578d3cd750756d882a7b120a87736849077abffaee5781c09dd6b",
+          "size_bytes": 653362
+        },
+        "RESULT.md": {
+          "sha256": "6a4884040677e194c9b43c115af8c045cd67d2ffa857088710ab852399d2a440",
+          "size_bytes": 862
+        }
+      },
+      "analysis_tree_sha256": "f3e6eee31c3fc978356a5766c190061ae3f8fd709da6c5c0836f7ce3d47de8f0",
+      "attempt_dir": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_development_encoder_skip_factorial_analysis_v3_3_1_attempt",
+      "attempt_file_count": 2,
+      "attempt_files": {
+        "ANALYSIS_ATTEMPT_STARTED.json": {
+          "sha256": "1c4738026210ddd7f4d62b21f04eb1305cc86041daadb61cb3cfe0e549af8922",
+          "size_bytes": 16116
+        },
+        "ANALYSIS_COMPLETE.json": {
+          "sha256": "ee7d9fa0d0d06abbc52beda8801f411b8725d59e7d5683c256bd51010d732e99",
+          "size_bytes": 574
+        }
+      },
+      "attempt_tree_sha256": "b0e788f0df3db1678ca410da7b0c409a18ceeaa6ddcbb97c61a155188a6e719f",
+      "state": "completed",
+      "structural_predicates": {
+        "analysis_version": "opensplice-encoder-skip-localization-analysis-v3.3.1",
+        "decision": "controlled_stop_ood_tooling_failure",
+        "nomination_performed": false,
+        "shapley_computed": false,
+        "status": "complete_controlled_stop_audited"
+      }
+    }
+  },
+  "resolution_analysis": null,
+  "scientific_summary_computed": false,
+  "shapley_or_nomination_computed": false,
+  "sidecar_audit": {
+    "active_rows_without_forced_cross_call_predicate": [
+      2,
+      4
+    ],
+    "all_four_readouts_present_for_every_record": false,
+    "audited_model_apply_count": 0,
+    "audited_record_count": 0,
+    "donor_normalization_computed": false,
+    "execution_order_exact": true,
+    "expected_model_apply_count": 320,
+    "expected_record_count": 80,
+    "id0_all20": false,
+    "id255_all20": false,
+    "invalid_record_count": 0,
+    "invariant_rows_between_calls": [
+      0,
+      1,
+      3,
+      5,
+      6,
+      7
+    ],
+    "old_ood_records_used_as_data": false,
+    "raw_artifact_count": 0,
+    "raw_artifact_tree_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw_endpoint_evidence_recomputed_where_emitted": true,
+    "raw_hash_count": 0,
+    "raw_manifest_sha256": "fadbff5ab512dea3d25edb39dc9a91ffe25473b73f1e33fd53f97b60fc8436fd",
+    "valid_record_count": 0
+  },
+  "status": "complete_controlled_stop_audited"
+}

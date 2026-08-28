@@ -1,0 +1,15 @@
+{
+  "analysis_file_count": 2,
+  "analysis_json_sha256": "9af699921344ff8528260f7b6b2d2d57a529b9863c40edf99757929934e44b61",
+  "analysis_markdown_sha256": "be9f9c7fe31363f926999de78085b3d10c5552a80e14d0b5432deb9fb7adfc03",
+  "analysis_tree_sha256": "581392f933c909fe4a56d51cd03089f6c506bdc058dfdbd902abfc49c8332a0c",
+  "analysis_version": "opensplice-encoder-skip-ood-sidecar-analysis-v3.3.2.2",
+  "attempt_started_sha256": "bdbcc6f37093924ddc79ed38e674d084761e044aefeec065d25c6692605028af",
+  "combined_analysis_permitted": false,
+  "decision": "controlled_stop_compiler_graph_mismatch",
+  "model_apply_count": 0,
+  "recorded_at_unix_s": 1787891983.552687,
+  "scientific_summary_computed": false,
+  "shapley_or_nomination_computed": false,
+  "status": "complete_controlled_stop_audited"
+}
