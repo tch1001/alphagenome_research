@@ -1,0 +1,13 @@
+{
+  "analysis_json_exists": false,
+  "analysis_markdown_exists": false,
+  "analysis_version": "opensplice-superset-analysis-v3.2.2",
+  "attempt_started_sha256": "11bf87f577d6aafbaa37139b5b98dc2c96c4dec317552564b4ca2bf6db88f117",
+  "failure": {
+    "message": "Embedded external preflight differs from its artifact.",
+    "traceback": "Traceback (most recent call last):\n  File \"/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/analyze_superset_graph_v3_2_2.py\", line 504, in main\n    result = analyze(\n        run_dir, ignored_paths=ignored, amendment_binding=binding,\n        attempt_started_sha256=started_sha,\n    )\n  File \"/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/analyze_superset_graph_v3_2_2.py\", line 339, in analyze\n    result = _base.analyze(\n        run_dir, bundle_root=bundle_root, ignored_paths=ignored_paths,\n        enforce_standard_locations=enforce_standard_locations,\n    )\n  File \"/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/analyze_superset_graph_v3_2.py\", line 1924, in analyze\n    preflight_audit = _validate_preflight(start, freeze, freeze_sha)\n  File \"/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/analyze_superset_graph_v3_2.py\", line 705, in _validate_preflight\n    raise ValueError('Embedded external preflight differs from its artifact.')\nValueError: Embedded external preflight differs from its artifact.\n",
+    "type": "ValueError"
+  },
+  "recorded_at_unix_s": 1787874230.493888,
+  "status": "failed_consumed_no_retry"
+}

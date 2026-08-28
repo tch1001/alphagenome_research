@@ -1,0 +1,13 @@
+{
+  "analysis_json_exists": false,
+  "analysis_markdown_exists": false,
+  "analysis_version": "opensplice-superset-analysis-v3.2.3",
+  "attempt_started_sha256": "00dbe3749a1a810e1bf7de02d1eeecf02a9a363ee196709d8c7c76283b778325",
+  "failure": {
+    "message": "IMPORT_PROVENANCE contains duplicate module/path rows.",
+    "traceback": "Traceback (most recent call last):\n  File \"/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/analyze_superset_graph_v3_2_3.py\", line 464, in main\n    result = analyze(\n        args.run_dir, ignored_paths=ignored, amendment_binding=binding,\n        attempt_started_sha256=started_sha,\n    )\n  File \"/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/analyze_superset_graph_v3_2_3.py\", line 306, in analyze\n    result = _base.analyze(\n        run_dir, bundle_root=bundle_root, ignored_paths=ignored_paths,\n        enforce_standard_locations=enforce_standard_locations,\n    )\n  File \"/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/analyze_superset_graph_v3_2.py\", line 1962, in analyze\n    import_audit = _validate_import_phases(\n        run_dir, complete, bundle_root=bundle_root\n    )\n  File \"/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/analyze_superset_graph_v3_2.py\", line 1001, in _validate_import_phases\n    phases[name] = _validate_import_provenance(\n                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        run_dir / filename, bindings[name], bundle_root=bundle_root\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/analyze_superset_graph_v3_2.py\", line 958, in _validate_import_provenance\n    raise ValueError('IMPORT_PROVENANCE contains duplicate module/path rows.')\nValueError: IMPORT_PROVENANCE contains duplicate module/path rows.\n",
+    "type": "ValueError"
+  },
+  "recorded_at_unix_s": 1787874867.0713277,
+  "status": "failed_consumed_no_retry"
+}

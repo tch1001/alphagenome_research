@@ -1,0 +1,13 @@
+{
+  "analysis_json_exists": false,
+  "analysis_markdown_exists": false,
+  "analysis_version": "opensplice-superset-analysis-v3.2.1",
+  "attempt_started_sha256": "2a77efe48eff892fd3d61b227b486c6820107236461de80a888414bed88ba38b",
+  "failure": {
+    "message": "Bootstrap artifact generated_pyi differs from frozen protobuf binding.",
+    "traceback": "Traceback (most recent call last):\n  File \"/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/analyze_superset_graph_v3_2_1.py\", line 637, in main\n    result = analyze(\n        args.run_dir, ignored_paths=ignored,\n        amendment_binding=amendment_binding,\n        attempt_started_sha256=started_sha,\n    )\n  File \"/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/analyze_superset_graph_v3_2_1.py\", line 570, in analyze\n    result = _v3.analyze(\n        run_dir, bundle_root=bundle_root, ignored_paths=ignored_paths,\n        enforce_standard_locations=enforce_standard_locations,\n    )\n  File \"/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/analyze_superset_graph_v3_2.py\", line 1921, in analyze\n    bootstrap_audit = _validate_bootstrap_attestation(\n        start, freeze, freeze_sha, bundle_root=bundle_root\n    )\n  File \"/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/analyze_superset_graph_v3_2.py\", line 1248, in _validate_bootstrap_attestation\n    raise ValueError(\n        f'Bootstrap artifact {name} differs from frozen protobuf binding.'\n    )\nValueError: Bootstrap artifact generated_pyi differs from frozen protobuf binding.\n",
+    "type": "ValueError"
+  },
+  "recorded_at_unix_s": 1787873535.8859723,
+  "status": "failed_consumed_no_retry"
+}

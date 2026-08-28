@@ -1,0 +1,31 @@
+{
+  "eligible_effects": [
+    "BRAF_e14_A117G",
+    "BRAF_e14_T71A",
+    "BRAF_e14_T71G",
+    "BRAF_e14_A117C",
+    "BRAF_e14_A89G",
+    "BRAF_e14_A77C",
+    "SLC25A48_e8_G70A",
+    "SLC25A48_e8_A69C",
+    "SLC25A48_e8_A69T",
+    "SLC25A48_e8_T68G",
+    "SLC25A48_e8_G70C",
+    "SLC25A48_e8_G71T"
+  ],
+  "eligible_effects_per_gene": {
+    "BRAF": 6,
+    "SLC25A48": 6
+  },
+  "ineligible_effects": [],
+  "neutral_controls": [
+    "BRAF_e14_T121C",
+    "BRAF_e14_A69G",
+    "BRAF_e14_C68T",
+    "BRAF_e14_G118A",
+    "SLC25A48_e8_C67T",
+    "SLC25A48_e8_C67G",
+    "SLC25A48_e8_T68C",
+    "SLC25A48_e8_C6A"
+  ]
+}

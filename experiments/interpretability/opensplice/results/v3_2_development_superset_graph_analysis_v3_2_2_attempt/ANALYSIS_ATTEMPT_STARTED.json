@@ -1,0 +1,46 @@
+{
+  "amendment_binding": {
+    "amendment_sha256": "a25d08c8a609703532a749ac0e5d0246614446627b84b4196f28be91ffdecb4f",
+    "consumed_v3_2_1_attempt": {
+      "attempt_started_sha256": "2a77efe48eff892fd3d61b227b486c6820107236461de80a888414bed88ba38b",
+      "failure_message": "Bootstrap artifact generated_pyi differs from frozen protobuf binding.",
+      "failure_sha256": "174e4bdc56126cab1c9fddd358e06ecaa796d770bbbf526676ac2262dc26311e",
+      "failure_type": "ValueError",
+      "scientific_output_written": false
+    },
+    "file_sha256": {
+      "experiments/interpretability/opensplice/analyze_superset_graph_v3_2_2.py": "874d66b8e9f9e39e8a9e56329f2d04cb219eb7d62be38a0bc038cc8de010e2b4",
+      "experiments/interpretability/opensplice/analyze_superset_graph_v3_2_2_test.py": "15477a6e171a42d24d75fd549960ba831804427209238125745e0158174099b9",
+      "experiments/interpretability/opensplice/v3_wider_mechanism/superset_graph_analysis_amendment_v3_2_2.md": "a25d08c8a609703532a749ac0e5d0246614446627b84b4196f28be91ffdecb4f"
+    },
+    "git_head": "a3d2d9bdede0eabd47977d8c223e78b0487dbfc9",
+    "tracked_head_clean": true,
+    "v3_2_1_binding": {
+      "amendment_sha256": "69207fbee072bfacca3af7d21361b6257839b6a0bab3791643f1c4d36bf75ed3",
+      "completed_run_sha256": {
+        "ATTEMPT_STARTED.json": "2fb661d35c431ce03f2f62199a32a2ef5a4827294c91a980029c233616e060c8",
+        "RAW_MANIFEST.json": "2d63d7dfeaa69e2c1ad8cde731e656e134e37e639023f0745daadb564f17a665",
+        "RUN_COMPLETE.json": "4d59b74584528d6ed8149a36f80e506c37d6ee939cd75b4a22da5bb230fd2425"
+      },
+      "file_sha256": {
+        "experiments/interpretability/opensplice/analyze_superset_graph_v3_2_1.py": "250236f4e1fd4c7712f7862da06e4bf933d731343dd306ae967a03a19e274313",
+        "experiments/interpretability/opensplice/analyze_superset_graph_v3_2_1_test.py": "deb96ebdf4d2d8c961bea87249565d721e046a85b23defefe9932160275f128c",
+        "experiments/interpretability/opensplice/v3_wider_mechanism/superset_graph_analysis_amendment_v3_2_1.md": "69207fbee072bfacca3af7d21361b6257839b6a0bab3791643f1c4d36bf75ed3"
+      },
+      "git_head": "a3d2d9bdede0eabd47977d8c223e78b0487dbfc9",
+      "raw_artifact_count": 2660,
+      "raw_artifact_tree_sha256": "4171d8aebae7fff3b9981d7ab0dc914c659c6fe2916cb9a48bbee87e205beed8",
+      "tracked_head_clean": true
+    }
+  },
+  "analysis_version": "opensplice-superset-analysis-v3.2.2",
+  "confirmation_model_calls_permitted": 0,
+  "model_rerun_permitted": false,
+  "output_json": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_2_development_superset_graph_analysis/ANALYSIS.json",
+  "output_markdown": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_2_development_superset_graph_analysis/RESULT.md",
+  "reason": "protobuf_generated_outputs_path_key_normalization",
+  "run_dir": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_2_development_superset_graph_one_shot",
+  "scientific_gate_or_estimand_changed": false,
+  "started_at_unix_s": 1787874229.9662557,
+  "status": "started_append_only_one_shot"
+}

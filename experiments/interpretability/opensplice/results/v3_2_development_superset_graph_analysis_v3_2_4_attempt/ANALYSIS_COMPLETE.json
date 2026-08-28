@@ -1,0 +1,9 @@
+{
+  "analysis_json_sha256": "a46c827e16fb4e054e7cf702f7147da70e0a3b35f677b430edf64e9a3055013c",
+  "analysis_markdown_sha256": "e4c8d45c1b35d8934734c4d8c18bd2ca10b78dd0099a9b37c296e60b15b7e52c",
+  "analysis_version": "opensplice-superset-analysis-v3.2.4",
+  "attempt_started_sha256": "a8a5a4b3c450ec5d611f9f2bb7dec1474107ca910a20b94a781273d255798239",
+  "decision": "phase_r_negative_stage_a_routes_descriptive_only",
+  "recorded_at_unix_s": 1787875769.4505396,
+  "status": "complete"
+}
