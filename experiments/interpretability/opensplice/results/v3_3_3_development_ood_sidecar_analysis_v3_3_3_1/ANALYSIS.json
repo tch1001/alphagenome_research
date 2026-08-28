@@ -1,0 +1,209 @@
+{
+  "analysis_version": "opensplice-encoder-skip-ood-sidecar-analysis-v3.3.3.1",
+  "claim_boundary": "Structural archive only: v3.3.3 stopped before apply zero; no biological or mechanistic evidence was produced.",
+  "combined_analysis_permitted": false,
+  "confirmation_model_outputs_activations_interventions_unopened": true,
+  "confirmation_scope_disclosure": "Later-exon metadata/labels were exposed after protocol freeze; no later-exon model outputs, activations, or interventions are used.",
+  "decision": "controlled_stop_source_program_mismatch_representation_only",
+  "donor_normalization_computed": false,
+  "id0_all20": false,
+  "id255_all20": false,
+  "interaction_or_resolution_computed": false,
+  "model_apply_count": 0,
+  "nomination": null,
+  "nomination_performed": false,
+  "ood_experiment_executed_by_v3_3_3": false,
+  "provenance_audit": {
+    "amendment_sha256": "4d2957d144e56e58c5b2058076bbcdb7f1495f3172e1b8829a0affa10a0ea4a9",
+    "compiler_provenance_sha256": "ae07b0f10784ea3c6dd26d2b87eb718c5e28d3834112ae4f0566d1c4fb7e3125",
+    "imports": {
+      "lazy_additions": {
+        "post_model_precompile_to_postcompile": [],
+        "pre_model_to_post_model_precompile": []
+      },
+      "module_counts": {
+        "post_model_precompile": 78,
+        "postcompile": 78,
+        "pre_model": 78
+      },
+      "phase_sha256": {
+        "post_model_precompile": "aa5072c505ebe54d0a7812a7fa3e6bda249a74c17d2b90df3f235c2f4cd6bb4b",
+        "postcompile": "aa5072c505ebe54d0a7812a7fa3e6bda249a74c17d2b90df3f235c2f4cd6bb4b",
+        "pre_model": "aa5072c505ebe54d0a7812a7fa3e6bda249a74c17d2b90df3f235c2f4cd6bb4b"
+      },
+      "seven_sidecar_source_bindings_exact": true,
+      "stable_shared_module_bytes": true
+    },
+    "kernel_cache": {
+      "equality_is_a_gate": false,
+      "historical_stage": "post_compile",
+      "historical_to_terminal_tree_exact": true,
+      "historical_tree_sha256": "a1dafb75097282b3d28174e4bb6c79a81d2f1c8c25cd8c64a1ea84642ba7f43a",
+      "terminal_tree_sha256": "a1dafb75097282b3d28174e4bb6c79a81d2f1c8c25cd8c64a1ea84642ba7f43a"
+    },
+    "model_cache_tree": {
+      "file_count": 1,
+      "tree_sha256": "a1dafb75097282b3d28174e4bb6c79a81d2f1c8c25cd8c64a1ea84642ba7f43a"
+    },
+    "model_run_commit": "228083b931dbc62d4a283e68df01011f5ef4bff9",
+    "old_analyzer_binding_replaced": false,
+    "old_analyzer_entry_point_invoked": false,
+    "original_freeze_sha256": "0e4c16a306f734e016c64509a3b7f0d76f26baf399ee0b1d41c6fb073203741b",
+    "original_protocol_sha256": "c9b00398296e683ac6e1c321fd8c4302f96b2e62bb23828e8b5ef2fe9de3f70b",
+    "preflight_tree": {
+      "file_count": 5,
+      "tree_sha256": "f2bae99e3b0a59a50419e0507146e26f4eea1c67f2595ddccec4e8d5aef7a0e1"
+    },
+    "protobuf": {
+      "generated_output_count": 2,
+      "seven_role_two_generated_output_repair_exact": true,
+      "sha256": "2498a940f6ee15e54e72e8f51587d4c42ffc1b49851873c31ad09085315d0ba8"
+    },
+    "run_complete_sha256": "43e0ff055e9f7fa4032a75120c551a2b5762e4fbd85119e80e3694f8b9f54bba",
+    "run_tree": {
+      "file_count": 11,
+      "tree_sha256": "bb13aa4de212c3896781401374057bc0cdfc0c7527772cc36b08b57c70451805"
+    },
+    "start": {
+      "cache_inputs_absent": true,
+      "checkpoint_file_count": 12,
+      "checkpoint_manifest_sha256": "1ed87db4c5bd7c5418c7734ec128faa4a9ecd186df2a024437484a8bc2b6e934",
+      "external_exact_rtx3090_uuid_gate": true,
+      "external_preflight_file_count": 5,
+      "external_preflight_sha256": "79e2c9937025830b309854cff4f5c93c607b7574fb44a9d51f45564b14246224",
+      "external_preflight_tree_sha256": "f2bae99e3b0a59a50419e0507146e26f4eea1c67f2595ddccec4e8d5aef7a0e1",
+      "git_head": "228083b931dbc62d4a283e68df01011f5ef4bff9",
+      "reference_bindings_sha256": "da712cdca50f82113ac1d00cb2fa7171f7368f31aedf06c48ce92dbdb5897dca",
+      "runtime_package_versions": {
+        "dm-haiku": "0.0.17",
+        "grpcio": "1.83.0",
+        "jax": "0.11.0",
+        "jax-cuda12-pjrt": "0.11.0",
+        "jax-cuda12-plugin": "0.11.0",
+        "jaxlib": "0.11.0",
+        "jmp": "0.0.4",
+        "numpy": "2.5.2",
+        "nvidia-cublas-cu12": "12.9.2.10",
+        "nvidia-cuda-runtime-cu12": "12.9.79",
+        "nvidia-cudnn-cu12": "9.24.0.43",
+        "nvidia-cusparse-cu12": "12.5.10.65",
+        "orbax-checkpoint": "0.12.4",
+        "protobuf": "7.35.1"
+      },
+      "runtime_version_manifest_verified": true,
+      "same_process_exact_rtx3090_uuid_gate": true,
+      "same_process_pid_bound_to_bootstrap": true,
+      "sequence_bindings": {
+        "0": {
+          "alternate": "9ab26dab184711808a13ac315be08609dc7c15a54cb484a18b472c3d14c26ca0",
+          "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+        },
+        "1": {
+          "alternate": "16610215488845b1c8ec5a672e183943ab9ef0e3f6068d146b54725914353066",
+          "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+        },
+        "2": {
+          "alternate": "a2e5da0b13d2af1504f049f9310876a440244fcac1f2aacaecfe8323327d0fac",
+          "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+        },
+        "3": {
+          "alternate": "23186c4b2ed7bcfded9caa8ee255fbc08956c56a740d5cace6d772f7c4e299f7",
+          "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+        },
+        "4": {
+          "alternate": "73ee48e4d990ff5a2269916aad6936ba7691940ddcf0f0811a6097def166ca73",
+          "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+        },
+        "5": {
+          "alternate": "5c9c32e989310f42db0201bba431bda6931f5ad4ff74e44c8968d33b0a823e16",
+          "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+        },
+        "6": {
+          "alternate": "c98c085eb8f0d16e1855fa6ed1cdfabfe228044bee59d676c5861c39aa9a1463",
+          "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+        },
+        "7": {
+          "alternate": "daeb714965852416e5cc03fb827e45bba4e7eb5aace1627588aaf44eb0782627",
+          "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+        },
+        "8": {
+          "alternate": "14b4edefa859d187ba9c44d746c04ed1fd19e106de766019ee4837d77dd48be6",
+          "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+        },
+        "9": {
+          "alternate": "73f23fbcf740987c29c73cd31d866594d73dca6e9074e1ff2b9cc937c4ba855b",
+          "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+        },
+        "10": {
+          "alternate": "c13334969256113b3253e9a4d01d054be2c973556a2940d7ab8746b3a438ec34",
+          "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+        },
+        "11": {
+          "alternate": "67f0f6c72c9061c6ca0483b6d09903ce9c4effa3e7060f1a6a2c6b63f70e2d0a",
+          "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+        },
+        "12": {
+          "alternate": "deea1db147a29040d8b5cb2cee0bd055c9d61724eac05814cc193861ffd505b6",
+          "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+        },
+        "13": {
+          "alternate": "93490b6827ee07eca8c88937c92f0285e03c4fa26f39c5a595d3b598e8601d54",
+          "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+        },
+        "14": {
+          "alternate": "b09cc02f279cec524ca71f9ffa815cf2f96413a3552a73f2e3e82219818a9268",
+          "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+        },
+        "15": {
+          "alternate": "9d72987f03329738392e4bd63dba6e1c16f912b8e8c7b8be4a4af5ba036937d2",
+          "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+        },
+        "16": {
+          "alternate": "1c0f8124952d8ac1e7eab936ed96f515a3c498a373f8e53a63187349ef808ef4",
+          "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+        },
+        "17": {
+          "alternate": "ed4e22cad1c33f44e7f9b4765f85d3964e8568fdf892a75da6d47b1a9b7defc0",
+          "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+        },
+        "18": {
+          "alternate": "19cacbad23bcd577559cc3c9529ad8434230cfc20f844f2632e82a3216e7558a",
+          "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+        },
+        "19": {
+          "alternate": "134d8132d34efd4a719b06f64afc2ba93ba3d5dbf8d067ae0118af19132390f6",
+          "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+        }
+      },
+      "upstream_generated_exception_verified": true,
+      "upstream_generated_imported_module_count": 4,
+      "upstream_git_head": "95cdbfce7981411453e5e094519bcf0605720199",
+      "upstream_imported_module_count": 26,
+      "upstream_tracked_head_clean": true,
+      "upstream_tracked_imported_module_count": 22
+    }
+  },
+  "raw_record_count": 0,
+  "representation_audit": {
+    "all_other_source_program_terms_exact": true,
+    "canonical_sha256": "d8f95fb9d3637fd263cc3da0f6a33409d5fb2a5cf37e348723ecc89b3224c300",
+    "canonical_size_bytes": 2877,
+    "diagnosis": "tuple_leaves_and_shapes_vs_json_lists_only",
+    "frozen_analyzer_helper_rejection": "Compiler source-program gate changed at program_signatures_exact.",
+    "leaves_tuple_count": 3,
+    "runtime_tuple_canonical_equals_stored_list": true,
+    "runtime_tuple_direct_equals_stored_list": false,
+    "shape_tuple_count": 29,
+    "signature_object_count": 3,
+    "stored_current_equals_stored_prior": true,
+    "stored_program_signatures_exact": false,
+    "stored_source_program_exact": false,
+    "tuple_container_count": 32
+  },
+  "resolution_analysis": null,
+  "scientific_raw_evidence_reached": false,
+  "scientific_summary_computed": false,
+  "shapley_or_nomination_computed": false,
+  "source_program_gate_passed_by_v3_3_3": false,
+  "status": "complete_controlled_stop_structural_archive"
+}

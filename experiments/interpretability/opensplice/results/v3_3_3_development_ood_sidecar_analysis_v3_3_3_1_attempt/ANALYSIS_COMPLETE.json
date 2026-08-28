@@ -1,0 +1,31 @@
+{
+  "analysis_output_state": {
+    "file_count": 2,
+    "files": {
+      "ANALYSIS.json": {
+        "sha256": "f1e20b3ca4f111854b22eff1e2cd2ffdb05796d800d2831eedcc6caa1a3b7245",
+        "size_bytes": 10060
+      },
+      "RESULT.md": {
+        "sha256": "8ba2721c8bc350a564f4d5ffdabd65b118f60d92cbdb8ea00a8d040842012e65",
+        "size_bytes": 695
+      }
+    },
+    "state": "complete",
+    "tree_sha256": "4dcbaa9069b130d160efbde95b1f82b3561ea90d2a38923d259978126e889b2c"
+  },
+  "analysis_version": "opensplice-encoder-skip-ood-sidecar-analysis-v3.3.3.1",
+  "attempt_started_sha256": "497374d68c245c30fb0a54968859b9066d1bc16085146b978070bb092ff23bda",
+  "combined_analysis_permitted": false,
+  "confirmation_model_outputs_activations_interventions_unopened": true,
+  "donor_normalization_computed": false,
+  "interaction_or_resolution_computed": false,
+  "model_apply_count": 0,
+  "nomination_performed": false,
+  "raw_record_count": 0,
+  "scientific_raw_evidence_reached": false,
+  "scientific_summary_computed": false,
+  "shapley_or_nomination_computed": false,
+  "status": "analysis_complete_controlled_stop_structural_archive",
+  "terminal_at_unix_s": 1787900827.2593193
+}
