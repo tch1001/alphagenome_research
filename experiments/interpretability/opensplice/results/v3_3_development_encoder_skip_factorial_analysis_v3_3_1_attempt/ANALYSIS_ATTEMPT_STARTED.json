@@ -1,0 +1,325 @@
+{
+  "amendment_binding": {
+    "amendment_sha256": "37e23b251f53ab87bae99b63024a381c367ce33bbc950a2227b3267fbc9668d1",
+    "analysis_version": "opensplice-encoder-skip-localization-analysis-v3.3.1",
+    "file_sha256": {
+      "experiments/interpretability/opensplice/analyze_encoder_skip_localization_v3_3_1.py": "0b10ba857bf27e1e48a90122dc1015933d0327ed84fc213cf0dafa95790bc6e7",
+      "experiments/interpretability/opensplice/analyze_encoder_skip_localization_v3_3_1_test.py": "27d68183bbfe77cb64d37eca2ff568e07a4fa893283c500118e46c4477054d8e",
+      "experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_analysis_amendment_v3_3_1.md": "37e23b251f53ab87bae99b63024a381c367ce33bbc950a2227b3267fbc9668d1"
+    },
+    "generated_binding_audit": {
+      "all_current_bytes_verified": true,
+      "bootstrap_artifact_count": 7,
+      "bootstrap_role_order": [
+        "dependency_pb2",
+        "dependency_proto",
+        "generated_pb2",
+        "generated_pyi",
+        "source_proto",
+        "tensor_pb2",
+        "tensor_proto"
+      ],
+      "generated_output_count": 2,
+      "generated_output_roles": [
+        "generated_pb2",
+        "generated_pyi"
+      ],
+      "repair": "seven_role_two_generated_output_provenance_classification",
+      "scientific_gate_or_estimand_changed": false,
+      "source_dependency_roles": [
+        "dependency_pb2",
+        "dependency_proto",
+        "source_proto",
+        "tensor_pb2",
+        "tensor_proto"
+      ]
+    },
+    "git_head": "e59524a1b07dc0f909e598e62a36c26c05088b7f",
+    "immutable_run": {
+      "compiler_file_count": 8,
+      "compiler_tree_sha256": "9a03dcbc9d439cb9bf197941af3bbdb3e6bda067cf661b90de6d7eab1f4d87eb",
+      "raw_artifact_count": 5142,
+      "raw_artifact_tree_sha256": "e7376062ce31090b349e88b91bd41700caf4e690511c15993e50f2bd0d47f770",
+      "run_complete_status": "controlled_stop",
+      "stop_reason": "ood_tooling_failure",
+      "whole_run_file_count": 5158,
+      "whole_run_tree_sha256": "2d8125fe6d13773ba9621e527870361b6a195c516c5b4f044c7dad64c9310aaa"
+    },
+    "model_rerun_permitted": false,
+    "original_analysis_output_absent": true,
+    "original_bundle": {
+      "analyzer_sha256": "0a65a27a5c424bb9dddacb5475e02d28a0999fc7cd593d4dd63ba4be06c39a46",
+      "analyzer_test_sha256": "d027f73fb07682e8cb54d46653a5bd9aa900aaeac433b1748dbdf4886c6d5034",
+      "bundle_file_count": 61,
+      "freeze_sha256": "98860ed4e60c427a76ac05879d800f36b65c10a310f4b2b981819fa48af767b3",
+      "original_commit": "9e8324434a3c0b2d5c53d209ad04c2d88b99f4bc"
+    },
+    "original_start_provenance_audit": {
+      "checkpoint_file_count": 12,
+      "checkpoint_manifest_sha256": "1ed87db4c5bd7c5418c7734ec128faa4a9ecd186df2a024437484a8bc2b6e934",
+      "external_exact_rtx3090_uuid_gate": true,
+      "external_preflight_sha256": "b983c7f4910ef4fc5f68bc72486552063f4497f90bba64497eb29a09d3d1809d",
+      "freeze_sha256": "98860ed4e60c427a76ac05879d800f36b65c10a310f4b2b981819fa48af767b3",
+      "git_head": "9e8324434a3c0b2d5c53d209ad04c2d88b99f4bc",
+      "prior_v3_2_analysis_sha256": "a46c827e16fb4e054e7cf702f7147da70e0a3b35f677b430edf64e9a3055013c",
+      "prior_v3_2_protocol_sha256": "1e87839250e838d1d9aa95162e76a3acb6b1eaab59b481c60dab943b62f6caea",
+      "prior_v3_2_raw_artifact_count": 2660,
+      "prior_v3_2_raw_manifest_sha256": "2d63d7dfeaa69e2c1ad8cde731e656e134e37e639023f0745daadb564f17a665",
+      "prior_v3_2_raw_tree_sha256": "4171d8aebae7fff3b9981d7ab0dc914c659c6fe2916cb9a48bbee87e205beed8",
+      "prior_v3_2_result_sha256": "e4c8d45c1b35d8934734c4d8c18bd2ca10b78dd0099a9b37c296e60b15b7e52c",
+      "reference_bindings_sha256": "da712cdca50f82113ac1d00cb2fa7171f7368f31aedf06c48ce92dbdb5897dca",
+      "runtime_environment_verified": true,
+      "runtime_package_versions": {
+        "dm-haiku": "0.0.17",
+        "grpcio": "1.83.0",
+        "jax": "0.11.0",
+        "jax-cuda12-pjrt": "0.11.0",
+        "jax-cuda12-plugin": "0.11.0",
+        "jaxlib": "0.11.0",
+        "jmp": "0.0.4",
+        "numpy": "2.5.2",
+        "nvidia-cublas-cu12": "12.9.2.10",
+        "nvidia-cuda-runtime-cu12": "12.9.79",
+        "nvidia-cudnn-cu12": "9.24.0.43",
+        "nvidia-cusparse-cu12": "12.5.10.65",
+        "orbax-checkpoint": "0.12.4",
+        "protobuf": "7.35.1"
+      },
+      "runtime_version_manifest_verified": true,
+      "same_process_exact_rtx3090_uuid_gate": true,
+      "sequence_bindings": {
+        "0": {
+          "alternate": "9ab26dab184711808a13ac315be08609dc7c15a54cb484a18b472c3d14c26ca0",
+          "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+        },
+        "1": {
+          "alternate": "16610215488845b1c8ec5a672e183943ab9ef0e3f6068d146b54725914353066",
+          "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+        },
+        "10": {
+          "alternate": "c13334969256113b3253e9a4d01d054be2c973556a2940d7ab8746b3a438ec34",
+          "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+        },
+        "11": {
+          "alternate": "67f0f6c72c9061c6ca0483b6d09903ce9c4effa3e7060f1a6a2c6b63f70e2d0a",
+          "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+        },
+        "12": {
+          "alternate": "deea1db147a29040d8b5cb2cee0bd055c9d61724eac05814cc193861ffd505b6",
+          "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+        },
+        "13": {
+          "alternate": "93490b6827ee07eca8c88937c92f0285e03c4fa26f39c5a595d3b598e8601d54",
+          "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+        },
+        "14": {
+          "alternate": "b09cc02f279cec524ca71f9ffa815cf2f96413a3552a73f2e3e82219818a9268",
+          "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+        },
+        "15": {
+          "alternate": "9d72987f03329738392e4bd63dba6e1c16f912b8e8c7b8be4a4af5ba036937d2",
+          "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+        },
+        "16": {
+          "alternate": "1c0f8124952d8ac1e7eab936ed96f515a3c498a373f8e53a63187349ef808ef4",
+          "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+        },
+        "17": {
+          "alternate": "ed4e22cad1c33f44e7f9b4765f85d3964e8568fdf892a75da6d47b1a9b7defc0",
+          "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+        },
+        "18": {
+          "alternate": "19cacbad23bcd577559cc3c9529ad8434230cfc20f844f2632e82a3216e7558a",
+          "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+        },
+        "19": {
+          "alternate": "134d8132d34efd4a719b06f64afc2ba93ba3d5dbf8d067ae0118af19132390f6",
+          "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8"
+        },
+        "2": {
+          "alternate": "a2e5da0b13d2af1504f049f9310876a440244fcac1f2aacaecfe8323327d0fac",
+          "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+        },
+        "3": {
+          "alternate": "23186c4b2ed7bcfded9caa8ee255fbc08956c56a740d5cace6d772f7c4e299f7",
+          "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+        },
+        "4": {
+          "alternate": "73ee48e4d990ff5a2269916aad6936ba7691940ddcf0f0811a6097def166ca73",
+          "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+        },
+        "5": {
+          "alternate": "5c9c32e989310f42db0201bba431bda6931f5ad4ff74e44c8968d33b0a823e16",
+          "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+        },
+        "6": {
+          "alternate": "c98c085eb8f0d16e1855fa6ed1cdfabfe228044bee59d676c5861c39aa9a1463",
+          "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+        },
+        "7": {
+          "alternate": "daeb714965852416e5cc03fb827e45bba4e7eb5aace1627588aaf44eb0782627",
+          "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+        },
+        "8": {
+          "alternate": "14b4edefa859d187ba9c44d746c04ed1fd19e106de766019ee4837d77dd48be6",
+          "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+        },
+        "9": {
+          "alternate": "73f23fbcf740987c29c73cd31d866594d73dca6e9074e1ff2b9cc937c4ba855b",
+          "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7"
+        }
+      },
+      "tracked_head_clean_at_pre_import": true,
+      "upstream_generated_exception_verified": true,
+      "upstream_generated_imported_module_count": 4,
+      "upstream_git_head": "95cdbfce7981411453e5e094519bcf0605720199",
+      "upstream_imported_module_count": 26,
+      "upstream_imported_modules": {
+        "alphagenome": {
+          "relative_path": "src/alphagenome/__init__.py",
+          "sha256": "d14801267d115e6085b9076fdbd4d8736deaa10d7ecfbb772e62154844897d2d",
+          "size_bytes": 667
+        },
+        "alphagenome.data": {
+          "relative_path": "src/alphagenome/data/__init__.py",
+          "sha256": "adffb9b8877c4105bd0ab53cf2222588cd839a890387d3274f871af439f99854",
+          "size_bytes": 644
+        },
+        "alphagenome.data.gene_annotation": {
+          "relative_path": "src/alphagenome/data/gene_annotation.py",
+          "sha256": "8b2935434fa8e314ff96ba57e8228569275ef99d6642670ad7d1255fa1a14734",
+          "size_bytes": 15629
+        },
+        "alphagenome.data.genome": {
+          "relative_path": "src/alphagenome/data/genome.py",
+          "sha256": "4c297b2dde8f751c62211a1295ec243280eff412255b915cdf13c411b5168b61",
+          "size_bytes": 39244
+        },
+        "alphagenome.data.junction_data": {
+          "relative_path": "src/alphagenome/data/junction_data.py",
+          "sha256": "915d5a248889409933a6922920339ee9d4981084e8009e4ec2ad6530bc8c511c",
+          "size_bytes": 8538
+        },
+        "alphagenome.data.ontology": {
+          "relative_path": "src/alphagenome/data/ontology.py",
+          "sha256": "61ade86be9fa4d0e980e9c28ec182cc1fbfa2c22f0e38df46b766468825fb954",
+          "size_bytes": 3378
+        },
+        "alphagenome.data.track_data": {
+          "relative_path": "src/alphagenome/data/track_data.py",
+          "sha256": "199197ae3a3c83b563bfe1c75b3d9584168d927051a7e7114c7f2f3bd41439e3",
+          "size_bytes": 32313
+        },
+        "alphagenome.interpretation": {
+          "relative_path": "src/alphagenome/interpretation/__init__.py",
+          "sha256": "096845f130be50112d7b28a4fbfef927023b1d39c7d52d3d36b719943ac1169b",
+          "size_bytes": 650
+        },
+        "alphagenome.interpretation.ism": {
+          "relative_path": "src/alphagenome/interpretation/ism.py",
+          "sha256": "bd3d0691ee41381fbdbde9ccbf046e900da6d5fd4e589cfef0405933faf39c53",
+          "size_bytes": 5898
+        },
+        "alphagenome.io": {
+          "relative_path": "src/alphagenome/io/__init__.py",
+          "sha256": "b911675aa1ff9f8d8f114e7bcd1d0fe45d5108bec383e63df448d7f780ee14ad",
+          "size_bytes": 623
+        },
+        "alphagenome.io.fasta": {
+          "relative_path": "src/alphagenome/io/fasta.py",
+          "sha256": "9ba867ff419a750d3e0ae3d3bd31cca5a3240805b0a4494776819f7cc2af8b84",
+          "size_bytes": 3026
+        },
+        "alphagenome.models": {
+          "relative_path": "src/alphagenome/models/__init__.py",
+          "sha256": "f006894d9ee4565844b50fe7207e633e9fde59b3c7f37a214e8b25b03b7bff27",
+          "size_bytes": 639
+        },
+        "alphagenome.models.dna_client": {
+          "relative_path": "src/alphagenome/models/dna_client.py",
+          "sha256": "223cb0eb1a9535177bef78da062ec4e91e7c6e92a775d98350e9aa6fbd595a83",
+          "size_bytes": 32678
+        },
+        "alphagenome.models.dna_model": {
+          "relative_path": "src/alphagenome/models/dna_model.py",
+          "sha256": "17e7f689b40938a061e675ddcefb85ec7151d3e5d0ac43812a891df7bb914678",
+          "size_bytes": 18027
+        },
+        "alphagenome.models.dna_output": {
+          "relative_path": "src/alphagenome/models/dna_output.py",
+          "sha256": "c90c908238e5c3161160628c181164ae6604762616e2ed029cb6021d585eed1d",
+          "size_bytes": 14887
+        },
+        "alphagenome.models.interval_scorers": {
+          "relative_path": "src/alphagenome/models/interval_scorers.py",
+          "sha256": "aeb0984cab4d57fb5f311ad14187897bbe566d0a0f61fa628aa6d8c9378fe7b3",
+          "size_bytes": 4401
+        },
+        "alphagenome.models.junction_data_utils": {
+          "relative_path": "src/alphagenome/models/junction_data_utils.py",
+          "sha256": "652c205e2b1930843d1446d810eefc99b2603edefe4e19732cc40bf14020ed14",
+          "size_bytes": 6508
+        },
+        "alphagenome.models.track_data_utils": {
+          "relative_path": "src/alphagenome/models/track_data_utils.py",
+          "sha256": "84050cc8f0c64473a8ebba54b1fc28d09a8b2c106d0fc8a8a1ab5cd754018ba6",
+          "size_bytes": 8624
+        },
+        "alphagenome.models.variant_scorers": {
+          "relative_path": "src/alphagenome/models/variant_scorers.py",
+          "sha256": "1191e86d4b5eb49ad939cf92ff7e02c91eb288dddd30c591ffd49587673c8899",
+          "size_bytes": 31841
+        },
+        "alphagenome.protos": {
+          "relative_path": "src/alphagenome/protos/__init__.py",
+          "sha256": "6ba9c46461790bfb033a8a5841d538955d321fac55833425e38eb50cadd2a845",
+          "size_bytes": 637
+        },
+        "alphagenome.protos.dna_model_pb2": {
+          "relative_path": "src/alphagenome/protos/dna_model_pb2.py",
+          "sha256": "d97564536e77ec09bdf144ba1204d4e08f79095fb9ed6c0cba7b065dc6f252ee",
+          "size_bytes": 16279
+        },
+        "alphagenome.protos.dna_model_service_pb2": {
+          "relative_path": "src/alphagenome/protos/dna_model_service_pb2.py",
+          "sha256": "062ed92fd13a0757c3c029275edd698c2327ea56be4a5e074a28d91fa0dabd6a",
+          "size_bytes": 10114
+        },
+        "alphagenome.protos.dna_model_service_pb2_grpc": {
+          "relative_path": "src/alphagenome/protos/dna_model_service_pb2_grpc.py",
+          "sha256": "db3816f2f0ccfe08d0e6bec0771079bbca6cfc399bd58e79e928cb1264bdaeb3",
+          "size_bytes": 16361
+        },
+        "alphagenome.protos.tensor_pb2": {
+          "relative_path": "src/alphagenome/protos/tensor_pb2.py",
+          "sha256": "dea7a5207e82601b6763e95ee4b69356345e95bc2de91632928d6161f873cdb8",
+          "size_bytes": 3155
+        },
+        "alphagenome.tensor_utils": {
+          "relative_path": "src/alphagenome/tensor_utils.py",
+          "sha256": "0f133099149a8323b17dc69a20453983bc91354fee11275b59b19ff3299d42df",
+          "size_bytes": 5992
+        },
+        "alphagenome.typing": {
+          "relative_path": "src/alphagenome/typing.py",
+          "sha256": "ccebeacf8984a075020ffcabd771657b226b21d6af75915c239c452dc90c2649",
+          "size_bytes": 1253
+        }
+      },
+      "upstream_tracked_head_clean": true,
+      "upstream_tracked_imported_module_count": 22
+    },
+    "scientific_gate_or_estimand_changed": false,
+    "tracked_head_clean": true
+  },
+  "analysis_version": "opensplice-encoder-skip-localization-analysis-v3.3.1",
+  "confirmation_model_calls_permitted": 0,
+  "model_rerun_permitted": false,
+  "output_json": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_development_encoder_skip_factorial_analysis/ANALYSIS.json",
+  "output_markdown": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_development_encoder_skip_factorial_analysis/RESULT.md",
+  "reason": "seven_role_two_generated_output_provenance_classification",
+  "run_dir": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_development_encoder_skip_factorial_one_shot",
+  "scientific_values_read_before_attempt": false,
+  "started_at_unix_s": 1787885104.589089,
+  "status": "started_append_only_one_shot"
+}

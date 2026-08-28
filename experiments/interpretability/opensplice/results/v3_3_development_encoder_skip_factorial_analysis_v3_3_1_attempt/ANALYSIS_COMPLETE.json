@@ -1,0 +1,11 @@
+{
+  "analysis_json_sha256": "ed18cce580c578d3cd750756d882a7b120a87736849077abffaee5781c09dd6b",
+  "analysis_markdown_sha256": "6a4884040677e194c9b43c115af8c045cd67d2ffa857088710ab852399d2a440",
+  "analysis_version": "opensplice-encoder-skip-localization-analysis-v3.3.1",
+  "attempt_started_sha256": "1c4738026210ddd7f4d62b21f04eb1305cc86041daadb61cb3cfe0e549af8922",
+  "decision": "controlled_stop_ood_tooling_failure",
+  "nomination_performed": false,
+  "recorded_at_unix_s": 1787885143.35817,
+  "shapley_computed": false,
+  "status": "complete_controlled_stop_audited"
+}
