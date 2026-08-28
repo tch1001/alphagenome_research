@@ -1,8 +1,25 @@
-# Prospective offline analysis plan: seven-skip factorial
+# Superseded design note: seven-skip factorial
 
-Status: design only. This document does not authorize a model run or any
-confirmation access. It must receive a version, immutable hash, implementation
-tests, and a clean committed freeze before execution.
+Status: **superseded before implementation or model execution**. This early
+design note does not authorize a model run, define a gate, or supplement the
+final protocol. It is retained only to document alternatives considered.
+
+The sole authoritative v3.3 contract is
+`encoder_skip_localization_protocol_v3_3.md` (original committed SHA-256
+`89a3c5ebf7a6af85de58f37952047694fd14c61ef11e72668ce4392f6077a342`).
+Where this note differs, the authoritative protocol controls. In particular,
+v3.3 uses 20 variants x 256 main coalitions plus identities and four
+cross-exon OOD anchor records per variant (5,220 records); it does not run the
+11,264-call control design below. Spatial/random, wrong-strand and non-target
+output controls are a separately frozen follow-up after a resolution
+nomination. The OOD stress test uses only the cross-exon mapping and four
+anchors frozen in the protocol, not the within-exon `+1`/`+3` donor proposal
+below. The protocol's minimal-cardinality, `B>=0.25`, and 80%-of-all-E-retention
+nomination rule replaces this note's familywise-maximum/5-of-6 rule.
+
+This supersession was recorded after the conflict was identified in review
+and before v3.3 code freeze, compilation, GPU execution, or confirmation
+access. The rest of the file is historical and must not be implemented.
 
 ## 1. Question and claim boundary
 
