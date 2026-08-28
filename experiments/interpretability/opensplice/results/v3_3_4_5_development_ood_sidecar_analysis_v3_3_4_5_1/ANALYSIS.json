@@ -1,0 +1,474 @@
+{
+  "analysis_attempt_start_binding": {
+    "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_5_development_ood_sidecar_analysis_v3_3_4_5_1_attempt/ANALYSIS_ATTEMPT_STARTED.json",
+    "sha256": "ada53945670529d24c396514e31ed5155c4c3da0c2d88d2d86d93cfc4bbfc9c1",
+    "size_bytes": 67913
+  },
+  "analysis_version": "v3.3.4.5.1-structural-analyzer-v1",
+  "claim_boundary": {
+    "combined_analysis_permitted": false,
+    "future_protocol_required": true,
+    "no_biological_claim": true,
+    "no_interaction": true,
+    "no_nomination": true,
+    "no_normalization": true,
+    "no_resolution": true,
+    "no_scientific_summary": true,
+    "no_shapley": true,
+    "structural_only": true
+  },
+  "combined_analysis_permitted": false,
+  "compiler_and_signature_audit": {
+    "compiled_backend_diagnostic_only": true,
+    "diagnostic_provenance_complete": false,
+    "entry_abi_exact": true,
+    "prebackend_exact": true,
+    "signature_adapter_exact": true,
+    "source_program_exact": true,
+    "stablehlo_exact": true,
+    "stop_reason": "diagnostic_persistence_failure",
+    "successful_compile_count": 1,
+    "terminal_status": "controlled_stop_diagnostic_provenance_failure"
+  },
+  "completed_at_unix_s": 1787936017.082886,
+  "confirmation_boundary": {
+    "confirmation_model_calls": 0,
+    "confirmation_paths_opened": false,
+    "later_exon_metadata_label_exposure_disclosed": true,
+    "model_outputs_activations_interventions_blind": true,
+    "no_confirmation_scientific_access": true
+  },
+  "consumed_analyzer_failure_audit": {
+    "captured_at_unix_s": null,
+    "chunk_id": "77e144",
+    "command": [
+      "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_5.sh",
+      "--acknowledge-structural-only-v3-3-4-5"
+    ],
+    "destination_states": {
+      "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_3_development_ood_sidecar_analysis": "absent",
+      "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_3_development_ood_sidecar_analysis_attempt": "absent",
+      "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_5_development_ood_sidecar_analysis": "absent",
+      "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_5_development_ood_sidecar_analysis_attempt": "absent"
+    },
+    "exit_code": 1,
+    "failed_before_start": true,
+    "failure": {
+      "message": "v3.3.3 cache contains an extra/empty directory.",
+      "stage": "precheck_prior_v3_3_3_cache",
+      "type": "AnalysisError"
+    },
+    "no_jax_model_raw_or_confirmation_access": true,
+    "retry_permitted": false,
+    "session_id": null,
+    "status": "consumed_pre_start_failure",
+    "stderr": {
+      "final_newline": true,
+      "persisted_to_filesystem": false,
+      "sha256": "0158926b7b41b6636bfacd2acdcf268bae7f7082b9f935edb483aa184bdd6967",
+      "size_bytes": 1587,
+      "source": "coordinator_captured_unpersisted_tool_output"
+    },
+    "stderr_text": "Traceback (most recent call last):\n  File \"/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_5.py\", line 8513, in <module>\n    main()\n    ~~~~^^\n  File \"/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_5.py\", line 8452, in main\n    precheck = _analysis_attempt_precheck(run_dir, bundle_root=bundle_root)\n  File \"/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_5.py\", line 7854, in _analysis_attempt_precheck\n    _validate_freeze_v3345(run_dir, bundle_root=bundle_root)\n    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_5.py\", line 5162, in _validate_freeze_v3345\n    prior333 = _validate_prior_v3_3_3()\n  File \"/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_5.py\", line 1201, in _validate_prior_v3_3_3\n    cache_paths = _strict_tree(\n        _PRIOR_CACHE_DIR, set(_PRIOR_CACHE_FILES), 'v3.3.3 cache'\n    )\n  File \"/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_5.py\", line 1076, in _strict_tree\n    raise AnalysisError(f'{label} contains an extra/empty directory.')\nAnalysisError: v3.3.3 cache contains an extra/empty directory.\n",
+    "stdout": {
+      "persisted_to_filesystem": false,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    "wall_time_seconds": 1.95131362
+  },
+  "control_audit": {
+    "all_80_complete": false,
+    "control_state_eligible": false,
+    "id0_all20": false,
+    "id255_all20": false,
+    "identity_rerun_count": 0,
+    "main_cube_rerun_count": 0,
+    "old_records_reused": 0,
+    "six_row_compile_count": 0
+  },
+  "decision": "controlled_stop_diagnostic_provenance_failure",
+  "dispatch_journal_audit": {
+    "completed_count": 0,
+    "completed_tree_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "expected_apply_count": 320,
+    "expected_record_count": 80,
+    "raw_tree_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "started_count": 0,
+    "started_tree_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "valid_record_count": 0
+  },
+  "donor_normalization_computed": false,
+  "external_cache_binding": {
+    "directory_count": 3,
+    "directory_file_tree_sha256": "d040af81aa50fbe28e0523747355f84d851f36f39e586294b24dd994f69f66a0",
+    "directory_paths": [
+      ".",
+      "triton",
+      "xdg"
+    ],
+    "directory_tree_sha256": "9162636192082efbef80c9b37dd3ebc138aa094f70111874b9dad70e468af1af",
+    "file_bindings": {
+      ".v3345.tmp.2777420.000001.7a795e5eda1e9fcf14f19a8d62c7960f": {
+        "mode": "0400",
+        "sha256": "d7e55ae0ed0453b3d29f92731588b9626f10d5814b0f0ecd3198ced485940d44",
+        "size_bytes": 39,
+        "st_dev": 66307,
+        "st_ino": 140791472,
+        "st_nlink": 1
+      },
+      "atomic_publication_probe_v3_3_4_5.txt": {
+        "mode": "0400",
+        "sha256": "7ffb46419c01255944db76c4530e7943574212aa4c4595fa85254bc9d21d6bd1",
+        "size_bytes": 49,
+        "st_dev": 66307,
+        "st_ino": 140791465,
+        "st_nlink": 1
+      }
+    },
+    "file_count": 2,
+    "file_tree_sha256": "3bd7b53ba7ab1dae7161999ff907137f82ee6d7f322512a3221646f66bb1e975",
+    "root": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_5_preflight_kernel_cache"
+  },
+  "interaction_or_resolution_computed": false,
+  "model_cache_binding": {
+    "directory_count": 4,
+    "directory_file_tree_sha256": "51fe59713c301342bf5bb161f26b9e4ee6828e508b96e4dbd21c6efcdde1115e",
+    "directory_paths": [
+      ".",
+      "triton",
+      "xdg",
+      "xdg/matplotlib"
+    ],
+    "directory_tree_sha256": "04db6b68596b496ec67a629cca3b54bb6ca0c272fb4672cceeeb687382802d99",
+    "file_bindings": {
+      "xdg/matplotlib/fontlist-v3.11.0.json": {
+        "mode": "0600",
+        "sha256": "a933e64e6dbc737661309fbe5a1a8402aa192976c6758f6f4a8ac2f37c5010f9",
+        "size_bytes": 163240,
+        "st_dev": 66307,
+        "st_ino": 140791486,
+        "st_nlink": 1
+      }
+    },
+    "file_count": 1,
+    "file_tree_sha256": "487c67a6dbb251aca190ac9eda5d2425c3584febc9ad63e60d0812c7f2fb69ea",
+    "root": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_5_model_kernel_cache"
+  },
+  "nomination_performed": false,
+  "preflight_binding": {
+    "directory_count": 1,
+    "directory_file_tree_sha256": "cc106b406da58ddd95611aef7e471f5a5cefd96e302ebb91ea4ef9e28a618c87",
+    "directory_paths": [
+      "."
+    ],
+    "directory_tree_sha256": "c62b6b5dd01e9ff096fd7470bdb0867210b5f5c82a820b5a756441235b0eadbb",
+    "file_bindings": {
+      ".allocation.lock": {
+        "mode": "0600",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0,
+        "st_dev": 66307,
+        "st_ino": 140791474,
+        "st_nlink": 1
+      },
+      ".preflight_0000.reserved": {
+        "mode": "0400",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0,
+        "st_dev": 66307,
+        "st_ino": 140791475,
+        "st_nlink": 1
+      },
+      "preflight_0000.json": {
+        "mode": "0400",
+        "sha256": "cefe7d95c67868668f912575c8e00fecc9813ec011d395b8332f65d0a2c7d785",
+        "size_bytes": 50472,
+        "st_dev": 66307,
+        "st_ino": 140791478,
+        "st_nlink": 1
+      },
+      "preflight_0000.stderr.log": {
+        "mode": "0400",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0,
+        "st_dev": 66307,
+        "st_ino": 140791477,
+        "st_nlink": 1
+      },
+      "preflight_0000.stdout.log": {
+        "mode": "0400",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0,
+        "st_dev": 66307,
+        "st_ino": 140791476,
+        "st_nlink": 1
+      }
+    },
+    "file_count": 5,
+    "file_tree_sha256": "ae277eafa4f7f20bfa74c3a0a1bbaa0f51468cac945d29d0c49cab699738ecfd",
+    "root": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_5_device_preflight"
+  },
+  "prior_cache_audit": {
+    "directory_count": 4,
+    "directory_file_tree_sha256": "a1dafb75097282b3d28174e4bb6c79a81d2f1c8c25cd8c64a1ea84642ba7f43a",
+    "directory_paths": [
+      ".",
+      "triton",
+      "xdg",
+      "xdg/matplotlib"
+    ],
+    "exact_membership": true,
+    "file_bindings": {
+      "xdg/matplotlib/fontlist-v3.11.0.json": {
+        "mode": "0600",
+        "sha256": "a777469f8f54be8cc9107788bce2b3cd23709aa317114392cdc365b3fb127125",
+        "size_bytes": 163240,
+        "st_dev": 66307,
+        "st_ino": 140791361,
+        "st_nlink": 1
+      }
+    },
+    "file_count": 1,
+    "file_tree_sha256": "d1d11bc6dc48b302cf675fb48727bd6ededec09142429eaa9e368f7631463717",
+    "lstat_rows": [
+      {
+        "entry_type": "directory",
+        "mode": "0700",
+        "path": ".",
+        "sha256": null,
+        "size_bytes": 4096,
+        "st_dev": 66307,
+        "st_ino": 140791354,
+        "st_nlink": 4
+      },
+      {
+        "entry_type": "directory",
+        "mode": "0700",
+        "path": "triton",
+        "sha256": null,
+        "size_bytes": 4096,
+        "st_dev": 66307,
+        "st_ino": 140791357,
+        "st_nlink": 2
+      },
+      {
+        "entry_type": "directory",
+        "mode": "0700",
+        "path": "xdg",
+        "sha256": null,
+        "size_bytes": 4096,
+        "st_dev": 66307,
+        "st_ino": 140791358,
+        "st_nlink": 3
+      },
+      {
+        "entry_type": "directory",
+        "mode": "0700",
+        "path": "xdg/matplotlib",
+        "sha256": null,
+        "size_bytes": 4096,
+        "st_dev": 66307,
+        "st_ino": 140791359,
+        "st_nlink": 2
+      },
+      {
+        "entry_type": "regular",
+        "mode": "0600",
+        "path": "xdg/matplotlib/fontlist-v3.11.0.json",
+        "sha256": "a777469f8f54be8cc9107788bce2b3cd23709aa317114392cdc365b3fb127125",
+        "size_bytes": 163240,
+        "st_dev": 66307,
+        "st_ino": 140791361,
+        "st_nlink": 1
+      }
+    ],
+    "no_follow": true,
+    "root": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_3_model_kernel_cache"
+  },
+  "publication_audit": {
+    "durability_uncertain_final_bindings": {},
+    "durability_uncertain_final_count": 0,
+    "method": "named_temp_renameat2_noreplace",
+    "no_new_entry_failure": false,
+    "no_publication_retry": true,
+    "no_published_final_deleted": true,
+    "no_temp_or_final_reused": true,
+    "preexisting_entry_count": 0,
+    "preexisting_entry_states": {},
+    "publication_failure": null,
+    "schema_version": "v3.3.4.5.1-named-temp-renameat2-noreplace-v1",
+    "successful_final_bindings_before_terminal": {
+      "analysis_attempt/ANALYSIS_ATTEMPT_STARTED.json": {
+        "mode": "0400",
+        "sha256": "ada53945670529d24c396514e31ed5155c4c3da0c2d88d2d86d93cfc4bbfc9c1",
+        "size_bytes": 67913,
+        "st_dev": 66307,
+        "st_ino": 140791457,
+        "st_nlink": 1
+      },
+      "analysis_output/RESULT.md": {
+        "mode": "0400",
+        "sha256": "5d2f30d217c3324d79097e256ffa4ab52d3469ba6453c59ac866191ab8bfdffd",
+        "size_bytes": 504,
+        "st_dev": 66307,
+        "st_ino": 140791459,
+        "st_nlink": 1
+      }
+    },
+    "successful_final_count_before_terminal": 2,
+    "temporary_orphan_bindings": {},
+    "temporary_orphan_count": 0
+  },
+  "raw_prefix_audit": {
+    "artifact_count": 0,
+    "failed_current_binding": null,
+    "journal_directories_absent": true,
+    "manifest_binding": {
+      "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_5_development_ood_sidecar_one_shot/RAW_MANIFEST.json",
+      "sha256": "3ee95b22d483c7c4f234fbb75281e05e84f0be263b1ee670a94b2cd442d61136",
+      "size_bytes": 1562
+    },
+    "raw_directory_absent": true,
+    "status": "empty_controlled_stop"
+  },
+  "run_binding": {
+    "directory_count": 3,
+    "directory_file_tree_sha256": "5331e5041b557a4324ba57d57179dc2bfd8e6ab981f0cdede5d4f126e94c2041",
+    "directory_paths": [
+      ".",
+      "compiler",
+      "compiler/eight_row"
+    ],
+    "directory_tree_sha256": "ab2e1080aa16f1a84e6be3caeb28d8739d2a4a72e0a56a5d0270d1ef46368d3e",
+    "file_bindings": {
+      "ATTEMPT_STARTED.json": {
+        "mode": "0400",
+        "sha256": "c211bf46f9fd55689da21d02d3b7859f08cd14f27a0419c872047f4a1f3f3f13",
+        "size_bytes": 116707,
+        "st_dev": 66307,
+        "st_ino": 140791483,
+        "st_nlink": 1
+      },
+      "IMPORT_PROVENANCE.json": {
+        "mode": "0400",
+        "sha256": "c6cdd83cf263c4a0c5e745dfb2ea2b0163593fc9dc41c7c9bc543dad5c836d9f",
+        "size_bytes": 59596,
+        "st_dev": 66307,
+        "st_ino": 140791495,
+        "st_nlink": 1
+      },
+      "IMPORT_PROVENANCE_POST_MODEL_PRECOMPILE.json": {
+        "mode": "0400",
+        "sha256": "506500e21750e242917ffa15e7ca8187ba20da18555ce3d0030f41a7c2a19147",
+        "size_bytes": 59609,
+        "st_dev": 66307,
+        "st_ino": 140791488,
+        "st_nlink": 1
+      },
+      "IMPORT_PROVENANCE_PRE_MODEL.json": {
+        "mode": "0400",
+        "sha256": "4f23789f2817ea0af5d8dffc9b21bc9c3aadd2a0835ce747d8ac599c887e3174",
+        "size_bytes": 59597,
+        "st_dev": 66307,
+        "st_ino": 140791485,
+        "st_nlink": 1
+      },
+      "PROTOBUF_PROVENANCE.json": {
+        "mode": "0400",
+        "sha256": "f5270aef8e2e71e06a66ec310b90c82efae17a7a418fc8713443760f98605880",
+        "size_bytes": 3839,
+        "st_dev": 66307,
+        "st_ino": 140791487,
+        "st_nlink": 1
+      },
+      "RAW_MANIFEST.json": {
+        "mode": "0400",
+        "sha256": "3ee95b22d483c7c4f234fbb75281e05e84f0be263b1ee670a94b2cd442d61136",
+        "size_bytes": 1562,
+        "st_dev": 66307,
+        "st_ino": 140791497,
+        "st_nlink": 1
+      },
+      "RUN_COMPLETE.json": {
+        "mode": "0400",
+        "sha256": "fdbd0a1dc7d24145f88c5a009cc80d8904e57920e0c9584426e791373fae6d8f",
+        "size_bytes": 43760,
+        "st_dev": 66307,
+        "st_ino": 140791498,
+        "st_nlink": 1
+      },
+      "compiler/eight_row/COMPILER_DIAGNOSTIC_FAILURE.json": {
+        "mode": "0400",
+        "sha256": "ec8f2d39297e6ea3c0ed633afe58bbf8252114ae0c29de5fc3a70cfd93131881",
+        "size_bytes": 6018,
+        "st_dev": 66307,
+        "st_ino": 140791496,
+        "st_nlink": 1
+      },
+      "compiler/eight_row/PROGRAM_SIGNATURE_ATTESTATION.json": {
+        "mode": "0400",
+        "sha256": "441b152ff23f802a7adde0a9b53301b44dbebc9f385406eb8775fa06d41bf8ec",
+        "size_bytes": 17455,
+        "st_dev": 66307,
+        "st_ino": 140791491,
+        "st_nlink": 1
+      },
+      "compiler/eight_row/graph.compiled.hlo.txt": {
+        "mode": "0400",
+        "sha256": "524ae897733d9b4b88a9a5572767810166ba7e3c6e91efd82ed370d24de42d99",
+        "size_bytes": 16601615,
+        "st_dev": 66307,
+        "st_ino": 140791494,
+        "st_nlink": 1
+      },
+      "compiler/eight_row/graph.pre_backend.hlo.txt": {
+        "mode": "0400",
+        "sha256": "675b9cf26fe8f59a1d138e856ee84f48edb20d8c896ac9e539b6b064dcef2750",
+        "size_bytes": 1829833,
+        "st_dev": 66307,
+        "st_ino": 140791493,
+        "st_nlink": 1
+      },
+      "compiler/eight_row/graph.stablehlo.mlir": {
+        "mode": "0400",
+        "sha256": "69dbf2a054cf89e56a9000dc0c04e5cd4ba425f016885ddc127d22c01661bddd",
+        "size_bytes": 3196162,
+        "st_dev": 66307,
+        "st_ino": 140791492,
+        "st_nlink": 1
+      }
+    },
+    "file_count": 12,
+    "file_tree_sha256": "960faf1675caaa0f3c9798f7b943998e91650b2a9359b26ca31ce2d417c2ce0b",
+    "root": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_5_development_ood_sidecar_one_shot"
+  },
+  "scientific_summary_computed": false,
+  "shapley_or_nomination_computed": false,
+  "source_and_prior_audit": {
+    "active_attempt_exact": true,
+    "amendment_live_historical_exact": true,
+    "consumed_failure_exact": true,
+    "current_137_live_launch_exact": true,
+    "immutable_model_run_exact": true,
+    "immutable_preflight_cache_exact": true,
+    "inherited_132_historical_exact": true,
+    "inherited_132_live_exact": true,
+    "launch_head_clean": true,
+    "new_implementation_4_live_historical_exact": true,
+    "old_destinations_absent": true,
+    "prior_cache_exact": true,
+    "source_authority_exact": true
+  },
+  "status": "complete_controlled_stop_structural_archive",
+  "terminal_audit": {
+    "count_arithmetic_exact": true,
+    "failure_exact": true,
+    "imports_protobuf_exact": true,
+    "no_retry": true,
+    "publication_exact": true,
+    "status": "controlled_stop_diagnostic_provenance_failure",
+    "stop_reason": "diagnostic_persistence_failure",
+    "terminal_linkage_exact": true
+  }
+}

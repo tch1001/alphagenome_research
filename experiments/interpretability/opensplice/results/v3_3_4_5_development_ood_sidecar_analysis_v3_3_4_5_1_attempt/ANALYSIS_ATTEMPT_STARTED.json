@@ -1,0 +1,1329 @@
+{
+  "acknowledgement": "--acknowledge-structural-only-v3-3-4-5-1",
+  "amendment_binding": {
+    "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_ood_sidecar_analysis_amendment_v3_3_4_5_1.md",
+    "sha256": "16af8ccb65f3e08739c3792c5c9ab3affcb19a3ca9993904260729a898afd5c4",
+    "size_bytes": 41952
+  },
+  "analysis_version": "v3.3.4.5.1-structural-analyzer-v1",
+  "analyzer_binding": {
+    "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_5_1.py",
+    "sha256": "28cb681d06ba0c6b753ff43faea33905876a42ac29e689ceaf6f87effa853dc6",
+    "size_bytes": 501327
+  },
+  "attempt_id": "v3.3.4.5.1-development-ood-sidecar-structural-analysis",
+  "consumed_analyzer_failure": {
+    "captured_at_unix_s": null,
+    "chunk_id": "77e144",
+    "command": [
+      "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_5.sh",
+      "--acknowledge-structural-only-v3-3-4-5"
+    ],
+    "destination_states": {
+      "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_3_development_ood_sidecar_analysis": "absent",
+      "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_3_development_ood_sidecar_analysis_attempt": "absent",
+      "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_5_development_ood_sidecar_analysis": "absent",
+      "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_5_development_ood_sidecar_analysis_attempt": "absent"
+    },
+    "exit_code": 1,
+    "failed_before_start": true,
+    "failure": {
+      "message": "v3.3.3 cache contains an extra/empty directory.",
+      "stage": "precheck_prior_v3_3_3_cache",
+      "type": "AnalysisError"
+    },
+    "no_jax_model_raw_or_confirmation_access": true,
+    "retry_permitted": false,
+    "session_id": null,
+    "status": "consumed_pre_start_failure",
+    "stderr": {
+      "final_newline": true,
+      "persisted_to_filesystem": false,
+      "sha256": "0158926b7b41b6636bfacd2acdcf268bae7f7082b9f935edb483aa184bdd6967",
+      "size_bytes": 1587,
+      "source": "coordinator_captured_unpersisted_tool_output"
+    },
+    "stderr_text": "Traceback (most recent call last):\n  File \"/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_5.py\", line 8513, in <module>\n    main()\n    ~~~~^^\n  File \"/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_5.py\", line 8452, in main\n    precheck = _analysis_attempt_precheck(run_dir, bundle_root=bundle_root)\n  File \"/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_5.py\", line 7854, in _analysis_attempt_precheck\n    _validate_freeze_v3345(run_dir, bundle_root=bundle_root)\n    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_5.py\", line 5162, in _validate_freeze_v3345\n    prior333 = _validate_prior_v3_3_3()\n  File \"/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_5.py\", line 1201, in _validate_prior_v3_3_3\n    cache_paths = _strict_tree(\n        _PRIOR_CACHE_DIR, set(_PRIOR_CACHE_FILES), 'v3.3.3 cache'\n    )\n  File \"/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_5.py\", line 1076, in _strict_tree\n    raise AnalysisError(f'{label} contains an extra/empty directory.')\nAnalysisError: v3.3.3 cache contains an extra/empty directory.\n",
+    "stdout": {
+      "persisted_to_filesystem": false,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    "wall_time_seconds": 1.95131362
+  },
+  "consumed_analyzer_failure_content_binding": {
+    "sha256": "4059803b50c019000ba6d384a735ec33df04a98090a77f9f72fd96e328a06850",
+    "size_bytes": 3190
+  },
+  "external_freeze_authorization": {
+    "authorization_source": "external_post_commit_audit",
+    "freeze_path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/encoder_skip_ood_sidecar_analysis_v3_3_4_5_1_freeze.json",
+    "freeze_sha256": "3c5405e8d9aadbe8f594fbc262a155a669bfbf67301898dee687aeeb2e286d9f",
+    "freeze_size_bytes": 85875,
+    "git_head": "eeadee88b747acc75e9437b5f2d1e7e3aab9701c",
+    "live_equals_git_show": true,
+    "tracked_clean": true
+  },
+  "freeze_binding": {
+    "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/encoder_skip_ood_sidecar_analysis_v3_3_4_5_1_freeze.json",
+    "sha256": "3c5405e8d9aadbe8f594fbc262a155a669bfbf67301898dee687aeeb2e286d9f",
+    "size_bytes": 85875
+  },
+  "fresh_paths": {
+    "new_attempt": "absent",
+    "new_output": "absent",
+    "old_v333_attempt": "absent",
+    "old_v333_output": "absent",
+    "old_v3345_attempt": "absent",
+    "old_v3345_output": "absent"
+  },
+  "generator_binding": {
+    "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/generate_encoder_skip_ood_sidecar_analysis_v3_3_4_5_1_freeze.py",
+    "sha256": "7edbfd3801d2eebc683903ee3e66431d7f24d6b070b6652ccb8c00fc5bd513b1",
+    "size_bytes": 39562
+  },
+  "git_head": "eeadee88b747acc75e9437b5f2d1e7e3aab9701c",
+  "immutable_input_audit": {
+    "amendment_live_historical_exact": true,
+    "consumed_failure_exact": true,
+    "current_137_live_launch_exact": true,
+    "immutable_model_run_exact": true,
+    "immutable_preflight_cache_exact": true,
+    "inherited_132_historical_exact": true,
+    "inherited_132_live_exact": true,
+    "launch_head_clean": true,
+    "new_destinations_fresh": true,
+    "new_implementation_4_live_historical_exact": true,
+    "old_destinations_absent": true,
+    "prior_cache_exact": true,
+    "source_authority_exact": true
+  },
+  "prior_cache_audit": {
+    "directory_count": 4,
+    "directory_file_tree_sha256": "a1dafb75097282b3d28174e4bb6c79a81d2f1c8c25cd8c64a1ea84642ba7f43a",
+    "directory_paths": [
+      ".",
+      "triton",
+      "xdg",
+      "xdg/matplotlib"
+    ],
+    "exact_membership": true,
+    "file_bindings": {
+      "xdg/matplotlib/fontlist-v3.11.0.json": {
+        "mode": "0600",
+        "sha256": "a777469f8f54be8cc9107788bce2b3cd23709aa317114392cdc365b3fb127125",
+        "size_bytes": 163240,
+        "st_dev": 66307,
+        "st_ino": 140791361,
+        "st_nlink": 1
+      }
+    },
+    "file_count": 1,
+    "file_tree_sha256": "d1d11bc6dc48b302cf675fb48727bd6ededec09142429eaa9e368f7631463717",
+    "lstat_rows": [
+      {
+        "entry_type": "directory",
+        "mode": "0700",
+        "path": ".",
+        "sha256": null,
+        "size_bytes": 4096,
+        "st_dev": 66307,
+        "st_ino": 140791354,
+        "st_nlink": 4
+      },
+      {
+        "entry_type": "directory",
+        "mode": "0700",
+        "path": "triton",
+        "sha256": null,
+        "size_bytes": 4096,
+        "st_dev": 66307,
+        "st_ino": 140791357,
+        "st_nlink": 2
+      },
+      {
+        "entry_type": "directory",
+        "mode": "0700",
+        "path": "xdg",
+        "sha256": null,
+        "size_bytes": 4096,
+        "st_dev": 66307,
+        "st_ino": 140791358,
+        "st_nlink": 3
+      },
+      {
+        "entry_type": "directory",
+        "mode": "0700",
+        "path": "xdg/matplotlib",
+        "sha256": null,
+        "size_bytes": 4096,
+        "st_dev": 66307,
+        "st_ino": 140791359,
+        "st_nlink": 2
+      },
+      {
+        "entry_type": "regular",
+        "mode": "0600",
+        "path": "xdg/matplotlib/fontlist-v3.11.0.json",
+        "sha256": "a777469f8f54be8cc9107788bce2b3cd23709aa317114392cdc365b3fb127125",
+        "size_bytes": 163240,
+        "st_dev": 66307,
+        "st_ino": 140791361,
+        "st_nlink": 1
+      }
+    ],
+    "no_follow": true,
+    "root": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_3_model_kernel_cache"
+  },
+  "prior_cache_audit_content_binding": {
+    "sha256": "9a6805aa1ded6f8a78a7ce525687170f36d04dbf0a5d8edb9e068e605c559a85",
+    "size_bytes": 1451
+  },
+  "run_terminal_binding": {
+    "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_5_development_ood_sidecar_one_shot/RUN_COMPLETE.json",
+    "sha256": "fdbd0a1dc7d24145f88c5a009cc80d8904e57920e0c9584426e791373fae6d8f",
+    "size_bytes": 43760
+  },
+  "schema_version": "v3.3.4.5.1-analysis-start-v1",
+  "shell_binding": {
+    "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_5_1.sh",
+    "sha256": "d7a40e7985eda80cb5a2fe66420977e8cdc8354aafe858b3d4178107ce65fd50",
+    "size_bytes": 771
+  },
+  "source_inventory_attestation": {
+    "all_rows_authority_exact": true,
+    "all_rows_launch_head_exact": true,
+    "all_rows_live_exact": true,
+    "authority_partitions": {
+      "amendment": {
+        "authority_commit": "564a01dc2981d57c8f8298f3efca5b22fcb381e0",
+        "paths": [
+          "experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_ood_sidecar_analysis_amendment_v3_3_4_5_1.md"
+        ],
+        "row_count": 1
+      },
+      "inherited_132": {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "paths": [
+          "experiments/interpretability/opensplice/analyze_encoder_skip_localization_v3_3.py",
+          "experiments/interpretability/opensplice/analyze_encoder_skip_localization_v3_3_1.py",
+          "experiments/interpretability/opensplice/analyze_encoder_skip_localization_v3_3_1_test.py",
+          "experiments/interpretability/opensplice/analyze_encoder_skip_localization_v3_3_test.py",
+          "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_2.py",
+          "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_2_1.py",
+          "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_2_1_test.py",
+          "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_2_2.py",
+          "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_2_2_test.py",
+          "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_2_test.py",
+          "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_3.py",
+          "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_3_test.py",
+          "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_3.py",
+          "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_3.sh",
+          "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_3_test.py",
+          "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_4.py",
+          "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_4.sh",
+          "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_4_test.py",
+          "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_5.py",
+          "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_5.sh",
+          "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_5_test.py",
+          "experiments/interpretability/opensplice/checkpoint_manifest_v3_2.tsv",
+          "experiments/interpretability/opensplice/encoder_skip_factorial_v3_3_freeze.json",
+          "experiments/interpretability/opensplice/encoder_skip_ood_sidecar_analysis_v3_3_2_1_freeze.json",
+          "experiments/interpretability/opensplice/encoder_skip_ood_sidecar_analysis_v3_3_2_2_freeze.json",
+          "experiments/interpretability/opensplice/generate_encoder_skip_ood_sidecar_freeze_v3_3_3.py",
+          "experiments/interpretability/opensplice/generate_encoder_skip_ood_sidecar_v3_3_4_3_freeze.py",
+          "experiments/interpretability/opensplice/generate_encoder_skip_ood_sidecar_v3_3_4_4_freeze.py",
+          "experiments/interpretability/opensplice/generate_encoder_skip_ood_sidecar_v3_3_4_5_freeze.py",
+          "experiments/interpretability/opensplice/launch_encoder_skip_factorial_v3_3.py",
+          "experiments/interpretability/opensplice/launch_encoder_skip_ood_sidecar_v3_3_2.py",
+          "experiments/interpretability/opensplice/launch_encoder_skip_ood_sidecar_v3_3_3.py",
+          "experiments/interpretability/opensplice/launch_encoder_skip_ood_sidecar_v3_3_4_3.py",
+          "experiments/interpretability/opensplice/launch_encoder_skip_ood_sidecar_v3_3_4_4.py",
+          "experiments/interpretability/opensplice/launch_encoder_skip_ood_sidecar_v3_3_4_5.py",
+          "experiments/interpretability/opensplice/run_device_preflight_v3_1_2.py",
+          "experiments/interpretability/opensplice/run_device_preflight_v3_3.py",
+          "experiments/interpretability/opensplice/run_device_preflight_v3_3_2.py",
+          "experiments/interpretability/opensplice/run_device_preflight_v3_3_2_test.py",
+          "experiments/interpretability/opensplice/run_device_preflight_v3_3_3.py",
+          "experiments/interpretability/opensplice/run_device_preflight_v3_3_3_test.py",
+          "experiments/interpretability/opensplice/run_device_preflight_v3_3_4_3.py",
+          "experiments/interpretability/opensplice/run_device_preflight_v3_3_4_3_test.py",
+          "experiments/interpretability/opensplice/run_device_preflight_v3_3_4_4.py",
+          "experiments/interpretability/opensplice/run_device_preflight_v3_3_4_4_test.py",
+          "experiments/interpretability/opensplice/run_device_preflight_v3_3_4_5.py",
+          "experiments/interpretability/opensplice/run_device_preflight_v3_3_4_5_test.py",
+          "experiments/interpretability/opensplice/run_device_preflight_v3_3_test.py",
+          "experiments/interpretability/opensplice/run_encoder_skip_factorial_v3_3.py",
+          "experiments/interpretability/opensplice/run_encoder_skip_factorial_v3_3.sh",
+          "experiments/interpretability/opensplice/run_encoder_skip_factorial_v3_3_test.py",
+          "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_analysis_v3_3_2_1.sh",
+          "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_analysis_v3_3_2_2.sh",
+          "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_v3_3_2.py",
+          "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_v3_3_2.sh",
+          "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_v3_3_2_test.py",
+          "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_v3_3_3.py",
+          "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_v3_3_3.sh",
+          "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_v3_3_3_test.py",
+          "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_v3_3_4_3.py",
+          "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_v3_3_4_3.sh",
+          "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_v3_3_4_3_test.py",
+          "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_v3_3_4_4.py",
+          "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_v3_3_4_4.sh",
+          "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_v3_3_4_4_test.py",
+          "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_v3_3_4_5.py",
+          "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_v3_3_4_5.sh",
+          "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_v3_3_4_5_test.py",
+          "experiments/interpretability/opensplice/run_inference_trace.py",
+          "experiments/interpretability/opensplice/run_phase_r_v3.py",
+          "experiments/interpretability/opensplice/run_route_census_v3.py",
+          "experiments/interpretability/opensplice/run_stage_a_branches_v3.py",
+          "experiments/interpretability/opensplice/run_superset_graph_v3_2.py",
+          "experiments/interpretability/opensplice/superset_graph_v3_2_development_exons.tsv",
+          "experiments/interpretability/opensplice/superset_graph_v3_2_development_variants.tsv",
+          "experiments/interpretability/opensplice/superset_graph_v3_2_reference_bindings.json",
+          "experiments/interpretability/opensplice/target_reducers_v3.py",
+          "experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_analysis_amendment_v3_3_1.md",
+          "experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_localization_protocol_v3_3.md",
+          "experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_ood_sidecar_amendment_v3_3_2.md",
+          "experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_ood_sidecar_analysis_amendment_v3_3_2_1.md",
+          "experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_ood_sidecar_analysis_amendment_v3_3_2_2.md",
+          "experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_ood_sidecar_compiler_gate_amendment_v3_3_3.md",
+          "experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_ood_sidecar_preflight_phase_amendment_v3_3_4_5.md",
+          "experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_ood_sidecar_preflight_version_amendment_v3_3_4_4.md",
+          "experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_ood_sidecar_stage_semantics_amendment_v3_3_4_3.md",
+          "experiments/interpretability/opensplice/v3_wider_mechanism/seven_skip_factorial_analysis_plan.md",
+          "experiments/interpretability/opensplice/v3_wider_mechanism/superset_graph_protocol_v3_2.md",
+          "experiments/interpretability/opensplice/validate_encoder_skip_bootstrap_v3_3.py",
+          "experiments/interpretability/opensplice/validate_encoder_skip_ood_sidecar_bootstrap_v3_3_2.py",
+          "experiments/interpretability/opensplice/validate_encoder_skip_ood_sidecar_bootstrap_v3_3_3.py",
+          "experiments/interpretability/opensplice/validate_encoder_skip_ood_sidecar_bootstrap_v3_3_4_3.py",
+          "experiments/interpretability/opensplice/validate_encoder_skip_ood_sidecar_bootstrap_v3_3_4_4.py",
+          "experiments/interpretability/opensplice/validate_encoder_skip_ood_sidecar_bootstrap_v3_3_4_5.py",
+          "experiments/interpretability/opensplice/validate_superset_graph_bootstrap_v3_2.py",
+          "hatch_build.py",
+          "pyproject.toml",
+          "src/alphagenome_research/model/__init__.py",
+          "src/alphagenome_research/model/attention.py",
+          "src/alphagenome_research/model/augmentation.py",
+          "src/alphagenome_research/model/convolutions.py",
+          "src/alphagenome_research/model/dna_model.py",
+          "src/alphagenome_research/model/embeddings.py",
+          "src/alphagenome_research/model/heads.py",
+          "src/alphagenome_research/model/indel_stitch_utils.py",
+          "src/alphagenome_research/model/interpretability.py",
+          "src/alphagenome_research/model/interpretability_test.py",
+          "src/alphagenome_research/model/interval_scoring/__init__.py",
+          "src/alphagenome_research/model/interval_scoring/gene_mask.py",
+          "src/alphagenome_research/model/interval_scoring/interval_scoring.py",
+          "src/alphagenome_research/model/layers.py",
+          "src/alphagenome_research/model/losses.py",
+          "src/alphagenome_research/model/metadata/__init__.py",
+          "src/alphagenome_research/model/metadata/metadata.py",
+          "src/alphagenome_research/model/model.py",
+          "src/alphagenome_research/model/one_hot_encoder.py",
+          "src/alphagenome_research/model/pallas_tiled_attention.py",
+          "src/alphagenome_research/model/schemas.py",
+          "src/alphagenome_research/model/splicing.py",
+          "src/alphagenome_research/model/tiled_attention.py",
+          "src/alphagenome_research/model/variant_scoring/__init__.py",
+          "src/alphagenome_research/model/variant_scoring/calibration/__init__.py",
+          "src/alphagenome_research/model/variant_scoring/calibration/calibration.py",
+          "src/alphagenome_research/model/variant_scoring/center_mask.py",
+          "src/alphagenome_research/model/variant_scoring/contact_map.py",
+          "src/alphagenome_research/model/variant_scoring/gene_mask.py",
+          "src/alphagenome_research/model/variant_scoring/gene_mask_extractor.py",
+          "src/alphagenome_research/model/variant_scoring/polyadenylation.py",
+          "src/alphagenome_research/model/variant_scoring/splice_junction.py",
+          "src/alphagenome_research/model/variant_scoring/variant_scoring.py",
+          "src/alphagenome_research/protos/__init__.py",
+          "src/alphagenome_research/protos/calibration_scores.proto"
+        ],
+        "row_count": 132
+      },
+      "new_implementation_4": {
+        "authority_commit": "dfa56d90c035c3aa370c65b79197820dd5787c92",
+        "paths": [
+          "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_5_1.py",
+          "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_5_1.sh",
+          "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_5_1_test.py",
+          "experiments/interpretability/opensplice/generate_encoder_skip_ood_sidecar_analysis_v3_3_4_5_1_freeze.py"
+        ],
+        "row_count": 4
+      }
+    },
+    "launch_git_head": "eeadee88b747acc75e9437b5f2d1e7e3aab9701c",
+    "launch_head_tracked_clean": true,
+    "row_count": 137,
+    "rows": [
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/analyze_encoder_skip_localization_v3_3.py",
+        "sha256": "0a65a27a5c424bb9dddacb5475e02d28a0999fc7cd593d4dd63ba4be06c39a46",
+        "size_bytes": 168709
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/analyze_encoder_skip_localization_v3_3_1.py",
+        "sha256": "0b10ba857bf27e1e48a90122dc1015933d0327ed84fc213cf0dafa95790bc6e7",
+        "size_bytes": 35765
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/analyze_encoder_skip_localization_v3_3_1_test.py",
+        "sha256": "27d68183bbfe77cb64d37eca2ff568e07a4fa893283c500118e46c4477054d8e",
+        "size_bytes": 16263
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/analyze_encoder_skip_localization_v3_3_test.py",
+        "sha256": "d027f73fb07682e8cb54d46653a5bd9aa900aaeac433b1748dbdf4886c6d5034",
+        "size_bytes": 53422
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_2.py",
+        "sha256": "90f00a6d51f33ac456a0fd799f2b9caf456b58944928886dc1577731707f205e",
+        "size_bytes": 90652
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_2_1.py",
+        "sha256": "35db9ca198cb5d7f03621ccf322ea116f98cea3bfdc711006dfd20bc809e8048",
+        "size_bytes": 40108
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_2_1_test.py",
+        "sha256": "a8733f3ffb35920dda2f6a856076cbe82a9e90aa2fe483169150dbad4421a1b8",
+        "size_bytes": 17080
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_2_2.py",
+        "sha256": "70be2f80e598f6c307511dfcad1a550a2438766b3348014be1e6ff25c9b99221",
+        "size_bytes": 35519
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_2_2_test.py",
+        "sha256": "cb7541e75dd65130f7f123643d88adac4f82e984afce4856babfc58284723a4d",
+        "size_bytes": 18063
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_2_test.py",
+        "sha256": "2e7424a76840c776ff550db3961c1fb1b63dee273bd8d030800efd27bf81d11e",
+        "size_bytes": 37497
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_3.py",
+        "sha256": "5cf50aa7a9403df5d8f5555b1d2fc50ab2feb69e0508c37e64bddd5a8a1e3783",
+        "size_bytes": 133458
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_3_test.py",
+        "sha256": "fe174d0546e97e1ac1de0ad03204df4e77cf8baa0e7edb27791d6b46ed6ed58f",
+        "size_bytes": 64132
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_3.py",
+        "sha256": "2105bbcdcfbec73847d32ebdedf5cc7d5d4b696ba36251ea812973508090c3fc",
+        "size_bytes": 335229
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100755",
+        "path": "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_3.sh",
+        "sha256": "7792b97f719aa6f863a034a19223148cbc1b575175be5e86226da662d3ba7b18",
+        "size_bytes": 377
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_3_test.py",
+        "sha256": "91dc82fae9929428be2d044162fcabe69005c4f160c0023745997dd2e57e98fd",
+        "size_bytes": 115094
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_4.py",
+        "sha256": "ab8e12b22de770b0cca9ebe38e2818b0d03dfb7b2150e39fc7a36a330063dc14",
+        "size_bytes": 353507
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100755",
+        "path": "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_4.sh",
+        "sha256": "964a91a1d5b5bf5afff73b1f0b33d6d0859896cc2fc55490135362f6d58087ae",
+        "size_bytes": 377
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_4_test.py",
+        "sha256": "f629c29e220fece965a7d675bccb57bd2b9f4f2baeb51755da3afb9200c996b8",
+        "size_bytes": 126802
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_5.py",
+        "sha256": "9320184c53ed6bc3b246443314d84c1f1543bbbf77aa10e3fff982bd5c18913a",
+        "size_bytes": 380123
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100755",
+        "path": "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_5.sh",
+        "sha256": "cea01ac69a8468f54e4bfb8a453709494449ef886e7dc6ae28e073a79fa2855c",
+        "size_bytes": 377
+      },
+      {
+        "authority_commit": "dfa56d90c035c3aa370c65b79197820dd5787c92",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_5_1.py",
+        "sha256": "28cb681d06ba0c6b753ff43faea33905876a42ac29e689ceaf6f87effa853dc6",
+        "size_bytes": 501327
+      },
+      {
+        "authority_commit": "dfa56d90c035c3aa370c65b79197820dd5787c92",
+        "git_mode": "100755",
+        "path": "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_5_1.sh",
+        "sha256": "d7a40e7985eda80cb5a2fe66420977e8cdc8354aafe858b3d4178107ce65fd50",
+        "size_bytes": 771
+      },
+      {
+        "authority_commit": "dfa56d90c035c3aa370c65b79197820dd5787c92",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_5_1_test.py",
+        "sha256": "adce559df1624e49f62a10fb738eef629f662381392b500761e9dd7890c693ad",
+        "size_bytes": 71968
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_5_test.py",
+        "sha256": "dcede28da855e3784a86453fb8f1cdeb3b94d326bc249023f3e72b82316a0fe5",
+        "size_bytes": 138145
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/checkpoint_manifest_v3_2.tsv",
+        "sha256": "1ed87db4c5bd7c5418c7734ec128faa4a9ecd186df2a024437484a8bc2b6e934",
+        "size_bytes": 1214
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/encoder_skip_factorial_v3_3_freeze.json",
+        "sha256": "98860ed4e60c427a76ac05879d800f36b65c10a310f4b2b981819fa48af767b3",
+        "size_bytes": 28924
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/encoder_skip_ood_sidecar_analysis_v3_3_2_1_freeze.json",
+        "sha256": "3871ab41b16105a94673e89381d32d7253b014c64eda5c6789eaecf16477c061",
+        "size_bytes": 3668
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/encoder_skip_ood_sidecar_analysis_v3_3_2_2_freeze.json",
+        "sha256": "e7c3fe72c9d9ca5b23299dfbc2a2991643b19722cf9a5c386debf73f367fa520",
+        "size_bytes": 3679
+      },
+      {
+        "authority_commit": "dfa56d90c035c3aa370c65b79197820dd5787c92",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/generate_encoder_skip_ood_sidecar_analysis_v3_3_4_5_1_freeze.py",
+        "sha256": "7edbfd3801d2eebc683903ee3e66431d7f24d6b070b6652ccb8c00fc5bd513b1",
+        "size_bytes": 39562
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/generate_encoder_skip_ood_sidecar_freeze_v3_3_3.py",
+        "sha256": "4a77ea42b8e3597b365ed5db0f2d54eebfe2d990e013e64f1ed87034408d4d7f",
+        "size_bytes": 5202
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/generate_encoder_skip_ood_sidecar_v3_3_4_3_freeze.py",
+        "sha256": "c8ab2088ac904a9ad287e88b6fe25793a9ed48b93762c427ebf0adca00d2e267",
+        "size_bytes": 7869
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/generate_encoder_skip_ood_sidecar_v3_3_4_4_freeze.py",
+        "sha256": "88c88f7be4a27c6057ef31508330d694366cfd5ab9f55493b130e7d917c7fbdb",
+        "size_bytes": 8326
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/generate_encoder_skip_ood_sidecar_v3_3_4_5_freeze.py",
+        "sha256": "05a1f43cf31f157e05b4c5b8104c3988d7d74fd2b72a9beb4abf6464097dc947",
+        "size_bytes": 8622
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100755",
+        "path": "experiments/interpretability/opensplice/launch_encoder_skip_factorial_v3_3.py",
+        "sha256": "45842229dc363644e26d35b6c33e0931ddbc3b5c32af263767d5ddc891f82382",
+        "size_bytes": 2110
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/launch_encoder_skip_ood_sidecar_v3_3_2.py",
+        "sha256": "95a44c230bb7583c0660ef426cf3d4eb60c4ebb2c6ac6fb1e8657f52e27378ae",
+        "size_bytes": 2212
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/launch_encoder_skip_ood_sidecar_v3_3_3.py",
+        "sha256": "b4a6b9f414005ee96c3f401437dccab349c8d3ebf40915a7862db866ce74750c",
+        "size_bytes": 2396
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/launch_encoder_skip_ood_sidecar_v3_3_4_3.py",
+        "sha256": "459d3fd7646f495f4fc39e788d35f04d16dc517ee4541229307a749e62c58458",
+        "size_bytes": 25695
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/launch_encoder_skip_ood_sidecar_v3_3_4_4.py",
+        "sha256": "4cdeee9df8b14043633383b99cdf8d88bdf1c3a0a3e4146a3c40adf9e78991f9",
+        "size_bytes": 27372
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/launch_encoder_skip_ood_sidecar_v3_3_4_5.py",
+        "sha256": "14f6872cffee0dd5b0cd0ac3161d952c89f2bede7017f8e1d1ea04755d51f728",
+        "size_bytes": 29618
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100755",
+        "path": "experiments/interpretability/opensplice/run_device_preflight_v3_1_2.py",
+        "sha256": "d5e8520131392c4649a7cc6d4be5f457294e9379b910b000976f59559b3e4c14",
+        "size_bytes": 15050
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100755",
+        "path": "experiments/interpretability/opensplice/run_device_preflight_v3_3.py",
+        "sha256": "5ad84bad490ac960179c77ff6d1a1508a4c95297585f20641b365130857b39f7",
+        "size_bytes": 8578
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/run_device_preflight_v3_3_2.py",
+        "sha256": "7536c3d671783976663063345c2e2fb2d8b6b7f71b80d0f85e207a3cc5230f6d",
+        "size_bytes": 6655
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/run_device_preflight_v3_3_2_test.py",
+        "sha256": "7d757715decf919395e5d5bce9ae65c7cab800bf5fd9571d5469dc954edd7484",
+        "size_bytes": 4597
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/run_device_preflight_v3_3_3.py",
+        "sha256": "45763aa86a4138693adb2d2aae80035b8d58280904024615fbd3ee6c17f1d100",
+        "size_bytes": 7147
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/run_device_preflight_v3_3_3_test.py",
+        "sha256": "1153f6cfd9a6571eba16cfe8211531d1f8be1fce9729f752206796694a4013f7",
+        "size_bytes": 13003
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/run_device_preflight_v3_3_4_3.py",
+        "sha256": "35025f6a03ce0e6c8f260706c286545590fe8fc4135b0bd8f2aa7fe84c538810",
+        "size_bytes": 12503
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/run_device_preflight_v3_3_4_3_test.py",
+        "sha256": "7ee9aef256efe3446432f09db5d3978ead3fb0242fb8019eead879d8c1a2bad4",
+        "size_bytes": 33146
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/run_device_preflight_v3_3_4_4.py",
+        "sha256": "190b4ede0be981269ff2345931577ad2d8d901d38617268168a8cf02424f6907",
+        "size_bytes": 13267
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/run_device_preflight_v3_3_4_4_test.py",
+        "sha256": "708dfd74035405672602d7db12b6c27e15fdd58bda987946bb02b098ee9d1c5f",
+        "size_bytes": 46318
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/run_device_preflight_v3_3_4_5.py",
+        "sha256": "46bbb2f72ceb2c96872a290739bb6653babd81499730967a3aeb8028c48d0e89",
+        "size_bytes": 14024
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/run_device_preflight_v3_3_4_5_test.py",
+        "sha256": "7df6262981837ecdfa389cf732e8227537936223c03bf5ffbd4068612d0cb0fc",
+        "size_bytes": 59153
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/run_device_preflight_v3_3_test.py",
+        "sha256": "4d0e2cbc44a81aa706a93caaead12030e76799a5abc2402dbb2ab58adf548d55",
+        "size_bytes": 4223
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100755",
+        "path": "experiments/interpretability/opensplice/run_encoder_skip_factorial_v3_3.py",
+        "sha256": "56eef2cc5b87f3ff9ad5837d19b891b98bbb4a7e126e20713ea9bc8b21c409c5",
+        "size_bytes": 76131
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100755",
+        "path": "experiments/interpretability/opensplice/run_encoder_skip_factorial_v3_3.sh",
+        "sha256": "a3d20c0a3b817ca4d51ac5d4fe0b36d2c9953655000c6bd17b27ade5a0c67295",
+        "size_bytes": 1906
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/run_encoder_skip_factorial_v3_3_test.py",
+        "sha256": "a3bd74b123fe0633aab932a209769430e2d65958e7999392ee76b9647bae1a4c",
+        "size_bytes": 12303
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100755",
+        "path": "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_analysis_v3_3_2_1.sh",
+        "sha256": "ea5cce6ae631ba3fa2bf0082d691d0896ef0fed7b20f0d908034e17775060caa",
+        "size_bytes": 641
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100755",
+        "path": "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_analysis_v3_3_2_2.sh",
+        "sha256": "7eb4d6b8dda1a415881a6934d6cf9e30cbfc707fd531eb1a1d19df3b90b1a2f9",
+        "size_bytes": 641
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_v3_3_2.py",
+        "sha256": "f4b1979013f8419bf40b97d3ba8816f0444f09087d8ddd562f9bcf7ed9f23367",
+        "size_bytes": 48496
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100755",
+        "path": "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_v3_3_2.sh",
+        "sha256": "ce2dedb4d28db87b67beedc8227bb946f53955613add3414f307cb7a85bb3de4",
+        "size_bytes": 1797
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_v3_3_2_test.py",
+        "sha256": "9ac807d7259df4b4c5871d6ec4045adb60078dd1a608a4ce0cd38ab5b0da2361",
+        "size_bytes": 19636
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_v3_3_3.py",
+        "sha256": "88c169d5b42582ebda2146f37994a09819d5aa327afe81e67b06406d97790606",
+        "size_bytes": 84931
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100755",
+        "path": "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_v3_3_3.sh",
+        "sha256": "84a178d0c7a188f555a811c29b84b34569941bd88f7eda02f7a751023f8bfaae",
+        "size_bytes": 2936
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_v3_3_3_test.py",
+        "sha256": "abc9776d658269b04a13b337692cadc827bd4852de28a15ee5e4b5b1a0d6e796",
+        "size_bytes": 41841
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_v3_3_4_3.py",
+        "sha256": "f35a628d369bc98ba46ddd028b2b3a35603a06a8fec29a156d1927b781ba36d9",
+        "size_bytes": 203772
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100755",
+        "path": "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_v3_3_4_3.sh",
+        "sha256": "a6fffa175bad23089dca62570a9217cbf23a6eaa90afa0cc6bb85b57ce94b4e2",
+        "size_bytes": 2178
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_v3_3_4_3_test.py",
+        "sha256": "1f0211472ccefff470b0dc70aa9d20dbf19cef890ede9eba62c9c09707aff838",
+        "size_bytes": 100112
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_v3_3_4_4.py",
+        "sha256": "55619f20485e59ee0f08eba0b71fcb03126a74f1287f424d420a83f288de2ef7",
+        "size_bytes": 205571
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100755",
+        "path": "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_v3_3_4_4.sh",
+        "sha256": "6913faaad359d18b72c7ec7f9323feb1e9263e4bfaefbb9199c05b1ebe1785b1",
+        "size_bytes": 2246
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_v3_3_4_4_test.py",
+        "sha256": "a3cef15bcbe74b6af7d16edc7a19f13504b86ebe7d7c5a63a166c96618344fb3",
+        "size_bytes": 101427
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_v3_3_4_5.py",
+        "sha256": "c60945857d047315ade72e51da47efb8a31fb1a2b6f09ce3285462f37c52ef3c",
+        "size_bytes": 207015
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100755",
+        "path": "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_v3_3_4_5.sh",
+        "sha256": "026fa849a5fdfbad9ccb412cd79770bfdf773be32f47e63d2671117504536329",
+        "size_bytes": 2314
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/run_encoder_skip_ood_sidecar_v3_3_4_5_test.py",
+        "sha256": "cf6dd33b1fc4eb9ec13bb5c88794129dd83d799e9e1afd25edf2450beccf4ea8",
+        "size_bytes": 101909
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/run_inference_trace.py",
+        "sha256": "2ff015c9a1440d6bad8048a207bca74e8ced545ada357844529436ec20a87684",
+        "size_bytes": 55525
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/run_phase_r_v3.py",
+        "sha256": "e2430f700165bc0224ed2cd07130f568119f2dc4aad5a73eb5069f1efcdb0d74",
+        "size_bytes": 18636
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/run_route_census_v3.py",
+        "sha256": "ed873dc3d538097fe8c8646e4449e48914608a0bffb942f46067018427f6a06a",
+        "size_bytes": 35932
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/run_stage_a_branches_v3.py",
+        "sha256": "0a75657f7f52e4f9d0580229b10fbbec386bf650372d1d81822317fb86dddcde",
+        "size_bytes": 47521
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/run_superset_graph_v3_2.py",
+        "sha256": "d3d3335ee47fcd477f25fd8dbf13f515a6ec909b7054e35c7209acac45f2f1eb",
+        "size_bytes": 68642
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/superset_graph_v3_2_development_exons.tsv",
+        "sha256": "37c49637bba5484d1e29a7f21faf42668dcf62d604e9af91939a8776e61f0231",
+        "size_bytes": 413
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/superset_graph_v3_2_development_variants.tsv",
+        "sha256": "24a0afec1c020803152c7f55a0a78ac345763173dd79a4175e889d9192db05f9",
+        "size_bytes": 7315
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/superset_graph_v3_2_reference_bindings.json",
+        "sha256": "da712cdca50f82113ac1d00cb2fa7171f7368f31aedf06c48ce92dbdb5897dca",
+        "size_bytes": 4035
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/target_reducers_v3.py",
+        "sha256": "da890039805b81cf3ad4923aa10bf075cae96fede869af94035fc5007ea3a41e",
+        "size_bytes": 15754
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_analysis_amendment_v3_3_1.md",
+        "sha256": "37e23b251f53ab87bae99b63024a381c367ce33bbc950a2227b3267fbc9668d1",
+        "size_bytes": 12308
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_localization_protocol_v3_3.md",
+        "sha256": "85151029297cf4b4c1a07dd2a0f47b10b0663acd08ddfe25ba72b9898b1beea0",
+        "size_bytes": 29392
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_ood_sidecar_amendment_v3_3_2.md",
+        "sha256": "42cd43bbc25517d35b3e21dd5df7bf68a37ee46c51cb71bcdf363ac4de3b19e3",
+        "size_bytes": 19284
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_ood_sidecar_analysis_amendment_v3_3_2_1.md",
+        "sha256": "81a4f4c126b83225b02c7de5cf0dc6fd0baf6085b84b9ed5dd7a3677744090ba",
+        "size_bytes": 15662
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_ood_sidecar_analysis_amendment_v3_3_2_2.md",
+        "sha256": "3188b44f85d8315eb4a099b42930b2d08f76074ffb190ef11b67a9f39e788a3d",
+        "size_bytes": 12345
+      },
+      {
+        "authority_commit": "564a01dc2981d57c8f8298f3efca5b22fcb381e0",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_ood_sidecar_analysis_amendment_v3_3_4_5_1.md",
+        "sha256": "16af8ccb65f3e08739c3792c5c9ab3affcb19a3ca9993904260729a898afd5c4",
+        "size_bytes": 41952
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_ood_sidecar_compiler_gate_amendment_v3_3_3.md",
+        "sha256": "c9b00398296e683ac6e1c321fd8c4302f96b2e62bb23828e8b5ef2fe9de3f70b",
+        "size_bytes": 21425
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_ood_sidecar_preflight_phase_amendment_v3_3_4_5.md",
+        "sha256": "e64af0ba8ad6436530a1bd0da2807f3a9bd6ef874306255e1f9683e1731574c8",
+        "size_bytes": 29984
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_ood_sidecar_preflight_version_amendment_v3_3_4_4.md",
+        "sha256": "a188c252fb8ef01bcb48123aa57673eb1bb6eb720f8a9b68e35cafda0793e523",
+        "size_bytes": 28332
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/v3_wider_mechanism/encoder_skip_ood_sidecar_stage_semantics_amendment_v3_3_4_3.md",
+        "sha256": "e1eb3418a17f2a784c6cf5389f1e9bb7858125a514cd661546ce67ab154cbf93",
+        "size_bytes": 12666
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/v3_wider_mechanism/seven_skip_factorial_analysis_plan.md",
+        "sha256": "ca29860eae1d41b9c5c69908b2209c0b5fe06b5d1b9c2f70225ee2d0656fa0dd",
+        "size_bytes": 17263
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/v3_wider_mechanism/superset_graph_protocol_v3_2.md",
+        "sha256": "1e87839250e838d1d9aa95162e76a3acb6b1eaab59b481c60dab943b62f6caea",
+        "size_bytes": 21122
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100755",
+        "path": "experiments/interpretability/opensplice/validate_encoder_skip_bootstrap_v3_3.py",
+        "sha256": "0f5fd125183879f3c0ea08473ff6575d2cbf2e3297bc5b40fc48d8e0cc58ce4b",
+        "size_bytes": 17015
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/validate_encoder_skip_ood_sidecar_bootstrap_v3_3_2.py",
+        "sha256": "fd9f7778d662a12d91ea6103b29bb9b31248c033a667f7a320de9a090f96318e",
+        "size_bytes": 22155
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/validate_encoder_skip_ood_sidecar_bootstrap_v3_3_3.py",
+        "sha256": "dd804c8e20859013f5704789700213d3cb3fa453c048a920d31db0d465103475",
+        "size_bytes": 55403
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/validate_encoder_skip_ood_sidecar_bootstrap_v3_3_4_3.py",
+        "sha256": "35f6e5d35e7a2698da65cdc931e07d2a334ab07d22a2d46837f762b0ba5b9a79",
+        "size_bytes": 128840
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/validate_encoder_skip_ood_sidecar_bootstrap_v3_3_4_4.py",
+        "sha256": "8e2559d5dae96f6d9ddaa752e2aa4de3829ec85115e78fba356e6fe8c8abccb8",
+        "size_bytes": 143561
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/validate_encoder_skip_ood_sidecar_bootstrap_v3_3_4_5.py",
+        "sha256": "684091be04f4f3ba2eaa989fed6f967549795e3b460a84ea840a32d47776caf1",
+        "size_bytes": 167740
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "experiments/interpretability/opensplice/validate_superset_graph_bootstrap_v3_2.py",
+        "sha256": "b800464721b2648528427d8e034ea2e9a4bb9090b863c843dc773849a390aee5",
+        "size_bytes": 7056
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "hatch_build.py",
+        "sha256": "2a3dea991f65bf91107bf4acea3c8007e0188c2b1393b76226b4e5f40241f3f3",
+        "size_bytes": 1854
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "pyproject.toml",
+        "sha256": "9c809953f4703929ac9e92f9a44f7ce3c59c8ed57247d2b568f6c6e124909498",
+        "size_bytes": 2581
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/model/__init__.py",
+        "sha256": "4b86d6f532fd00c022643e4b9a9a18f1d13ef6b7aa7175e2dfdd1dac3eb73898",
+        "size_bytes": 602
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/model/attention.py",
+        "sha256": "c2acb9a97752497373c8b8b831ac77e63d5c21f2a93fdb602dd2d53731419444",
+        "size_bytes": 16958
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/model/augmentation.py",
+        "sha256": "a85e750f1f4ca9b3b125eef4704f98725b1a8c2299294ed1f779541167a1f928",
+        "size_bytes": 4851
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/model/convolutions.py",
+        "sha256": "757efdc485647afbb2469713f4bf69aaf4dd1323bcf58055a1987403cd69bae5",
+        "size_bytes": 5422
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/model/dna_model.py",
+        "sha256": "04e0a5e36ee35a037633046354b6b91da672ea08d9a37935314c68bfe16a8d4e",
+        "size_bytes": 93759
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/model/embeddings.py",
+        "sha256": "c9f80d7c222ce2d0c011a115c7fc02609ca82a4e30a798c17d90aee8f1198501",
+        "size_bytes": 3970
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/model/heads.py",
+        "sha256": "11f2f72a5a23bcf8b9eb6a1ffe586d17b254047d9ea988e86f25807e943a52e4",
+        "size_bytes": 43188
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/model/indel_stitch_utils.py",
+        "sha256": "0b4366171283381773a3d1eace501ad078946786a9d2ff212fb31fd9143677f3",
+        "size_bytes": 5754
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/model/interpretability.py",
+        "sha256": "d00a4dd8a4e62c2d8a7d583a74cbf5632121f98892e901c7f8927539ee156500",
+        "size_bytes": 54428
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/model/interpretability_test.py",
+        "sha256": "9bf500a2ef9aff77397e3ce801293afc5900d77b15b0d82f2be405fcfc67c7f6",
+        "size_bytes": 57541
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/model/interval_scoring/__init__.py",
+        "sha256": "8554958835981181321f45b9290f045077016c91868a9ef46cb6df45ba5ce2de",
+        "size_bytes": 613
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/model/interval_scoring/gene_mask.py",
+        "sha256": "6628178f4da14485903291b6e453876f5c0a6264f4ae288e46a1a03b8f8ba723",
+        "size_bytes": 5071
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/model/interval_scoring/interval_scoring.py",
+        "sha256": "377e06b6d7c4c3c58b63af6a8772eaf421d85ce76a218718b7519b943b74a28d",
+        "size_bytes": 3779
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/model/layers.py",
+        "sha256": "16f970e2530f6f0556e33d810acdeaa05f101cc18e493315f591939d5dc6f483",
+        "size_bytes": 4581
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/model/losses.py",
+        "sha256": "904ca738c13d35eca053c1cc941fec3cb6b91695d11675c9a0e4d52e889190b8",
+        "size_bytes": 6275
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/model/metadata/__init__.py",
+        "sha256": "da6e119c3d47070e5bf54f498f198d09bc4011a6ceed4c81527e2fd7afb4678e",
+        "size_bytes": 611
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/model/metadata/metadata.py",
+        "sha256": "b3edc4092e95ccc4fa766d3ce8c3b115a2499d50d26e035a0dcd537b8ff09d5f",
+        "size_bytes": 5625
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/model/model.py",
+        "sha256": "7aee357d776f1f10f9ef04b1602103496ad543d89f49d5e59af459afca217ea1",
+        "size_bytes": 40836
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/model/one_hot_encoder.py",
+        "sha256": "e80f6edecdf0a3dc3422ddd611828bf67daa5707a6a3b75fcd1a70f1058c8d95",
+        "size_bytes": 1877
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/model/pallas_tiled_attention.py",
+        "sha256": "19219345ff89f2a55297731974e5deca50afc3f6a94557a2b1b0fe28d037fd00",
+        "size_bytes": 8439
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/model/schemas.py",
+        "sha256": "0ed930ebffbf2b1e14f6290ec761a052beaa008876cc84b873cad216612a3f1a",
+        "size_bytes": 3836
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/model/splicing.py",
+        "sha256": "b923c3a7cb432f133b7d85536974169f0c91fb3223e9d60153b080273aff6594",
+        "size_bytes": 2725
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/model/tiled_attention.py",
+        "sha256": "93ac9a402ba6652c4c7e6df2dde7d6c954dfe82240059490999cf5dc90ee09f4",
+        "size_bytes": 7377
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/model/variant_scoring/__init__.py",
+        "sha256": "2e4bc740f5524665e2101b9dec5978ccb2dd742368f9bf387095dd4967967152",
+        "size_bytes": 612
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/model/variant_scoring/calibration/__init__.py",
+        "sha256": "69cb0008a5f09e27e80cde73fc9a983101b3ac66e3917a3b16117de44e462fa8",
+        "size_bytes": 615
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/model/variant_scoring/calibration/calibration.py",
+        "sha256": "a11c9da1e4e7088983ee3b982d00d61c940437899fa98a1da9ef603474d48224",
+        "size_bytes": 6534
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/model/variant_scoring/center_mask.py",
+        "sha256": "d6256a8913d74b34a940a477bddd6d11cf4a4126087ff8a78594bfbbd923dcf9",
+        "size_bytes": 6258
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/model/variant_scoring/contact_map.py",
+        "sha256": "0761cdaac52489c615b8d0269df31f27525cf17203a665e30bc72bd590804070",
+        "size_bytes": 4783
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/model/variant_scoring/gene_mask.py",
+        "sha256": "b668443c242eab0b102b20b62b04221c41ab742ab20ad0218d4aa7bba8a7efff",
+        "size_bytes": 7532
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/model/variant_scoring/gene_mask_extractor.py",
+        "sha256": "0eac91fe16fe3b637e34abbc7c5084cc41f6ec747334da4e6281570e9785fbc1",
+        "size_bytes": 15242
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/model/variant_scoring/polyadenylation.py",
+        "sha256": "b6472d524ac374f929ba77880216e218365b321a9542a9fac0b9e36a73bfb646",
+        "size_bytes": 8442
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/model/variant_scoring/splice_junction.py",
+        "sha256": "47f84d74393ee4d830e58c668a9b33e746e2697efac296b586bf1fa26e75978f",
+        "size_bytes": 11537
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/model/variant_scoring/variant_scoring.py",
+        "sha256": "3b59a3a47441b88198a5db2753e16b41fdc1e3d108937138b2056a59872e3659",
+        "size_bytes": 12879
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/protos/__init__.py",
+        "sha256": "081e376d763211e874472e9ca7a3dc7980ffe825919c535813d8080afcf3f568",
+        "size_bytes": 626
+      },
+      {
+        "authority_commit": "0da8f47ea6e576a72a1cda204ce868ef79cc2ce5",
+        "git_mode": "100644",
+        "path": "src/alphagenome_research/protos/calibration_scores.proto",
+        "sha256": "356f08689a4bafa0761f88f08dac08468a2de2c8aef38dcef093457eceee2f34",
+        "size_bytes": 1483
+      }
+    ],
+    "source_authority_head": "dfa56d90c035c3aa370c65b79197820dd5787c92",
+    "source_authority_tree_exact": true,
+    "tree_sha256": "73386a6f49838986f79e1ab6938a1ad689e9e4d0bd11e9482cbffe3e3c965e94"
+  },
+  "started_at_unix_s": 1787936015.1365464,
+  "status": "started",
+  "test_binding": {
+    "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/analyze_encoder_skip_ood_sidecar_v3_3_4_5_1_test.py",
+    "sha256": "adce559df1624e49f62a10fb738eef629f662381392b500761e9dd7890c693ad",
+    "size_bytes": 71968
+  }
+}

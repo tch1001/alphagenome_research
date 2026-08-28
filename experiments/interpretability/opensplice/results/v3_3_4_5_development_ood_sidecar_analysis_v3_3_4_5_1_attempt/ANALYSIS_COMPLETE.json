@@ -1,0 +1,114 @@
+{
+  "analysis_binding": {
+    "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_5_development_ood_sidecar_analysis_v3_3_4_5_1/ANALYSIS.json",
+    "sha256": "5090675905789aff6a290dcbeeabefe3a8a2938ebc95ecdddd296a3f0ca31a6f",
+    "size_bytes": 18633
+  },
+  "analysis_version": "v3.3.4.5.1-structural-analyzer-v1",
+  "attempt_id": "v3.3.4.5.1-development-ood-sidecar-structural-analysis",
+  "attempt_tree_before_complete": {
+    "directory_count": 1,
+    "directory_file_tree_sha256": "977f2e8df165597b122d280418baf09ae344a9a80f67ceb42c615b6848f4d075",
+    "directory_paths": [
+      "."
+    ],
+    "directory_tree_sha256": "c62b6b5dd01e9ff096fd7470bdb0867210b5f5c82a820b5a756441235b0eadbb",
+    "file_bindings": {
+      "ANALYSIS_ATTEMPT_STARTED.json": {
+        "mode": "0400",
+        "sha256": "ada53945670529d24c396514e31ed5155c4c3da0c2d88d2d86d93cfc4bbfc9c1",
+        "size_bytes": 67913,
+        "st_dev": 66307,
+        "st_ino": 140791457,
+        "st_nlink": 1
+      }
+    },
+    "file_count": 1,
+    "file_tree_sha256": "3672f41ea79d271a8cc003206b13e1de06fbde7e19a5921c59f0776f7d826ae1",
+    "root": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_5_development_ood_sidecar_analysis_v3_3_4_5_1_attempt"
+  },
+  "completed_at_unix_s": 1787936021.238448,
+  "output_tree_complete": {
+    "directory_count": 1,
+    "directory_file_tree_sha256": "2fba6fe13289faf20702e48e3dd6b572c1597bb78342a4986509c4fbefd304ea",
+    "directory_paths": [
+      "."
+    ],
+    "directory_tree_sha256": "c62b6b5dd01e9ff096fd7470bdb0867210b5f5c82a820b5a756441235b0eadbb",
+    "file_bindings": {
+      "ANALYSIS.json": {
+        "mode": "0400",
+        "sha256": "5090675905789aff6a290dcbeeabefe3a8a2938ebc95ecdddd296a3f0ca31a6f",
+        "size_bytes": 18633,
+        "st_dev": 66307,
+        "st_ino": 140791466,
+        "st_nlink": 1
+      },
+      "RESULT.md": {
+        "mode": "0400",
+        "sha256": "5d2f30d217c3324d79097e256ffa4ab52d3469ba6453c59ac866191ab8bfdffd",
+        "size_bytes": 504,
+        "st_dev": 66307,
+        "st_ino": 140791459,
+        "st_nlink": 1
+      }
+    },
+    "file_count": 2,
+    "file_tree_sha256": "221df53d78db5fedfdde1f1003a80ed7d2a7135c27c03644e6aa751d7256ac57",
+    "root": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_5_development_ood_sidecar_analysis_v3_3_4_5_1"
+  },
+  "publication_audit": {
+    "durability_uncertain_final_bindings": {},
+    "durability_uncertain_final_count": 0,
+    "method": "named_temp_renameat2_noreplace",
+    "no_new_entry_failure": false,
+    "no_publication_retry": true,
+    "no_published_final_deleted": true,
+    "no_temp_or_final_reused": true,
+    "preexisting_entry_count": 0,
+    "preexisting_entry_states": {},
+    "publication_failure": null,
+    "schema_version": "v3.3.4.5.1-named-temp-renameat2-noreplace-v1",
+    "successful_final_bindings_before_terminal": {
+      "analysis_attempt/ANALYSIS_ATTEMPT_STARTED.json": {
+        "mode": "0400",
+        "sha256": "ada53945670529d24c396514e31ed5155c4c3da0c2d88d2d86d93cfc4bbfc9c1",
+        "size_bytes": 67913,
+        "st_dev": 66307,
+        "st_ino": 140791457,
+        "st_nlink": 1
+      },
+      "analysis_output/ANALYSIS.json": {
+        "mode": "0400",
+        "sha256": "5090675905789aff6a290dcbeeabefe3a8a2938ebc95ecdddd296a3f0ca31a6f",
+        "size_bytes": 18633,
+        "st_dev": 66307,
+        "st_ino": 140791466,
+        "st_nlink": 1
+      },
+      "analysis_output/RESULT.md": {
+        "mode": "0400",
+        "sha256": "5d2f30d217c3324d79097e256ffa4ab52d3469ba6453c59ac866191ab8bfdffd",
+        "size_bytes": 504,
+        "st_dev": 66307,
+        "st_ino": 140791459,
+        "st_nlink": 1
+      }
+    },
+    "successful_final_count_before_terminal": 3,
+    "temporary_orphan_bindings": {},
+    "temporary_orphan_count": 0
+  },
+  "result_binding": {
+    "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_5_development_ood_sidecar_analysis_v3_3_4_5_1/RESULT.md",
+    "sha256": "5d2f30d217c3324d79097e256ffa4ab52d3469ba6453c59ac866191ab8bfdffd",
+    "size_bytes": 504
+  },
+  "schema_version": "v3.3.4.5.1-analysis-complete-v1",
+  "start_binding": {
+    "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_5_development_ood_sidecar_analysis_v3_3_4_5_1_attempt/ANALYSIS_ATTEMPT_STARTED.json",
+    "sha256": "ada53945670529d24c396514e31ed5155c4c3da0c2d88d2d86d93cfc4bbfc9c1",
+    "size_bytes": 67913
+  },
+  "status": "complete"
+}
