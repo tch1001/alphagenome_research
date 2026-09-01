@@ -1,0 +1,384 @@
+{
+  "all_variants_sensitivity": {
+    "A": {
+      "maximin_median_intended_B": 0.38466612973058534,
+      "passes_both_genes": true,
+      "per_gene": {
+        "BRAF": {
+          "median_bidirectional_bottleneck": {
+            "downstream": -0.0,
+            "intended": 0.38466612973058534,
+            "upstream": -0.0
+          },
+          "median_per_variant_spatial_contrast": 0.38466612973058534,
+          "passes_frozen_gene_rule": true,
+          "positive_spatial_contrast_count": 10,
+          "variant_count": 10
+        },
+        "SLC25A48": {
+          "median_bidirectional_bottleneck": {
+            "downstream": 0.0,
+            "intended": 0.6597728212304705,
+            "upstream": 0.0
+          },
+          "median_per_variant_spatial_contrast": 0.6597728212304705,
+          "passes_frozen_gene_rule": true,
+          "positive_spatial_contrast_count": 9,
+          "variant_count": 10
+        }
+      }
+    },
+    "D": {
+      "maximin_median_intended_B": 0.006136874474707886,
+      "passes_both_genes": false,
+      "per_gene": {
+        "BRAF": {
+          "median_bidirectional_bottleneck": {
+            "downstream": -0.0,
+            "intended": 0.2795432106291351,
+            "upstream": -0.0
+          },
+          "median_per_variant_spatial_contrast": 0.2795432106291351,
+          "passes_frozen_gene_rule": true,
+          "positive_spatial_contrast_count": 10,
+          "variant_count": 10
+        },
+        "SLC25A48": {
+          "median_bidirectional_bottleneck": {
+            "downstream": 0.0,
+            "intended": 0.006136874474707886,
+            "upstream": 0.0
+          },
+          "median_per_variant_spatial_contrast": 0.006136874474707886,
+          "passes_frozen_gene_rule": false,
+          "positive_spatial_contrast_count": 7,
+          "variant_count": 10
+        }
+      }
+    },
+    "S": {
+      "maximin_median_intended_B": 0.5161335765967392,
+      "passes_both_genes": true,
+      "per_gene": {
+        "BRAF": {
+          "median_bidirectional_bottleneck": {
+            "downstream": -0.0,
+            "intended": 0.5161335765967392,
+            "upstream": -0.0
+          },
+          "median_per_variant_spatial_contrast": 0.5161335765967392,
+          "passes_frozen_gene_rule": true,
+          "positive_spatial_contrast_count": 10,
+          "variant_count": 10
+        },
+        "SLC25A48": {
+          "median_bidirectional_bottleneck": {
+            "downstream": 0.0,
+            "intended": 0.6650928191965618,
+            "upstream": 0.0
+          },
+          "median_per_variant_spatial_contrast": 0.6650928191965618,
+          "passes_frozen_gene_rule": true,
+          "positive_spatial_contrast_count": 8,
+          "variant_count": 10
+        }
+      }
+    },
+    "V": {
+      "maximin_median_intended_B": 0.34125295597447,
+      "passes_both_genes": true,
+      "per_gene": {
+        "BRAF": {
+          "median_bidirectional_bottleneck": {
+            "downstream": -0.0,
+            "intended": 0.4070502577545486,
+            "upstream": -0.0
+          },
+          "median_per_variant_spatial_contrast": 0.4070502577545486,
+          "passes_frozen_gene_rule": true,
+          "positive_spatial_contrast_count": 10,
+          "variant_count": 10
+        },
+        "SLC25A48": {
+          "median_bidirectional_bottleneck": {
+            "downstream": 0.0,
+            "intended": 0.34125295597447,
+            "upstream": 0.0
+          },
+          "median_per_variant_spatial_contrast": 0.34125295597447,
+          "passes_frozen_gene_rule": true,
+          "positive_spatial_contrast_count": 7,
+          "variant_count": 10
+        }
+      }
+    }
+  },
+  "control_summary": {
+    "all_160_shifted_control_B_exactly_zero": true,
+    "all_240_conditions_passed_runtime_controls": true,
+    "all_240_repeats_bit_exact": true,
+    "maximum_absolute_shifted_control_B": 0.0
+  },
+  "effect_support_overlap": {
+    "BRAF": {
+      "A-D": {
+        "case_count": 6,
+        "case_stage_count": 30,
+        "exact_case_stage_count": 0,
+        "exact_case_stage_fraction": 0.0,
+        "fully_identical_case_count": 0,
+        "overlapping_case_stage_count": 6,
+        "overlapping_case_stage_fraction": 0.2
+      },
+      "V-A": {
+        "case_count": 6,
+        "case_stage_count": 30,
+        "exact_case_stage_count": 14,
+        "exact_case_stage_fraction": 0.4666666666666667,
+        "fully_identical_case_count": 2,
+        "overlapping_case_stage_count": 18,
+        "overlapping_case_stage_fraction": 0.6
+      },
+      "V-D": {
+        "case_count": 6,
+        "case_stage_count": 30,
+        "exact_case_stage_count": 10,
+        "exact_case_stage_fraction": 0.3333333333333333,
+        "fully_identical_case_count": 2,
+        "overlapping_case_stage_count": 15,
+        "overlapping_case_stage_fraction": 0.5
+      }
+    },
+    "SLC25A48": {
+      "A-D": {
+        "case_count": 6,
+        "case_stage_count": 30,
+        "exact_case_stage_count": 0,
+        "exact_case_stage_fraction": 0.0,
+        "fully_identical_case_count": 0,
+        "overlapping_case_stage_count": 0,
+        "overlapping_case_stage_fraction": 0.0
+      },
+      "V-A": {
+        "case_count": 6,
+        "case_stage_count": 30,
+        "exact_case_stage_count": 20,
+        "exact_case_stage_fraction": 0.6666666666666666,
+        "fully_identical_case_count": 1,
+        "overlapping_case_stage_count": 29,
+        "overlapping_case_stage_fraction": 0.9666666666666667
+      },
+      "V-D": {
+        "case_count": 6,
+        "case_stage_count": 30,
+        "exact_case_stage_count": 0,
+        "exact_case_stage_fraction": 0.0,
+        "fully_identical_case_count": 0,
+        "overlapping_case_stage_count": 0,
+        "overlapping_case_stage_fraction": 0.0
+      }
+    }
+  },
+  "effect_variants_primary": {
+    "A": {
+      "maximin_median_intended_B": 0.3869952819122592,
+      "passes_both_genes": true,
+      "per_gene": {
+        "BRAF": {
+          "median_bidirectional_bottleneck": {
+            "downstream": -0.0,
+            "intended": 0.3869952819122592,
+            "upstream": -0.0
+          },
+          "median_per_variant_spatial_contrast": 0.3869952819122592,
+          "passes_frozen_gene_rule": true,
+          "positive_spatial_contrast_count": 6,
+          "variant_count": 6
+        },
+        "SLC25A48": {
+          "median_bidirectional_bottleneck": {
+            "downstream": 0.0,
+            "intended": 0.6597728212304705,
+            "upstream": 0.0
+          },
+          "median_per_variant_spatial_contrast": 0.6597728212304705,
+          "passes_frozen_gene_rule": true,
+          "positive_spatial_contrast_count": 6,
+          "variant_count": 6
+        }
+      }
+    },
+    "D": {
+      "maximin_median_intended_B": 0.008933437880865,
+      "passes_both_genes": false,
+      "per_gene": {
+        "BRAF": {
+          "median_bidirectional_bottleneck": {
+            "downstream": -0.0,
+            "intended": 0.2790524831135059,
+            "upstream": -0.0
+          },
+          "median_per_variant_spatial_contrast": 0.2790524831135059,
+          "passes_frozen_gene_rule": true,
+          "positive_spatial_contrast_count": 6,
+          "variant_count": 6
+        },
+        "SLC25A48": {
+          "median_bidirectional_bottleneck": {
+            "downstream": 0.0,
+            "intended": 0.008933437880865,
+            "upstream": 0.0
+          },
+          "median_per_variant_spatial_contrast": 0.008933437880865,
+          "passes_frozen_gene_rule": false,
+          "positive_spatial_contrast_count": 6,
+          "variant_count": 6
+        }
+      }
+    },
+    "S": {
+      "maximin_median_intended_B": 0.5161335765967392,
+      "passes_both_genes": true,
+      "per_gene": {
+        "BRAF": {
+          "median_bidirectional_bottleneck": {
+            "downstream": -0.0,
+            "intended": 0.5161335765967392,
+            "upstream": -0.0
+          },
+          "median_per_variant_spatial_contrast": 0.5161335765967392,
+          "passes_frozen_gene_rule": true,
+          "positive_spatial_contrast_count": 6,
+          "variant_count": 6
+        },
+        "SLC25A48": {
+          "median_bidirectional_bottleneck": {
+            "downstream": 0.0,
+            "intended": 0.6650928191965618,
+            "upstream": 0.0
+          },
+          "median_per_variant_spatial_contrast": 0.6650928191965618,
+          "passes_frozen_gene_rule": true,
+          "positive_spatial_contrast_count": 6,
+          "variant_count": 6
+        }
+      }
+    },
+    "V": {
+      "maximin_median_intended_B": 0.39648756761411597,
+      "passes_both_genes": true,
+      "per_gene": {
+        "BRAF": {
+          "median_bidirectional_bottleneck": {
+            "downstream": -0.0,
+            "intended": 0.41409281454318736,
+            "upstream": -0.0
+          },
+          "median_per_variant_spatial_contrast": 0.41409281454318736,
+          "passes_frozen_gene_rule": true,
+          "positive_spatial_contrast_count": 6,
+          "variant_count": 6
+        },
+        "SLC25A48": {
+          "median_bidirectional_bottleneck": {
+            "downstream": 0.0,
+            "intended": 0.39648756761411597,
+            "upstream": 0.0
+          },
+          "median_per_variant_spatial_contrast": 0.39648756761411597,
+          "passes_frozen_gene_rule": true,
+          "positive_spatial_contrast_count": 6,
+          "variant_count": 6
+        }
+      }
+    }
+  },
+  "interpretation": {
+    "collinearity_warning": "V and A/D are not independent biological explanations because many selected effect variants lie at or near canonical splice sites and their guarded token supports overlap.",
+    "localized_route": "The mask-110 skip computation is spatially concentrated at biological V/A supports rather than diffuse across the skip.",
+    "next_experiment": "Rank causal channels within the V-local E32/E16/E8/E2/E1 route, requiring cross-gene recovery and shifted-position controls before interpreting sequence motifs.",
+    "passing_supports": [
+      "V",
+      "A",
+      "S"
+    ],
+    "preferred_channel_ranking_seed": "V",
+    "seed_reason": "V is a one-site support and has the strongest maximin median B among the one-site V/A/D supports.",
+    "specificity_warning": "BRAF experimental neutrals move more than effects, so spatial localization is a computational-route result, not evidence of general biological specificity."
+  },
+  "schema_version": "alphagenome-spatial-encoder-skip-analysis-v1",
+  "scope": {
+    "condition_count": 240,
+    "confirmation_access": false,
+    "development_only": true,
+    "effect_count": 12,
+    "neutral_count": 8,
+    "variant_count": 20
+  },
+  "source": {
+    "plan_path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/spatial_encoder_skip_plan_v1.json",
+    "plan_sha256": "f01e7253c39e048a3b7ce1d0bab3ca7d0244a756f510657dba245b20368ae8c7",
+    "raw_condition_file_count": 240,
+    "raw_identity_file_count": 20,
+    "raw_result_tree_sha256": "7b973514de25023c690efccf3a226d5c65d22d71f529ba18b142c3ec85aabeb8",
+    "result_root": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/spatial_encoder_skip_v1"
+  },
+  "specificity_warning": {
+    "passes_effect_exceeds_neutral_for_all_passing_supports": false,
+    "per_support_per_gene": {
+      "A": {
+        "BRAF": {
+          "effect_exceeds_neutral": false,
+          "effect_median_absolute_raw_movement": 0.331787109375,
+          "neutral_median_absolute_raw_movement": 1.1376953125
+        },
+        "SLC25A48": {
+          "effect_exceeds_neutral": true,
+          "effect_median_absolute_raw_movement": 3.8857421875,
+          "neutral_median_absolute_raw_movement": 0.0849609375
+        }
+      },
+      "D": {
+        "BRAF": {
+          "effect_exceeds_neutral": false,
+          "effect_median_absolute_raw_movement": 0.31982421875,
+          "neutral_median_absolute_raw_movement": 1.72705078125
+        },
+        "SLC25A48": {
+          "effect_exceeds_neutral": true,
+          "effect_median_absolute_raw_movement": 0.043701171875,
+          "neutral_median_absolute_raw_movement": 0.0107421875
+        }
+      },
+      "S": {
+        "BRAF": {
+          "effect_exceeds_neutral": false,
+          "effect_median_absolute_raw_movement": 0.532470703125,
+          "neutral_median_absolute_raw_movement": 2.275634765625
+        },
+        "SLC25A48": {
+          "effect_exceeds_neutral": true,
+          "effect_median_absolute_raw_movement": 3.923828125,
+          "neutral_median_absolute_raw_movement": 0.08984375
+        }
+      },
+      "V": {
+        "BRAF": {
+          "effect_exceeds_neutral": false,
+          "effect_median_absolute_raw_movement": 0.44921875,
+          "neutral_median_absolute_raw_movement": 2.38525390625
+        },
+        "SLC25A48": {
+          "effect_exceeds_neutral": true,
+          "effect_median_absolute_raw_movement": 2.622467041015625,
+          "neutral_median_absolute_raw_movement": 0.0302734375
+        }
+      }
+    }
+  },
+  "supports_passing_frozen_rule_in_both_genes": [
+    "V",
+    "A",
+    "S"
+  ]
+}

@@ -1,0 +1,219 @@
+{
+  "status": "complete",
+  "fingerprint": "e10ef03d79f31c4bfa5002cbe8d449ad331db57cf86e4d119eb48af52f3d0bb4",
+  "configuration": {
+    "script_version": "alphagenome-spatial-encoder-skip-v1.0.0",
+    "script_sha256": "a2cc600dcf0dc09614d8a548ce0cf846ddda0cacd753ae5fdeeb6777fc4de309",
+    "plan_path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/spatial_encoder_skip_plan_v1.json",
+    "plan_sha256": "f01e7253c39e048a3b7ce1d0bab3ca7d0244a756f510657dba245b20368ae8c7",
+    "checkpoint_path": "/home/degen2/.cache/huggingface/hub/models--google--alphagenome-all-folds/snapshots/a8f293a76ee73d5b57f3bf2ae146510589fcf187",
+    "checkpoint_snapshot": "a8f293a76ee73d5b57f3bf2ae146510589fcf187",
+    "context_bp": 16384,
+    "attention_backend": "dense",
+    "confirmation_access": false,
+    "kind": "spatial_all_false_identity",
+    "case": {
+      "order": 19,
+      "selection_version": "opensplice-circuit-v2-snv-only",
+      "selection_class": "neutral_control",
+      "observed_effect_sign": "neutral_control",
+      "gene": "SLC25A48",
+      "exon_id": "SLC25A48_e8",
+      "ensembl_exon_id": "ENSE00003835789",
+      "chromosome": "chr5",
+      "strand": "+",
+      "exon_start_1based": 135880773,
+      "exon_end_1based": 135880910,
+      "variant_id": "SLC25A48_e8_C6A",
+      "position_1based": 135880708,
+      "reference_bases": "C",
+      "alternate_bases": "A",
+      "region": "Intron up",
+      "mut_type": "sub",
+      "delta_psi": 0.0018351215202994,
+      "delta_logit": 0.0001804191273198
+    },
+    "condition_selector": {
+      "condition_id": "V_intended",
+      "support": "V",
+      "location": "intended",
+      "stage_names": [
+        "E64",
+        "E32",
+        "E16",
+        "E8",
+        "E4",
+        "E2",
+        "E1"
+      ],
+      "stage_resolutions_bp": [
+        64,
+        32,
+        16,
+        8,
+        4,
+        2,
+        1
+      ],
+      "positions": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          250,
+          251,
+          252,
+          0,
+          0,
+          0
+        ],
+        [
+          502,
+          503,
+          504,
+          0,
+          0,
+          0
+        ],
+        [
+          1006,
+          1007,
+          1008,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          4028,
+          4029,
+          4030,
+          0,
+          0,
+          0
+        ],
+        [
+          8058,
+          8059,
+          8060,
+          0,
+          0,
+          0
+        ]
+      ],
+      "valid_mask": [
+        [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        [
+          true,
+          true,
+          true,
+          false,
+          false,
+          false
+        ],
+        [
+          true,
+          true,
+          true,
+          false,
+          false,
+          false
+        ],
+        [
+          true,
+          true,
+          true,
+          false,
+          false,
+          false
+        ],
+        [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        [
+          true,
+          true,
+          true,
+          false,
+          false,
+          false
+        ],
+        [
+          true,
+          true,
+          true,
+          false,
+          false,
+          false
+        ]
+      ]
+    },
+    "sequence_sha256": {
+      "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8",
+      "alternate": "134d8132d34efd4a719b06f64afc2ba93ba3d5dbf8d067ae0118af19132390f6"
+    },
+    "target": {
+      "endpoints": [
+        {
+          "role": "acceptor",
+          "position_1based": 135880773,
+          "position_index": 8124,
+          "track_index": 1
+        },
+        {
+          "role": "donor",
+          "position_1based": 135880910,
+          "position_index": 8261,
+          "track_index": 0
+        }
+      ],
+      "padding_track_index": 4
+    }
+  },
+  "checks": {
+    "passed": true,
+    "target_repeat_exact": true,
+    "target_duplicate_rows_exact": true,
+    "trace_repeat_exact": true,
+    "trace_duplicate_rows_exact": true,
+    "target_total_equals_two_times_mean": true,
+    "num_values": 2,
+    "target_means": {
+      "reference_baseline": -0.1953125,
+      "alternate_baseline": -0.26171875,
+      "reference_into_alternate": -0.26171875,
+      "alternate_into_alternate_self_control": -0.26171875,
+      "alternate_into_reference": -0.1953125,
+      "reference_into_reference_self_control": -0.1953125
+    }
+  },
+  "seconds": {
+    "first": 0.11187346099904971,
+    "repeat": 0.11099365499831038
+  },
+  "created_at_unix_s": 1788298562.8744826
+}

@@ -1,0 +1,284 @@
+{
+  "status": "complete",
+  "fingerprint": "62336c28d40549deb523d69413bf40170ef79ea5e2ce31b7ca10295435feddf9",
+  "configuration": {
+    "script_version": "alphagenome-spatial-encoder-skip-v1.0.0",
+    "script_sha256": "a2cc600dcf0dc09614d8a548ce0cf846ddda0cacd753ae5fdeeb6777fc4de309",
+    "plan_path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/spatial_encoder_skip_plan_v1.json",
+    "plan_sha256": "f01e7253c39e048a3b7ce1d0bab3ca7d0244a756f510657dba245b20368ae8c7",
+    "checkpoint_path": "/home/degen2/.cache/huggingface/hub/models--google--alphagenome-all-folds/snapshots/a8f293a76ee73d5b57f3bf2ae146510589fcf187",
+    "checkpoint_snapshot": "a8f293a76ee73d5b57f3bf2ae146510589fcf187",
+    "context_bp": 16384,
+    "attention_backend": "dense",
+    "confirmation_access": false,
+    "kind": "spatial_decoder_skip_live_transfer",
+    "case": {
+      "order": 6,
+      "selection_version": "opensplice-circuit-v2-snv-only",
+      "selection_class": "neutral_control",
+      "observed_effect_sign": "neutral_control",
+      "gene": "BRAF",
+      "exon_id": "BRAF_e14",
+      "ensembl_exon_id": "ENSE00003649805",
+      "chromosome": "chr7",
+      "strand": "-",
+      "exon_start_1based": 140754187,
+      "exon_end_1based": 140754233,
+      "variant_id": "BRAF_e14_T121C",
+      "position_1based": 140754183,
+      "reference_bases": "A",
+      "alternate_bases": "G",
+      "region": "5'SS",
+      "mut_type": "sub",
+      "delta_psi": 0.0005522355162309,
+      "delta_logit": 0.0015335625822494
+    },
+    "condition": {
+      "condition_id": "S_intended",
+      "support": "S",
+      "location": "intended",
+      "stage_names": [
+        "E64",
+        "E32",
+        "E16",
+        "E8",
+        "E4",
+        "E2",
+        "E1"
+      ],
+      "stage_resolutions_bp": [
+        64,
+        32,
+        16,
+        8,
+        4,
+        2,
+        1
+      ],
+      "positions": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          254,
+          255,
+          256,
+          257,
+          0,
+          0
+        ],
+        [
+          509,
+          510,
+          511,
+          512,
+          513,
+          514
+        ],
+        [
+          1020,
+          1021,
+          1022,
+          1025,
+          1026,
+          1027
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          4083,
+          4084,
+          4085,
+          4106,
+          4107,
+          4108
+        ],
+        [
+          8168,
+          8169,
+          8170,
+          8214,
+          8215,
+          8216
+        ]
+      ],
+      "valid_mask": [
+        [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        [
+          true,
+          true,
+          true,
+          true,
+          false,
+          false
+        ],
+        [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      ]
+    },
+    "identity_fingerprint": "5e83094af8a481c11812c95a938cb76fa06edb0a1529f126f141d0339418aebb",
+    "sequence_sha256": {
+      "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7",
+      "alternate": "c98c085eb8f0d16e1855fa6ed1cdfabfe228044bee59d676c5861c39aa9a1463"
+    }
+  },
+  "checks": {
+    "passed": true,
+    "target_repeat_exact": true,
+    "trace_repeat_exact": true,
+    "baseline_targets_exact_from_identity": true,
+    "self_targets_exact": true,
+    "natural_same_allele_exact_by_stage": {
+      "E64": true,
+      "E32": true,
+      "E16": true,
+      "E8": true,
+      "E4": true,
+      "E2": true,
+      "E1": true
+    },
+    "disabled_or_unselected_noop_exact_by_stage": {
+      "E64": true,
+      "E32": true,
+      "E16": true,
+      "E8": true,
+      "E4": true,
+      "E2": true,
+      "E1": true
+    },
+    "enabled_donor_vectors_exact_by_stage": {
+      "E64": null,
+      "E32": true,
+      "E16": true,
+      "E8": true,
+      "E4": null,
+      "E2": true,
+      "E1": true
+    },
+    "target_readout": {
+      "means": [
+        2.544921875,
+        -2.849609375,
+        -0.8994140625,
+        -2.849609375,
+        -0.7265625,
+        2.544921875
+      ],
+      "totals": [
+        5.08984375,
+        -5.69921875,
+        -1.798828125,
+        -5.69921875,
+        -1.453125,
+        5.08984375
+      ],
+      "num_values": 2,
+      "row_roles": [
+        "reference_baseline",
+        "alternate_baseline",
+        "reference_into_alternate",
+        "alternate_into_alternate_self_control",
+        "alternate_into_reference",
+        "reference_into_reference_self_control"
+      ]
+    },
+    "repeat_target_readout": {
+      "means": [
+        2.544921875,
+        -2.849609375,
+        -0.8994140625,
+        -2.849609375,
+        -0.7265625,
+        2.544921875
+      ],
+      "totals": [
+        5.08984375,
+        -5.69921875,
+        -1.798828125,
+        -5.69921875,
+        -1.453125,
+        5.08984375
+      ],
+      "num_values": 2,
+      "row_roles": [
+        "reference_baseline",
+        "alternate_baseline",
+        "reference_into_alternate",
+        "alternate_into_alternate_self_control",
+        "alternate_into_reference",
+        "reference_into_reference_self_control"
+      ]
+    },
+    "raw_movement": {
+      "reference_into_alternate": 1.9501953125,
+      "alternate_into_reference": -3.271484375
+    },
+    "recovery": {
+      "reference_into_alternate": 0.36151339608979,
+      "alternate_into_reference": 0.6064446053584359,
+      "bidirectional_bottleneck": 0.36151339608979,
+      "bidirectional_mean": 0.48397900072411293
+    }
+  },
+  "seconds": {
+    "first": 0.11207286499848124,
+    "repeat": 0.11362426199775655
+  },
+  "created_at_unix_s": 1788298519.313055
+}

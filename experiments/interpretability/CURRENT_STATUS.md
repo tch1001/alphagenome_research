@@ -88,30 +88,57 @@ computational route, not a specific or general biological mechanism.
 Primary result: [exploratory analysis](opensplice/results/v3_3_development_encoder_skip_factorial_exploratory_model_behavior_analysis/RESULT.md).
 Arithmetic check: [independent audit](opensplice/results/v3_3_development_encoder_skip_factorial_exploratory_model_behavior_analysis/INDEPENDENT_AUDIT.md).
 
+### Spatial localization of the five-resolution route
+
+The complete 20-variant spatial experiment made 520 model applies with exact
+repeats. All live donor-vector, disabled/no-op, same-allele and repeat controls
+passed. All 160 equal-shape controls translated at least 512 bp away had
+exactly zero recovery.
+
+On the 12 development effects, median bidirectional bottleneck recovery was:
+
+| Support | BRAF | SLC25A48 | Pass both genes |
+|---|---:|---:|:---:|
+| Variant | 0.41409 | 0.39649 | yes |
+| Acceptor | 0.38700 | 0.65977 | yes |
+| Donor | 0.27905 | 0.00893 | no |
+| Acceptor/donor union | 0.51613 | 0.66509 | yes |
+
+The five-resolution skip route is therefore spatially concentrated in the
+variant/splice-site neighborhood rather than diffuse across the sequence.
+Donor-only behavior differs sharply between the two exons.
+
+This does not establish separate variant, acceptor and donor modules. Many
+selected variants lie at or near a canonical splice site, so their guarded
+token supports overlap at several resolutions. The BRAF neutral-control
+warning also remains: intended patches move the four experimental neutrals
+more than the six effects for every passing support.
+
+Primary result: [spatial model-behavior analysis](opensplice/results/spatial_encoder_skip_v1_model_behavior_analysis/RESULT.md).
+Arithmetic check: [independent audit](opensplice/results/spatial_encoder_skip_v1_model_behavior_analysis/INDEPENDENT_AUDIT.md).
+
 ## Main unresolved question
 
-Within the five-resolution `E32+E16+E8+E2+E1` route, which spatial positions
-causally carry the effect? Does a compact region around the variant, acceptor
-or donor beat equal-size shifted controls within the same variant? Only after
-that should channels or sequence motifs be interpreted.
+Within the spatially localized `E32+E16+E8+E2+E1` route, which channels
+causally carry the reciprocal effect across both genes? Which sequence
+patterns drive those channels, and do controlled edits support the resulting
+motif or splicing-factor hypothesis?
 
-Prepared next experiment: [spatial encoder-skip design](opensplice/spatial_encoder_skip_experiment.md)
-with its [machine-readable coordinate plan](opensplice/spatial_encoder_skip_plan_v1.json)
-and [development-only runner](opensplice/run_spatial_encoder_skip_experiment.py).
+Completed spatial experiment: [design](opensplice/spatial_encoder_skip_experiment.md),
+[coordinate plan](opensplice/spatial_encoder_skip_plan_v1.json), and
+[development-only runner](opensplice/run_spatial_encoder_skip_experiment.py).
 
 ## Research sequence
 
-1. Spatially restrict `E32+E16+E8+E2+E1` patches to receptive-field supports
-   around the variant, acceptor, donor and acceptor/donor union.
-2. Compare each support with equal-shape upstream/downstream translations in
-   the same variant; retain exact reciprocal, self/no-op and repeat controls.
+1. Rank channels/features inside the V-local `E32+E16+E8+E2+E1` route by
+   causal loss of reciprocal recovery, with the same shifted-position controls.
+2. Test whether rankings are shared across BRAF and SLC25A48 or represent
+   exon-specific channel programs.
 3. Use neutral variants and non-target outputs as secondary specificity checks,
    recognizing that an experimental neutral need not be AlphaGenome-null.
-4. Within spatially localized routes, rank channels/features by causal effect rather
-   than activation magnitude alone.
-5. Characterize causal features with controlled sequence edits, motif scans,
+4. Characterize causal features with controlled sequence edits, motif scans,
    maximally activating sequences and, if needed, sparse feature dictionaries.
-6. Turn the feature interpretation into explicit predictions—for example,
+5. Turn the feature interpretation into explicit predictions—for example,
    which motif-disrupting edits should alter splice-site output—and test them
    on held-out exons before making a biological claim.
 
