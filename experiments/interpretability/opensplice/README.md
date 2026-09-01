@@ -1,5 +1,11 @@
 # OpenSplice circuit-benchmark freeze
 
+The active, model-behavior-focused interpretation is maintained in
+[`../CURRENT_STATUS.md`](../CURRENT_STATUS.md). The versioned freeze and
+preflight material below is historical audit context, not the current research
+agenda. In particular, OS/kernel patch equality is no longer a default gate for
+new interpretability experiments.
+
 This directory implements the OpenSplice stage of the frozen positive-control
 protocol. It selects variants using experimental measurements and exact VCF
 alleles before any local AlphaGenome inference.

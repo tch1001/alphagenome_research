@@ -1,5 +1,11 @@
 # Causal interpretability experiments for AlphaGenome
 
+For the current evidence, open questions and next experiments, start with
+[`CURRENT_STATUS.md`](CURRENT_STATUS.md). That note is the active scientific
+roadmap. Historical environment/provenance postmortems are retained only as
+engineering records; OS and kernel patch versions are not active scientific
+gates.
+
 This directory asks a narrower and more testable question than “can we explain
 AlphaGenome?”:
 
