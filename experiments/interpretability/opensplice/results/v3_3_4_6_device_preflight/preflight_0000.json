@@ -1,0 +1,1023 @@
+{
+  "amendment_sha256": "729127abe69838a7cacb0619774fa93a2b24b00faf7ed144916b2bedfa10b3b2",
+  "atomic_publication_probe": {
+    "collision_errno": 17,
+    "collision_no_replace_exact": true,
+    "collision_temp_binding": {
+      "mode": "0400",
+      "path": ".v3345.tmp.443727.000001.7f9560523ee0ed4c682bfadae2cc4884",
+      "sha256": "d9eaea234b10d919daaabddf3d560d34c946ba3259bb1e16cfd9a005a05d85b2",
+      "size_bytes": 39,
+      "st_dev": 66307,
+      "st_ino": 140796166,
+      "st_nlink": 1
+    },
+    "destination_unchanged": true,
+    "method": "named_temp_renameat2_noreplace",
+    "parent_fsync_exact": true,
+    "schema_version": "v3.3.4.6-named-temp-renameat2-noreplace-v1",
+    "successful_final_binding": {
+      "mode": "0400",
+      "path": "atomic_publication_probe_v3_3_4_6.txt",
+      "sha256": "db249bd851ab5028d95d71a10d6edad91f15b18e023722a3086383f7aab04a65",
+      "size_bytes": 49,
+      "st_dev": 66307,
+      "st_ino": 140796165,
+      "st_nlink": 1
+    },
+    "supported": true,
+    "temp_orphan_preserved": true
+  },
+  "created_at_unix_s": 1788294810.8285718,
+  "external_cache_hit_evidence": {
+    "cache_hit": false,
+    "compile_skipped": null,
+    "compile_stage_not_applicable": true,
+    "default_user_cache_path_eligible": false,
+    "executable_deserialized": false,
+    "old_cache_input_opened": false,
+    "persistent_compilation_cache_hit_reported": false,
+    "pre_import_files_present": false,
+    "routing_exact": true
+  },
+  "external_cache_post_observation": {
+    "cache_role": "external_preflight",
+    "cache_root": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_6_preflight_kernel_cache",
+    "default_user_cache_paths_eligible": false,
+    "diagnostic_outputs_only_no_cache_input": true,
+    "directory_count": 3,
+    "directory_paths": [
+      ".",
+      "triton",
+      "xdg"
+    ],
+    "file_count": 2,
+    "files": {
+      ".v3345.tmp.443727.000001.7f9560523ee0ed4c682bfadae2cc4884": {
+        "sha256": "d9eaea234b10d919daaabddf3d560d34c946ba3259bb1e16cfd9a005a05d85b2",
+        "size_bytes": 39
+      },
+      "atomic_publication_probe_v3_3_4_6.txt": {
+        "sha256": "db249bd851ab5028d95d71a10d6edad91f15b18e023722a3086383f7aab04a65",
+        "size_bytes": 49
+      }
+    },
+    "tree_sha256": "d3f60f76a2f3fb1253e1236c283bae4c404960f2a8c37fe4dd63b67fa6949431",
+    "triton_cache_dir": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_6_preflight_kernel_cache/triton",
+    "xdg_cache_home": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_6_preflight_kernel_cache/xdg"
+  },
+  "external_freeze_authorization": {
+    "authorization_source": "external_post_commit_audit",
+    "freeze_path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/encoder_skip_ood_sidecar_v3_3_4_6_freeze.json",
+    "freeze_sha256": "8bdaba150ae8e4a5a9ecf1b41f2f7fa230d9a7560935ba3bce97d8e4adb1d9db",
+    "freeze_size_bytes": 251355,
+    "git_head": "cfbc673a198229c771f8c3c409d121eeebd41ca3",
+    "live_equals_git_show": true,
+    "tracked_clean": true
+  },
+  "failure": {
+    "message": "Frozen v3.3 platform/GPU version manifest changed.",
+    "traceback": "Traceback (most recent call last):\n  File \"/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/run_device_preflight_v3_3_4_6.py\", line 308, in run_preflight\n    observation = _collect_observation(pre_import)\n  File \"/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/run_device_preflight_v3_3_4_6.py\", line 254, in _collect_observation\n    observation = v33_preflight.collect_observation()\n  File \"/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/run_device_preflight_v3_3.py\", line 134, in collect_observation\n    raise ValueError('Frozen v3.3 platform/GPU version manifest changed.')\nValueError: Frozen v3.3 platform/GPU version manifest changed.\n",
+    "type": "ValueError"
+  },
+  "freeze": {
+    "external_freeze_authorization": {
+      "authorization_source": "external_post_commit_audit",
+      "freeze_path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/encoder_skip_ood_sidecar_v3_3_4_6_freeze.json",
+      "freeze_sha256": "8bdaba150ae8e4a5a9ecf1b41f2f7fa230d9a7560935ba3bce97d8e4adb1d9db",
+      "freeze_size_bytes": 251355,
+      "git_head": "cfbc673a198229c771f8c3c409d121eeebd41ca3",
+      "live_equals_git_show": true,
+      "tracked_clean": true
+    },
+    "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/encoder_skip_ood_sidecar_v3_3_4_6_freeze.json",
+    "preflight_version_proof": {
+      "bootstrap_equals_producer_literal": true,
+      "freeze_equals_bootstrap": true,
+      "preflight_script_version": "opensplice-device-preflight-v3.3.4.6",
+      "producer_source_binding": {
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/run_device_preflight_v3_3_4_6.py",
+        "sha256": "d380e82ce1200b0705846dbd0d5f331e7a0f98a92bdc19d97abd2c5a07a12f4e",
+        "size_bytes": 14775
+      },
+      "validated_before_allocation_or_registration": true
+    },
+    "prior_v3_3_4_3_consumed_preflight_prefix": {
+      "cache_tree_binding": {
+        "cache_role": "external_preflight",
+        "cache_root": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_3_preflight_kernel_cache",
+        "default_user_cache_paths_eligible": false,
+        "diagnostic_outputs_only_no_cache_input": true,
+        "directory_count": 3,
+        "directory_paths": [
+          ".",
+          "triton",
+          "xdg"
+        ],
+        "file_count": 0,
+        "files": {},
+        "tree_sha256": "9162636192082efbef80c9b37dd3ebc138aa094f70111874b9dad70e468af1af",
+        "triton_cache_dir": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_3_preflight_kernel_cache/triton",
+        "xdg_cache_home": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_3_preflight_kernel_cache/xdg"
+      },
+      "directory_lstat_rows": [
+        {
+          "entry_type": "directory",
+          "mode": "0700",
+          "path": ".",
+          "size_bytes": 4096,
+          "st_dev": 66307,
+          "st_ino": 140791433,
+          "st_nlink": 4
+        },
+        {
+          "entry_type": "directory",
+          "mode": "0700",
+          "path": "triton",
+          "size_bytes": 4096,
+          "st_dev": 66307,
+          "st_ino": 140791434,
+          "st_nlink": 2
+        },
+        {
+          "entry_type": "directory",
+          "mode": "0700",
+          "path": "xdg",
+          "size_bytes": 4096,
+          "st_dev": 66307,
+          "st_ino": 140791435,
+          "st_nlink": 2
+        }
+      ],
+      "failure_message": "v3.3.4.3 preflight freeze mismatch: preflight_script_version.",
+      "failure_stage": "preflight_freeze_validation",
+      "failure_type": "ValueError",
+      "immutable_and_not_cache_input": true,
+      "no_gpu_or_confirmation_access": true,
+      "no_jax_or_model_access": true,
+      "other_predecessor_paths_absent": {
+        "v3_3_4.analysis_attempt": {
+          "absent": true,
+          "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_development_ood_sidecar_analysis_attempt"
+        },
+        "v3_3_4.analysis_output": {
+          "absent": true,
+          "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_development_ood_sidecar_analysis"
+        },
+        "v3_3_4.device_preflight": {
+          "absent": true,
+          "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_device_preflight"
+        },
+        "v3_3_4.external_cache": {
+          "absent": true,
+          "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_preflight_kernel_cache"
+        },
+        "v3_3_4.model_cache": {
+          "absent": true,
+          "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_model_kernel_cache"
+        },
+        "v3_3_4.model_run": {
+          "absent": true,
+          "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_development_ood_sidecar_one_shot"
+        },
+        "v3_3_4_1.analysis_attempt": {
+          "absent": true,
+          "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_1_development_ood_sidecar_analysis_attempt"
+        },
+        "v3_3_4_1.analysis_output": {
+          "absent": true,
+          "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_1_development_ood_sidecar_analysis"
+        },
+        "v3_3_4_1.device_preflight": {
+          "absent": true,
+          "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_1_device_preflight"
+        },
+        "v3_3_4_1.external_cache": {
+          "absent": true,
+          "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_1_preflight_kernel_cache"
+        },
+        "v3_3_4_1.model_cache": {
+          "absent": true,
+          "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_1_model_kernel_cache"
+        },
+        "v3_3_4_1.model_run": {
+          "absent": true,
+          "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_1_development_ood_sidecar_one_shot"
+        },
+        "v3_3_4_2.analysis_attempt": {
+          "absent": true,
+          "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_2_development_ood_sidecar_analysis_attempt"
+        },
+        "v3_3_4_2.analysis_output": {
+          "absent": true,
+          "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_2_development_ood_sidecar_analysis"
+        },
+        "v3_3_4_2.device_preflight": {
+          "absent": true,
+          "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_2_device_preflight"
+        },
+        "v3_3_4_2.external_cache": {
+          "absent": true,
+          "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_2_preflight_kernel_cache"
+        },
+        "v3_3_4_2.model_cache": {
+          "absent": true,
+          "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_2_model_kernel_cache"
+        },
+        "v3_3_4_2.model_run": {
+          "absent": true,
+          "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_2_development_ood_sidecar_one_shot"
+        },
+        "v3_3_4_3.analysis_attempt": {
+          "absent": true,
+          "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_3_development_ood_sidecar_analysis_attempt"
+        },
+        "v3_3_4_3.analysis_output": {
+          "absent": true,
+          "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_3_development_ood_sidecar_analysis"
+        },
+        "v3_3_4_3.device_preflight": {
+          "absent": true,
+          "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_3_device_preflight"
+        },
+        "v3_3_4_3.model_cache": {
+          "absent": true,
+          "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_3_model_kernel_cache"
+        },
+        "v3_3_4_3.model_run": {
+          "absent": true,
+          "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_3_development_ood_sidecar_one_shot"
+        }
+      },
+      "predecessor_commit": "ea486661ffe64d5640485ebb2a3ca297e128530a",
+      "predecessor_freeze": {
+        "file_sha256_count": 108,
+        "git_mode": "100644",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/encoder_skip_ood_sidecar_v3_3_4_3_freeze.json",
+        "sha256": "713790306dd3d88d735229f497587ab6fe611e435eee3f4ef6b862f7baa3cedc",
+        "size_bytes": 174545,
+        "source_row_count": 108,
+        "top_level_key_count": 84
+      },
+      "status": "consumed_external_preflight_freeze_validation_failure",
+      "traceback_provenance": {
+        "captured_at_unix_s": null,
+        "session_id": null,
+        "sha256": "8b6d0f7575adfc66032ba56d3ab5373f05b0bb1e85b2e39c94e2a82a356e39e9",
+        "size_bytes": 953,
+        "storage": "coordinator_captured_not_persisted",
+        "wall_clock_timestamp_available": false
+      }
+    },
+    "prior_v3_3_4_3_consumed_preflight_prefix_content_binding": {
+      "sha256": "c42ce8bd47918daf90affba701eb1dc193c1ba2cbb38e3b0f836e8b81f306f88",
+      "size_bytes": 6418
+    },
+    "prior_v3_3_4_4_consumed_preflight_prefix": {
+      "access_boundary": {
+        "confirmation_model_calls": 0,
+        "external_gpu_device_observation_occurred": true,
+        "external_preflight_device_observation_only": true,
+        "model_apply_count": 0,
+        "model_cache_allocated": false,
+        "model_constructed": false,
+        "no_jit_or_array_kernel": true,
+        "no_model_or_biological_access": true,
+        "same_process_preflight_reached": false,
+        "scientific_raw_record_count": 0
+      },
+      "claim_boundary": "A JAX-only external GPU/device preflight passed; no model, model cache, START, apply, raw scientific record, analysis, or confirmation access occurred.",
+      "external_cache_archive": {
+        "atomic_publication_probe": {
+          "collision_errno": 17,
+          "collision_no_replace_exact": true,
+          "collision_temp_binding": {
+            "mode": "0400",
+            "path": ".v3344.tmp.2696297.000001.55167cfd266423a5ba861df8ca40686d",
+            "sha256": "a1e62f4f34497aa5e72ece0670f1d865cd6eaacdcdfbacb00c39648d9e83f14f",
+            "size_bytes": 39,
+            "st_dev": 66307,
+            "st_ino": 140791441,
+            "st_nlink": 1
+          },
+          "destination_unchanged": true,
+          "method": "named_temp_renameat2_noreplace",
+          "parent_fsync_exact": true,
+          "schema_version": "v3.3.4.4-named-temp-renameat2-noreplace-v1",
+          "successful_final_binding": {
+            "mode": "0400",
+            "path": "atomic_publication_probe_v3_3_4_4.txt",
+            "sha256": "47efa8c868d4d9455730ad1e89d6e44afee44172f0d2af7521d8574b7d85ecc9",
+            "size_bytes": 49,
+            "st_dev": 66307,
+            "st_ino": 140791440,
+            "st_nlink": 1
+          },
+          "supported": true,
+          "temp_orphan_preserved": true
+        },
+        "atomic_publication_probe_content_binding": {
+          "sha256": "a25798b7c788ce614d10a7cc0d07f1795ebaf6fd9e928dcef78e096323d9bf70",
+          "size_bytes": 738
+        },
+        "cache_tree_binding": {
+          "cache_role": "external_preflight",
+          "cache_root": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_4_preflight_kernel_cache",
+          "default_user_cache_paths_eligible": false,
+          "diagnostic_outputs_only_no_cache_input": true,
+          "directory_count": 3,
+          "directory_paths": [
+            ".",
+            "triton",
+            "xdg"
+          ],
+          "file_count": 2,
+          "files": {
+            ".v3344.tmp.2696297.000001.55167cfd266423a5ba861df8ca40686d": {
+              "sha256": "a1e62f4f34497aa5e72ece0670f1d865cd6eaacdcdfbacb00c39648d9e83f14f",
+              "size_bytes": 39
+            },
+            "atomic_publication_probe_v3_3_4_4.txt": {
+              "sha256": "47efa8c868d4d9455730ad1e89d6e44afee44172f0d2af7521d8574b7d85ecc9",
+              "size_bytes": 49
+            }
+          },
+          "tree_sha256": "3a294e09038311b8bad85836c6983da31f50fdeef3365b844e8842922d33acba",
+          "triton_cache_dir": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_4_preflight_kernel_cache/triton",
+          "xdg_cache_home": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_4_preflight_kernel_cache/xdg"
+        },
+        "cache_tree_content_binding": {
+          "sha256": "88c2a4cde3a9881f76dc719b48dbd7f051b5841843dc5439a8e7d2349aabbc46",
+          "size_bytes": 1033
+        },
+        "directory_lstat_rows": [
+          {
+            "entry_type": "directory",
+            "mode": "0700",
+            "path": ".",
+            "size_bytes": 4096,
+            "st_dev": 66307,
+            "st_ino": 140791437,
+            "st_nlink": 4
+          },
+          {
+            "entry_type": "directory",
+            "mode": "0700",
+            "path": "triton",
+            "size_bytes": 4096,
+            "st_dev": 66307,
+            "st_ino": 140791438,
+            "st_nlink": 2
+          },
+          {
+            "entry_type": "directory",
+            "mode": "0700",
+            "path": "xdg",
+            "size_bytes": 4096,
+            "st_dev": 66307,
+            "st_ino": 140791439,
+            "st_nlink": 2
+          }
+        ],
+        "root": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_4_preflight_kernel_cache"
+      },
+      "external_preflight_archive": {
+        "directory_aware_tree_sha256": "1a343cacb96cc1a1c88735c6a3bb8edfb0b71c1df89e924f52e099c30e3217f5",
+        "directory_count": 1,
+        "directory_lstat_rows": [
+          {
+            "entry_type": "directory",
+            "mode": "0700",
+            "path": ".",
+            "size_bytes": 4096,
+            "st_dev": 66307,
+            "st_ino": 140791442,
+            "st_nlink": 2
+          }
+        ],
+        "directory_paths": [
+          "."
+        ],
+        "file_count": 5,
+        "file_tree_sha256": "f009ba6fe67a715301b443940876be8f85998a50f71f320d0dc5e3dd52dfd6e5",
+        "files": {
+          ".allocation.lock": {
+            "mode": "0600",
+            "path": ".allocation.lock",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "size_bytes": 0,
+            "st_dev": 66307,
+            "st_ino": 140791443,
+            "st_nlink": 1
+          },
+          ".preflight_0000.reserved": {
+            "mode": "0400",
+            "path": ".preflight_0000.reserved",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "size_bytes": 0,
+            "st_dev": 66307,
+            "st_ino": 140791444,
+            "st_nlink": 1
+          },
+          "preflight_0000.json": {
+            "mode": "0400",
+            "path": "preflight_0000.json",
+            "sha256": "a240bf223dd62ebc53b84da35bb614df7987254c3694d7f07aae9785adec3801",
+            "size_bytes": 27062,
+            "st_dev": 66307,
+            "st_ino": 140791447,
+            "st_nlink": 1
+          },
+          "preflight_0000.stderr.log": {
+            "mode": "0400",
+            "path": "preflight_0000.stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "size_bytes": 0,
+            "st_dev": 66307,
+            "st_ino": 140791446,
+            "st_nlink": 1
+          },
+          "preflight_0000.stdout.log": {
+            "mode": "0400",
+            "path": "preflight_0000.stdout.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "size_bytes": 0,
+            "st_dev": 66307,
+            "st_ino": 140791445,
+            "st_nlink": 1
+          }
+        },
+        "record_binding": {
+          "mode": "0400",
+          "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_4_device_preflight/preflight_0000.json",
+          "sha256": "a240bf223dd62ebc53b84da35bb614df7987254c3694d7f07aae9785adec3801",
+          "size_bytes": 27062
+        },
+        "record_canonical_binding": {
+          "sha256": "9b1a5e3bbc9845d04430c259ed39db0f39f31b56128f022443382b91e6027285",
+          "size_bytes": 22193
+        },
+        "record_semantics": {
+          "compute_capability": "8.6",
+          "device_kind": "NVIDIA GeForce RTX 3090",
+          "device_uuid": "GPU-64111645-1e42-a96d-f192-4abbec4b8090",
+          "external_cache_hit": false,
+          "external_pid": 2696297,
+          "failure": null,
+          "freeze_sha256": "73b26eddf5578ef0847ac69c279c262e6f43102127bbe4299bbdab7e52227e30",
+          "jax_default_backend": "gpu",
+          "jax_gpu_device_count": 1,
+          "no_jit_or_array_kernel": true,
+          "no_model_or_biological_access": true,
+          "preflight_attempt_number": 0,
+          "script_version": "opensplice-device-preflight-v3.3.4.4",
+          "status": "pass"
+        },
+        "root": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_4_device_preflight"
+      },
+      "failure_message": "Preflight directory exists before the external_preflight process.",
+      "failure_stage": "parent_completed_external_preflight_validation",
+      "failure_type": "FileExistsError",
+      "immutable_and_not_cache_input": true,
+      "no_array_jit_or_model_kernel": true,
+      "no_model_cache_or_start": true,
+      "no_model_or_biological_access": true,
+      "no_scientific_or_confirmation_access": true,
+      "other_v3_3_4_4_paths_absent": {
+        "analysis_attempt": {
+          "absent": true,
+          "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_4_development_ood_sidecar_analysis_attempt"
+        },
+        "analysis_output": {
+          "absent": true,
+          "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_4_development_ood_sidecar_analysis"
+        },
+        "model_cache": {
+          "absent": true,
+          "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_4_model_kernel_cache"
+        },
+        "model_run": {
+          "absent": true,
+          "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_4_development_ood_sidecar_one_shot"
+        }
+      },
+      "predecessor_commit": "6858bbcdd869ac9ae93064910227003a911d0bd1",
+      "predecessor_freeze": {
+        "file_sha256_count": 120,
+        "git_mode": "100644",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/encoder_skip_ood_sidecar_v3_3_4_4_freeze.json",
+        "sha256": "73b26eddf5578ef0847ac69c279c262e6f43102127bbe4299bbdab7e52227e30",
+        "size_bytes": 187923,
+        "source_row_count": 120,
+        "top_level_key_count": 85
+      },
+      "root_cause": {
+        "bootstrap_source_binding": {
+          "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/validate_encoder_skip_ood_sidecar_bootstrap_v3_3_4_4.py",
+          "sha256": "8e2559d5dae96f6d9ddaa752e2aa4de3829ec85115e78fba356e6fe8c8abccb8",
+          "size_bytes": 143561
+        },
+        "called_validator": "validate_preflight_state_for_role",
+        "failure_before_model_cache_allocation": true,
+        "failure_before_model_start": true,
+        "launcher_source_binding": {
+          "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/launch_encoder_skip_ood_sidecar_v3_3_4_4.py",
+          "sha256": "4cdeee9df8b14043633383b99cdf8d88bdf1c3a0a3e4146a3c40adf9e78991f9",
+          "size_bytes": 27372
+        },
+        "parent_ambient_cache_role": "external_preflight",
+        "parent_ambient_cache_root": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_4_preflight_kernel_cache",
+        "rejected_state": "completed_preflight_directory_present",
+        "required_validator": "validate_completed_external_preflight_state",
+        "selected_branch": "external_preflight_entry_absence"
+      },
+      "status": "consumed_successful_external_preflight_then_parent_role_routing_failure",
+      "traceback_provenance": {
+        "captured_at_unix_s": null,
+        "session_id": null,
+        "sha256": "03cf721c145a2d70764455c8ab197482aed52a062d10c1ca29818bb0c1c8c3d3",
+        "size_bytes": 1168,
+        "storage": "coordinator_captured_not_persisted",
+        "wall_clock_timestamp_available": false
+      }
+    },
+    "prior_v3_3_4_4_consumed_preflight_prefix_content_binding": {
+      "sha256": "efcb6d8946666d104d7458c0f13cc8f53e6dfaa1a30a2e83744f48641978f3c7",
+      "size_bytes": 8653
+    },
+    "prior_v3_3_4_5_controlled_stop_archive_content_binding": {
+      "sha256": "9112a72de718a1e25f374798f4d76118c5d7ee8b93b38227b4517adda4af6e3d",
+      "size_bytes": 19072
+    },
+    "sha256": "8bdaba150ae8e4a5a9ecf1b41f2f7fa230d9a7560935ba3bce97d8e4adb1d9db",
+    "size_bytes": 251355
+  },
+  "freeze_sha256": "8bdaba150ae8e4a5a9ecf1b41f2f7fa230d9a7560935ba3bce97d8e4adb1d9db",
+  "logs": {
+    "stderr": {
+      "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_6_device_preflight/preflight_0000.stderr.log",
+      "sha256": "fdfc92d41ed6c18ce3b77787f1be7bd318742b003776145b0f6684e708960e4d",
+      "size_bytes": 767
+    },
+    "stdout": {
+      "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_6_device_preflight/preflight_0000.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    }
+  },
+  "no_jit_or_array_kernel": true,
+  "no_model_or_biological_access": true,
+  "observation": null,
+  "original_protocol_sha256": "85151029297cf4b4c1a07dd2a0f47b10b0663acd08ddfe25ba72b9898b1beea0",
+  "preflight_attempt_number": 0,
+  "prior_v3_3_4_3_consumed_preflight_prefix": {
+    "cache_tree_binding": {
+      "cache_role": "external_preflight",
+      "cache_root": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_3_preflight_kernel_cache",
+      "default_user_cache_paths_eligible": false,
+      "diagnostic_outputs_only_no_cache_input": true,
+      "directory_count": 3,
+      "directory_paths": [
+        ".",
+        "triton",
+        "xdg"
+      ],
+      "file_count": 0,
+      "files": {},
+      "tree_sha256": "9162636192082efbef80c9b37dd3ebc138aa094f70111874b9dad70e468af1af",
+      "triton_cache_dir": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_3_preflight_kernel_cache/triton",
+      "xdg_cache_home": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_3_preflight_kernel_cache/xdg"
+    },
+    "directory_lstat_rows": [
+      {
+        "entry_type": "directory",
+        "mode": "0700",
+        "path": ".",
+        "size_bytes": 4096,
+        "st_dev": 66307,
+        "st_ino": 140791433,
+        "st_nlink": 4
+      },
+      {
+        "entry_type": "directory",
+        "mode": "0700",
+        "path": "triton",
+        "size_bytes": 4096,
+        "st_dev": 66307,
+        "st_ino": 140791434,
+        "st_nlink": 2
+      },
+      {
+        "entry_type": "directory",
+        "mode": "0700",
+        "path": "xdg",
+        "size_bytes": 4096,
+        "st_dev": 66307,
+        "st_ino": 140791435,
+        "st_nlink": 2
+      }
+    ],
+    "failure_message": "v3.3.4.3 preflight freeze mismatch: preflight_script_version.",
+    "failure_stage": "preflight_freeze_validation",
+    "failure_type": "ValueError",
+    "immutable_and_not_cache_input": true,
+    "no_gpu_or_confirmation_access": true,
+    "no_jax_or_model_access": true,
+    "other_predecessor_paths_absent": {
+      "v3_3_4.analysis_attempt": {
+        "absent": true,
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_development_ood_sidecar_analysis_attempt"
+      },
+      "v3_3_4.analysis_output": {
+        "absent": true,
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_development_ood_sidecar_analysis"
+      },
+      "v3_3_4.device_preflight": {
+        "absent": true,
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_device_preflight"
+      },
+      "v3_3_4.external_cache": {
+        "absent": true,
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_preflight_kernel_cache"
+      },
+      "v3_3_4.model_cache": {
+        "absent": true,
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_model_kernel_cache"
+      },
+      "v3_3_4.model_run": {
+        "absent": true,
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_development_ood_sidecar_one_shot"
+      },
+      "v3_3_4_1.analysis_attempt": {
+        "absent": true,
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_1_development_ood_sidecar_analysis_attempt"
+      },
+      "v3_3_4_1.analysis_output": {
+        "absent": true,
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_1_development_ood_sidecar_analysis"
+      },
+      "v3_3_4_1.device_preflight": {
+        "absent": true,
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_1_device_preflight"
+      },
+      "v3_3_4_1.external_cache": {
+        "absent": true,
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_1_preflight_kernel_cache"
+      },
+      "v3_3_4_1.model_cache": {
+        "absent": true,
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_1_model_kernel_cache"
+      },
+      "v3_3_4_1.model_run": {
+        "absent": true,
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_1_development_ood_sidecar_one_shot"
+      },
+      "v3_3_4_2.analysis_attempt": {
+        "absent": true,
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_2_development_ood_sidecar_analysis_attempt"
+      },
+      "v3_3_4_2.analysis_output": {
+        "absent": true,
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_2_development_ood_sidecar_analysis"
+      },
+      "v3_3_4_2.device_preflight": {
+        "absent": true,
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_2_device_preflight"
+      },
+      "v3_3_4_2.external_cache": {
+        "absent": true,
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_2_preflight_kernel_cache"
+      },
+      "v3_3_4_2.model_cache": {
+        "absent": true,
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_2_model_kernel_cache"
+      },
+      "v3_3_4_2.model_run": {
+        "absent": true,
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_2_development_ood_sidecar_one_shot"
+      },
+      "v3_3_4_3.analysis_attempt": {
+        "absent": true,
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_3_development_ood_sidecar_analysis_attempt"
+      },
+      "v3_3_4_3.analysis_output": {
+        "absent": true,
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_3_development_ood_sidecar_analysis"
+      },
+      "v3_3_4_3.device_preflight": {
+        "absent": true,
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_3_device_preflight"
+      },
+      "v3_3_4_3.model_cache": {
+        "absent": true,
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_3_model_kernel_cache"
+      },
+      "v3_3_4_3.model_run": {
+        "absent": true,
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_3_development_ood_sidecar_one_shot"
+      }
+    },
+    "predecessor_commit": "ea486661ffe64d5640485ebb2a3ca297e128530a",
+    "predecessor_freeze": {
+      "file_sha256_count": 108,
+      "git_mode": "100644",
+      "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/encoder_skip_ood_sidecar_v3_3_4_3_freeze.json",
+      "sha256": "713790306dd3d88d735229f497587ab6fe611e435eee3f4ef6b862f7baa3cedc",
+      "size_bytes": 174545,
+      "source_row_count": 108,
+      "top_level_key_count": 84
+    },
+    "status": "consumed_external_preflight_freeze_validation_failure",
+    "traceback_provenance": {
+      "captured_at_unix_s": null,
+      "session_id": null,
+      "sha256": "8b6d0f7575adfc66032ba56d3ab5373f05b0bb1e85b2e39c94e2a82a356e39e9",
+      "size_bytes": 953,
+      "storage": "coordinator_captured_not_persisted",
+      "wall_clock_timestamp_available": false
+    }
+  },
+  "prior_v3_3_4_3_consumed_preflight_prefix_content_binding": {
+    "sha256": "c42ce8bd47918daf90affba701eb1dc193c1ba2cbb38e3b0f836e8b81f306f88",
+    "size_bytes": 6418
+  },
+  "prior_v3_3_4_4_consumed_preflight_prefix": {
+    "access_boundary": {
+      "confirmation_model_calls": 0,
+      "external_gpu_device_observation_occurred": true,
+      "external_preflight_device_observation_only": true,
+      "model_apply_count": 0,
+      "model_cache_allocated": false,
+      "model_constructed": false,
+      "no_jit_or_array_kernel": true,
+      "no_model_or_biological_access": true,
+      "same_process_preflight_reached": false,
+      "scientific_raw_record_count": 0
+    },
+    "claim_boundary": "A JAX-only external GPU/device preflight passed; no model, model cache, START, apply, raw scientific record, analysis, or confirmation access occurred.",
+    "external_cache_archive": {
+      "atomic_publication_probe": {
+        "collision_errno": 17,
+        "collision_no_replace_exact": true,
+        "collision_temp_binding": {
+          "mode": "0400",
+          "path": ".v3344.tmp.2696297.000001.55167cfd266423a5ba861df8ca40686d",
+          "sha256": "a1e62f4f34497aa5e72ece0670f1d865cd6eaacdcdfbacb00c39648d9e83f14f",
+          "size_bytes": 39,
+          "st_dev": 66307,
+          "st_ino": 140791441,
+          "st_nlink": 1
+        },
+        "destination_unchanged": true,
+        "method": "named_temp_renameat2_noreplace",
+        "parent_fsync_exact": true,
+        "schema_version": "v3.3.4.4-named-temp-renameat2-noreplace-v1",
+        "successful_final_binding": {
+          "mode": "0400",
+          "path": "atomic_publication_probe_v3_3_4_4.txt",
+          "sha256": "47efa8c868d4d9455730ad1e89d6e44afee44172f0d2af7521d8574b7d85ecc9",
+          "size_bytes": 49,
+          "st_dev": 66307,
+          "st_ino": 140791440,
+          "st_nlink": 1
+        },
+        "supported": true,
+        "temp_orphan_preserved": true
+      },
+      "atomic_publication_probe_content_binding": {
+        "sha256": "a25798b7c788ce614d10a7cc0d07f1795ebaf6fd9e928dcef78e096323d9bf70",
+        "size_bytes": 738
+      },
+      "cache_tree_binding": {
+        "cache_role": "external_preflight",
+        "cache_root": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_4_preflight_kernel_cache",
+        "default_user_cache_paths_eligible": false,
+        "diagnostic_outputs_only_no_cache_input": true,
+        "directory_count": 3,
+        "directory_paths": [
+          ".",
+          "triton",
+          "xdg"
+        ],
+        "file_count": 2,
+        "files": {
+          ".v3344.tmp.2696297.000001.55167cfd266423a5ba861df8ca40686d": {
+            "sha256": "a1e62f4f34497aa5e72ece0670f1d865cd6eaacdcdfbacb00c39648d9e83f14f",
+            "size_bytes": 39
+          },
+          "atomic_publication_probe_v3_3_4_4.txt": {
+            "sha256": "47efa8c868d4d9455730ad1e89d6e44afee44172f0d2af7521d8574b7d85ecc9",
+            "size_bytes": 49
+          }
+        },
+        "tree_sha256": "3a294e09038311b8bad85836c6983da31f50fdeef3365b844e8842922d33acba",
+        "triton_cache_dir": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_4_preflight_kernel_cache/triton",
+        "xdg_cache_home": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_4_preflight_kernel_cache/xdg"
+      },
+      "cache_tree_content_binding": {
+        "sha256": "88c2a4cde3a9881f76dc719b48dbd7f051b5841843dc5439a8e7d2349aabbc46",
+        "size_bytes": 1033
+      },
+      "directory_lstat_rows": [
+        {
+          "entry_type": "directory",
+          "mode": "0700",
+          "path": ".",
+          "size_bytes": 4096,
+          "st_dev": 66307,
+          "st_ino": 140791437,
+          "st_nlink": 4
+        },
+        {
+          "entry_type": "directory",
+          "mode": "0700",
+          "path": "triton",
+          "size_bytes": 4096,
+          "st_dev": 66307,
+          "st_ino": 140791438,
+          "st_nlink": 2
+        },
+        {
+          "entry_type": "directory",
+          "mode": "0700",
+          "path": "xdg",
+          "size_bytes": 4096,
+          "st_dev": 66307,
+          "st_ino": 140791439,
+          "st_nlink": 2
+        }
+      ],
+      "root": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_4_preflight_kernel_cache"
+    },
+    "external_preflight_archive": {
+      "directory_aware_tree_sha256": "1a343cacb96cc1a1c88735c6a3bb8edfb0b71c1df89e924f52e099c30e3217f5",
+      "directory_count": 1,
+      "directory_lstat_rows": [
+        {
+          "entry_type": "directory",
+          "mode": "0700",
+          "path": ".",
+          "size_bytes": 4096,
+          "st_dev": 66307,
+          "st_ino": 140791442,
+          "st_nlink": 2
+        }
+      ],
+      "directory_paths": [
+        "."
+      ],
+      "file_count": 5,
+      "file_tree_sha256": "f009ba6fe67a715301b443940876be8f85998a50f71f320d0dc5e3dd52dfd6e5",
+      "files": {
+        ".allocation.lock": {
+          "mode": "0600",
+          "path": ".allocation.lock",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0,
+          "st_dev": 66307,
+          "st_ino": 140791443,
+          "st_nlink": 1
+        },
+        ".preflight_0000.reserved": {
+          "mode": "0400",
+          "path": ".preflight_0000.reserved",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0,
+          "st_dev": 66307,
+          "st_ino": 140791444,
+          "st_nlink": 1
+        },
+        "preflight_0000.json": {
+          "mode": "0400",
+          "path": "preflight_0000.json",
+          "sha256": "a240bf223dd62ebc53b84da35bb614df7987254c3694d7f07aae9785adec3801",
+          "size_bytes": 27062,
+          "st_dev": 66307,
+          "st_ino": 140791447,
+          "st_nlink": 1
+        },
+        "preflight_0000.stderr.log": {
+          "mode": "0400",
+          "path": "preflight_0000.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0,
+          "st_dev": 66307,
+          "st_ino": 140791446,
+          "st_nlink": 1
+        },
+        "preflight_0000.stdout.log": {
+          "mode": "0400",
+          "path": "preflight_0000.stdout.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0,
+          "st_dev": 66307,
+          "st_ino": 140791445,
+          "st_nlink": 1
+        }
+      },
+      "record_binding": {
+        "mode": "0400",
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_4_device_preflight/preflight_0000.json",
+        "sha256": "a240bf223dd62ebc53b84da35bb614df7987254c3694d7f07aae9785adec3801",
+        "size_bytes": 27062
+      },
+      "record_canonical_binding": {
+        "sha256": "9b1a5e3bbc9845d04430c259ed39db0f39f31b56128f022443382b91e6027285",
+        "size_bytes": 22193
+      },
+      "record_semantics": {
+        "compute_capability": "8.6",
+        "device_kind": "NVIDIA GeForce RTX 3090",
+        "device_uuid": "GPU-64111645-1e42-a96d-f192-4abbec4b8090",
+        "external_cache_hit": false,
+        "external_pid": 2696297,
+        "failure": null,
+        "freeze_sha256": "73b26eddf5578ef0847ac69c279c262e6f43102127bbe4299bbdab7e52227e30",
+        "jax_default_backend": "gpu",
+        "jax_gpu_device_count": 1,
+        "no_jit_or_array_kernel": true,
+        "no_model_or_biological_access": true,
+        "preflight_attempt_number": 0,
+        "script_version": "opensplice-device-preflight-v3.3.4.4",
+        "status": "pass"
+      },
+      "root": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_4_device_preflight"
+    },
+    "failure_message": "Preflight directory exists before the external_preflight process.",
+    "failure_stage": "parent_completed_external_preflight_validation",
+    "failure_type": "FileExistsError",
+    "immutable_and_not_cache_input": true,
+    "no_array_jit_or_model_kernel": true,
+    "no_model_cache_or_start": true,
+    "no_model_or_biological_access": true,
+    "no_scientific_or_confirmation_access": true,
+    "other_v3_3_4_4_paths_absent": {
+      "analysis_attempt": {
+        "absent": true,
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_4_development_ood_sidecar_analysis_attempt"
+      },
+      "analysis_output": {
+        "absent": true,
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_4_development_ood_sidecar_analysis"
+      },
+      "model_cache": {
+        "absent": true,
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_4_model_kernel_cache"
+      },
+      "model_run": {
+        "absent": true,
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_4_development_ood_sidecar_one_shot"
+      }
+    },
+    "predecessor_commit": "6858bbcdd869ac9ae93064910227003a911d0bd1",
+    "predecessor_freeze": {
+      "file_sha256_count": 120,
+      "git_mode": "100644",
+      "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/encoder_skip_ood_sidecar_v3_3_4_4_freeze.json",
+      "sha256": "73b26eddf5578ef0847ac69c279c262e6f43102127bbe4299bbdab7e52227e30",
+      "size_bytes": 187923,
+      "source_row_count": 120,
+      "top_level_key_count": 85
+    },
+    "root_cause": {
+      "bootstrap_source_binding": {
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/validate_encoder_skip_ood_sidecar_bootstrap_v3_3_4_4.py",
+        "sha256": "8e2559d5dae96f6d9ddaa752e2aa4de3829ec85115e78fba356e6fe8c8abccb8",
+        "size_bytes": 143561
+      },
+      "called_validator": "validate_preflight_state_for_role",
+      "failure_before_model_cache_allocation": true,
+      "failure_before_model_start": true,
+      "launcher_source_binding": {
+        "path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/launch_encoder_skip_ood_sidecar_v3_3_4_4.py",
+        "sha256": "4cdeee9df8b14043633383b99cdf8d88bdf1c3a0a3e4146a3c40adf9e78991f9",
+        "size_bytes": 27372
+      },
+      "parent_ambient_cache_role": "external_preflight",
+      "parent_ambient_cache_root": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/v3_3_4_4_preflight_kernel_cache",
+      "rejected_state": "completed_preflight_directory_present",
+      "required_validator": "validate_completed_external_preflight_state",
+      "selected_branch": "external_preflight_entry_absence"
+    },
+    "status": "consumed_successful_external_preflight_then_parent_role_routing_failure",
+    "traceback_provenance": {
+      "captured_at_unix_s": null,
+      "session_id": null,
+      "sha256": "03cf721c145a2d70764455c8ab197482aed52a062d10c1ca29818bb0c1c8c3d3",
+      "size_bytes": 1168,
+      "storage": "coordinator_captured_not_persisted",
+      "wall_clock_timestamp_available": false
+    }
+  },
+  "prior_v3_3_4_4_consumed_preflight_prefix_content_binding": {
+    "sha256": "efcb6d8946666d104d7458c0f13cc8f53e6dfaa1a30a2e83744f48641978f3c7",
+    "size_bytes": 8653
+  },
+  "prior_v3_3_4_5_controlled_stop_archive_content_binding": {
+    "sha256": "9112a72de718a1e25f374798f4d76118c5d7ee8b93b38227b4517adda4af6e3d",
+    "size_bytes": 19072
+  },
+  "script_version": "opensplice-device-preflight-v3.3.4.6",
+  "status": "fail",
+  "warnings": []
+}

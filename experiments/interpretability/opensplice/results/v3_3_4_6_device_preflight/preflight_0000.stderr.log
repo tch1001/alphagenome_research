@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/run_device_preflight_v3_3_4_6.py", line 308, in run_preflight
+    observation = _collect_observation(pre_import)
+  File "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/run_device_preflight_v3_3_4_6.py", line 254, in _collect_observation
+    observation = v33_preflight.collect_observation()
+  File "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/run_device_preflight_v3_3.py", line 134, in collect_observation
+    raise ValueError('Frozen v3.3 platform/GPU version manifest changed.')
+ValueError: Frozen v3.3 platform/GPU version manifest changed.
