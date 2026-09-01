@@ -95,6 +95,10 @@ causally carry the effect? Does a compact region around the variant, acceptor
 or donor beat equal-size shifted controls within the same variant? Only after
 that should channels or sequence motifs be interpreted.
 
+Prepared next experiment: [spatial encoder-skip design](opensplice/spatial_encoder_skip_experiment.md)
+with its [machine-readable coordinate plan](opensplice/spatial_encoder_skip_plan_v1.json)
+and [development-only runner](opensplice/run_spatial_encoder_skip_experiment.py).
+
 ## Research sequence
 
 1. Spatially restrict `E32+E16+E8+E2+E1` patches to receptive-field supports
