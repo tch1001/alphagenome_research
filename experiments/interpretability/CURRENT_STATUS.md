@@ -53,22 +53,57 @@ set, the splice effect transfers much more effectively through the aggregate
 encoder-skip route. The result does not yet identify a resolution, position,
 channel, motif, RBP or biochemical pathway.
 
+### Exploratory seven-resolution decomposition
+
+A new CPU-only analysis reconstructed all 5,120 records in the already
+completed 20-variant by 256-coalition development cube directly from raw
+relevant/padding logits. It made no model call and read neither confirmation
+nor the incomplete unrelated-donor prefix. A separate permutation-based audit
+matched every reported Shapley value to within `1.21e-13`.
+
+With natural transformer output, median normalized Shapley contributions were:
+
+| Skip resolution | BRAF | SLC25A48 |
+|---|---:|---:|
+| E64 | 0.07876 | 0.03153 |
+| E32 | 0.21743 | 0.10381 |
+| E16 | 0.18651 | 0.04182 |
+| E8 | 0.07276 | 0.09452 |
+| E4 | 0.02640 | 0.08200 |
+| E2 | 0.04356 | 0.14949 |
+| E1 | 0.03106 | 0.42005 |
+
+The smallest coalition satisfying the historical two-gene recovery and
+retention rule is `E32+E16+E8+E2+E1`. It reaches median bottleneck recovery
+0.62056 in BRAF and 0.77170 in SLC25A48, retaining 86.3% and 82.3% of the
+all-skip result. This excludes E64 and E4 but still requires five resolutions.
+
+The profile is strongly exon-dependent: E32/E16 lead in BRAF, whereas E1/E2
+lead in SLC25A48. The coalition also fails biological alignment in BRAF:
+median absolute movement is 0.57324 for the six effects versus 2.67822 for the
+four experimentally neutral variants. SLC25A48 shows the opposite pattern
+(4.38184 versus 0.06445). The result therefore identifies a multiscale
+computational route, not a specific or general biological mechanism.
+
+Primary result: [exploratory analysis](opensplice/results/v3_3_development_encoder_skip_factorial_exploratory_model_behavior_analysis/RESULT.md).
+Arithmetic check: [independent audit](opensplice/results/v3_3_development_encoder_skip_factorial_exploratory_model_behavior_analysis/INDEPENDENT_AUDIT.md).
+
 ## Main unresolved question
 
-Which encoder-skip resolutions and features carry the effect, and do they
-encode recognizable splice-regulatory sequence programs that generalize
-across loci?
+Within the five-resolution `E32+E16+E8+E2+E1` route, which spatial positions
+causally carry the effect? Does a compact region around the variant, acceptor
+or donor beat equal-size shifted controls within the same variant? Only after
+that should channels or sequence motifs be interpreted.
 
 ## Research sequence
 
-1. Decompose the seven encoder skips with isolated-skip, leave-one-out and
-   coalition interventions, including reciprocal patches and exact self/no-op
-   controls.
-2. Use neutral variants, unrelated donors, shifted positions and non-target
-   outputs to distinguish causal signal from broad representation replacement.
-3. For resolutions that replicate across BRAF and SLC25A48, localize the
-   effect spatially around the variant, acceptor and donor.
-4. Within localized routes, rank channels/features by causal effect rather
+1. Spatially restrict `E32+E16+E8+E2+E1` patches to receptive-field supports
+   around the variant, acceptor, donor and acceptor/donor union.
+2. Compare each support with equal-shape upstream/downstream translations in
+   the same variant; retain exact reciprocal, self/no-op and repeat controls.
+3. Use neutral variants and non-target outputs as secondary specificity checks,
+   recognizing that an experimental neutral need not be AlphaGenome-null.
+4. Within spatially localized routes, rank channels/features by causal effect rather
    than activation magnitude alone.
 5. Characterize causal features with controlled sequence edits, motif scans,
    maximally activating sequences and, if needed, sparse feature dictionaries.
