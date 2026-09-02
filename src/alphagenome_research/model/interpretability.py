@@ -234,13 +234,16 @@ class SequenceResidualBatchTransfer:
   """Layer-stacked live residual transfers between rows of one batch.
 
   For each enabled ``[layer, recipient, position]`` entry, the selected
-  residual vector is gathered from ``donor_batch_indices`` at the same
-  selected sequence position. Donors are read from the unmodified residual
-  tensor at that seam, so transfers cannot cascade through other recipients.
+  residual vector is gathered from ``donor_batch_indices`` at the same selected
+  sequence position. An optional ``channel_mask`` restricts the transfer to
+  selected channels at each layer; ``None`` preserves whole-vector behavior.
+  Donors are read from the unmodified residual tensor at that seam, so
+  transfers cannot cascade through other recipients.
   """
 
   donor_batch_indices: Int[Array, 'L B R']
   transfer_mask: Bool[Array, 'L B R']
+  channel_mask: Bool[Array, 'L C'] | None = None
 
 
 @chex.dataclass(frozen=True)
@@ -603,6 +606,7 @@ def no_sequence_route_batch_transfer(
 
 def paired_six_row_batch_transfer(
     component_mask: Bool[Array, 'N R'],
+    channel_mask: Bool[Array, 'N C'] | None = None,
 ) -> SequenceResidualBatchTransfer:
   """Expands a route-component mask into the frozen six-row donor protocol.
 
@@ -613,6 +617,10 @@ def paired_six_row_batch_transfer(
   if component_mask.ndim != 2:
     raise ValueError('component_mask must have shape [stage, position].')
   num_stages, num_positions = component_mask.shape
+  if channel_mask is not None and (
+      channel_mask.ndim != 2 or channel_mask.shape[0] != num_stages
+  ):
+    raise ValueError('channel_mask must have shape [stage, channel].')
   donor_rows = jnp.asarray(PAIRED_CAUSAL_DONOR_ROWS, dtype=jnp.int32)
   donors = jnp.broadcast_to(
       donor_rows[None, :, None],
@@ -625,7 +633,9 @@ def paired_six_row_batch_transfer(
       component_mask[:, None, :] & recipient_rows[None, :, None]
   )
   return SequenceResidualBatchTransfer(
-      donor_batch_indices=donors, transfer_mask=transfer_mask
+      donor_batch_indices=donors,
+      transfer_mask=transfer_mask,
+      channel_mask=channel_mask,
   )
 
 
@@ -896,6 +906,14 @@ def _validate_route_transfer(
         f'{name}.transfer_mask must have shape {expected_shape}, got '
         f'{transfer.transfer_mask.shape}.'
     )
+  if transfer.channel_mask is not None and (
+      transfer.channel_mask.ndim != 2
+      or transfer.channel_mask.shape[0] != num_stages
+  ):
+    raise ValueError(
+        f'{name}.channel_mask must have shape [{num_stages}, channel], got '
+        f'{transfer.channel_mask.shape}.'
+    )
 
 
 def validate_causal_route_interventions(
@@ -1042,6 +1060,9 @@ def trace_and_transfer_route_stage(
       selection,
       transfer.donor_batch_indices[stage],
       transfer.transfer_mask[stage],
+      None
+      if transfer.channel_mask is None
+      else transfer.channel_mask[stage, :values.shape[-1]],
   )
   effective = gather_sequence_residuals(effective_values, selection)
   return effective_values, natural, effective
@@ -1472,6 +1493,7 @@ def transfer_sequence_residuals_within_batch(
     selection: SequenceResidualSelection | None,
     donor_batch_indices: Int[Array, 'B R'] | None,
     transfer_mask: Bool[Array, 'B R'] | None,
+    channel_mask: Bool[Array, 'D'] | None = None,
 ) -> Float[Array, 'B S D']:
   """Transfers live selected residuals between rows of the same batch.
 
@@ -1499,6 +1521,11 @@ def transfer_sequence_residuals_within_batch(
     raise ValueError(
         f'Residual transfer mask must have shape {expected_shape}.'
     )
+  hidden_size = residuals.shape[-1]
+  if channel_mask is not None and channel_mask.shape != (hidden_size,):
+    raise ValueError(
+        f'Residual channel mask must have shape {(hidden_size,)}.'
+    )
 
   valid_donors = (donor_batch_indices >= 0) & (
       donor_batch_indices < batch_size
@@ -1523,8 +1550,11 @@ def transfer_sequence_residuals_within_batch(
   for position_slot in range(num_positions):
     position = safe_positions[position_slot]
     current = output[:, position, :]
+    update_mask = effective_mask[:, position_slot, None]
+    if channel_mask is not None:
+      update_mask = update_mask & channel_mask[None, :]
     updates = jnp.where(
-        effective_mask[:, position_slot, None],
+        update_mask,
         donor_values[:, position_slot, :].astype(residuals.dtype),
         current,
     )

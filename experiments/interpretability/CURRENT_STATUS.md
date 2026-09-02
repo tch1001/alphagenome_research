@@ -124,6 +124,10 @@ causally carry the reciprocal effect across both genes? Which sequence
 patterns drive those channels, and do controlled edits support the resulting
 motif or splicing-factor hypothesis?
 
+Prepared next experiment: [V-local grouped-channel necessity screen](opensplice/channel_group_screen.md),
+[machine-readable plan](opensplice/channel_group_screen_plan_v1.json), and
+[development-only runner](opensplice/run_channel_group_screen.py).
+
 Completed spatial experiment: [design](opensplice/spatial_encoder_skip_experiment.md),
 [coordinate plan](opensplice/spatial_encoder_skip_plan_v1.json), and
 [development-only runner](opensplice/run_spatial_encoder_skip_experiment.py).

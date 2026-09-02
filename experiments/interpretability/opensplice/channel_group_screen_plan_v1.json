@@ -1,0 +1,3741 @@
+{
+  "analysis": {
+    "cross_gene_ranking": "descending minimum of the two gene-level median necessity losses",
+    "gene_specific_ranking": "descending median necessity loss within each gene",
+    "interpretation_limit": "A group screen identifies necessary subspaces; it does not assign effects additively or resolve individual channels.",
+    "per_case_necessity_loss": "B_full_V - B_without_group",
+    "primary_population": "significant_effect"
+  },
+  "cases": [
+    {
+      "chromosome": "chr7",
+      "gene": "BRAF",
+      "interval_end_0based_exclusive": 140762401,
+      "interval_start_0based": 140746017,
+      "order": 0,
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            254,
+            255,
+            256
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            509,
+            510,
+            511
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1020,
+            1021,
+            1022
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4083,
+            4084,
+            4085
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8168,
+            8169,
+            8170
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "-",
+      "variant_id": "BRAF_e14_A117G",
+      "variant_position_1based": 140754187
+    },
+    {
+      "chromosome": "chr7",
+      "gene": "BRAF",
+      "interval_end_0based_exclusive": 140762401,
+      "interval_start_0based": 140746017,
+      "order": 1,
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            255,
+            256,
+            257
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            512,
+            513,
+            514
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1025,
+            1026,
+            1027
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4106,
+            4107,
+            4108
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8214,
+            8215,
+            8216
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "-",
+      "variant_id": "BRAF_e14_T71A",
+      "variant_position_1based": 140754233
+    },
+    {
+      "chromosome": "chr7",
+      "gene": "BRAF",
+      "interval_end_0based_exclusive": 140762401,
+      "interval_start_0based": 140746017,
+      "order": 2,
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            255,
+            256,
+            257
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            512,
+            513,
+            514
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1025,
+            1026,
+            1027
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4106,
+            4107,
+            4108
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8214,
+            8215,
+            8216
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "-",
+      "variant_id": "BRAF_e14_T71G",
+      "variant_position_1based": 140754233
+    },
+    {
+      "chromosome": "chr7",
+      "gene": "BRAF",
+      "interval_end_0based_exclusive": 140762401,
+      "interval_start_0based": 140746017,
+      "order": 3,
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            254,
+            255,
+            256
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            509,
+            510,
+            511
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1020,
+            1021,
+            1022
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4083,
+            4084,
+            4085
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8168,
+            8169,
+            8170
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "-",
+      "variant_id": "BRAF_e14_A117C",
+      "variant_position_1based": 140754187
+    },
+    {
+      "chromosome": "chr7",
+      "gene": "BRAF",
+      "interval_end_0based_exclusive": 140762401,
+      "interval_start_0based": 140746017,
+      "order": 4,
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            255,
+            256,
+            257
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            511,
+            512,
+            513
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1023,
+            1024,
+            1025
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4097,
+            4098,
+            4099
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8196,
+            8197,
+            8198
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "-",
+      "variant_id": "BRAF_e14_A89G",
+      "variant_position_1based": 140754215
+    },
+    {
+      "chromosome": "chr7",
+      "gene": "BRAF",
+      "interval_end_0based_exclusive": 140762401,
+      "interval_start_0based": 140746017,
+      "order": 5,
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            255,
+            256,
+            257
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            512,
+            513,
+            514
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1025,
+            1026,
+            1027
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4103,
+            4104,
+            4105
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8208,
+            8209,
+            8210
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "-",
+      "variant_id": "BRAF_e14_A77C",
+      "variant_position_1based": 140754227
+    },
+    {
+      "chromosome": "chr7",
+      "gene": "BRAF",
+      "interval_end_0based_exclusive": 140762401,
+      "interval_start_0based": 140746017,
+      "order": 6,
+      "selection_class": "neutral_control",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            254,
+            255,
+            256
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            509,
+            510,
+            511
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1019,
+            1020,
+            1021
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4081,
+            4082,
+            4083
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8164,
+            8165,
+            8166
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "-",
+      "variant_id": "BRAF_e14_T121C",
+      "variant_position_1based": 140754183
+    },
+    {
+      "chromosome": "chr7",
+      "gene": "BRAF",
+      "interval_end_0based_exclusive": 140762401,
+      "interval_start_0based": 140746017,
+      "order": 7,
+      "selection_class": "neutral_control",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            255,
+            256,
+            257
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            512,
+            513,
+            514
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1026,
+            1027,
+            1028
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4107,
+            4108,
+            4109
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8216,
+            8217,
+            8218
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "-",
+      "variant_id": "BRAF_e14_A69G",
+      "variant_position_1based": 140754235
+    },
+    {
+      "chromosome": "chr7",
+      "gene": "BRAF",
+      "interval_end_0based_exclusive": 140762401,
+      "interval_start_0based": 140746017,
+      "order": 8,
+      "selection_class": "neutral_control",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            255,
+            256,
+            257
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            512,
+            513,
+            514
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1026,
+            1027,
+            1028
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4108,
+            4109,
+            4110
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8217,
+            8218,
+            8219
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "-",
+      "variant_id": "BRAF_e14_C68T",
+      "variant_position_1based": 140754236
+    },
+    {
+      "chromosome": "chr7",
+      "gene": "BRAF",
+      "interval_end_0based_exclusive": 140762401,
+      "interval_start_0based": 140746017,
+      "order": 9,
+      "selection_class": "neutral_control",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            254,
+            255,
+            256
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            509,
+            510,
+            511
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1020,
+            1021,
+            1022
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4083,
+            4084,
+            4085
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8167,
+            8168,
+            8169
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "-",
+      "variant_id": "BRAF_e14_G118A",
+      "variant_position_1based": 140754186
+    },
+    {
+      "chromosome": "chr5",
+      "gene": "SLC25A48",
+      "interval_end_0based_exclusive": 135889032,
+      "interval_start_0based": 135872648,
+      "order": 10,
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            252,
+            253,
+            254
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            506,
+            507,
+            508
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1014,
+            1015,
+            1016
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4060,
+            4061,
+            4062
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8122,
+            8123,
+            8124
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "+",
+      "variant_id": "SLC25A48_e8_G70A",
+      "variant_position_1based": 135880772
+    },
+    {
+      "chromosome": "chr5",
+      "gene": "SLC25A48",
+      "interval_end_0based_exclusive": 135889032,
+      "interval_start_0based": 135872648,
+      "order": 11,
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            252,
+            253,
+            254
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            506,
+            507,
+            508
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1014,
+            1015,
+            1016
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4060,
+            4061,
+            4062
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8121,
+            8122,
+            8123
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "+",
+      "variant_id": "SLC25A48_e8_A69C",
+      "variant_position_1based": 135880771
+    },
+    {
+      "chromosome": "chr5",
+      "gene": "SLC25A48",
+      "interval_end_0based_exclusive": 135889032,
+      "interval_start_0based": 135872648,
+      "order": 12,
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            252,
+            253,
+            254
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            506,
+            507,
+            508
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1014,
+            1015,
+            1016
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4060,
+            4061,
+            4062
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8121,
+            8122,
+            8123
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "+",
+      "variant_id": "SLC25A48_e8_A69T",
+      "variant_position_1based": 135880771
+    },
+    {
+      "chromosome": "chr5",
+      "gene": "SLC25A48",
+      "interval_end_0based_exclusive": 135889032,
+      "interval_start_0based": 135872648,
+      "order": 13,
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            252,
+            253,
+            254
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            506,
+            507,
+            508
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1014,
+            1015,
+            1016
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4059,
+            4060,
+            4061
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8120,
+            8121,
+            8122
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "+",
+      "variant_id": "SLC25A48_e8_T68G",
+      "variant_position_1based": 135880770
+    },
+    {
+      "chromosome": "chr5",
+      "gene": "SLC25A48",
+      "interval_end_0based_exclusive": 135889032,
+      "interval_start_0based": 135872648,
+      "order": 14,
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            252,
+            253,
+            254
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            506,
+            507,
+            508
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1014,
+            1015,
+            1016
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4060,
+            4061,
+            4062
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8122,
+            8123,
+            8124
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "+",
+      "variant_id": "SLC25A48_e8_G70C",
+      "variant_position_1based": 135880772
+    },
+    {
+      "chromosome": "chr5",
+      "gene": "SLC25A48",
+      "interval_end_0based_exclusive": 135889032,
+      "interval_start_0based": 135872648,
+      "order": 15,
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            252,
+            253,
+            254
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            506,
+            507,
+            508
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1014,
+            1015,
+            1016
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4061,
+            4062,
+            4063
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8123,
+            8124,
+            8125
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "+",
+      "variant_id": "SLC25A48_e8_G71T",
+      "variant_position_1based": 135880773
+    },
+    {
+      "chromosome": "chr5",
+      "gene": "SLC25A48",
+      "interval_end_0based_exclusive": 135889032,
+      "interval_start_0based": 135872648,
+      "order": 16,
+      "selection_class": "neutral_control",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            252,
+            253,
+            254
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            506,
+            507,
+            508
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1014,
+            1015,
+            1016
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4059,
+            4060,
+            4061
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8119,
+            8120,
+            8121
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "+",
+      "variant_id": "SLC25A48_e8_C67T",
+      "variant_position_1based": 135880769
+    },
+    {
+      "chromosome": "chr5",
+      "gene": "SLC25A48",
+      "interval_end_0based_exclusive": 135889032,
+      "interval_start_0based": 135872648,
+      "order": 17,
+      "selection_class": "neutral_control",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            252,
+            253,
+            254
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            506,
+            507,
+            508
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1014,
+            1015,
+            1016
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4059,
+            4060,
+            4061
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8119,
+            8120,
+            8121
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "+",
+      "variant_id": "SLC25A48_e8_C67G",
+      "variant_position_1based": 135880769
+    },
+    {
+      "chromosome": "chr5",
+      "gene": "SLC25A48",
+      "interval_end_0based_exclusive": 135889032,
+      "interval_start_0based": 135872648,
+      "order": 18,
+      "selection_class": "neutral_control",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            252,
+            253,
+            254
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            506,
+            507,
+            508
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1014,
+            1015,
+            1016
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4059,
+            4060,
+            4061
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8120,
+            8121,
+            8122
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "+",
+      "variant_id": "SLC25A48_e8_T68C",
+      "variant_position_1based": 135880770
+    },
+    {
+      "chromosome": "chr5",
+      "gene": "SLC25A48",
+      "interval_end_0based_exclusive": 135889032,
+      "interval_start_0based": 135872648,
+      "order": 19,
+      "selection_class": "neutral_control",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            250,
+            251,
+            252
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            502,
+            503,
+            504
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1006,
+            1007,
+            1008
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4028,
+            4029,
+            4030
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8058,
+            8059,
+            8060
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "+",
+      "variant_id": "SLC25A48_e8_C6A",
+      "variant_position_1based": 135880708
+    }
+  ],
+  "controls": {
+    "full_V_route_closure_against_spatial_result": "aggregate recovery comparison; cross-executable target equality is diagnostic",
+    "identity_and_full_route_exact_repeat": true,
+    "neutral_variants_secondary_specificity": true,
+    "non_V_routes_disabled": true,
+    "os_kernel_is_a_gate": false,
+    "per_group_selected_channel_donor_exact": true,
+    "per_group_withheld_channel_noop_exact": true,
+    "reciprocal_transfer": true,
+    "same_allele_self_controls": true
+  },
+  "design": {
+    "candidate_players": [
+      "E32",
+      "E16",
+      "E8",
+      "E2",
+      "E1"
+    ],
+    "condition": "transfer every candidate channel except the named group",
+    "full_V_route_applies_per_variant": 2,
+    "group_applies_per_variant": 1,
+    "group_count": 172,
+    "grouping": "contiguous_nonoverlapping_channel_blocks",
+    "identity_applies_per_variant": 2,
+    "maximum_channel_axis": 1536,
+    "nominal_group_size": 32,
+    "planned_compile_count": 1,
+    "planned_model_apply_count": 3520,
+    "support": "V",
+    "total_candidate_channels": 5504
+  },
+  "follow_up": {
+    "top_cross_gene_groups": "recursively split to individual channels and test only-group sufficiency plus V/upstream/downstream localization",
+    "top_gene_specific_groups": "retain separately to test exon-specific feature programs"
+  },
+  "groups": [
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 32,
+      "channel_start_inclusive": 0,
+      "group_id": "E32_c0000_0031",
+      "group_index": 0,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 64,
+      "channel_start_inclusive": 32,
+      "group_id": "E32_c0032_0063",
+      "group_index": 1,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 96,
+      "channel_start_inclusive": 64,
+      "group_id": "E32_c0064_0095",
+      "group_index": 2,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 128,
+      "channel_start_inclusive": 96,
+      "group_id": "E32_c0096_0127",
+      "group_index": 3,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 160,
+      "channel_start_inclusive": 128,
+      "group_id": "E32_c0128_0159",
+      "group_index": 4,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 192,
+      "channel_start_inclusive": 160,
+      "group_id": "E32_c0160_0191",
+      "group_index": 5,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 224,
+      "channel_start_inclusive": 192,
+      "group_id": "E32_c0192_0223",
+      "group_index": 6,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 256,
+      "channel_start_inclusive": 224,
+      "group_id": "E32_c0224_0255",
+      "group_index": 7,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 288,
+      "channel_start_inclusive": 256,
+      "group_id": "E32_c0256_0287",
+      "group_index": 8,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 320,
+      "channel_start_inclusive": 288,
+      "group_id": "E32_c0288_0319",
+      "group_index": 9,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 352,
+      "channel_start_inclusive": 320,
+      "group_id": "E32_c0320_0351",
+      "group_index": 10,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 384,
+      "channel_start_inclusive": 352,
+      "group_id": "E32_c0352_0383",
+      "group_index": 11,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 416,
+      "channel_start_inclusive": 384,
+      "group_id": "E32_c0384_0415",
+      "group_index": 12,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 448,
+      "channel_start_inclusive": 416,
+      "group_id": "E32_c0416_0447",
+      "group_index": 13,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 480,
+      "channel_start_inclusive": 448,
+      "group_id": "E32_c0448_0479",
+      "group_index": 14,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 512,
+      "channel_start_inclusive": 480,
+      "group_id": "E32_c0480_0511",
+      "group_index": 15,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 544,
+      "channel_start_inclusive": 512,
+      "group_id": "E32_c0512_0543",
+      "group_index": 16,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 576,
+      "channel_start_inclusive": 544,
+      "group_id": "E32_c0544_0575",
+      "group_index": 17,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 608,
+      "channel_start_inclusive": 576,
+      "group_id": "E32_c0576_0607",
+      "group_index": 18,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 640,
+      "channel_start_inclusive": 608,
+      "group_id": "E32_c0608_0639",
+      "group_index": 19,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 672,
+      "channel_start_inclusive": 640,
+      "group_id": "E32_c0640_0671",
+      "group_index": 20,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 704,
+      "channel_start_inclusive": 672,
+      "group_id": "E32_c0672_0703",
+      "group_index": 21,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 736,
+      "channel_start_inclusive": 704,
+      "group_id": "E32_c0704_0735",
+      "group_index": 22,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 768,
+      "channel_start_inclusive": 736,
+      "group_id": "E32_c0736_0767",
+      "group_index": 23,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 800,
+      "channel_start_inclusive": 768,
+      "group_id": "E32_c0768_0799",
+      "group_index": 24,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 832,
+      "channel_start_inclusive": 800,
+      "group_id": "E32_c0800_0831",
+      "group_index": 25,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 864,
+      "channel_start_inclusive": 832,
+      "group_id": "E32_c0832_0863",
+      "group_index": 26,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 896,
+      "channel_start_inclusive": 864,
+      "group_id": "E32_c0864_0895",
+      "group_index": 27,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 928,
+      "channel_start_inclusive": 896,
+      "group_id": "E32_c0896_0927",
+      "group_index": 28,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 960,
+      "channel_start_inclusive": 928,
+      "group_id": "E32_c0928_0959",
+      "group_index": 29,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 992,
+      "channel_start_inclusive": 960,
+      "group_id": "E32_c0960_0991",
+      "group_index": 30,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 1024,
+      "channel_start_inclusive": 992,
+      "group_id": "E32_c0992_1023",
+      "group_index": 31,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 1056,
+      "channel_start_inclusive": 1024,
+      "group_id": "E32_c1024_1055",
+      "group_index": 32,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 1088,
+      "channel_start_inclusive": 1056,
+      "group_id": "E32_c1056_1087",
+      "group_index": 33,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 1120,
+      "channel_start_inclusive": 1088,
+      "group_id": "E32_c1088_1119",
+      "group_index": 34,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 1152,
+      "channel_start_inclusive": 1120,
+      "group_id": "E32_c1120_1151",
+      "group_index": 35,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 1184,
+      "channel_start_inclusive": 1152,
+      "group_id": "E32_c1152_1183",
+      "group_index": 36,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 1216,
+      "channel_start_inclusive": 1184,
+      "group_id": "E32_c1184_1215",
+      "group_index": 37,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 1248,
+      "channel_start_inclusive": 1216,
+      "group_id": "E32_c1216_1247",
+      "group_index": 38,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 1280,
+      "channel_start_inclusive": 1248,
+      "group_id": "E32_c1248_1279",
+      "group_index": 39,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 1312,
+      "channel_start_inclusive": 1280,
+      "group_id": "E32_c1280_1311",
+      "group_index": 40,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 1344,
+      "channel_start_inclusive": 1312,
+      "group_id": "E32_c1312_1343",
+      "group_index": 41,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 1376,
+      "channel_start_inclusive": 1344,
+      "group_id": "E32_c1344_1375",
+      "group_index": 42,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 1408,
+      "channel_start_inclusive": 1376,
+      "group_id": "E32_c1376_1407",
+      "group_index": 43,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 32,
+      "channel_start_inclusive": 0,
+      "group_id": "E16_c0000_0031",
+      "group_index": 44,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 64,
+      "channel_start_inclusive": 32,
+      "group_id": "E16_c0032_0063",
+      "group_index": 45,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 96,
+      "channel_start_inclusive": 64,
+      "group_id": "E16_c0064_0095",
+      "group_index": 46,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 128,
+      "channel_start_inclusive": 96,
+      "group_id": "E16_c0096_0127",
+      "group_index": 47,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 160,
+      "channel_start_inclusive": 128,
+      "group_id": "E16_c0128_0159",
+      "group_index": 48,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 192,
+      "channel_start_inclusive": 160,
+      "group_id": "E16_c0160_0191",
+      "group_index": 49,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 224,
+      "channel_start_inclusive": 192,
+      "group_id": "E16_c0192_0223",
+      "group_index": 50,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 256,
+      "channel_start_inclusive": 224,
+      "group_id": "E16_c0224_0255",
+      "group_index": 51,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 288,
+      "channel_start_inclusive": 256,
+      "group_id": "E16_c0256_0287",
+      "group_index": 52,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 320,
+      "channel_start_inclusive": 288,
+      "group_id": "E16_c0288_0319",
+      "group_index": 53,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 352,
+      "channel_start_inclusive": 320,
+      "group_id": "E16_c0320_0351",
+      "group_index": 54,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 384,
+      "channel_start_inclusive": 352,
+      "group_id": "E16_c0352_0383",
+      "group_index": 55,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 416,
+      "channel_start_inclusive": 384,
+      "group_id": "E16_c0384_0415",
+      "group_index": 56,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 448,
+      "channel_start_inclusive": 416,
+      "group_id": "E16_c0416_0447",
+      "group_index": 57,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 480,
+      "channel_start_inclusive": 448,
+      "group_id": "E16_c0448_0479",
+      "group_index": 58,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 512,
+      "channel_start_inclusive": 480,
+      "group_id": "E16_c0480_0511",
+      "group_index": 59,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 544,
+      "channel_start_inclusive": 512,
+      "group_id": "E16_c0512_0543",
+      "group_index": 60,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 576,
+      "channel_start_inclusive": 544,
+      "group_id": "E16_c0544_0575",
+      "group_index": 61,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 608,
+      "channel_start_inclusive": 576,
+      "group_id": "E16_c0576_0607",
+      "group_index": 62,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 640,
+      "channel_start_inclusive": 608,
+      "group_id": "E16_c0608_0639",
+      "group_index": 63,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 672,
+      "channel_start_inclusive": 640,
+      "group_id": "E16_c0640_0671",
+      "group_index": 64,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 704,
+      "channel_start_inclusive": 672,
+      "group_id": "E16_c0672_0703",
+      "group_index": 65,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 736,
+      "channel_start_inclusive": 704,
+      "group_id": "E16_c0704_0735",
+      "group_index": 66,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 768,
+      "channel_start_inclusive": 736,
+      "group_id": "E16_c0736_0767",
+      "group_index": 67,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 800,
+      "channel_start_inclusive": 768,
+      "group_id": "E16_c0768_0799",
+      "group_index": 68,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 832,
+      "channel_start_inclusive": 800,
+      "group_id": "E16_c0800_0831",
+      "group_index": 69,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 864,
+      "channel_start_inclusive": 832,
+      "group_id": "E16_c0832_0863",
+      "group_index": 70,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 896,
+      "channel_start_inclusive": 864,
+      "group_id": "E16_c0864_0895",
+      "group_index": 71,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 928,
+      "channel_start_inclusive": 896,
+      "group_id": "E16_c0896_0927",
+      "group_index": 72,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 960,
+      "channel_start_inclusive": 928,
+      "group_id": "E16_c0928_0959",
+      "group_index": 73,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 992,
+      "channel_start_inclusive": 960,
+      "group_id": "E16_c0960_0991",
+      "group_index": 74,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 1024,
+      "channel_start_inclusive": 992,
+      "group_id": "E16_c0992_1023",
+      "group_index": 75,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 1056,
+      "channel_start_inclusive": 1024,
+      "group_id": "E16_c1024_1055",
+      "group_index": 76,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 1088,
+      "channel_start_inclusive": 1056,
+      "group_id": "E16_c1056_1087",
+      "group_index": 77,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 1120,
+      "channel_start_inclusive": 1088,
+      "group_id": "E16_c1088_1119",
+      "group_index": 78,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 1152,
+      "channel_start_inclusive": 1120,
+      "group_id": "E16_c1120_1151",
+      "group_index": 79,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 1184,
+      "channel_start_inclusive": 1152,
+      "group_id": "E16_c1152_1183",
+      "group_index": 80,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 1216,
+      "channel_start_inclusive": 1184,
+      "group_id": "E16_c1184_1215",
+      "group_index": 81,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 1248,
+      "channel_start_inclusive": 1216,
+      "group_id": "E16_c1216_1247",
+      "group_index": 82,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 1280,
+      "channel_start_inclusive": 1248,
+      "group_id": "E16_c1248_1279",
+      "group_index": 83,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 32,
+      "channel_start_inclusive": 0,
+      "group_id": "E8_c0000_0031",
+      "group_index": 84,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 64,
+      "channel_start_inclusive": 32,
+      "group_id": "E8_c0032_0063",
+      "group_index": 85,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 96,
+      "channel_start_inclusive": 64,
+      "group_id": "E8_c0064_0095",
+      "group_index": 86,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 128,
+      "channel_start_inclusive": 96,
+      "group_id": "E8_c0096_0127",
+      "group_index": 87,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 160,
+      "channel_start_inclusive": 128,
+      "group_id": "E8_c0128_0159",
+      "group_index": 88,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 192,
+      "channel_start_inclusive": 160,
+      "group_id": "E8_c0160_0191",
+      "group_index": 89,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 224,
+      "channel_start_inclusive": 192,
+      "group_id": "E8_c0192_0223",
+      "group_index": 90,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 256,
+      "channel_start_inclusive": 224,
+      "group_id": "E8_c0224_0255",
+      "group_index": 91,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 288,
+      "channel_start_inclusive": 256,
+      "group_id": "E8_c0256_0287",
+      "group_index": 92,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 320,
+      "channel_start_inclusive": 288,
+      "group_id": "E8_c0288_0319",
+      "group_index": 93,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 352,
+      "channel_start_inclusive": 320,
+      "group_id": "E8_c0320_0351",
+      "group_index": 94,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 384,
+      "channel_start_inclusive": 352,
+      "group_id": "E8_c0352_0383",
+      "group_index": 95,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 416,
+      "channel_start_inclusive": 384,
+      "group_id": "E8_c0384_0415",
+      "group_index": 96,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 448,
+      "channel_start_inclusive": 416,
+      "group_id": "E8_c0416_0447",
+      "group_index": 97,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 480,
+      "channel_start_inclusive": 448,
+      "group_id": "E8_c0448_0479",
+      "group_index": 98,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 512,
+      "channel_start_inclusive": 480,
+      "group_id": "E8_c0480_0511",
+      "group_index": 99,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 544,
+      "channel_start_inclusive": 512,
+      "group_id": "E8_c0512_0543",
+      "group_index": 100,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 576,
+      "channel_start_inclusive": 544,
+      "group_id": "E8_c0544_0575",
+      "group_index": 101,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 608,
+      "channel_start_inclusive": 576,
+      "group_id": "E8_c0576_0607",
+      "group_index": 102,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 640,
+      "channel_start_inclusive": 608,
+      "group_id": "E8_c0608_0639",
+      "group_index": 103,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 672,
+      "channel_start_inclusive": 640,
+      "group_id": "E8_c0640_0671",
+      "group_index": 104,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 704,
+      "channel_start_inclusive": 672,
+      "group_id": "E8_c0672_0703",
+      "group_index": 105,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 736,
+      "channel_start_inclusive": 704,
+      "group_id": "E8_c0704_0735",
+      "group_index": 106,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 768,
+      "channel_start_inclusive": 736,
+      "group_id": "E8_c0736_0767",
+      "group_index": 107,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 800,
+      "channel_start_inclusive": 768,
+      "group_id": "E8_c0768_0799",
+      "group_index": 108,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 832,
+      "channel_start_inclusive": 800,
+      "group_id": "E8_c0800_0831",
+      "group_index": 109,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 864,
+      "channel_start_inclusive": 832,
+      "group_id": "E8_c0832_0863",
+      "group_index": 110,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 896,
+      "channel_start_inclusive": 864,
+      "group_id": "E8_c0864_0895",
+      "group_index": 111,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 928,
+      "channel_start_inclusive": 896,
+      "group_id": "E8_c0896_0927",
+      "group_index": 112,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 960,
+      "channel_start_inclusive": 928,
+      "group_id": "E8_c0928_0959",
+      "group_index": 113,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 992,
+      "channel_start_inclusive": 960,
+      "group_id": "E8_c0960_0991",
+      "group_index": 114,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 1024,
+      "channel_start_inclusive": 992,
+      "group_id": "E8_c0992_1023",
+      "group_index": 115,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 1056,
+      "channel_start_inclusive": 1024,
+      "group_id": "E8_c1024_1055",
+      "group_index": 116,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 1088,
+      "channel_start_inclusive": 1056,
+      "group_id": "E8_c1056_1087",
+      "group_index": 117,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 1120,
+      "channel_start_inclusive": 1088,
+      "group_id": "E8_c1088_1119",
+      "group_index": 118,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 1152,
+      "channel_start_inclusive": 1120,
+      "group_id": "E8_c1120_1151",
+      "group_index": 119,
+      "resolution_bp": 8,
+      "stage": "E8",
+      "stage_index": 3,
+      "stage_width": 1152
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 32,
+      "channel_start_inclusive": 0,
+      "group_id": "E2_c0000_0031",
+      "group_index": 120,
+      "resolution_bp": 2,
+      "stage": "E2",
+      "stage_index": 5,
+      "stage_width": 896
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 64,
+      "channel_start_inclusive": 32,
+      "group_id": "E2_c0032_0063",
+      "group_index": 121,
+      "resolution_bp": 2,
+      "stage": "E2",
+      "stage_index": 5,
+      "stage_width": 896
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 96,
+      "channel_start_inclusive": 64,
+      "group_id": "E2_c0064_0095",
+      "group_index": 122,
+      "resolution_bp": 2,
+      "stage": "E2",
+      "stage_index": 5,
+      "stage_width": 896
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 128,
+      "channel_start_inclusive": 96,
+      "group_id": "E2_c0096_0127",
+      "group_index": 123,
+      "resolution_bp": 2,
+      "stage": "E2",
+      "stage_index": 5,
+      "stage_width": 896
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 160,
+      "channel_start_inclusive": 128,
+      "group_id": "E2_c0128_0159",
+      "group_index": 124,
+      "resolution_bp": 2,
+      "stage": "E2",
+      "stage_index": 5,
+      "stage_width": 896
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 192,
+      "channel_start_inclusive": 160,
+      "group_id": "E2_c0160_0191",
+      "group_index": 125,
+      "resolution_bp": 2,
+      "stage": "E2",
+      "stage_index": 5,
+      "stage_width": 896
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 224,
+      "channel_start_inclusive": 192,
+      "group_id": "E2_c0192_0223",
+      "group_index": 126,
+      "resolution_bp": 2,
+      "stage": "E2",
+      "stage_index": 5,
+      "stage_width": 896
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 256,
+      "channel_start_inclusive": 224,
+      "group_id": "E2_c0224_0255",
+      "group_index": 127,
+      "resolution_bp": 2,
+      "stage": "E2",
+      "stage_index": 5,
+      "stage_width": 896
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 288,
+      "channel_start_inclusive": 256,
+      "group_id": "E2_c0256_0287",
+      "group_index": 128,
+      "resolution_bp": 2,
+      "stage": "E2",
+      "stage_index": 5,
+      "stage_width": 896
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 320,
+      "channel_start_inclusive": 288,
+      "group_id": "E2_c0288_0319",
+      "group_index": 129,
+      "resolution_bp": 2,
+      "stage": "E2",
+      "stage_index": 5,
+      "stage_width": 896
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 352,
+      "channel_start_inclusive": 320,
+      "group_id": "E2_c0320_0351",
+      "group_index": 130,
+      "resolution_bp": 2,
+      "stage": "E2",
+      "stage_index": 5,
+      "stage_width": 896
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 384,
+      "channel_start_inclusive": 352,
+      "group_id": "E2_c0352_0383",
+      "group_index": 131,
+      "resolution_bp": 2,
+      "stage": "E2",
+      "stage_index": 5,
+      "stage_width": 896
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 416,
+      "channel_start_inclusive": 384,
+      "group_id": "E2_c0384_0415",
+      "group_index": 132,
+      "resolution_bp": 2,
+      "stage": "E2",
+      "stage_index": 5,
+      "stage_width": 896
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 448,
+      "channel_start_inclusive": 416,
+      "group_id": "E2_c0416_0447",
+      "group_index": 133,
+      "resolution_bp": 2,
+      "stage": "E2",
+      "stage_index": 5,
+      "stage_width": 896
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 480,
+      "channel_start_inclusive": 448,
+      "group_id": "E2_c0448_0479",
+      "group_index": 134,
+      "resolution_bp": 2,
+      "stage": "E2",
+      "stage_index": 5,
+      "stage_width": 896
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 512,
+      "channel_start_inclusive": 480,
+      "group_id": "E2_c0480_0511",
+      "group_index": 135,
+      "resolution_bp": 2,
+      "stage": "E2",
+      "stage_index": 5,
+      "stage_width": 896
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 544,
+      "channel_start_inclusive": 512,
+      "group_id": "E2_c0512_0543",
+      "group_index": 136,
+      "resolution_bp": 2,
+      "stage": "E2",
+      "stage_index": 5,
+      "stage_width": 896
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 576,
+      "channel_start_inclusive": 544,
+      "group_id": "E2_c0544_0575",
+      "group_index": 137,
+      "resolution_bp": 2,
+      "stage": "E2",
+      "stage_index": 5,
+      "stage_width": 896
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 608,
+      "channel_start_inclusive": 576,
+      "group_id": "E2_c0576_0607",
+      "group_index": 138,
+      "resolution_bp": 2,
+      "stage": "E2",
+      "stage_index": 5,
+      "stage_width": 896
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 640,
+      "channel_start_inclusive": 608,
+      "group_id": "E2_c0608_0639",
+      "group_index": 139,
+      "resolution_bp": 2,
+      "stage": "E2",
+      "stage_index": 5,
+      "stage_width": 896
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 672,
+      "channel_start_inclusive": 640,
+      "group_id": "E2_c0640_0671",
+      "group_index": 140,
+      "resolution_bp": 2,
+      "stage": "E2",
+      "stage_index": 5,
+      "stage_width": 896
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 704,
+      "channel_start_inclusive": 672,
+      "group_id": "E2_c0672_0703",
+      "group_index": 141,
+      "resolution_bp": 2,
+      "stage": "E2",
+      "stage_index": 5,
+      "stage_width": 896
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 736,
+      "channel_start_inclusive": 704,
+      "group_id": "E2_c0704_0735",
+      "group_index": 142,
+      "resolution_bp": 2,
+      "stage": "E2",
+      "stage_index": 5,
+      "stage_width": 896
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 768,
+      "channel_start_inclusive": 736,
+      "group_id": "E2_c0736_0767",
+      "group_index": 143,
+      "resolution_bp": 2,
+      "stage": "E2",
+      "stage_index": 5,
+      "stage_width": 896
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 800,
+      "channel_start_inclusive": 768,
+      "group_id": "E2_c0768_0799",
+      "group_index": 144,
+      "resolution_bp": 2,
+      "stage": "E2",
+      "stage_index": 5,
+      "stage_width": 896
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 832,
+      "channel_start_inclusive": 800,
+      "group_id": "E2_c0800_0831",
+      "group_index": 145,
+      "resolution_bp": 2,
+      "stage": "E2",
+      "stage_index": 5,
+      "stage_width": 896
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 864,
+      "channel_start_inclusive": 832,
+      "group_id": "E2_c0832_0863",
+      "group_index": 146,
+      "resolution_bp": 2,
+      "stage": "E2",
+      "stage_index": 5,
+      "stage_width": 896
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 896,
+      "channel_start_inclusive": 864,
+      "group_id": "E2_c0864_0895",
+      "group_index": 147,
+      "resolution_bp": 2,
+      "stage": "E2",
+      "stage_index": 5,
+      "stage_width": 896
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 32,
+      "channel_start_inclusive": 0,
+      "group_id": "E1_c0000_0031",
+      "group_index": 148,
+      "resolution_bp": 1,
+      "stage": "E1",
+      "stage_index": 6,
+      "stage_width": 768
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 64,
+      "channel_start_inclusive": 32,
+      "group_id": "E1_c0032_0063",
+      "group_index": 149,
+      "resolution_bp": 1,
+      "stage": "E1",
+      "stage_index": 6,
+      "stage_width": 768
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 96,
+      "channel_start_inclusive": 64,
+      "group_id": "E1_c0064_0095",
+      "group_index": 150,
+      "resolution_bp": 1,
+      "stage": "E1",
+      "stage_index": 6,
+      "stage_width": 768
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 128,
+      "channel_start_inclusive": 96,
+      "group_id": "E1_c0096_0127",
+      "group_index": 151,
+      "resolution_bp": 1,
+      "stage": "E1",
+      "stage_index": 6,
+      "stage_width": 768
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 160,
+      "channel_start_inclusive": 128,
+      "group_id": "E1_c0128_0159",
+      "group_index": 152,
+      "resolution_bp": 1,
+      "stage": "E1",
+      "stage_index": 6,
+      "stage_width": 768
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 192,
+      "channel_start_inclusive": 160,
+      "group_id": "E1_c0160_0191",
+      "group_index": 153,
+      "resolution_bp": 1,
+      "stage": "E1",
+      "stage_index": 6,
+      "stage_width": 768
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 224,
+      "channel_start_inclusive": 192,
+      "group_id": "E1_c0192_0223",
+      "group_index": 154,
+      "resolution_bp": 1,
+      "stage": "E1",
+      "stage_index": 6,
+      "stage_width": 768
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 256,
+      "channel_start_inclusive": 224,
+      "group_id": "E1_c0224_0255",
+      "group_index": 155,
+      "resolution_bp": 1,
+      "stage": "E1",
+      "stage_index": 6,
+      "stage_width": 768
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 288,
+      "channel_start_inclusive": 256,
+      "group_id": "E1_c0256_0287",
+      "group_index": 156,
+      "resolution_bp": 1,
+      "stage": "E1",
+      "stage_index": 6,
+      "stage_width": 768
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 320,
+      "channel_start_inclusive": 288,
+      "group_id": "E1_c0288_0319",
+      "group_index": 157,
+      "resolution_bp": 1,
+      "stage": "E1",
+      "stage_index": 6,
+      "stage_width": 768
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 352,
+      "channel_start_inclusive": 320,
+      "group_id": "E1_c0320_0351",
+      "group_index": 158,
+      "resolution_bp": 1,
+      "stage": "E1",
+      "stage_index": 6,
+      "stage_width": 768
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 384,
+      "channel_start_inclusive": 352,
+      "group_id": "E1_c0352_0383",
+      "group_index": 159,
+      "resolution_bp": 1,
+      "stage": "E1",
+      "stage_index": 6,
+      "stage_width": 768
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 416,
+      "channel_start_inclusive": 384,
+      "group_id": "E1_c0384_0415",
+      "group_index": 160,
+      "resolution_bp": 1,
+      "stage": "E1",
+      "stage_index": 6,
+      "stage_width": 768
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 448,
+      "channel_start_inclusive": 416,
+      "group_id": "E1_c0416_0447",
+      "group_index": 161,
+      "resolution_bp": 1,
+      "stage": "E1",
+      "stage_index": 6,
+      "stage_width": 768
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 480,
+      "channel_start_inclusive": 448,
+      "group_id": "E1_c0448_0479",
+      "group_index": 162,
+      "resolution_bp": 1,
+      "stage": "E1",
+      "stage_index": 6,
+      "stage_width": 768
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 512,
+      "channel_start_inclusive": 480,
+      "group_id": "E1_c0480_0511",
+      "group_index": 163,
+      "resolution_bp": 1,
+      "stage": "E1",
+      "stage_index": 6,
+      "stage_width": 768
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 544,
+      "channel_start_inclusive": 512,
+      "group_id": "E1_c0512_0543",
+      "group_index": 164,
+      "resolution_bp": 1,
+      "stage": "E1",
+      "stage_index": 6,
+      "stage_width": 768
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 576,
+      "channel_start_inclusive": 544,
+      "group_id": "E1_c0544_0575",
+      "group_index": 165,
+      "resolution_bp": 1,
+      "stage": "E1",
+      "stage_index": 6,
+      "stage_width": 768
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 608,
+      "channel_start_inclusive": 576,
+      "group_id": "E1_c0576_0607",
+      "group_index": 166,
+      "resolution_bp": 1,
+      "stage": "E1",
+      "stage_index": 6,
+      "stage_width": 768
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 640,
+      "channel_start_inclusive": 608,
+      "group_id": "E1_c0608_0639",
+      "group_index": 167,
+      "resolution_bp": 1,
+      "stage": "E1",
+      "stage_index": 6,
+      "stage_width": 768
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 672,
+      "channel_start_inclusive": 640,
+      "group_id": "E1_c0640_0671",
+      "group_index": 168,
+      "resolution_bp": 1,
+      "stage": "E1",
+      "stage_index": 6,
+      "stage_width": 768
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 704,
+      "channel_start_inclusive": 672,
+      "group_id": "E1_c0672_0703",
+      "group_index": 169,
+      "resolution_bp": 1,
+      "stage": "E1",
+      "stage_index": 6,
+      "stage_width": 768
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 736,
+      "channel_start_inclusive": 704,
+      "group_id": "E1_c0704_0735",
+      "group_index": 170,
+      "resolution_bp": 1,
+      "stage": "E1",
+      "stage_index": 6,
+      "stage_width": 768
+    },
+    {
+      "channel_count": 32,
+      "channel_end_exclusive": 768,
+      "channel_start_inclusive": 736,
+      "group_id": "E1_c0736_0767",
+      "group_index": 171,
+      "resolution_bp": 1,
+      "stage": "E1",
+      "stage_index": 6,
+      "stage_width": 768
+    }
+  ],
+  "inputs": {
+    "spatial_analysis_path": "results/spatial_encoder_skip_v1_model_behavior_analysis/ANALYSIS.json",
+    "spatial_analysis_sha256": "d2d2fb44cc7a6e325286400fc0a5c95be1b8ca800cb888db349c6c4281dfa8ca",
+    "spatial_plan_path": "spatial_encoder_skip_plan_v1.json",
+    "spatial_plan_sha256": "f01e7253c39e048a3b7ce1d0bab3ca7d0244a756f510657dba245b20368ae8c7",
+    "spatial_raw_result_tree_sha256": "7b973514de25023c690efccf3a226d5c65d22d71f529ba18b142c3ec85aabeb8"
+  },
+  "question": "Which contiguous 32-channel blocks are necessary for V-local bidirectional recovery in the E32/E16/E8/E2/E1 skip route?",
+  "schema_version": "alphagenome-channel-group-screen-plan-v1",
+  "scope": {
+    "confirmation_access": false,
+    "development_only": true,
+    "effect_count": 12,
+    "genes": [
+      "BRAF",
+      "SLC25A48"
+    ],
+    "neutral_count": 8,
+    "variant_count": 20
+  }
+}

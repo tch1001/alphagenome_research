@@ -314,6 +314,10 @@ class TransformerTower(hk.Module):
           None
           if pre_attention_transfer is None
           else pre_attention_transfer.transfer_mask[i],
+          None
+          if pre_attention_transfer is None
+          or pre_attention_transfer.channel_mask is None
+          else pre_attention_transfer.channel_mask[i, :x.shape[-1]],
       )
       effective_pre_attention_residual_traces.append(
           interpretability.gather_sequence_residuals(
@@ -383,6 +387,10 @@ class TransformerTower(hk.Module):
           None
           if post_attention_transfer is None
           else post_attention_transfer.transfer_mask[i],
+          None
+          if post_attention_transfer is None
+          or post_attention_transfer.channel_mask is None
+          else post_attention_transfer.channel_mask[i, :x.shape[-1]],
       )
       effective_post_attention_residual_traces.append(
           interpretability.gather_sequence_residuals(
@@ -416,6 +424,10 @@ class TransformerTower(hk.Module):
           None
           if post_mlp_transfer is None
           else post_mlp_transfer.transfer_mask[i],
+          None
+          if post_mlp_transfer is None
+          or post_mlp_transfer.channel_mask is None
+          else post_mlp_transfer.channel_mask[i, :x.shape[-1]],
       )
       effective_post_mlp_residual_traces.append(
           interpretability.gather_sequence_residuals(
@@ -855,6 +867,11 @@ class AlphaGenome(hk.Module):
         final_selection,
         interventions.final_embedding.donor_batch_indices[0],
         interventions.final_embedding.transfer_mask[0],
+        None
+        if interventions.final_embedding.channel_mask is None
+        else interventions.final_embedding.channel_mask[
+            0, :embeddings_1bp.shape[-1]
+        ],
     )
     effective_final = interpretability.gather_sequence_residuals(
         embeddings_1bp, final_selection
@@ -969,6 +986,11 @@ class AlphaGenome(hk.Module):
         final_selection,
         interventions.stage_a.final_embedding.donor_batch_indices[0],
         interventions.stage_a.final_embedding.transfer_mask[0],
+        None
+        if interventions.stage_a.final_embedding.channel_mask is None
+        else interventions.stage_a.final_embedding.channel_mask[
+            0, :embeddings_1bp.shape[-1]
+        ],
     )
     effective_final = interpretability.gather_sequence_residuals(
         embeddings_1bp, final_selection

@@ -446,6 +446,55 @@ class InterpretabilityTest(absltest.TestCase):
     for family in interpretability.CAUSAL_ROUTE_FAMILIES:
       self.assertLen(family.channel_widths, len(family.resolutions_bp))
 
+  def test_live_batch_residual_transfer_can_select_channels(self):
+    row_ref = jnp.arange(3 * 5, dtype=jnp.bfloat16).reshape(3, 5)
+    row_alt = row_ref + jnp.asarray(100, jnp.bfloat16)
+    residuals = jnp.stack([row_ref, row_alt])
+    selection = interpretability.SequenceResidualSelection(
+        positions=jnp.array([1], jnp.int32),
+        valid_mask=jnp.array([True]),
+    )
+    donors = jnp.array([[0], [0]], jnp.int32)
+    transfer_mask = jnp.array([[False], [True]])
+    channel_mask = jnp.array([False, True, False, True, False])
+
+    transferred = jax.jit(
+        interpretability.transfer_sequence_residuals_within_batch
+    )(residuals, selection, donors, transfer_mask, channel_mask)
+
+    expected = np.asarray(residuals).copy()
+    expected[1, 1, [1, 3]] = np.asarray(residuals)[0, 1, [1, 3]]
+    np.testing.assert_array_equal(transferred, expected)
+    np.testing.assert_array_equal(
+        transferred[1, 1, [0, 2, 4]], residuals[1, 1, [0, 2, 4]]
+    )
+
+  def test_paired_six_row_route_transfer_preserves_channel_mask(self):
+    component_mask = jnp.ones((7, 2), jnp.bool)
+    channel_mask = jnp.zeros((7, 16), jnp.bool).at[3, 4:8].set(True)
+
+    transfer = interpretability.paired_six_row_batch_transfer(
+        component_mask, channel_mask
+    )
+
+    chex.assert_shape(transfer.channel_mask, (7, 16))
+    np.testing.assert_array_equal(transfer.channel_mask, channel_mask)
+
+  def test_live_batch_residual_transfer_rejects_wrong_channel_width(self):
+    residuals = jnp.zeros((2, 3, 5), jnp.bfloat16)
+    selection = interpretability.SequenceResidualSelection(
+        positions=jnp.array([1], jnp.int32),
+        valid_mask=jnp.array([True]),
+    )
+    with self.assertRaisesRegex(ValueError, 'channel mask'):
+      interpretability.transfer_sequence_residuals_within_batch(
+          residuals,
+          selection,
+          jnp.array([[0], [0]], jnp.int32),
+          jnp.array([[False], [True]]),
+          jnp.ones((4,), jnp.bool),
+      )
+
   def test_whole_sequence_transfer_is_exact_and_keeps_values_on_device(self):
     row_ref = jnp.arange(12, dtype=jnp.bfloat16).reshape(3, 4)
     row_alt = row_ref + jnp.asarray(100, jnp.bfloat16)
