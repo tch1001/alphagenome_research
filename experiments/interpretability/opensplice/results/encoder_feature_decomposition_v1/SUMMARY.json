@@ -1,0 +1,25 @@
+{
+  "status": "complete",
+  "binding": {
+    "script_version": "alphagenome-encoder-feature-decomposition-v1.0.0",
+    "source_sha256": {
+      "experiments/interpretability/opensplice/run_encoder_feature_decomposition.py": "32d270cad8609c04e8eecd4042be008698ab1e42bfa14e04ea8a519657f22758",
+      "src/alphagenome_research/model/convolutions.py": "f88c4dd626e55cf6bde20ae1cdefc6b0e1ff3ff871bc2b1accbc5731b780fef0",
+      "src/alphagenome_research/model/interpretability.py": "94ac8523caee017fbf5edbf8daeec0138a632dc242fd2b114aee8239441fb47b",
+      "src/alphagenome_research/model/model.py": "e4b72ffca8326d11cc128d1076ed3081b482de5264ea0bfac5a4464e694029e7",
+      "src/alphagenome_research/model/dna_model.py": "0abe29f571c179ab97b6ac14d05f38ad6c6c41250120edfc86dcf2c47c421ab8"
+    },
+    "plan_path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/encoder_feature_decomposition_plan_v1.json",
+    "plan_sha256": "f0847c41c9731ab30ae6058f3204afb3db4fed31ddab27c46899befb0d38b24e",
+    "checkpoint_snapshot": "a8f293a76ee73d5b57f3bf2ae146510589fcf187",
+    "context_bp": 16384,
+    "confirmation_access": false
+  },
+  "variant_count": 20,
+  "full_frozen_design_completed": true,
+  "model_apply_count_in_full_nonresume_run": 40,
+  "all_runtime_controls_passed": true,
+  "selected_weight_evidence_sha256": "47cba751bc911b35ea742b8e7e14f34f5114e4051a82d8626c168048dc435412",
+  "confirmation_access": false,
+  "created_at_unix_s": 1788340539.874484
+}

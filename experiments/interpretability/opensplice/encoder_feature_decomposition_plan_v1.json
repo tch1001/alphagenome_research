@@ -1,0 +1,1661 @@
+{
+  "analysis": {
+    "interpretation_limit": "Raw kernels are mechanistic weight evidence, not by themselves a transcription- or splicing-factor assignment.",
+    "natural_allele_difference": "alternate minus reference",
+    "primary_population": "gene-matched significant effects",
+    "robustification_test": "compare cross-effect alignment of SLC25A48 channel-175 allele-difference vectors at E1, the E2 carried path, both E2 learned updates, and the E2 output"
+  },
+  "cases": [
+    {
+      "chromosome": "chr7",
+      "gene": "BRAF",
+      "interval_end_0based_exclusive": 140762401,
+      "interval_start_0based": 140746017,
+      "order": 0,
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "positions": [
+            8169,
+            8215
+          ],
+          "resolution_bp": 1,
+          "stage": "E1",
+          "stage_index": 0
+        },
+        {
+          "positions": [
+            4084,
+            4107
+          ],
+          "resolution_bp": 2,
+          "stage": "E2",
+          "stage_index": 1
+        },
+        {
+          "positions": [
+            2042,
+            2053
+          ],
+          "resolution_bp": 4,
+          "stage": "E4",
+          "stage_index": 2
+        },
+        {
+          "positions": [
+            1021,
+            1026
+          ],
+          "resolution_bp": 8,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "positions": [
+            510,
+            513
+          ],
+          "resolution_bp": 16,
+          "stage": "E16",
+          "stage_index": 4
+        },
+        {
+          "positions": [
+            255,
+            256
+          ],
+          "resolution_bp": 32,
+          "stage": "E32",
+          "stage_index": 5
+        },
+        {
+          "positions": [
+            127,
+            128
+          ],
+          "resolution_bp": 64,
+          "stage": "E64",
+          "stage_index": 6
+        }
+      ],
+      "strand": "-",
+      "variant_id": "BRAF_e14_A117G",
+      "variant_position_1based": 140754187
+    },
+    {
+      "chromosome": "chr7",
+      "gene": "BRAF",
+      "interval_end_0based_exclusive": 140762401,
+      "interval_start_0based": 140746017,
+      "order": 1,
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "positions": [
+            8215,
+            8169
+          ],
+          "resolution_bp": 1,
+          "stage": "E1",
+          "stage_index": 0
+        },
+        {
+          "positions": [
+            4107,
+            4084
+          ],
+          "resolution_bp": 2,
+          "stage": "E2",
+          "stage_index": 1
+        },
+        {
+          "positions": [
+            2053,
+            2042
+          ],
+          "resolution_bp": 4,
+          "stage": "E4",
+          "stage_index": 2
+        },
+        {
+          "positions": [
+            1026,
+            1021
+          ],
+          "resolution_bp": 8,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "positions": [
+            513,
+            510
+          ],
+          "resolution_bp": 16,
+          "stage": "E16",
+          "stage_index": 4
+        },
+        {
+          "positions": [
+            256,
+            255
+          ],
+          "resolution_bp": 32,
+          "stage": "E32",
+          "stage_index": 5
+        },
+        {
+          "positions": [
+            128,
+            127
+          ],
+          "resolution_bp": 64,
+          "stage": "E64",
+          "stage_index": 6
+        }
+      ],
+      "strand": "-",
+      "variant_id": "BRAF_e14_T71A",
+      "variant_position_1based": 140754233
+    },
+    {
+      "chromosome": "chr7",
+      "gene": "BRAF",
+      "interval_end_0based_exclusive": 140762401,
+      "interval_start_0based": 140746017,
+      "order": 2,
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "positions": [
+            8215,
+            8169
+          ],
+          "resolution_bp": 1,
+          "stage": "E1",
+          "stage_index": 0
+        },
+        {
+          "positions": [
+            4107,
+            4084
+          ],
+          "resolution_bp": 2,
+          "stage": "E2",
+          "stage_index": 1
+        },
+        {
+          "positions": [
+            2053,
+            2042
+          ],
+          "resolution_bp": 4,
+          "stage": "E4",
+          "stage_index": 2
+        },
+        {
+          "positions": [
+            1026,
+            1021
+          ],
+          "resolution_bp": 8,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "positions": [
+            513,
+            510
+          ],
+          "resolution_bp": 16,
+          "stage": "E16",
+          "stage_index": 4
+        },
+        {
+          "positions": [
+            256,
+            255
+          ],
+          "resolution_bp": 32,
+          "stage": "E32",
+          "stage_index": 5
+        },
+        {
+          "positions": [
+            128,
+            127
+          ],
+          "resolution_bp": 64,
+          "stage": "E64",
+          "stage_index": 6
+        }
+      ],
+      "strand": "-",
+      "variant_id": "BRAF_e14_T71G",
+      "variant_position_1based": 140754233
+    },
+    {
+      "chromosome": "chr7",
+      "gene": "BRAF",
+      "interval_end_0based_exclusive": 140762401,
+      "interval_start_0based": 140746017,
+      "order": 3,
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "positions": [
+            8169,
+            8215
+          ],
+          "resolution_bp": 1,
+          "stage": "E1",
+          "stage_index": 0
+        },
+        {
+          "positions": [
+            4084,
+            4107
+          ],
+          "resolution_bp": 2,
+          "stage": "E2",
+          "stage_index": 1
+        },
+        {
+          "positions": [
+            2042,
+            2053
+          ],
+          "resolution_bp": 4,
+          "stage": "E4",
+          "stage_index": 2
+        },
+        {
+          "positions": [
+            1021,
+            1026
+          ],
+          "resolution_bp": 8,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "positions": [
+            510,
+            513
+          ],
+          "resolution_bp": 16,
+          "stage": "E16",
+          "stage_index": 4
+        },
+        {
+          "positions": [
+            255,
+            256
+          ],
+          "resolution_bp": 32,
+          "stage": "E32",
+          "stage_index": 5
+        },
+        {
+          "positions": [
+            127,
+            128
+          ],
+          "resolution_bp": 64,
+          "stage": "E64",
+          "stage_index": 6
+        }
+      ],
+      "strand": "-",
+      "variant_id": "BRAF_e14_A117C",
+      "variant_position_1based": 140754187
+    },
+    {
+      "chromosome": "chr7",
+      "gene": "BRAF",
+      "interval_end_0based_exclusive": 140762401,
+      "interval_start_0based": 140746017,
+      "order": 4,
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "positions": [
+            8197,
+            8215,
+            8169
+          ],
+          "resolution_bp": 1,
+          "stage": "E1",
+          "stage_index": 0
+        },
+        {
+          "positions": [
+            4098,
+            4107,
+            4084
+          ],
+          "resolution_bp": 2,
+          "stage": "E2",
+          "stage_index": 1
+        },
+        {
+          "positions": [
+            2049,
+            2053,
+            2042
+          ],
+          "resolution_bp": 4,
+          "stage": "E4",
+          "stage_index": 2
+        },
+        {
+          "positions": [
+            1024,
+            1026,
+            1021
+          ],
+          "resolution_bp": 8,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "positions": [
+            512,
+            513,
+            510
+          ],
+          "resolution_bp": 16,
+          "stage": "E16",
+          "stage_index": 4
+        },
+        {
+          "positions": [
+            256,
+            255
+          ],
+          "resolution_bp": 32,
+          "stage": "E32",
+          "stage_index": 5
+        },
+        {
+          "positions": [
+            128,
+            127
+          ],
+          "resolution_bp": 64,
+          "stage": "E64",
+          "stage_index": 6
+        }
+      ],
+      "strand": "-",
+      "variant_id": "BRAF_e14_A89G",
+      "variant_position_1based": 140754215
+    },
+    {
+      "chromosome": "chr7",
+      "gene": "BRAF",
+      "interval_end_0based_exclusive": 140762401,
+      "interval_start_0based": 140746017,
+      "order": 5,
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "positions": [
+            8209,
+            8215,
+            8169
+          ],
+          "resolution_bp": 1,
+          "stage": "E1",
+          "stage_index": 0
+        },
+        {
+          "positions": [
+            4104,
+            4107,
+            4084
+          ],
+          "resolution_bp": 2,
+          "stage": "E2",
+          "stage_index": 1
+        },
+        {
+          "positions": [
+            2052,
+            2053,
+            2042
+          ],
+          "resolution_bp": 4,
+          "stage": "E4",
+          "stage_index": 2
+        },
+        {
+          "positions": [
+            1026,
+            1021
+          ],
+          "resolution_bp": 8,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "positions": [
+            513,
+            510
+          ],
+          "resolution_bp": 16,
+          "stage": "E16",
+          "stage_index": 4
+        },
+        {
+          "positions": [
+            256,
+            255
+          ],
+          "resolution_bp": 32,
+          "stage": "E32",
+          "stage_index": 5
+        },
+        {
+          "positions": [
+            128,
+            127
+          ],
+          "resolution_bp": 64,
+          "stage": "E64",
+          "stage_index": 6
+        }
+      ],
+      "strand": "-",
+      "variant_id": "BRAF_e14_A77C",
+      "variant_position_1based": 140754227
+    },
+    {
+      "chromosome": "chr7",
+      "gene": "BRAF",
+      "interval_end_0based_exclusive": 140762401,
+      "interval_start_0based": 140746017,
+      "order": 6,
+      "selection_class": "neutral_control",
+      "stages": [
+        {
+          "positions": [
+            8165,
+            8215,
+            8169
+          ],
+          "resolution_bp": 1,
+          "stage": "E1",
+          "stage_index": 0
+        },
+        {
+          "positions": [
+            4082,
+            4107,
+            4084
+          ],
+          "resolution_bp": 2,
+          "stage": "E2",
+          "stage_index": 1
+        },
+        {
+          "positions": [
+            2041,
+            2053,
+            2042
+          ],
+          "resolution_bp": 4,
+          "stage": "E4",
+          "stage_index": 2
+        },
+        {
+          "positions": [
+            1020,
+            1026,
+            1021
+          ],
+          "resolution_bp": 8,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "positions": [
+            510,
+            513
+          ],
+          "resolution_bp": 16,
+          "stage": "E16",
+          "stage_index": 4
+        },
+        {
+          "positions": [
+            255,
+            256
+          ],
+          "resolution_bp": 32,
+          "stage": "E32",
+          "stage_index": 5
+        },
+        {
+          "positions": [
+            127,
+            128
+          ],
+          "resolution_bp": 64,
+          "stage": "E64",
+          "stage_index": 6
+        }
+      ],
+      "strand": "-",
+      "variant_id": "BRAF_e14_T121C",
+      "variant_position_1based": 140754183
+    },
+    {
+      "chromosome": "chr7",
+      "gene": "BRAF",
+      "interval_end_0based_exclusive": 140762401,
+      "interval_start_0based": 140746017,
+      "order": 7,
+      "selection_class": "neutral_control",
+      "stages": [
+        {
+          "positions": [
+            8217,
+            8215,
+            8169
+          ],
+          "resolution_bp": 1,
+          "stage": "E1",
+          "stage_index": 0
+        },
+        {
+          "positions": [
+            4108,
+            4107,
+            4084
+          ],
+          "resolution_bp": 2,
+          "stage": "E2",
+          "stage_index": 1
+        },
+        {
+          "positions": [
+            2054,
+            2053,
+            2042
+          ],
+          "resolution_bp": 4,
+          "stage": "E4",
+          "stage_index": 2
+        },
+        {
+          "positions": [
+            1027,
+            1026,
+            1021
+          ],
+          "resolution_bp": 8,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "positions": [
+            513,
+            510
+          ],
+          "resolution_bp": 16,
+          "stage": "E16",
+          "stage_index": 4
+        },
+        {
+          "positions": [
+            256,
+            255
+          ],
+          "resolution_bp": 32,
+          "stage": "E32",
+          "stage_index": 5
+        },
+        {
+          "positions": [
+            128,
+            127
+          ],
+          "resolution_bp": 64,
+          "stage": "E64",
+          "stage_index": 6
+        }
+      ],
+      "strand": "-",
+      "variant_id": "BRAF_e14_A69G",
+      "variant_position_1based": 140754235
+    },
+    {
+      "chromosome": "chr7",
+      "gene": "BRAF",
+      "interval_end_0based_exclusive": 140762401,
+      "interval_start_0based": 140746017,
+      "order": 8,
+      "selection_class": "neutral_control",
+      "stages": [
+        {
+          "positions": [
+            8218,
+            8215,
+            8169
+          ],
+          "resolution_bp": 1,
+          "stage": "E1",
+          "stage_index": 0
+        },
+        {
+          "positions": [
+            4109,
+            4107,
+            4084
+          ],
+          "resolution_bp": 2,
+          "stage": "E2",
+          "stage_index": 1
+        },
+        {
+          "positions": [
+            2054,
+            2053,
+            2042
+          ],
+          "resolution_bp": 4,
+          "stage": "E4",
+          "stage_index": 2
+        },
+        {
+          "positions": [
+            1027,
+            1026,
+            1021
+          ],
+          "resolution_bp": 8,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "positions": [
+            513,
+            510
+          ],
+          "resolution_bp": 16,
+          "stage": "E16",
+          "stage_index": 4
+        },
+        {
+          "positions": [
+            256,
+            255
+          ],
+          "resolution_bp": 32,
+          "stage": "E32",
+          "stage_index": 5
+        },
+        {
+          "positions": [
+            128,
+            127
+          ],
+          "resolution_bp": 64,
+          "stage": "E64",
+          "stage_index": 6
+        }
+      ],
+      "strand": "-",
+      "variant_id": "BRAF_e14_C68T",
+      "variant_position_1based": 140754236
+    },
+    {
+      "chromosome": "chr7",
+      "gene": "BRAF",
+      "interval_end_0based_exclusive": 140762401,
+      "interval_start_0based": 140746017,
+      "order": 9,
+      "selection_class": "neutral_control",
+      "stages": [
+        {
+          "positions": [
+            8168,
+            8215,
+            8169
+          ],
+          "resolution_bp": 1,
+          "stage": "E1",
+          "stage_index": 0
+        },
+        {
+          "positions": [
+            4084,
+            4107
+          ],
+          "resolution_bp": 2,
+          "stage": "E2",
+          "stage_index": 1
+        },
+        {
+          "positions": [
+            2042,
+            2053
+          ],
+          "resolution_bp": 4,
+          "stage": "E4",
+          "stage_index": 2
+        },
+        {
+          "positions": [
+            1021,
+            1026
+          ],
+          "resolution_bp": 8,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "positions": [
+            510,
+            513
+          ],
+          "resolution_bp": 16,
+          "stage": "E16",
+          "stage_index": 4
+        },
+        {
+          "positions": [
+            255,
+            256
+          ],
+          "resolution_bp": 32,
+          "stage": "E32",
+          "stage_index": 5
+        },
+        {
+          "positions": [
+            127,
+            128
+          ],
+          "resolution_bp": 64,
+          "stage": "E64",
+          "stage_index": 6
+        }
+      ],
+      "strand": "-",
+      "variant_id": "BRAF_e14_G118A",
+      "variant_position_1based": 140754186
+    },
+    {
+      "chromosome": "chr5",
+      "gene": "SLC25A48",
+      "interval_end_0based_exclusive": 135889032,
+      "interval_start_0based": 135872648,
+      "order": 10,
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "positions": [
+            8123,
+            8124,
+            8261
+          ],
+          "resolution_bp": 1,
+          "stage": "E1",
+          "stage_index": 0
+        },
+        {
+          "positions": [
+            4061,
+            4062,
+            4130
+          ],
+          "resolution_bp": 2,
+          "stage": "E2",
+          "stage_index": 1
+        },
+        {
+          "positions": [
+            2030,
+            2031,
+            2065
+          ],
+          "resolution_bp": 4,
+          "stage": "E4",
+          "stage_index": 2
+        },
+        {
+          "positions": [
+            1015,
+            1032
+          ],
+          "resolution_bp": 8,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "positions": [
+            507,
+            516
+          ],
+          "resolution_bp": 16,
+          "stage": "E16",
+          "stage_index": 4
+        },
+        {
+          "positions": [
+            253,
+            258
+          ],
+          "resolution_bp": 32,
+          "stage": "E32",
+          "stage_index": 5
+        },
+        {
+          "positions": [
+            126,
+            129
+          ],
+          "resolution_bp": 64,
+          "stage": "E64",
+          "stage_index": 6
+        }
+      ],
+      "strand": "+",
+      "variant_id": "SLC25A48_e8_G70A",
+      "variant_position_1based": 135880772
+    },
+    {
+      "chromosome": "chr5",
+      "gene": "SLC25A48",
+      "interval_end_0based_exclusive": 135889032,
+      "interval_start_0based": 135872648,
+      "order": 11,
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "positions": [
+            8122,
+            8124,
+            8261
+          ],
+          "resolution_bp": 1,
+          "stage": "E1",
+          "stage_index": 0
+        },
+        {
+          "positions": [
+            4061,
+            4062,
+            4130
+          ],
+          "resolution_bp": 2,
+          "stage": "E2",
+          "stage_index": 1
+        },
+        {
+          "positions": [
+            2030,
+            2031,
+            2065
+          ],
+          "resolution_bp": 4,
+          "stage": "E4",
+          "stage_index": 2
+        },
+        {
+          "positions": [
+            1015,
+            1032
+          ],
+          "resolution_bp": 8,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "positions": [
+            507,
+            516
+          ],
+          "resolution_bp": 16,
+          "stage": "E16",
+          "stage_index": 4
+        },
+        {
+          "positions": [
+            253,
+            258
+          ],
+          "resolution_bp": 32,
+          "stage": "E32",
+          "stage_index": 5
+        },
+        {
+          "positions": [
+            126,
+            129
+          ],
+          "resolution_bp": 64,
+          "stage": "E64",
+          "stage_index": 6
+        }
+      ],
+      "strand": "+",
+      "variant_id": "SLC25A48_e8_A69C",
+      "variant_position_1based": 135880771
+    },
+    {
+      "chromosome": "chr5",
+      "gene": "SLC25A48",
+      "interval_end_0based_exclusive": 135889032,
+      "interval_start_0based": 135872648,
+      "order": 12,
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "positions": [
+            8122,
+            8124,
+            8261
+          ],
+          "resolution_bp": 1,
+          "stage": "E1",
+          "stage_index": 0
+        },
+        {
+          "positions": [
+            4061,
+            4062,
+            4130
+          ],
+          "resolution_bp": 2,
+          "stage": "E2",
+          "stage_index": 1
+        },
+        {
+          "positions": [
+            2030,
+            2031,
+            2065
+          ],
+          "resolution_bp": 4,
+          "stage": "E4",
+          "stage_index": 2
+        },
+        {
+          "positions": [
+            1015,
+            1032
+          ],
+          "resolution_bp": 8,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "positions": [
+            507,
+            516
+          ],
+          "resolution_bp": 16,
+          "stage": "E16",
+          "stage_index": 4
+        },
+        {
+          "positions": [
+            253,
+            258
+          ],
+          "resolution_bp": 32,
+          "stage": "E32",
+          "stage_index": 5
+        },
+        {
+          "positions": [
+            126,
+            129
+          ],
+          "resolution_bp": 64,
+          "stage": "E64",
+          "stage_index": 6
+        }
+      ],
+      "strand": "+",
+      "variant_id": "SLC25A48_e8_A69T",
+      "variant_position_1based": 135880771
+    },
+    {
+      "chromosome": "chr5",
+      "gene": "SLC25A48",
+      "interval_end_0based_exclusive": 135889032,
+      "interval_start_0based": 135872648,
+      "order": 13,
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "positions": [
+            8121,
+            8124,
+            8261
+          ],
+          "resolution_bp": 1,
+          "stage": "E1",
+          "stage_index": 0
+        },
+        {
+          "positions": [
+            4060,
+            4062,
+            4130
+          ],
+          "resolution_bp": 2,
+          "stage": "E2",
+          "stage_index": 1
+        },
+        {
+          "positions": [
+            2030,
+            2031,
+            2065
+          ],
+          "resolution_bp": 4,
+          "stage": "E4",
+          "stage_index": 2
+        },
+        {
+          "positions": [
+            1015,
+            1032
+          ],
+          "resolution_bp": 8,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "positions": [
+            507,
+            516
+          ],
+          "resolution_bp": 16,
+          "stage": "E16",
+          "stage_index": 4
+        },
+        {
+          "positions": [
+            253,
+            258
+          ],
+          "resolution_bp": 32,
+          "stage": "E32",
+          "stage_index": 5
+        },
+        {
+          "positions": [
+            126,
+            129
+          ],
+          "resolution_bp": 64,
+          "stage": "E64",
+          "stage_index": 6
+        }
+      ],
+      "strand": "+",
+      "variant_id": "SLC25A48_e8_T68G",
+      "variant_position_1based": 135880770
+    },
+    {
+      "chromosome": "chr5",
+      "gene": "SLC25A48",
+      "interval_end_0based_exclusive": 135889032,
+      "interval_start_0based": 135872648,
+      "order": 14,
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "positions": [
+            8123,
+            8124,
+            8261
+          ],
+          "resolution_bp": 1,
+          "stage": "E1",
+          "stage_index": 0
+        },
+        {
+          "positions": [
+            4061,
+            4062,
+            4130
+          ],
+          "resolution_bp": 2,
+          "stage": "E2",
+          "stage_index": 1
+        },
+        {
+          "positions": [
+            2030,
+            2031,
+            2065
+          ],
+          "resolution_bp": 4,
+          "stage": "E4",
+          "stage_index": 2
+        },
+        {
+          "positions": [
+            1015,
+            1032
+          ],
+          "resolution_bp": 8,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "positions": [
+            507,
+            516
+          ],
+          "resolution_bp": 16,
+          "stage": "E16",
+          "stage_index": 4
+        },
+        {
+          "positions": [
+            253,
+            258
+          ],
+          "resolution_bp": 32,
+          "stage": "E32",
+          "stage_index": 5
+        },
+        {
+          "positions": [
+            126,
+            129
+          ],
+          "resolution_bp": 64,
+          "stage": "E64",
+          "stage_index": 6
+        }
+      ],
+      "strand": "+",
+      "variant_id": "SLC25A48_e8_G70C",
+      "variant_position_1based": 135880772
+    },
+    {
+      "chromosome": "chr5",
+      "gene": "SLC25A48",
+      "interval_end_0based_exclusive": 135889032,
+      "interval_start_0based": 135872648,
+      "order": 15,
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "positions": [
+            8124,
+            8261
+          ],
+          "resolution_bp": 1,
+          "stage": "E1",
+          "stage_index": 0
+        },
+        {
+          "positions": [
+            4062,
+            4130
+          ],
+          "resolution_bp": 2,
+          "stage": "E2",
+          "stage_index": 1
+        },
+        {
+          "positions": [
+            2031,
+            2065
+          ],
+          "resolution_bp": 4,
+          "stage": "E4",
+          "stage_index": 2
+        },
+        {
+          "positions": [
+            1015,
+            1032
+          ],
+          "resolution_bp": 8,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "positions": [
+            507,
+            516
+          ],
+          "resolution_bp": 16,
+          "stage": "E16",
+          "stage_index": 4
+        },
+        {
+          "positions": [
+            253,
+            258
+          ],
+          "resolution_bp": 32,
+          "stage": "E32",
+          "stage_index": 5
+        },
+        {
+          "positions": [
+            126,
+            129
+          ],
+          "resolution_bp": 64,
+          "stage": "E64",
+          "stage_index": 6
+        }
+      ],
+      "strand": "+",
+      "variant_id": "SLC25A48_e8_G71T",
+      "variant_position_1based": 135880773
+    },
+    {
+      "chromosome": "chr5",
+      "gene": "SLC25A48",
+      "interval_end_0based_exclusive": 135889032,
+      "interval_start_0based": 135872648,
+      "order": 16,
+      "selection_class": "neutral_control",
+      "stages": [
+        {
+          "positions": [
+            8120,
+            8124,
+            8261
+          ],
+          "resolution_bp": 1,
+          "stage": "E1",
+          "stage_index": 0
+        },
+        {
+          "positions": [
+            4060,
+            4062,
+            4130
+          ],
+          "resolution_bp": 2,
+          "stage": "E2",
+          "stage_index": 1
+        },
+        {
+          "positions": [
+            2030,
+            2031,
+            2065
+          ],
+          "resolution_bp": 4,
+          "stage": "E4",
+          "stage_index": 2
+        },
+        {
+          "positions": [
+            1015,
+            1032
+          ],
+          "resolution_bp": 8,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "positions": [
+            507,
+            516
+          ],
+          "resolution_bp": 16,
+          "stage": "E16",
+          "stage_index": 4
+        },
+        {
+          "positions": [
+            253,
+            258
+          ],
+          "resolution_bp": 32,
+          "stage": "E32",
+          "stage_index": 5
+        },
+        {
+          "positions": [
+            126,
+            129
+          ],
+          "resolution_bp": 64,
+          "stage": "E64",
+          "stage_index": 6
+        }
+      ],
+      "strand": "+",
+      "variant_id": "SLC25A48_e8_C67T",
+      "variant_position_1based": 135880769
+    },
+    {
+      "chromosome": "chr5",
+      "gene": "SLC25A48",
+      "interval_end_0based_exclusive": 135889032,
+      "interval_start_0based": 135872648,
+      "order": 17,
+      "selection_class": "neutral_control",
+      "stages": [
+        {
+          "positions": [
+            8120,
+            8124,
+            8261
+          ],
+          "resolution_bp": 1,
+          "stage": "E1",
+          "stage_index": 0
+        },
+        {
+          "positions": [
+            4060,
+            4062,
+            4130
+          ],
+          "resolution_bp": 2,
+          "stage": "E2",
+          "stage_index": 1
+        },
+        {
+          "positions": [
+            2030,
+            2031,
+            2065
+          ],
+          "resolution_bp": 4,
+          "stage": "E4",
+          "stage_index": 2
+        },
+        {
+          "positions": [
+            1015,
+            1032
+          ],
+          "resolution_bp": 8,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "positions": [
+            507,
+            516
+          ],
+          "resolution_bp": 16,
+          "stage": "E16",
+          "stage_index": 4
+        },
+        {
+          "positions": [
+            253,
+            258
+          ],
+          "resolution_bp": 32,
+          "stage": "E32",
+          "stage_index": 5
+        },
+        {
+          "positions": [
+            126,
+            129
+          ],
+          "resolution_bp": 64,
+          "stage": "E64",
+          "stage_index": 6
+        }
+      ],
+      "strand": "+",
+      "variant_id": "SLC25A48_e8_C67G",
+      "variant_position_1based": 135880769
+    },
+    {
+      "chromosome": "chr5",
+      "gene": "SLC25A48",
+      "interval_end_0based_exclusive": 135889032,
+      "interval_start_0based": 135872648,
+      "order": 18,
+      "selection_class": "neutral_control",
+      "stages": [
+        {
+          "positions": [
+            8121,
+            8124,
+            8261
+          ],
+          "resolution_bp": 1,
+          "stage": "E1",
+          "stage_index": 0
+        },
+        {
+          "positions": [
+            4060,
+            4062,
+            4130
+          ],
+          "resolution_bp": 2,
+          "stage": "E2",
+          "stage_index": 1
+        },
+        {
+          "positions": [
+            2030,
+            2031,
+            2065
+          ],
+          "resolution_bp": 4,
+          "stage": "E4",
+          "stage_index": 2
+        },
+        {
+          "positions": [
+            1015,
+            1032
+          ],
+          "resolution_bp": 8,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "positions": [
+            507,
+            516
+          ],
+          "resolution_bp": 16,
+          "stage": "E16",
+          "stage_index": 4
+        },
+        {
+          "positions": [
+            253,
+            258
+          ],
+          "resolution_bp": 32,
+          "stage": "E32",
+          "stage_index": 5
+        },
+        {
+          "positions": [
+            126,
+            129
+          ],
+          "resolution_bp": 64,
+          "stage": "E64",
+          "stage_index": 6
+        }
+      ],
+      "strand": "+",
+      "variant_id": "SLC25A48_e8_T68C",
+      "variant_position_1based": 135880770
+    },
+    {
+      "chromosome": "chr5",
+      "gene": "SLC25A48",
+      "interval_end_0based_exclusive": 135889032,
+      "interval_start_0based": 135872648,
+      "order": 19,
+      "selection_class": "neutral_control",
+      "stages": [
+        {
+          "positions": [
+            8059,
+            8124,
+            8261
+          ],
+          "resolution_bp": 1,
+          "stage": "E1",
+          "stage_index": 0
+        },
+        {
+          "positions": [
+            4029,
+            4062,
+            4130
+          ],
+          "resolution_bp": 2,
+          "stage": "E2",
+          "stage_index": 1
+        },
+        {
+          "positions": [
+            2014,
+            2031,
+            2065
+          ],
+          "resolution_bp": 4,
+          "stage": "E4",
+          "stage_index": 2
+        },
+        {
+          "positions": [
+            1007,
+            1015,
+            1032
+          ],
+          "resolution_bp": 8,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "positions": [
+            503,
+            507,
+            516
+          ],
+          "resolution_bp": 16,
+          "stage": "E16",
+          "stage_index": 4
+        },
+        {
+          "positions": [
+            251,
+            253,
+            258
+          ],
+          "resolution_bp": 32,
+          "stage": "E32",
+          "stage_index": 5
+        },
+        {
+          "positions": [
+            125,
+            126,
+            129
+          ],
+          "resolution_bp": 64,
+          "stage": "E64",
+          "stage_index": 6
+        }
+      ],
+      "strand": "+",
+      "variant_id": "SLC25A48_e8_C6A",
+      "variant_position_1based": 135880708
+    }
+  ],
+  "controls": {
+    "all_values_finite": true,
+    "checkpoint_compatible_no_new_parameters": true,
+    "confirmation_access": false,
+    "exact_runtime_repeat": true,
+    "invalid_padded_positions_zero": true,
+    "normal_encoder_output_exact_in_unit_tests": true,
+    "os_kernel_is_a_gate": false
+  },
+  "design": {
+    "components": [
+      "carried",
+      "first_update",
+      "second_update",
+      "output"
+    ],
+    "encoder_resolutions_bp": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64
+    ],
+    "exact_repeats_per_case": 2,
+    "features": [
+      {
+        "channel_index": 3,
+        "encoder_stage_index": 4,
+        "gene": "BRAF",
+        "resolution_bp": 16,
+        "stage": "E16"
+      },
+      {
+        "channel_index": 175,
+        "encoder_stage_index": 0,
+        "gene": "SLC25A48",
+        "resolution_bp": 1,
+        "stage": "E1"
+      },
+      {
+        "channel_index": 175,
+        "encoder_stage_index": 1,
+        "gene": "SLC25A48",
+        "resolution_bp": 2,
+        "stage": "E2"
+      }
+    ],
+    "natural_rows": [
+      "reference",
+      "alternate"
+    ],
+    "planned_model_apply_count": 40,
+    "positions": "the same unique V/acceptor/donor tokens as the causal tests",
+    "traced_channel_indices": [
+      3,
+      175
+    ],
+    "weight_targets": [
+      "DnaEmbedder direct Conv1D channels 3 and 175",
+      "DownResBlock learned branches targeting channel 175"
+    ]
+  },
+  "inputs": {
+    "case_plan_path": "spatial_encoder_skip_plan_v1.json",
+    "case_plan_sha256": "f01e7253c39e048a3b7ce1d0bab3ca7d0244a756f510657dba245b20368ae8c7",
+    "single_channel_analysis_path": "results/single_channel_sufficiency_v1_model_behavior_analysis/ANALYSIS.json",
+    "single_channel_analysis_sha256": "8de109aed9d01ed037fa60eac516b05a115e77e6b3f2eaa8ad622af1529abf74"
+  },
+  "question": "What natural allele-dependent computation and learned weights produce the causal encoder channels?",
+  "schema_version": "alphagenome-encoder-feature-decomposition-plan-v1",
+  "scope": {
+    "confirmation_access": false,
+    "development_only": true,
+    "effect_count": 12,
+    "neutral_count": 8,
+    "variant_count": 20
+  }
+}

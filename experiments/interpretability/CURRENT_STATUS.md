@@ -223,11 +223,36 @@ E1-to-E2 downsampling computation.
 Primary result: [single-channel sufficiency analysis](opensplice/results/single_channel_sufficiency_v1_model_behavior_analysis/RESULT.md).
 Arithmetic check: [independent audit](opensplice/results/single_channel_sufficiency_v1_model_behavior_analysis/INDEPENDENT_AUDIT.md).
 
+### Weight-to-feature interpretation
+
+An exact residual decomposition of the frozen checkpoint now identifies
+SLC25A48 channel 175 as a learned splice-acceptor detector. Its direct 15-bp
+DNA kernel prefers a `TAGG` core at offsets -3..0. Direct weight differences
+predict all ten measured SLC25A48 direct-convolution allele differences within
+`0.00098`, providing weight-to-activation closure.
+
+The biologically relevant signal is mostly synthesized by the E1 residual
+branch, rather than being a raw PWM-like filter. Across the six effects, median
+allele-difference L2 is `0.407` in the direct branch, `12.877` in the learned
+E1 update, and `13.112` in the E1 output, versus `1.359` for E1 neutrals. The
+canonical acceptor activation decreases in all 6/6 effects.
+
+E2 then inherits this feature through the explicit residual path and
+selectively amplifies it: E2 output norm exceeds carried-input norm in all 6/6
+effects (median `1.129x`), while the neutral median is `0.981x`. The effect
+vectors were already highly aligned at E1 (median pairwise cosine `0.997`) and
+are not more aligned at E2 (`0.986`). Thus the stronger standalone causal
+portability of E2:175 is not explained by a cleaner natural feature alone; it
+likely also reflects how the decoder consumes the coarser skip.
+
+Primary result: [encoder decomposition](opensplice/results/encoder_feature_decomposition_v1_model_behavior_analysis/RESULT.md).
+Arithmetic check: [independent audit](opensplice/results/encoder_feature_decomposition_v1_model_behavior_analysis/INDEPENDENT_AUDIT.md).
+
 ## Main unresolved question
 
-Which sequence patterns drive SLC25A48 E2 channel 175 and BRAF E16 channel 3?
-Does the E1-to-E2 computation make channel 175 more robust, and do controlled
-edits support a resulting motif or splicing-factor hypothesis?
+Do systematic controlled edits across the SLC25A48 acceptor confirm the
+weight-derived `TAGG` feature and link E1/E2 channel-175 changes to AlphaGenome's
+splice output? What earlier inherited program produces BRAF E16 channel 3?
 
 Prepared and completed channel experiments: [32-channel screen design](opensplice/channel_group_screen.md),
 [8-channel refinement design](opensplice/channel_refinement.md), and
@@ -239,10 +264,9 @@ Completed spatial experiment: [design](opensplice/spatial_encoder_skip_experimen
 
 ## Research sequence
 
-1. Characterize E2 channel 175 and E16 channel 3 using sequence preference maps,
-   activation optimization and controlled nucleotide edits.
-2. Compare E1 versus E2 channel 175 to identify what the downsampling block
-   adds to the feature's consistency and causal portability.
+1. Saturation-mutate the SLC25A48 acceptor neighborhood and jointly measure
+   channel-175 activations and canonical splice-logit output.
+2. Trace the earlier inherited program that produces BRAF E16 channel 3.
 3. Use neutral variants and non-target outputs as secondary specificity checks,
    recognizing that an experimental neutral need not be AlphaGenome-null.
 4. Characterize causal features with controlled sequence edits, motif scans,
