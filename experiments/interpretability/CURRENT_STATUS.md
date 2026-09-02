@@ -198,12 +198,36 @@ synergy or redundancy.
 Primary result: [individual-channel analysis](opensplice/results/individual_channel_validation_v1_model_behavior_analysis/RESULT.md).
 Arithmetic check: [independent audit](opensplice/results/individual_channel_validation_v1_model_behavior_analysis/INDEPENDENT_AUDIT.md).
 
+### Single-coordinate sufficiency
+
+The three advancing coordinates were then transferred one at a time at the
+intended and matched shifted positions in a complete 260-apply experiment.
+All runtime controls passed, and all 120 shifted values were exactly zero.
+
+Two coordinates pass the frozen standalone-sufficiency rule:
+
+| Gene | Coordinate | Effect median B | Neutral median B | Positive effects |
+|---|---|---:|---:|---:|
+| BRAF | E16 channel 3 | 0.00573 | 0.00180 | 4/6 |
+| SLC25A48 | E2 channel 175 | 0.01533 | 0.00000 | 6/6 |
+
+SLC25A48 E2 channel 175 is the cleanest current mechanistic feature. It is
+individually necessary, sufficient by itself in all six effects, silent at
+both shifted locations, has zero median recovery in experimental neutrals,
+and is effectively silent in BRAF. E1 channel 175 remains individually
+necessary and has positive median sufficiency, but fails the consistency rule
+because only three of six SLC25A48 effects are positive. This suggests that
+the same coordinate becomes a more consistently portable feature after the
+E1-to-E2 downsampling computation.
+
+Primary result: [single-channel sufficiency analysis](opensplice/results/single_channel_sufficiency_v1_model_behavior_analysis/RESULT.md).
+Arithmetic check: [independent audit](opensplice/results/single_channel_sufficiency_v1_model_behavior_analysis/INDEPENDENT_AUDIT.md).
+
 ## Main unresolved question
 
-Are BRAF E16 channel 3 and SLC25A48 E2/E1 channel 175 sufficient by themselves
-at the intended variant neighborhood? Which sequence patterns drive those
-coordinates, and do controlled edits support the resulting motif or
-splicing-factor hypothesis?
+Which sequence patterns drive SLC25A48 E2 channel 175 and BRAF E16 channel 3?
+Does the E1-to-E2 computation make channel 175 more robust, and do controlled
+edits support a resulting motif or splicing-factor hypothesis?
 
 Prepared and completed channel experiments: [32-channel screen design](opensplice/channel_group_screen.md),
 [8-channel refinement design](opensplice/channel_refinement.md), and
@@ -215,10 +239,10 @@ Completed spatial experiment: [design](opensplice/spatial_encoder_skip_experimen
 
 ## Research sequence
 
-1. Test BRAF E16 channel 3 and SLC25A48 E2/E1 channel 175 by themselves at
-   intended and equal-shape shifted positions.
-2. Characterize surviving coordinates using sequence preference maps,
+1. Characterize E2 channel 175 and E16 channel 3 using sequence preference maps,
    activation optimization and controlled nucleotide edits.
+2. Compare E1 versus E2 channel 175 to identify what the downsampling block
+   adds to the feature's consistency and causal portability.
 3. Use neutral variants and non-target outputs as secondary specificity checks,
    recognizing that an experimental neutral need not be AlphaGenome-null.
 4. Characterize causal features with controlled sequence edits, motif scans,

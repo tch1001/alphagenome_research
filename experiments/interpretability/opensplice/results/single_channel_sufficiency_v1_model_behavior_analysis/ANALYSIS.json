@@ -1,0 +1,228 @@
+{
+  "channels_passing_frozen_sufficiency_rule": [
+    "E16_c0003",
+    "E2_c0175"
+  ],
+  "control_summary": {
+    "all_runtime_controls_passed": true,
+    "all_shifted_B_exactly_zero": true,
+    "condition_calls_are_single_shot": true,
+    "identity_and_full_route_repeats_bit_exact": true,
+    "maximum_absolute_shifted_B": 0.0,
+    "shifted_value_count": 120
+  },
+  "interpretation": {
+    "braf_result": "BRAF E16 channel 3 also passes necessity and standalone localized sufficiency, with positive recovery in four of six effects and lower median recovery in neutrals.",
+    "e1_result": "SLC25A48 E1 channel 175 remains necessary but does not pass standalone sufficiency because only three of six effects have positive spatial contrast.",
+    "next_experiment": "Characterize E2 channel 175 and E16 channel 3 using activation preference maps and controlled sequence edits, retaining E1 channel 175 as a dependency/context comparison.",
+    "strongest_result": "SLC25A48 E2 channel 175 is individually necessary and sufficient by itself at the intended V neighborhood in all six effects, with zero median neutral recovery and exact zero at every shifted position."
+  },
+  "per_channel": {
+    "E16_c0003": {
+      "channel_count": 1,
+      "channel_end_exclusive": 4,
+      "channel_start_inclusive": 3,
+      "passes_selected_gene_sufficiency_rule": true,
+      "per_gene": {
+        "BRAF": {
+          "effect": {
+            "median_bidirectional_bottleneck_by_location": {
+              "downstream": -0.0,
+              "intended": 0.0057326319046882256,
+              "upstream": -0.0
+            },
+            "median_per_variant_spatial_contrast": 0.0057326319046882256,
+            "positive_intended_count": 4,
+            "positive_spatial_contrast_count": 4,
+            "variant_count": 6
+          },
+          "neutral": {
+            "median_bidirectional_bottleneck_by_location": {
+              "downstream": 0.0,
+              "intended": 0.0017998231470635522,
+              "upstream": 0.0
+            },
+            "median_per_variant_spatial_contrast": 0.0017998231470635522,
+            "positive_intended_count": 2,
+            "positive_spatial_contrast_count": 2,
+            "variant_count": 4
+          }
+        },
+        "SLC25A48": {
+          "effect": {
+            "median_bidirectional_bottleneck_by_location": {
+              "downstream": 0.0,
+              "intended": -0.0013565934106224932,
+              "upstream": 0.0
+            },
+            "median_per_variant_spatial_contrast": -0.0013565934106224932,
+            "positive_intended_count": 0,
+            "positive_spatial_contrast_count": 0,
+            "variant_count": 6
+          },
+          "neutral": {
+            "median_bidirectional_bottleneck_by_location": {
+              "downstream": 0.0,
+              "intended": 0.0,
+              "upstream": 0.0
+            },
+            "median_per_variant_spatial_contrast": 0.0,
+            "positive_intended_count": 0,
+            "positive_spatial_contrast_count": 0,
+            "variant_count": 4
+          }
+        }
+      },
+      "resolution_bp": 16,
+      "selected_for_gene": "BRAF",
+      "source_condition_id": "necessity_E16_c0003",
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    "E1_c0175": {
+      "channel_count": 1,
+      "channel_end_exclusive": 176,
+      "channel_start_inclusive": 175,
+      "passes_selected_gene_sufficiency_rule": false,
+      "per_gene": {
+        "BRAF": {
+          "effect": {
+            "median_bidirectional_bottleneck_by_location": {
+              "downstream": -0.0,
+              "intended": 0.0,
+              "upstream": -0.0
+            },
+            "median_per_variant_spatial_contrast": 0.0,
+            "positive_intended_count": 0,
+            "positive_spatial_contrast_count": 0,
+            "variant_count": 6
+          },
+          "neutral": {
+            "median_bidirectional_bottleneck_by_location": {
+              "downstream": 0.0,
+              "intended": 0.0,
+              "upstream": 0.0
+            },
+            "median_per_variant_spatial_contrast": 0.0,
+            "positive_intended_count": 0,
+            "positive_spatial_contrast_count": 0,
+            "variant_count": 4
+          }
+        },
+        "SLC25A48": {
+          "effect": {
+            "median_bidirectional_bottleneck_by_location": {
+              "downstream": 0.0,
+              "intended": 0.024855907780979826,
+              "upstream": 0.0
+            },
+            "median_per_variant_spatial_contrast": 0.024855907780979826,
+            "positive_intended_count": 3,
+            "positive_spatial_contrast_count": 3,
+            "variant_count": 6
+          },
+          "neutral": {
+            "median_bidirectional_bottleneck_by_location": {
+              "downstream": 0.0,
+              "intended": 0.0,
+              "upstream": 0.0
+            },
+            "median_per_variant_spatial_contrast": 0.0,
+            "positive_intended_count": 0,
+            "positive_spatial_contrast_count": 0,
+            "variant_count": 4
+          }
+        }
+      },
+      "resolution_bp": 1,
+      "selected_for_gene": "SLC25A48",
+      "source_condition_id": "necessity_E1_c0175",
+      "stage": "E1",
+      "stage_index": 6,
+      "stage_width": 768
+    },
+    "E2_c0175": {
+      "channel_count": 1,
+      "channel_end_exclusive": 176,
+      "channel_start_inclusive": 175,
+      "passes_selected_gene_sufficiency_rule": true,
+      "per_gene": {
+        "BRAF": {
+          "effect": {
+            "median_bidirectional_bottleneck_by_location": {
+              "downstream": -0.0,
+              "intended": 0.0,
+              "upstream": -0.0
+            },
+            "median_per_variant_spatial_contrast": 0.0,
+            "positive_intended_count": 0,
+            "positive_spatial_contrast_count": 0,
+            "variant_count": 6
+          },
+          "neutral": {
+            "median_bidirectional_bottleneck_by_location": {
+              "downstream": 0.0,
+              "intended": 0.0,
+              "upstream": 0.0
+            },
+            "median_per_variant_spatial_contrast": 0.0,
+            "positive_intended_count": 0,
+            "positive_spatial_contrast_count": 0,
+            "variant_count": 4
+          }
+        },
+        "SLC25A48": {
+          "effect": {
+            "median_bidirectional_bottleneck_by_location": {
+              "downstream": 0.0,
+              "intended": 0.015332479453516918,
+              "upstream": 0.0
+            },
+            "median_per_variant_spatial_contrast": 0.015332479453516918,
+            "positive_intended_count": 6,
+            "positive_spatial_contrast_count": 6,
+            "variant_count": 6
+          },
+          "neutral": {
+            "median_bidirectional_bottleneck_by_location": {
+              "downstream": 0.0,
+              "intended": 0.0,
+              "upstream": 0.0
+            },
+            "median_per_variant_spatial_contrast": 0.0,
+            "positive_intended_count": 0,
+            "positive_spatial_contrast_count": 0,
+            "variant_count": 4
+          }
+        }
+      },
+      "resolution_bp": 2,
+      "selected_for_gene": "SLC25A48",
+      "source_condition_id": "necessity_E2_c0175",
+      "stage": "E2",
+      "stage_index": 5,
+      "stage_width": 896
+    }
+  },
+  "schema_version": "alphagenome-single-channel-sufficiency-analysis-v1",
+  "scope": {
+    "channel_count": 3,
+    "condition_result_count": 180,
+    "confirmation_access": false,
+    "development_only": true,
+    "effect_count": 12,
+    "model_apply_count": 260,
+    "neutral_count": 8,
+    "variant_count": 20
+  },
+  "source": {
+    "plan_path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/single_channel_sufficiency_plan_v1.json",
+    "plan_sha256": "13ab83a4cbd700b3e1eafba5bf540fdcd5604133307ff9c7de12ffc898ef4088",
+    "raw_condition_file_count": 180,
+    "raw_full_file_count": 20,
+    "raw_identity_file_count": 20,
+    "raw_result_tree_sha256": "760318ba42ee536ed9f5d62fdf83db770091d71f64013772ce20a09e6ff7d3aa",
+    "result_root": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/single_channel_sufficiency_v1"
+  }
+}

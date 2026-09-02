@@ -11,7 +11,7 @@ import math
 from pathlib import Path
 import sys
 import time
-from typing import Any, Mapping, Sequence
+from typing import Any, Callable, Mapping, Sequence
 
 import jax
 import jax.numpy as jnp
@@ -171,7 +171,10 @@ def _case_stem(case: v2.Case) -> str:
 def _run_case(
     model_instance, apply_fn, case: v2.Case, planned: Mapping[str, Any],
     conditions: Sequence[Mapping[str, Any]], binding: Mapping[str, Any],
-    output: Path,
+    output: Path, *,
+    condition_channel_fn: Callable[[Mapping[str, Any]], np.ndarray] = (
+        condition_channels
+    ),
 ) -> int:
   intended = condition_selection(case, planned, 'intended')
   full_channels = screen.channel_mask()
@@ -278,7 +281,7 @@ def _run_case(
   condition_dir = output / 'raw' / 'conditions' / _case_stem(case)
   for condition in conditions:
     selection = condition_selection(case, planned, condition['location'])
-    channels = condition_channels(condition)
+    channels = condition_channel_fn(condition)
     intervention = screen.interventions(
         selection, channels, active_positions=True
     )
