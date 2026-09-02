@@ -610,6 +610,50 @@ class InterpretabilityTest(absltest.TestCase):
     jax.tree.map(np.testing.assert_array_equal, self_skips, normal_skips)
     np.testing.assert_array_equal(self_effective[7][1, 0], natural[7][0, 0])
 
+  def test_encoder_block_decomposition_is_exact_and_preserves_tree(self):
+    dna = jax.random.normal(
+        jax.random.key(210), (1, 128, 4), dtype=jnp.bfloat16
+    )
+    positions = jnp.zeros((7, 2), jnp.int32)
+    valid = jnp.broadcast_to(jnp.array([True, False]), (7, 2))
+    channels = jnp.array([3, 175], jnp.int32)
+
+    def normal(inputs):
+      return model.SequenceEncoder()(inputs, is_training=False)
+
+    def decomposed(
+        inputs, selected_positions, selected_valid, selected_channels
+    ):
+      return model.SequenceEncoder().forward_with_block_decomposition(
+          inputs,
+          positions=selected_positions,
+          valid_mask=selected_valid,
+          channel_indices=selected_channels,
+          is_training=False,
+      )
+
+    normal_fn = hk.transform_with_state(normal)
+    decomposed_fn = hk.transform_with_state(decomposed)
+    rng = jax.random.key(211)
+    params, state = normal_fn.init(rng, dna)
+    traced_params, traced_state = decomposed_fn.init(
+        rng, dna, positions, valid, channels
+    )
+    jax.tree.map(np.testing.assert_array_equal, params, traced_params)
+    jax.tree.map(np.testing.assert_array_equal, state, traced_state)
+    (_, skips), _ = normal_fn.apply(params, state, None, dna)
+    trace, _ = decomposed_fn.apply(
+        params, state, None, dna, positions, valid, channels
+    )
+    for stage, resolution in enumerate((1, 2, 4, 8, 16, 32, 64)):
+      expected = skips[f'bin_size_{resolution}'][:, :1, channels]
+      expected = jnp.pad(expected, ((0, 0), (0, 1), (0, 0)))
+      np.testing.assert_array_equal(trace.output[stage], expected)
+    np.testing.assert_array_equal(
+        trace.output, trace.carried + trace.first_update + trace.second_update
+    )
+    np.testing.assert_array_equal(trace.second_update[0], 0)
+
   def test_decoder_route_census_is_exact_noop_and_preserves_tree(self):
     one_x = jax.random.normal(
         jax.random.key(22), (1, 1, 16), dtype=jnp.bfloat16

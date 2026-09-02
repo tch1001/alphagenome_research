@@ -19,6 +19,7 @@ import chex
 import haiku as hk
 import jax
 import jax.numpy as jnp
+import numpy as np
 
 
 class ConvolutionsTest(parameterized.TestCase):
@@ -89,6 +90,29 @@ class ConvolutionsTest(parameterized.TestCase):
     )
     self.assertNotEmpty(state)
 
+  def test_dna_embedder_decomposition_is_exact_and_preserves_tree(self):
+    def normal(x):
+      return convolutions.DnaEmbedder()(x, is_training=False)
+
+    def decomposed(x):
+      return convolutions.DnaEmbedder().forward_with_decomposition(
+          x, is_training=False
+      )
+
+    normal_fn = hk.transform_with_state(normal)
+    decomposed_fn = hk.transform_with_state(decomposed)
+    x = jax.random.normal(self._rng, (2, 32, 4))
+    params, state = normal_fn.init(self._rng, x)
+    traced_params, traced_state = decomposed_fn.init(self._rng, x)
+    jax.tree.map(np.testing.assert_array_equal, params, traced_params)
+    jax.tree.map(np.testing.assert_array_equal, state, traced_state)
+    output, _ = normal_fn.apply(params, state, None, x)
+    (traced_output, direct, update), _ = decomposed_fn.apply(
+        params, state, None, x
+    )
+    np.testing.assert_array_equal(traced_output, output)
+    np.testing.assert_array_equal(traced_output, direct + update)
+
   def test_down_res_block_output_shape(self):
     def _down_res_block(x):
       return convolutions.DownResBlock()(x, is_training=False)
@@ -108,6 +132,33 @@ class ConvolutionsTest(parameterized.TestCase):
         ),
     )
     self.assertNotEmpty(state)
+
+  def test_down_res_block_decomposition_is_exact_and_preserves_tree(self):
+    def normal(x):
+      return convolutions.DownResBlock()(x, is_training=False)
+
+    def decomposed(x):
+      return convolutions.DownResBlock().forward_with_decomposition(
+          x, is_training=False
+      )
+
+    normal_fn = hk.transform_with_state(normal)
+    decomposed_fn = hk.transform_with_state(decomposed)
+    x = jax.random.normal(self._rng, (2, 16, 32))
+    params, state = normal_fn.init(self._rng, x)
+    traced_params, traced_state = decomposed_fn.init(self._rng, x)
+    jax.tree.map(np.testing.assert_array_equal, params, traced_params)
+    jax.tree.map(np.testing.assert_array_equal, state, traced_state)
+    output, _ = normal_fn.apply(params, state, None, x)
+    (traced_output, carried, first_update, second_update), _ = (
+        decomposed_fn.apply(params, state, None, x)
+    )
+    np.testing.assert_array_equal(traced_output, output)
+    np.testing.assert_array_equal(
+        traced_output, carried + first_update + second_update
+    )
+    np.testing.assert_array_equal(carried[:, :, :32], x)
+    np.testing.assert_array_equal(carried[:, :, 32:], 0)
 
   def test_up_res_block_output_shape(self):
     def _up_res_block(x, unet_skip):

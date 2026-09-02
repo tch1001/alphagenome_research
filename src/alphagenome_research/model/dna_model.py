@@ -222,6 +222,17 @@ SpliceClassificationLogitMarginEightRowSupersetGraphApplyFn = Callable[
         interpretability.SupersetGraphTrace,
     ],
 ]
+EncoderBlockDecompositionApplyFn = Callable[
+    [
+        hk.Params,
+        hk.State,
+        Float32[Array, 'B S 4'],
+        Int32[Array, '7 R'],
+        Bool[Array, '7 R'],
+        Int32[Array, 'C'],
+    ],
+    interpretability.EncoderBlockDecomposition,
+]
 
 
 def extract_predictions(
@@ -1831,6 +1842,66 @@ def create_interpretability_apply(
         organism_index,
         trace_selection,
         interventions,
+    )
+    return output
+
+  return _apply_fn
+
+
+def create_encoder_block_decomposition_apply(
+    metadata: Mapping[dna_model.Organism, AlphaGenomeOutputMetadata],
+    *,
+    num_splice_sites: int = model.DEFAULT_NUM_SPLICE_SITES,
+    splice_site_threshold: float = model.DEFAULT_SPLICE_SITE_THRESHOLD,
+    attention_backend: str = attention.ATTENTION_BACKEND_DENSE,
+) -> EncoderBlockDecompositionApplyFn:
+  """Creates a compact, checkpoint-compatible encoder decomposition apply.
+
+  Only inherited channel indices below 768 are supported because those
+  coordinates exist through every encoder stage. The transform stops after
+  the 64-bp encoder skip, adds no parameters or state, and accepts the normal
+  AlphaGenome checkpoint tree.
+  """
+  jmp_policy = jmp.get_policy('params=float32,compute=bfloat16,output=bfloat16')
+
+  @hk.transform_with_state
+  def _forward(
+      dna_sequence: Float[Array, 'B S 4'],
+      positions: Int32[Array, '7 R'],
+      valid_mask: Bool[Array, '7 R'],
+      channel_indices: Int32[Array, 'C'],
+  ):
+    with hk.mixed_precision.push_policy(model.AlphaGenome, jmp_policy):
+      return model.AlphaGenome(
+          metadata,
+          num_splice_sites=num_splice_sites,
+          splice_site_threshold=splice_site_threshold,
+          attention_backend=attention_backend,
+      ).forward_encoder_block_decomposition(
+          dna_sequence,
+          positions=positions,
+          valid_mask=valid_mask,
+          channel_indices=channel_indices,
+      )
+
+  def _apply_fn(
+      params: hk.Params,
+      state: hk.State,
+      dna_sequence: Float32[Array, 'B S 4'],
+      positions: Int32[Array, '7 R'],
+      valid_mask: Bool[Array, '7 R'],
+      channel_indices: Int32[Array, 'C'],
+  ) -> interpretability.EncoderBlockDecomposition:
+    if channel_indices.ndim != 1:
+      raise ValueError('channel_indices must have rank 1.')
+    output, _ = _forward.apply(
+        params,
+        state,
+        None,
+        dna_sequence,
+        positions,
+        valid_mask,
+        channel_indices,
     )
     return output
 

@@ -364,6 +364,25 @@ class CausalRouteTrace:
 
 
 @chex.dataclass(frozen=True)
+class EncoderBlockDecomposition:
+  """Selected inherited-channel terms from the seven encoder blocks.
+
+  The leading stage axis is ordered from 1-bp through 64-bp resolution. At
+  stage zero, ``carried`` is the direct 15-bp DNA convolution,
+  ``first_update`` is the DnaEmbedder residual branch, and ``second_update``
+  is zero. At later stages, ``carried`` is the zero-padded pooled input and
+  the two updates are the two learned DownResBlock convolutional branches.
+  Every field contains only the requested positions and inherited channel
+  indices (indices below 768, which exist at every stage).
+  """
+
+  carried: Float[Array, '7 B R C']
+  first_update: Float[Array, '7 B R C']
+  second_update: Float[Array, '7 B R C']
+  output: Float[Array, '7 B R C']
+
+
+@chex.dataclass(frozen=True)
 class WholeSequenceBatchTransfer:
   """Live whole-tensor transfers for route branches with differing lengths.
 

@@ -98,6 +98,63 @@ class SequenceEncoder(hk.Module):
     effective_traces.append(effective)
     return x, intermediates, tuple(natural_traces), tuple(effective_traces)
 
+  @hk.name_like('__call__')
+  def forward_with_block_decomposition(
+      self,
+      dna_sequence: Float[Array, 'B S 4'],
+      *,
+      positions: Int[Array, '7 R'],
+      valid_mask: Shaped[Array, '7 R'],
+      channel_indices: Int[Array, 'C'],
+      is_training: bool,
+  ) -> interpretability.EncoderBlockDecomposition:
+    """Returns compact exact residual terms for inherited encoder channels."""
+    carried_traces = []
+    first_update_traces = []
+    second_update_traces = []
+    output_traces = []
+
+    def gather(values: Array, stage: int) -> Array:
+      selected = interpretability.gather_sequence_residuals(
+          values,
+          interpretability.route_stage_selection(
+              positions, valid_mask, stage
+          ),
+      )
+      return selected[:, :, channel_indices]
+
+    x, carried, first_update = (
+        convolutions.DnaEmbedder().forward_with_decomposition(
+            dna_sequence, is_training=is_training
+        )
+    )
+    carried_traces.append(gather(carried, 0))
+    first_update_traces.append(gather(first_update, 0))
+    second_update_traces.append(jnp.zeros_like(first_update_traces[-1]))
+    output_traces.append(gather(x, 0))
+
+    x = layers.pool(x)
+    for stage, (block_idx, _) in enumerate(
+        zip(range(6), (2, 4, 8, 16, 32, 64), strict=True), start=1
+    ):
+      x, carried, first_update, second_update = (
+          convolutions.DownResBlock(
+              f'downres_block_{block_idx}'
+          ).forward_with_decomposition(x, is_training=is_training)
+      )
+      carried_traces.append(gather(carried, stage))
+      first_update_traces.append(gather(first_update, stage))
+      second_update_traces.append(gather(second_update, stage))
+      output_traces.append(gather(x, stage))
+      if stage < 6:
+        x = layers.pool(x)
+    return interpretability.EncoderBlockDecomposition(
+        carried=jnp.stack(carried_traces),
+        first_update=jnp.stack(first_update_traces),
+        second_update=jnp.stack(second_update_traces),
+        output=jnp.stack(output_traces),
+    )
+
 
 class SequenceDecoder(hk.Module):
   """Decodes a sequence of embeddings."""
@@ -632,6 +689,25 @@ class AlphaGenome(hk.Module):
     if self._freeze_trunk_embeddings:
       embeddings = jax.lax.stop_gradient(embeddings)
     return embeddings
+
+  @hk.name_like('__call__')
+  def forward_encoder_block_decomposition(
+      self,
+      dna_sequence: Float[Array, 'B S 4'],
+      *,
+      positions: Int[Array, '7 R'],
+      valid_mask: Shaped[Array, '7 R'],
+      channel_indices: Int[Array, 'C'],
+      is_training: bool = False,
+  ) -> interpretability.EncoderBlockDecomposition:
+    """Returns exact selected encoder residual terms without later towers."""
+    return SequenceEncoder().forward_with_block_decomposition(
+        dna_sequence,
+        positions=positions,
+        valid_mask=valid_mask,
+        channel_indices=channel_indices,
+        is_training=is_training,
+    )
 
   @hk.name_like('__call__')
   def forward_trunk_with_intermediates(

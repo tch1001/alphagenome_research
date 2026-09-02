@@ -117,6 +117,21 @@ class DnaEmbedder(hk.Module):
     )(dna_sequence)
     return x + ConvBlock(num_channels=768, width=5)(x, is_training=is_training)
 
+  @hk.name_like('__call__')
+  def forward_with_decomposition(
+      self, dna_sequence: Float[Array, 'B S 4'], *, is_training: bool
+  ) -> tuple[Array, Array, Array]:
+    """Returns the output, direct DNA convolution, and residual update."""
+    direct = hk.Conv1D(
+        output_channels=768,
+        kernel_shape=15,
+        b_init=hk.initializers.TruncatedNormal(stddev=1e-4),
+    )(dna_sequence)
+    update = ConvBlock(num_channels=768, width=5)(
+        direct, is_training=is_training
+    )
+    return direct + update, direct, update
+
 
 class DownResBlock(hk.Module):
   """Down resolution convolution."""
@@ -135,6 +150,22 @@ class DownResBlock(hk.Module):
     return out + ConvBlock(num_channels=out.shape[-1], width=5)(
         out, is_training=is_training
     )
+
+  @hk.name_like('__call__')
+  def forward_with_decomposition(
+      self, x: Float[Array, 'B S D'], *, is_training: bool
+  ) -> tuple[Array, Array, Array, Array]:
+    """Returns the output and exact terms of both residual additions."""
+    num_out_channels = x.shape[-1] + 128
+    first_update = ConvBlock(num_channels=num_out_channels, width=5)(
+        x, is_training=is_training
+    )
+    carried = jnp.pad(x, [(0, 0), (0, 0), (0, 128)])
+    after_first = first_update + carried
+    second_update = ConvBlock(num_channels=num_out_channels, width=5)(
+        after_first, is_training=is_training
+    )
+    return after_first + second_update, carried, first_update, second_update
 
 
 class UpResBlock(hk.Module):
