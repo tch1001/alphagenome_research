@@ -1,0 +1,81 @@
+{
+  "status": "complete",
+  "fingerprint": "7f7c3a4cd880398f57c2704b0be59ab10868f634fd92568ce2e08ea51d4517a5",
+  "configuration": {
+    "script_version": "alphagenome-individual-channel-validation-v1.0.0",
+    "script_sha256": "52a6cc2ba24e1c256dab284a68aa51747a42739940f1aa059e7fc699fa9975dd",
+    "interpretability_sha256": "a839ece06f17bba8c2220487c3beca55d10188873e001e7cedf7fa3eb65bedc9",
+    "model_sha256": "3cfbc546de46232800ea5eae39fe9b1e12a8a1338f18cc58072f15f95303330b",
+    "plan_path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/individual_channel_validation_plan_v1.json",
+    "plan_sha256": "b62145936dc1dccbf06d3fae777e35e68d742d2e2c19c0193fdd68a9a8018828",
+    "checkpoint_snapshot": "a8f293a76ee73d5b57f3bf2ae146510589fcf187",
+    "context_bp": 16384,
+    "attention_backend": "dense",
+    "confirmation_access": false,
+    "case": {
+      "order": 13,
+      "selection_version": "opensplice-circuit-v2-snv-only",
+      "selection_class": "significant_effect",
+      "observed_effect_sign": "negative",
+      "gene": "SLC25A48",
+      "exon_id": "SLC25A48_e8",
+      "ensembl_exon_id": "ENSE00003835789",
+      "chromosome": "chr5",
+      "strand": "+",
+      "exon_start_1based": 135880773,
+      "exon_end_1based": 135880910,
+      "variant_id": "SLC25A48_e8_T68G",
+      "position_1based": 135880770,
+      "reference_bases": "T",
+      "alternate_bases": "G",
+      "region": "3'SS",
+      "mut_type": "sub",
+      "delta_psi": -10.9194806673504,
+      "delta_logit": -3.1170110532066
+    },
+    "sequence_sha256": {
+      "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8",
+      "alternate": "93490b6827ee07eca8c88937c92f0285e03c4fa26f39c5a595d3b598e8601d54"
+    },
+    "target": {
+      "endpoints": [
+        {
+          "role": "acceptor",
+          "position_1based": 135880773,
+          "position_index": 8124,
+          "track_index": 1
+        },
+        {
+          "role": "donor",
+          "position_1based": 135880910,
+          "position_index": 8261,
+          "track_index": 0
+        }
+      ],
+      "padding_track_index": 4
+    },
+    "kind": "individual_validation_identity"
+  },
+  "checks": {
+    "passed": true,
+    "target_repeat_exact": true,
+    "target_duplicate_rows_exact": true,
+    "trace_repeat_exact": true,
+    "trace_duplicate_rows_exact": true,
+    "target_total_equals_two_times_mean": true,
+    "num_values": 2,
+    "target_means": {
+      "reference_baseline": -0.1875,
+      "alternate_baseline": -2.56640625,
+      "reference_into_alternate": -2.56640625,
+      "alternate_into_alternate_self_control": -2.56640625,
+      "alternate_into_reference": -0.1875,
+      "reference_into_reference_self_control": -0.1875
+    }
+  },
+  "seconds": {
+    "first": 0.11227629600034561,
+    "repeat": 0.1128152500023134
+  },
+  "created_at_unix_s": 1788337101.7686923
+}

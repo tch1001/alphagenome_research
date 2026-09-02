@@ -1,0 +1,81 @@
+{
+  "status": "complete",
+  "fingerprint": "132ef284ee422185738268e6179171f17b39310f06abcc407ef9a7f98fb7d1bf",
+  "configuration": {
+    "script_version": "alphagenome-individual-channel-validation-v1.0.0",
+    "script_sha256": "52a6cc2ba24e1c256dab284a68aa51747a42739940f1aa059e7fc699fa9975dd",
+    "interpretability_sha256": "a839ece06f17bba8c2220487c3beca55d10188873e001e7cedf7fa3eb65bedc9",
+    "model_sha256": "3cfbc546de46232800ea5eae39fe9b1e12a8a1338f18cc58072f15f95303330b",
+    "plan_path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/individual_channel_validation_plan_v1.json",
+    "plan_sha256": "b62145936dc1dccbf06d3fae777e35e68d742d2e2c19c0193fdd68a9a8018828",
+    "checkpoint_snapshot": "a8f293a76ee73d5b57f3bf2ae146510589fcf187",
+    "context_bp": 16384,
+    "attention_backend": "dense",
+    "confirmation_access": false,
+    "case": {
+      "order": 2,
+      "selection_version": "opensplice-circuit-v2-snv-only",
+      "selection_class": "significant_effect",
+      "observed_effect_sign": "positive",
+      "gene": "BRAF",
+      "exon_id": "BRAF_e14",
+      "ensembl_exon_id": "ENSE00003649805",
+      "chromosome": "chr7",
+      "strand": "-",
+      "exon_start_1based": 140754187,
+      "exon_end_1based": 140754233,
+      "variant_id": "BRAF_e14_T71G",
+      "position_1based": 140754233,
+      "reference_bases": "A",
+      "alternate_bases": "C",
+      "region": "3'SS",
+      "mut_type": "sub",
+      "delta_psi": 4.91395055479343,
+      "delta_logit": 2.73208684506164
+    },
+    "sequence_sha256": {
+      "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7",
+      "alternate": "a2e5da0b13d2af1504f049f9310876a440244fcac1f2aacaecfe8323327d0fac"
+    },
+    "target": {
+      "endpoints": [
+        {
+          "role": "acceptor",
+          "position_1based": 140754233,
+          "position_index": 8215,
+          "track_index": 3
+        },
+        {
+          "role": "donor",
+          "position_1based": 140754187,
+          "position_index": 8169,
+          "track_index": 2
+        }
+      ],
+      "padding_track_index": 4
+    },
+    "kind": "individual_validation_identity"
+  },
+  "checks": {
+    "passed": true,
+    "target_repeat_exact": true,
+    "target_duplicate_rows_exact": true,
+    "trace_repeat_exact": true,
+    "trace_duplicate_rows_exact": true,
+    "target_total_equals_two_times_mean": true,
+    "num_values": 2,
+    "target_means": {
+      "reference_baseline": 2.55078125,
+      "alternate_baseline": 3.87109375,
+      "reference_into_alternate": 3.87109375,
+      "alternate_into_alternate_self_control": 3.87109375,
+      "alternate_into_reference": 2.55078125,
+      "reference_into_reference_self_control": 2.55078125
+    }
+  },
+  "seconds": {
+    "first": 0.11173281099763699,
+    "repeat": 0.11164909000217449
+  },
+  "created_at_unix_s": 1788337028.1185555
+}

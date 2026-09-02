@@ -1,0 +1,155 @@
+{
+  "status": "complete",
+  "fingerprint": "eeacfe7950073d7e31ecd05fbf295d1e6e5d0e6869f579e188f1bd39106fc5b9",
+  "configuration": {
+    "script_version": "alphagenome-individual-channel-validation-v1.0.0",
+    "script_sha256": "52a6cc2ba24e1c256dab284a68aa51747a42739940f1aa059e7fc699fa9975dd",
+    "interpretability_sha256": "a839ece06f17bba8c2220487c3beca55d10188873e001e7cedf7fa3eb65bedc9",
+    "model_sha256": "3cfbc546de46232800ea5eae39fe9b1e12a8a1338f18cc58072f15f95303330b",
+    "plan_path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/individual_channel_validation_plan_v1.json",
+    "plan_sha256": "b62145936dc1dccbf06d3fae777e35e68d742d2e2c19c0193fdd68a9a8018828",
+    "checkpoint_snapshot": "a8f293a76ee73d5b57f3bf2ae146510589fcf187",
+    "context_bp": 16384,
+    "attention_backend": "dense",
+    "confirmation_access": false,
+    "case": {
+      "order": 17,
+      "selection_version": "opensplice-circuit-v2-snv-only",
+      "selection_class": "neutral_control",
+      "observed_effect_sign": "neutral_control",
+      "gene": "SLC25A48",
+      "exon_id": "SLC25A48_e8",
+      "ensembl_exon_id": "ENSE00003835789",
+      "chromosome": "chr5",
+      "strand": "+",
+      "exon_start_1based": 135880773,
+      "exon_end_1based": 135880910,
+      "variant_id": "SLC25A48_e8_C67G",
+      "position_1based": 135880769,
+      "reference_bases": "C",
+      "alternate_bases": "G",
+      "region": "3'SS",
+      "mut_type": "sub",
+      "delta_psi": 1.7016442400587,
+      "delta_logit": 0.15750589815352
+    },
+    "sequence_sha256": {
+      "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8",
+      "alternate": "ed4e22cad1c33f44e7f9b4765f85d3964e8568fdf892a75da6d47b1a9b7defc0"
+    },
+    "target": {
+      "endpoints": [
+        {
+          "role": "acceptor",
+          "position_1based": 135880773,
+          "position_index": 8124,
+          "track_index": 1
+        },
+        {
+          "role": "donor",
+          "position_1based": 135880910,
+          "position_index": 8261,
+          "track_index": 0
+        }
+      ],
+      "padding_track_index": 4
+    },
+    "kind": "individual_channel_validation_condition",
+    "identity_fingerprint": "44a608ff6665e430892c6f629974a42f7de54385022600e49c3e369eab8c2013",
+    "full_fingerprint": "075bbcfc1a9de54055a01997570d09124251e102127be4e8be510d37b9fed061",
+    "condition": {
+      "channel_policy": "all_candidate_channels_except_named_channel",
+      "condition_id": "necessity_E32_c0002",
+      "condition_index": 2,
+      "feature": {
+        "channel_count": 1,
+        "channel_end_exclusive": 3,
+        "channel_start_inclusive": 2,
+        "parent_child_id": "E32_c0000_0007",
+        "resolution_bp": 32,
+        "selected_for_gene": "BRAF",
+        "stage": "E32",
+        "stage_index": 1,
+        "stage_width": 1408
+      },
+      "kind": "individual_channel_necessity",
+      "location": "intended"
+    }
+  },
+  "checks": {
+    "passed": true,
+    "repeat_checked": false,
+    "target_repeat_exact": null,
+    "trace_repeat_exact": null,
+    "baseline_targets_exact_from_identity": true,
+    "self_targets_exact": true,
+    "non_channel_routes_noop_exact": true,
+    "natural_same_allele_exact_by_stage": {
+      "E64": true,
+      "E32": true,
+      "E16": true,
+      "E8": true,
+      "E4": true,
+      "E2": true,
+      "E1": true
+    },
+    "selected_donor_channels_exact_by_stage": {
+      "E64": null,
+      "E32": true,
+      "E16": true,
+      "E8": true,
+      "E4": null,
+      "E2": true,
+      "E1": true
+    },
+    "withheld_channels_natural_exact_by_stage": {
+      "E64": true,
+      "E32": true,
+      "E16": true,
+      "E8": true,
+      "E4": true,
+      "E2": true,
+      "E1": true
+    },
+    "target_readout": {
+      "means": [
+        -0.1875,
+        -0.2109375,
+        -0.1328125,
+        -0.2109375,
+        -0.2734375,
+        -0.1875
+      ],
+      "totals": [
+        -0.375,
+        -0.421875,
+        -0.265625,
+        -0.421875,
+        -0.546875,
+        -0.375
+      ],
+      "num_values": 2,
+      "row_roles": [
+        "reference_baseline",
+        "alternate_baseline",
+        "reference_into_alternate",
+        "alternate_into_alternate_self_control",
+        "alternate_into_reference",
+        "reference_into_reference_self_control"
+      ]
+    },
+    "repeat_target_readout": null,
+    "raw_movement": {
+      "reference_into_alternate": 0.078125,
+      "alternate_into_reference": -0.0859375
+    },
+    "recovery": {
+      "reference_into_alternate": 3.3333333333333335,
+      "alternate_into_reference": 3.6666666666666665,
+      "bidirectional_bottleneck": 3.3333333333333335,
+      "bidirectional_mean": 3.5
+    }
+  },
+  "seconds": 0.11186272298800759,
+  "created_at_unix_s": 1788337128.5748632
+}

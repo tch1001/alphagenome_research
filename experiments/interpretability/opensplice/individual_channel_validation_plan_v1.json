@@ -1,0 +1,6564 @@
+{
+  "analysis": {
+    "eight_channel_sufficiency": "B_only_child at intended V positions and per-variant spatial contrast versus max(upstream, downstream)",
+    "individual_advance_rule": "positive effect median necessity, effect median greater than gene-matched neutral median, and positive loss in at least four of six effect variants",
+    "individual_necessity": "B_full_V - B_without_channel, ranked separately within each selected child and gene",
+    "interpretation_limit": "A channel is a model coordinate, not a biological factor; sequence-level validation is required."
+  },
+  "cases": [
+    {
+      "chromosome": "chr7",
+      "gene": "BRAF",
+      "interval_end_0based_exclusive": 140762401,
+      "interval_start_0based": 140746017,
+      "order": 0,
+      "positions_by_location": {
+        "downstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              270,
+              271,
+              272
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              541,
+              542,
+              543
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1084,
+              1085,
+              1086
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4339,
+              4340,
+              4341
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8680,
+              8681,
+              8682
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "intended": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              254,
+              255,
+              256
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              509,
+              510,
+              511
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1020,
+              1021,
+              1022
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4083,
+              4084,
+              4085
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8168,
+              8169,
+              8170
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "upstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              238,
+              239,
+              240
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              477,
+              478,
+              479
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              956,
+              957,
+              958
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              3827,
+              3828,
+              3829
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              7656,
+              7657,
+              7658
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ]
+      },
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            254,
+            255,
+            256
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            509,
+            510,
+            511
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1020,
+            1021,
+            1022
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4083,
+            4084,
+            4085
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8168,
+            8169,
+            8170
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "-",
+      "variant_id": "BRAF_e14_A117G",
+      "variant_position_1based": 140754187
+    },
+    {
+      "chromosome": "chr7",
+      "gene": "BRAF",
+      "interval_end_0based_exclusive": 140762401,
+      "interval_start_0based": 140746017,
+      "order": 1,
+      "positions_by_location": {
+        "downstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              271,
+              272,
+              273
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              544,
+              545,
+              546
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1089,
+              1090,
+              1091
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4362,
+              4363,
+              4364
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8726,
+              8727,
+              8728
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "intended": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              255,
+              256,
+              257
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              512,
+              513,
+              514
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1025,
+              1026,
+              1027
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4106,
+              4107,
+              4108
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8214,
+              8215,
+              8216
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "upstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              239,
+              240,
+              241
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              480,
+              481,
+              482
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              961,
+              962,
+              963
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              3850,
+              3851,
+              3852
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              7702,
+              7703,
+              7704
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ]
+      },
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            255,
+            256,
+            257
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            512,
+            513,
+            514
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1025,
+            1026,
+            1027
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4106,
+            4107,
+            4108
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8214,
+            8215,
+            8216
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "-",
+      "variant_id": "BRAF_e14_T71A",
+      "variant_position_1based": 140754233
+    },
+    {
+      "chromosome": "chr7",
+      "gene": "BRAF",
+      "interval_end_0based_exclusive": 140762401,
+      "interval_start_0based": 140746017,
+      "order": 2,
+      "positions_by_location": {
+        "downstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              271,
+              272,
+              273
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              544,
+              545,
+              546
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1089,
+              1090,
+              1091
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4362,
+              4363,
+              4364
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8726,
+              8727,
+              8728
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "intended": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              255,
+              256,
+              257
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              512,
+              513,
+              514
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1025,
+              1026,
+              1027
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4106,
+              4107,
+              4108
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8214,
+              8215,
+              8216
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "upstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              239,
+              240,
+              241
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              480,
+              481,
+              482
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              961,
+              962,
+              963
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              3850,
+              3851,
+              3852
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              7702,
+              7703,
+              7704
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ]
+      },
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            255,
+            256,
+            257
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            512,
+            513,
+            514
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1025,
+            1026,
+            1027
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4106,
+            4107,
+            4108
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8214,
+            8215,
+            8216
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "-",
+      "variant_id": "BRAF_e14_T71G",
+      "variant_position_1based": 140754233
+    },
+    {
+      "chromosome": "chr7",
+      "gene": "BRAF",
+      "interval_end_0based_exclusive": 140762401,
+      "interval_start_0based": 140746017,
+      "order": 3,
+      "positions_by_location": {
+        "downstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              270,
+              271,
+              272
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              541,
+              542,
+              543
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1084,
+              1085,
+              1086
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4339,
+              4340,
+              4341
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8680,
+              8681,
+              8682
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "intended": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              254,
+              255,
+              256
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              509,
+              510,
+              511
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1020,
+              1021,
+              1022
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4083,
+              4084,
+              4085
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8168,
+              8169,
+              8170
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "upstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              238,
+              239,
+              240
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              477,
+              478,
+              479
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              956,
+              957,
+              958
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              3827,
+              3828,
+              3829
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              7656,
+              7657,
+              7658
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ]
+      },
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            254,
+            255,
+            256
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            509,
+            510,
+            511
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1020,
+            1021,
+            1022
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4083,
+            4084,
+            4085
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8168,
+            8169,
+            8170
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "-",
+      "variant_id": "BRAF_e14_A117C",
+      "variant_position_1based": 140754187
+    },
+    {
+      "chromosome": "chr7",
+      "gene": "BRAF",
+      "interval_end_0based_exclusive": 140762401,
+      "interval_start_0based": 140746017,
+      "order": 4,
+      "positions_by_location": {
+        "downstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              271,
+              272,
+              273
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              543,
+              544,
+              545
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1087,
+              1088,
+              1089
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4353,
+              4354,
+              4355
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8708,
+              8709,
+              8710
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "intended": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              255,
+              256,
+              257
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              511,
+              512,
+              513
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1023,
+              1024,
+              1025
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4097,
+              4098,
+              4099
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8196,
+              8197,
+              8198
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "upstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              239,
+              240,
+              241
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              479,
+              480,
+              481
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              959,
+              960,
+              961
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              3841,
+              3842,
+              3843
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              7684,
+              7685,
+              7686
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ]
+      },
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            255,
+            256,
+            257
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            511,
+            512,
+            513
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1023,
+            1024,
+            1025
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4097,
+            4098,
+            4099
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8196,
+            8197,
+            8198
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "-",
+      "variant_id": "BRAF_e14_A89G",
+      "variant_position_1based": 140754215
+    },
+    {
+      "chromosome": "chr7",
+      "gene": "BRAF",
+      "interval_end_0based_exclusive": 140762401,
+      "interval_start_0based": 140746017,
+      "order": 5,
+      "positions_by_location": {
+        "downstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              271,
+              272,
+              273
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              544,
+              545,
+              546
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1089,
+              1090,
+              1091
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4359,
+              4360,
+              4361
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8720,
+              8721,
+              8722
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "intended": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              255,
+              256,
+              257
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              512,
+              513,
+              514
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1025,
+              1026,
+              1027
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4103,
+              4104,
+              4105
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8208,
+              8209,
+              8210
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "upstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              239,
+              240,
+              241
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              480,
+              481,
+              482
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              961,
+              962,
+              963
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              3847,
+              3848,
+              3849
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              7696,
+              7697,
+              7698
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ]
+      },
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            255,
+            256,
+            257
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            512,
+            513,
+            514
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1025,
+            1026,
+            1027
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4103,
+            4104,
+            4105
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8208,
+            8209,
+            8210
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "-",
+      "variant_id": "BRAF_e14_A77C",
+      "variant_position_1based": 140754227
+    },
+    {
+      "chromosome": "chr7",
+      "gene": "BRAF",
+      "interval_end_0based_exclusive": 140762401,
+      "interval_start_0based": 140746017,
+      "order": 6,
+      "positions_by_location": {
+        "downstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              270,
+              271,
+              272
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              541,
+              542,
+              543
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1083,
+              1084,
+              1085
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4337,
+              4338,
+              4339
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8676,
+              8677,
+              8678
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "intended": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              254,
+              255,
+              256
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              509,
+              510,
+              511
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1019,
+              1020,
+              1021
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4081,
+              4082,
+              4083
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8164,
+              8165,
+              8166
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "upstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              238,
+              239,
+              240
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              477,
+              478,
+              479
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              955,
+              956,
+              957
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              3825,
+              3826,
+              3827
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              7652,
+              7653,
+              7654
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ]
+      },
+      "selection_class": "neutral_control",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            254,
+            255,
+            256
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            509,
+            510,
+            511
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1019,
+            1020,
+            1021
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4081,
+            4082,
+            4083
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8164,
+            8165,
+            8166
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "-",
+      "variant_id": "BRAF_e14_T121C",
+      "variant_position_1based": 140754183
+    },
+    {
+      "chromosome": "chr7",
+      "gene": "BRAF",
+      "interval_end_0based_exclusive": 140762401,
+      "interval_start_0based": 140746017,
+      "order": 7,
+      "positions_by_location": {
+        "downstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              271,
+              272,
+              273
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              544,
+              545,
+              546
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1090,
+              1091,
+              1092
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4363,
+              4364,
+              4365
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8728,
+              8729,
+              8730
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "intended": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              255,
+              256,
+              257
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              512,
+              513,
+              514
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1026,
+              1027,
+              1028
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4107,
+              4108,
+              4109
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8216,
+              8217,
+              8218
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "upstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              239,
+              240,
+              241
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              480,
+              481,
+              482
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              962,
+              963,
+              964
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              3851,
+              3852,
+              3853
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              7704,
+              7705,
+              7706
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ]
+      },
+      "selection_class": "neutral_control",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            255,
+            256,
+            257
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            512,
+            513,
+            514
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1026,
+            1027,
+            1028
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4107,
+            4108,
+            4109
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8216,
+            8217,
+            8218
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "-",
+      "variant_id": "BRAF_e14_A69G",
+      "variant_position_1based": 140754235
+    },
+    {
+      "chromosome": "chr7",
+      "gene": "BRAF",
+      "interval_end_0based_exclusive": 140762401,
+      "interval_start_0based": 140746017,
+      "order": 8,
+      "positions_by_location": {
+        "downstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              271,
+              272,
+              273
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              544,
+              545,
+              546
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1090,
+              1091,
+              1092
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4364,
+              4365,
+              4366
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8729,
+              8730,
+              8731
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "intended": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              255,
+              256,
+              257
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              512,
+              513,
+              514
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1026,
+              1027,
+              1028
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4108,
+              4109,
+              4110
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8217,
+              8218,
+              8219
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "upstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              239,
+              240,
+              241
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              480,
+              481,
+              482
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              962,
+              963,
+              964
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              3852,
+              3853,
+              3854
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              7705,
+              7706,
+              7707
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ]
+      },
+      "selection_class": "neutral_control",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            255,
+            256,
+            257
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            512,
+            513,
+            514
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1026,
+            1027,
+            1028
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4108,
+            4109,
+            4110
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8217,
+            8218,
+            8219
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "-",
+      "variant_id": "BRAF_e14_C68T",
+      "variant_position_1based": 140754236
+    },
+    {
+      "chromosome": "chr7",
+      "gene": "BRAF",
+      "interval_end_0based_exclusive": 140762401,
+      "interval_start_0based": 140746017,
+      "order": 9,
+      "positions_by_location": {
+        "downstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              270,
+              271,
+              272
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              541,
+              542,
+              543
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1084,
+              1085,
+              1086
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4339,
+              4340,
+              4341
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8679,
+              8680,
+              8681
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "intended": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              254,
+              255,
+              256
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              509,
+              510,
+              511
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1020,
+              1021,
+              1022
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4083,
+              4084,
+              4085
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8167,
+              8168,
+              8169
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "upstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              238,
+              239,
+              240
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              477,
+              478,
+              479
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              956,
+              957,
+              958
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              3827,
+              3828,
+              3829
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              7655,
+              7656,
+              7657
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ]
+      },
+      "selection_class": "neutral_control",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            254,
+            255,
+            256
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            509,
+            510,
+            511
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1020,
+            1021,
+            1022
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4083,
+            4084,
+            4085
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8167,
+            8168,
+            8169
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "-",
+      "variant_id": "BRAF_e14_G118A",
+      "variant_position_1based": 140754186
+    },
+    {
+      "chromosome": "chr5",
+      "gene": "SLC25A48",
+      "interval_end_0based_exclusive": 135889032,
+      "interval_start_0based": 135872648,
+      "order": 10,
+      "positions_by_location": {
+        "downstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              268,
+              269,
+              270
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              538,
+              539,
+              540
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1078,
+              1079,
+              1080
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4316,
+              4317,
+              4318
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8634,
+              8635,
+              8636
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "intended": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              252,
+              253,
+              254
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              506,
+              507,
+              508
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1014,
+              1015,
+              1016
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4060,
+              4061,
+              4062
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8122,
+              8123,
+              8124
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "upstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              236,
+              237,
+              238
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              474,
+              475,
+              476
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              950,
+              951,
+              952
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              3804,
+              3805,
+              3806
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              7610,
+              7611,
+              7612
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ]
+      },
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            252,
+            253,
+            254
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            506,
+            507,
+            508
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1014,
+            1015,
+            1016
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4060,
+            4061,
+            4062
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8122,
+            8123,
+            8124
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "+",
+      "variant_id": "SLC25A48_e8_G70A",
+      "variant_position_1based": 135880772
+    },
+    {
+      "chromosome": "chr5",
+      "gene": "SLC25A48",
+      "interval_end_0based_exclusive": 135889032,
+      "interval_start_0based": 135872648,
+      "order": 11,
+      "positions_by_location": {
+        "downstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              268,
+              269,
+              270
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              538,
+              539,
+              540
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1078,
+              1079,
+              1080
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4316,
+              4317,
+              4318
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8633,
+              8634,
+              8635
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "intended": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              252,
+              253,
+              254
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              506,
+              507,
+              508
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1014,
+              1015,
+              1016
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4060,
+              4061,
+              4062
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8121,
+              8122,
+              8123
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "upstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              236,
+              237,
+              238
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              474,
+              475,
+              476
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              950,
+              951,
+              952
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              3804,
+              3805,
+              3806
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              7609,
+              7610,
+              7611
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ]
+      },
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            252,
+            253,
+            254
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            506,
+            507,
+            508
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1014,
+            1015,
+            1016
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4060,
+            4061,
+            4062
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8121,
+            8122,
+            8123
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "+",
+      "variant_id": "SLC25A48_e8_A69C",
+      "variant_position_1based": 135880771
+    },
+    {
+      "chromosome": "chr5",
+      "gene": "SLC25A48",
+      "interval_end_0based_exclusive": 135889032,
+      "interval_start_0based": 135872648,
+      "order": 12,
+      "positions_by_location": {
+        "downstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              268,
+              269,
+              270
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              538,
+              539,
+              540
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1078,
+              1079,
+              1080
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4316,
+              4317,
+              4318
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8633,
+              8634,
+              8635
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "intended": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              252,
+              253,
+              254
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              506,
+              507,
+              508
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1014,
+              1015,
+              1016
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4060,
+              4061,
+              4062
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8121,
+              8122,
+              8123
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "upstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              236,
+              237,
+              238
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              474,
+              475,
+              476
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              950,
+              951,
+              952
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              3804,
+              3805,
+              3806
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              7609,
+              7610,
+              7611
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ]
+      },
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            252,
+            253,
+            254
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            506,
+            507,
+            508
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1014,
+            1015,
+            1016
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4060,
+            4061,
+            4062
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8121,
+            8122,
+            8123
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "+",
+      "variant_id": "SLC25A48_e8_A69T",
+      "variant_position_1based": 135880771
+    },
+    {
+      "chromosome": "chr5",
+      "gene": "SLC25A48",
+      "interval_end_0based_exclusive": 135889032,
+      "interval_start_0based": 135872648,
+      "order": 13,
+      "positions_by_location": {
+        "downstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              268,
+              269,
+              270
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              538,
+              539,
+              540
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1078,
+              1079,
+              1080
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4315,
+              4316,
+              4317
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8632,
+              8633,
+              8634
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "intended": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              252,
+              253,
+              254
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              506,
+              507,
+              508
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1014,
+              1015,
+              1016
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4059,
+              4060,
+              4061
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8120,
+              8121,
+              8122
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "upstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              236,
+              237,
+              238
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              474,
+              475,
+              476
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              950,
+              951,
+              952
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              3803,
+              3804,
+              3805
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              7608,
+              7609,
+              7610
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ]
+      },
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            252,
+            253,
+            254
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            506,
+            507,
+            508
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1014,
+            1015,
+            1016
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4059,
+            4060,
+            4061
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8120,
+            8121,
+            8122
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "+",
+      "variant_id": "SLC25A48_e8_T68G",
+      "variant_position_1based": 135880770
+    },
+    {
+      "chromosome": "chr5",
+      "gene": "SLC25A48",
+      "interval_end_0based_exclusive": 135889032,
+      "interval_start_0based": 135872648,
+      "order": 14,
+      "positions_by_location": {
+        "downstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              268,
+              269,
+              270
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              538,
+              539,
+              540
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1078,
+              1079,
+              1080
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4316,
+              4317,
+              4318
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8634,
+              8635,
+              8636
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "intended": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              252,
+              253,
+              254
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              506,
+              507,
+              508
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1014,
+              1015,
+              1016
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4060,
+              4061,
+              4062
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8122,
+              8123,
+              8124
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "upstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              236,
+              237,
+              238
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              474,
+              475,
+              476
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              950,
+              951,
+              952
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              3804,
+              3805,
+              3806
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              7610,
+              7611,
+              7612
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ]
+      },
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            252,
+            253,
+            254
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            506,
+            507,
+            508
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1014,
+            1015,
+            1016
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4060,
+            4061,
+            4062
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8122,
+            8123,
+            8124
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "+",
+      "variant_id": "SLC25A48_e8_G70C",
+      "variant_position_1based": 135880772
+    },
+    {
+      "chromosome": "chr5",
+      "gene": "SLC25A48",
+      "interval_end_0based_exclusive": 135889032,
+      "interval_start_0based": 135872648,
+      "order": 15,
+      "positions_by_location": {
+        "downstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              268,
+              269,
+              270
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              538,
+              539,
+              540
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1078,
+              1079,
+              1080
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4317,
+              4318,
+              4319
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8635,
+              8636,
+              8637
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "intended": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              252,
+              253,
+              254
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              506,
+              507,
+              508
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1014,
+              1015,
+              1016
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4061,
+              4062,
+              4063
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8123,
+              8124,
+              8125
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "upstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              236,
+              237,
+              238
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              474,
+              475,
+              476
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              950,
+              951,
+              952
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              3805,
+              3806,
+              3807
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              7611,
+              7612,
+              7613
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ]
+      },
+      "selection_class": "significant_effect",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            252,
+            253,
+            254
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            506,
+            507,
+            508
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1014,
+            1015,
+            1016
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4061,
+            4062,
+            4063
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8123,
+            8124,
+            8125
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "+",
+      "variant_id": "SLC25A48_e8_G71T",
+      "variant_position_1based": 135880773
+    },
+    {
+      "chromosome": "chr5",
+      "gene": "SLC25A48",
+      "interval_end_0based_exclusive": 135889032,
+      "interval_start_0based": 135872648,
+      "order": 16,
+      "positions_by_location": {
+        "downstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              268,
+              269,
+              270
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              538,
+              539,
+              540
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1078,
+              1079,
+              1080
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4315,
+              4316,
+              4317
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8631,
+              8632,
+              8633
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "intended": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              252,
+              253,
+              254
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              506,
+              507,
+              508
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1014,
+              1015,
+              1016
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4059,
+              4060,
+              4061
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8119,
+              8120,
+              8121
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "upstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              236,
+              237,
+              238
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              474,
+              475,
+              476
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              950,
+              951,
+              952
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              3803,
+              3804,
+              3805
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              7607,
+              7608,
+              7609
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ]
+      },
+      "selection_class": "neutral_control",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            252,
+            253,
+            254
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            506,
+            507,
+            508
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1014,
+            1015,
+            1016
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4059,
+            4060,
+            4061
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8119,
+            8120,
+            8121
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "+",
+      "variant_id": "SLC25A48_e8_C67T",
+      "variant_position_1based": 135880769
+    },
+    {
+      "chromosome": "chr5",
+      "gene": "SLC25A48",
+      "interval_end_0based_exclusive": 135889032,
+      "interval_start_0based": 135872648,
+      "order": 17,
+      "positions_by_location": {
+        "downstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              268,
+              269,
+              270
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              538,
+              539,
+              540
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1078,
+              1079,
+              1080
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4315,
+              4316,
+              4317
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8631,
+              8632,
+              8633
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "intended": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              252,
+              253,
+              254
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              506,
+              507,
+              508
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1014,
+              1015,
+              1016
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4059,
+              4060,
+              4061
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8119,
+              8120,
+              8121
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "upstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              236,
+              237,
+              238
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              474,
+              475,
+              476
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              950,
+              951,
+              952
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              3803,
+              3804,
+              3805
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              7607,
+              7608,
+              7609
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ]
+      },
+      "selection_class": "neutral_control",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            252,
+            253,
+            254
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            506,
+            507,
+            508
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1014,
+            1015,
+            1016
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4059,
+            4060,
+            4061
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8119,
+            8120,
+            8121
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "+",
+      "variant_id": "SLC25A48_e8_C67G",
+      "variant_position_1based": 135880769
+    },
+    {
+      "chromosome": "chr5",
+      "gene": "SLC25A48",
+      "interval_end_0based_exclusive": 135889032,
+      "interval_start_0based": 135872648,
+      "order": 18,
+      "positions_by_location": {
+        "downstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              268,
+              269,
+              270
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              538,
+              539,
+              540
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1078,
+              1079,
+              1080
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4315,
+              4316,
+              4317
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8632,
+              8633,
+              8634
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "intended": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              252,
+              253,
+              254
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              506,
+              507,
+              508
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1014,
+              1015,
+              1016
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4059,
+              4060,
+              4061
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8120,
+              8121,
+              8122
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "upstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              236,
+              237,
+              238
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              474,
+              475,
+              476
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              950,
+              951,
+              952
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              3803,
+              3804,
+              3805
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              7608,
+              7609,
+              7610
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ]
+      },
+      "selection_class": "neutral_control",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            252,
+            253,
+            254
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            506,
+            507,
+            508
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1014,
+            1015,
+            1016
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4059,
+            4060,
+            4061
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8120,
+            8121,
+            8122
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "+",
+      "variant_id": "SLC25A48_e8_T68C",
+      "variant_position_1based": 135880770
+    },
+    {
+      "chromosome": "chr5",
+      "gene": "SLC25A48",
+      "interval_end_0based_exclusive": 135889032,
+      "interval_start_0based": 135872648,
+      "order": 19,
+      "positions_by_location": {
+        "downstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              266,
+              267,
+              268
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              534,
+              535,
+              536
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1070,
+              1071,
+              1072
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4284,
+              4285,
+              4286
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8570,
+              8571,
+              8572
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "intended": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              250,
+              251,
+              252
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              502,
+              503,
+              504
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              1006,
+              1007,
+              1008
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              4028,
+              4029,
+              4030
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              8058,
+              8059,
+              8060
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ],
+        "upstream": [
+          {
+            "positions": [],
+            "resolution_bp": 64,
+            "route_enabled": false,
+            "stage": "E64"
+          },
+          {
+            "positions": [
+              234,
+              235,
+              236
+            ],
+            "resolution_bp": 32,
+            "route_enabled": true,
+            "stage": "E32"
+          },
+          {
+            "positions": [
+              470,
+              471,
+              472
+            ],
+            "resolution_bp": 16,
+            "route_enabled": true,
+            "stage": "E16"
+          },
+          {
+            "positions": [
+              942,
+              943,
+              944
+            ],
+            "resolution_bp": 8,
+            "route_enabled": true,
+            "stage": "E8"
+          },
+          {
+            "positions": [],
+            "resolution_bp": 4,
+            "route_enabled": false,
+            "stage": "E4"
+          },
+          {
+            "positions": [
+              3772,
+              3773,
+              3774
+            ],
+            "resolution_bp": 2,
+            "route_enabled": true,
+            "stage": "E2"
+          },
+          {
+            "positions": [
+              7546,
+              7547,
+              7548
+            ],
+            "resolution_bp": 1,
+            "route_enabled": true,
+            "stage": "E1"
+          }
+        ]
+      },
+      "selection_class": "neutral_control",
+      "stages": [
+        {
+          "channel_width": 1536,
+          "positions": [],
+          "resolution_bp": 64,
+          "route_enabled": false,
+          "stage": "E64",
+          "stage_index": 0
+        },
+        {
+          "channel_width": 1408,
+          "positions": [
+            250,
+            251,
+            252
+          ],
+          "resolution_bp": 32,
+          "route_enabled": true,
+          "stage": "E32",
+          "stage_index": 1
+        },
+        {
+          "channel_width": 1280,
+          "positions": [
+            502,
+            503,
+            504
+          ],
+          "resolution_bp": 16,
+          "route_enabled": true,
+          "stage": "E16",
+          "stage_index": 2
+        },
+        {
+          "channel_width": 1152,
+          "positions": [
+            1006,
+            1007,
+            1008
+          ],
+          "resolution_bp": 8,
+          "route_enabled": true,
+          "stage": "E8",
+          "stage_index": 3
+        },
+        {
+          "channel_width": 1024,
+          "positions": [],
+          "resolution_bp": 4,
+          "route_enabled": false,
+          "stage": "E4",
+          "stage_index": 4
+        },
+        {
+          "channel_width": 896,
+          "positions": [
+            4028,
+            4029,
+            4030
+          ],
+          "resolution_bp": 2,
+          "route_enabled": true,
+          "stage": "E2",
+          "stage_index": 5
+        },
+        {
+          "channel_width": 768,
+          "positions": [
+            8058,
+            8059,
+            8060
+          ],
+          "resolution_bp": 1,
+          "route_enabled": true,
+          "stage": "E1",
+          "stage_index": 6
+        }
+      ],
+      "strand": "+",
+      "variant_id": "SLC25A48_e8_C6A",
+      "variant_position_1based": 135880708
+    }
+  ],
+  "conditions": [
+    {
+      "channel_policy": "all_candidate_channels_except_named_channel",
+      "condition_id": "necessity_E32_c0000",
+      "condition_index": 0,
+      "feature": {
+        "channel_count": 1,
+        "channel_end_exclusive": 1,
+        "channel_start_inclusive": 0,
+        "parent_child_id": "E32_c0000_0007",
+        "resolution_bp": 32,
+        "selected_for_gene": "BRAF",
+        "stage": "E32",
+        "stage_index": 1,
+        "stage_width": 1408
+      },
+      "kind": "individual_channel_necessity",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "all_candidate_channels_except_named_channel",
+      "condition_id": "necessity_E32_c0001",
+      "condition_index": 1,
+      "feature": {
+        "channel_count": 1,
+        "channel_end_exclusive": 2,
+        "channel_start_inclusive": 1,
+        "parent_child_id": "E32_c0000_0007",
+        "resolution_bp": 32,
+        "selected_for_gene": "BRAF",
+        "stage": "E32",
+        "stage_index": 1,
+        "stage_width": 1408
+      },
+      "kind": "individual_channel_necessity",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "all_candidate_channels_except_named_channel",
+      "condition_id": "necessity_E32_c0002",
+      "condition_index": 2,
+      "feature": {
+        "channel_count": 1,
+        "channel_end_exclusive": 3,
+        "channel_start_inclusive": 2,
+        "parent_child_id": "E32_c0000_0007",
+        "resolution_bp": 32,
+        "selected_for_gene": "BRAF",
+        "stage": "E32",
+        "stage_index": 1,
+        "stage_width": 1408
+      },
+      "kind": "individual_channel_necessity",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "all_candidate_channels_except_named_channel",
+      "condition_id": "necessity_E32_c0003",
+      "condition_index": 3,
+      "feature": {
+        "channel_count": 1,
+        "channel_end_exclusive": 4,
+        "channel_start_inclusive": 3,
+        "parent_child_id": "E32_c0000_0007",
+        "resolution_bp": 32,
+        "selected_for_gene": "BRAF",
+        "stage": "E32",
+        "stage_index": 1,
+        "stage_width": 1408
+      },
+      "kind": "individual_channel_necessity",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "all_candidate_channels_except_named_channel",
+      "condition_id": "necessity_E32_c0004",
+      "condition_index": 4,
+      "feature": {
+        "channel_count": 1,
+        "channel_end_exclusive": 5,
+        "channel_start_inclusive": 4,
+        "parent_child_id": "E32_c0000_0007",
+        "resolution_bp": 32,
+        "selected_for_gene": "BRAF",
+        "stage": "E32",
+        "stage_index": 1,
+        "stage_width": 1408
+      },
+      "kind": "individual_channel_necessity",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "all_candidate_channels_except_named_channel",
+      "condition_id": "necessity_E32_c0005",
+      "condition_index": 5,
+      "feature": {
+        "channel_count": 1,
+        "channel_end_exclusive": 6,
+        "channel_start_inclusive": 5,
+        "parent_child_id": "E32_c0000_0007",
+        "resolution_bp": 32,
+        "selected_for_gene": "BRAF",
+        "stage": "E32",
+        "stage_index": 1,
+        "stage_width": 1408
+      },
+      "kind": "individual_channel_necessity",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "all_candidate_channels_except_named_channel",
+      "condition_id": "necessity_E32_c0006",
+      "condition_index": 6,
+      "feature": {
+        "channel_count": 1,
+        "channel_end_exclusive": 7,
+        "channel_start_inclusive": 6,
+        "parent_child_id": "E32_c0000_0007",
+        "resolution_bp": 32,
+        "selected_for_gene": "BRAF",
+        "stage": "E32",
+        "stage_index": 1,
+        "stage_width": 1408
+      },
+      "kind": "individual_channel_necessity",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "all_candidate_channels_except_named_channel",
+      "condition_id": "necessity_E32_c0007",
+      "condition_index": 7,
+      "feature": {
+        "channel_count": 1,
+        "channel_end_exclusive": 8,
+        "channel_start_inclusive": 7,
+        "parent_child_id": "E32_c0000_0007",
+        "resolution_bp": 32,
+        "selected_for_gene": "BRAF",
+        "stage": "E32",
+        "stage_index": 1,
+        "stage_width": 1408
+      },
+      "kind": "individual_channel_necessity",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "all_candidate_channels_except_named_channel",
+      "condition_id": "necessity_E16_c0000",
+      "condition_index": 8,
+      "feature": {
+        "channel_count": 1,
+        "channel_end_exclusive": 1,
+        "channel_start_inclusive": 0,
+        "parent_child_id": "E16_c0000_0007",
+        "resolution_bp": 16,
+        "selected_for_gene": "BRAF",
+        "stage": "E16",
+        "stage_index": 2,
+        "stage_width": 1280
+      },
+      "kind": "individual_channel_necessity",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "all_candidate_channels_except_named_channel",
+      "condition_id": "necessity_E16_c0001",
+      "condition_index": 9,
+      "feature": {
+        "channel_count": 1,
+        "channel_end_exclusive": 2,
+        "channel_start_inclusive": 1,
+        "parent_child_id": "E16_c0000_0007",
+        "resolution_bp": 16,
+        "selected_for_gene": "BRAF",
+        "stage": "E16",
+        "stage_index": 2,
+        "stage_width": 1280
+      },
+      "kind": "individual_channel_necessity",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "all_candidate_channels_except_named_channel",
+      "condition_id": "necessity_E16_c0002",
+      "condition_index": 10,
+      "feature": {
+        "channel_count": 1,
+        "channel_end_exclusive": 3,
+        "channel_start_inclusive": 2,
+        "parent_child_id": "E16_c0000_0007",
+        "resolution_bp": 16,
+        "selected_for_gene": "BRAF",
+        "stage": "E16",
+        "stage_index": 2,
+        "stage_width": 1280
+      },
+      "kind": "individual_channel_necessity",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "all_candidate_channels_except_named_channel",
+      "condition_id": "necessity_E16_c0003",
+      "condition_index": 11,
+      "feature": {
+        "channel_count": 1,
+        "channel_end_exclusive": 4,
+        "channel_start_inclusive": 3,
+        "parent_child_id": "E16_c0000_0007",
+        "resolution_bp": 16,
+        "selected_for_gene": "BRAF",
+        "stage": "E16",
+        "stage_index": 2,
+        "stage_width": 1280
+      },
+      "kind": "individual_channel_necessity",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "all_candidate_channels_except_named_channel",
+      "condition_id": "necessity_E16_c0004",
+      "condition_index": 12,
+      "feature": {
+        "channel_count": 1,
+        "channel_end_exclusive": 5,
+        "channel_start_inclusive": 4,
+        "parent_child_id": "E16_c0000_0007",
+        "resolution_bp": 16,
+        "selected_for_gene": "BRAF",
+        "stage": "E16",
+        "stage_index": 2,
+        "stage_width": 1280
+      },
+      "kind": "individual_channel_necessity",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "all_candidate_channels_except_named_channel",
+      "condition_id": "necessity_E16_c0005",
+      "condition_index": 13,
+      "feature": {
+        "channel_count": 1,
+        "channel_end_exclusive": 6,
+        "channel_start_inclusive": 5,
+        "parent_child_id": "E16_c0000_0007",
+        "resolution_bp": 16,
+        "selected_for_gene": "BRAF",
+        "stage": "E16",
+        "stage_index": 2,
+        "stage_width": 1280
+      },
+      "kind": "individual_channel_necessity",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "all_candidate_channels_except_named_channel",
+      "condition_id": "necessity_E16_c0006",
+      "condition_index": 14,
+      "feature": {
+        "channel_count": 1,
+        "channel_end_exclusive": 7,
+        "channel_start_inclusive": 6,
+        "parent_child_id": "E16_c0000_0007",
+        "resolution_bp": 16,
+        "selected_for_gene": "BRAF",
+        "stage": "E16",
+        "stage_index": 2,
+        "stage_width": 1280
+      },
+      "kind": "individual_channel_necessity",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "all_candidate_channels_except_named_channel",
+      "condition_id": "necessity_E16_c0007",
+      "condition_index": 15,
+      "feature": {
+        "channel_count": 1,
+        "channel_end_exclusive": 8,
+        "channel_start_inclusive": 7,
+        "parent_child_id": "E16_c0000_0007",
+        "resolution_bp": 16,
+        "selected_for_gene": "BRAF",
+        "stage": "E16",
+        "stage_index": 2,
+        "stage_width": 1280
+      },
+      "kind": "individual_channel_necessity",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "all_candidate_channels_except_named_channel",
+      "condition_id": "necessity_E2_c0168",
+      "condition_index": 16,
+      "feature": {
+        "channel_count": 1,
+        "channel_end_exclusive": 169,
+        "channel_start_inclusive": 168,
+        "parent_child_id": "E2_c0168_0175",
+        "resolution_bp": 2,
+        "selected_for_gene": "SLC25A48",
+        "stage": "E2",
+        "stage_index": 5,
+        "stage_width": 896
+      },
+      "kind": "individual_channel_necessity",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "all_candidate_channels_except_named_channel",
+      "condition_id": "necessity_E2_c0169",
+      "condition_index": 17,
+      "feature": {
+        "channel_count": 1,
+        "channel_end_exclusive": 170,
+        "channel_start_inclusive": 169,
+        "parent_child_id": "E2_c0168_0175",
+        "resolution_bp": 2,
+        "selected_for_gene": "SLC25A48",
+        "stage": "E2",
+        "stage_index": 5,
+        "stage_width": 896
+      },
+      "kind": "individual_channel_necessity",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "all_candidate_channels_except_named_channel",
+      "condition_id": "necessity_E2_c0170",
+      "condition_index": 18,
+      "feature": {
+        "channel_count": 1,
+        "channel_end_exclusive": 171,
+        "channel_start_inclusive": 170,
+        "parent_child_id": "E2_c0168_0175",
+        "resolution_bp": 2,
+        "selected_for_gene": "SLC25A48",
+        "stage": "E2",
+        "stage_index": 5,
+        "stage_width": 896
+      },
+      "kind": "individual_channel_necessity",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "all_candidate_channels_except_named_channel",
+      "condition_id": "necessity_E2_c0171",
+      "condition_index": 19,
+      "feature": {
+        "channel_count": 1,
+        "channel_end_exclusive": 172,
+        "channel_start_inclusive": 171,
+        "parent_child_id": "E2_c0168_0175",
+        "resolution_bp": 2,
+        "selected_for_gene": "SLC25A48",
+        "stage": "E2",
+        "stage_index": 5,
+        "stage_width": 896
+      },
+      "kind": "individual_channel_necessity",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "all_candidate_channels_except_named_channel",
+      "condition_id": "necessity_E2_c0172",
+      "condition_index": 20,
+      "feature": {
+        "channel_count": 1,
+        "channel_end_exclusive": 173,
+        "channel_start_inclusive": 172,
+        "parent_child_id": "E2_c0168_0175",
+        "resolution_bp": 2,
+        "selected_for_gene": "SLC25A48",
+        "stage": "E2",
+        "stage_index": 5,
+        "stage_width": 896
+      },
+      "kind": "individual_channel_necessity",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "all_candidate_channels_except_named_channel",
+      "condition_id": "necessity_E2_c0173",
+      "condition_index": 21,
+      "feature": {
+        "channel_count": 1,
+        "channel_end_exclusive": 174,
+        "channel_start_inclusive": 173,
+        "parent_child_id": "E2_c0168_0175",
+        "resolution_bp": 2,
+        "selected_for_gene": "SLC25A48",
+        "stage": "E2",
+        "stage_index": 5,
+        "stage_width": 896
+      },
+      "kind": "individual_channel_necessity",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "all_candidate_channels_except_named_channel",
+      "condition_id": "necessity_E2_c0174",
+      "condition_index": 22,
+      "feature": {
+        "channel_count": 1,
+        "channel_end_exclusive": 175,
+        "channel_start_inclusive": 174,
+        "parent_child_id": "E2_c0168_0175",
+        "resolution_bp": 2,
+        "selected_for_gene": "SLC25A48",
+        "stage": "E2",
+        "stage_index": 5,
+        "stage_width": 896
+      },
+      "kind": "individual_channel_necessity",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "all_candidate_channels_except_named_channel",
+      "condition_id": "necessity_E2_c0175",
+      "condition_index": 23,
+      "feature": {
+        "channel_count": 1,
+        "channel_end_exclusive": 176,
+        "channel_start_inclusive": 175,
+        "parent_child_id": "E2_c0168_0175",
+        "resolution_bp": 2,
+        "selected_for_gene": "SLC25A48",
+        "stage": "E2",
+        "stage_index": 5,
+        "stage_width": 896
+      },
+      "kind": "individual_channel_necessity",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "all_candidate_channels_except_named_channel",
+      "condition_id": "necessity_E1_c0168",
+      "condition_index": 24,
+      "feature": {
+        "channel_count": 1,
+        "channel_end_exclusive": 169,
+        "channel_start_inclusive": 168,
+        "parent_child_id": "E1_c0168_0175",
+        "resolution_bp": 1,
+        "selected_for_gene": "SLC25A48",
+        "stage": "E1",
+        "stage_index": 6,
+        "stage_width": 768
+      },
+      "kind": "individual_channel_necessity",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "all_candidate_channels_except_named_channel",
+      "condition_id": "necessity_E1_c0169",
+      "condition_index": 25,
+      "feature": {
+        "channel_count": 1,
+        "channel_end_exclusive": 170,
+        "channel_start_inclusive": 169,
+        "parent_child_id": "E1_c0168_0175",
+        "resolution_bp": 1,
+        "selected_for_gene": "SLC25A48",
+        "stage": "E1",
+        "stage_index": 6,
+        "stage_width": 768
+      },
+      "kind": "individual_channel_necessity",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "all_candidate_channels_except_named_channel",
+      "condition_id": "necessity_E1_c0170",
+      "condition_index": 26,
+      "feature": {
+        "channel_count": 1,
+        "channel_end_exclusive": 171,
+        "channel_start_inclusive": 170,
+        "parent_child_id": "E1_c0168_0175",
+        "resolution_bp": 1,
+        "selected_for_gene": "SLC25A48",
+        "stage": "E1",
+        "stage_index": 6,
+        "stage_width": 768
+      },
+      "kind": "individual_channel_necessity",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "all_candidate_channels_except_named_channel",
+      "condition_id": "necessity_E1_c0171",
+      "condition_index": 27,
+      "feature": {
+        "channel_count": 1,
+        "channel_end_exclusive": 172,
+        "channel_start_inclusive": 171,
+        "parent_child_id": "E1_c0168_0175",
+        "resolution_bp": 1,
+        "selected_for_gene": "SLC25A48",
+        "stage": "E1",
+        "stage_index": 6,
+        "stage_width": 768
+      },
+      "kind": "individual_channel_necessity",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "all_candidate_channels_except_named_channel",
+      "condition_id": "necessity_E1_c0172",
+      "condition_index": 28,
+      "feature": {
+        "channel_count": 1,
+        "channel_end_exclusive": 173,
+        "channel_start_inclusive": 172,
+        "parent_child_id": "E1_c0168_0175",
+        "resolution_bp": 1,
+        "selected_for_gene": "SLC25A48",
+        "stage": "E1",
+        "stage_index": 6,
+        "stage_width": 768
+      },
+      "kind": "individual_channel_necessity",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "all_candidate_channels_except_named_channel",
+      "condition_id": "necessity_E1_c0173",
+      "condition_index": 29,
+      "feature": {
+        "channel_count": 1,
+        "channel_end_exclusive": 174,
+        "channel_start_inclusive": 173,
+        "parent_child_id": "E1_c0168_0175",
+        "resolution_bp": 1,
+        "selected_for_gene": "SLC25A48",
+        "stage": "E1",
+        "stage_index": 6,
+        "stage_width": 768
+      },
+      "kind": "individual_channel_necessity",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "all_candidate_channels_except_named_channel",
+      "condition_id": "necessity_E1_c0174",
+      "condition_index": 30,
+      "feature": {
+        "channel_count": 1,
+        "channel_end_exclusive": 175,
+        "channel_start_inclusive": 174,
+        "parent_child_id": "E1_c0168_0175",
+        "resolution_bp": 1,
+        "selected_for_gene": "SLC25A48",
+        "stage": "E1",
+        "stage_index": 6,
+        "stage_width": 768
+      },
+      "kind": "individual_channel_necessity",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "all_candidate_channels_except_named_channel",
+      "condition_id": "necessity_E1_c0175",
+      "condition_index": 31,
+      "feature": {
+        "channel_count": 1,
+        "channel_end_exclusive": 176,
+        "channel_start_inclusive": 175,
+        "parent_child_id": "E1_c0168_0175",
+        "resolution_bp": 1,
+        "selected_for_gene": "SLC25A48",
+        "stage": "E1",
+        "stage_index": 6,
+        "stage_width": 768
+      },
+      "kind": "individual_channel_necessity",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "only_named_eight_channel_child",
+      "condition_id": "sufficiency_E32_c0000_0007_intended",
+      "condition_index": 32,
+      "feature": {
+        "channel_count": 8,
+        "channel_end_exclusive": 8,
+        "channel_start_inclusive": 0,
+        "parent_child_id": "E32_c0000_0007",
+        "resolution_bp": 32,
+        "selected_for_gene": "BRAF",
+        "stage": "E32",
+        "stage_index": 1,
+        "stage_width": 1408
+      },
+      "kind": "eight_channel_only_sufficiency",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "only_named_eight_channel_child",
+      "condition_id": "sufficiency_E32_c0000_0007_upstream",
+      "condition_index": 33,
+      "feature": {
+        "channel_count": 8,
+        "channel_end_exclusive": 8,
+        "channel_start_inclusive": 0,
+        "parent_child_id": "E32_c0000_0007",
+        "resolution_bp": 32,
+        "selected_for_gene": "BRAF",
+        "stage": "E32",
+        "stage_index": 1,
+        "stage_width": 1408
+      },
+      "kind": "eight_channel_only_sufficiency",
+      "location": "upstream"
+    },
+    {
+      "channel_policy": "only_named_eight_channel_child",
+      "condition_id": "sufficiency_E32_c0000_0007_downstream",
+      "condition_index": 34,
+      "feature": {
+        "channel_count": 8,
+        "channel_end_exclusive": 8,
+        "channel_start_inclusive": 0,
+        "parent_child_id": "E32_c0000_0007",
+        "resolution_bp": 32,
+        "selected_for_gene": "BRAF",
+        "stage": "E32",
+        "stage_index": 1,
+        "stage_width": 1408
+      },
+      "kind": "eight_channel_only_sufficiency",
+      "location": "downstream"
+    },
+    {
+      "channel_policy": "only_named_eight_channel_child",
+      "condition_id": "sufficiency_E16_c0000_0007_intended",
+      "condition_index": 35,
+      "feature": {
+        "channel_count": 8,
+        "channel_end_exclusive": 8,
+        "channel_start_inclusive": 0,
+        "parent_child_id": "E16_c0000_0007",
+        "resolution_bp": 16,
+        "selected_for_gene": "BRAF",
+        "stage": "E16",
+        "stage_index": 2,
+        "stage_width": 1280
+      },
+      "kind": "eight_channel_only_sufficiency",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "only_named_eight_channel_child",
+      "condition_id": "sufficiency_E16_c0000_0007_upstream",
+      "condition_index": 36,
+      "feature": {
+        "channel_count": 8,
+        "channel_end_exclusive": 8,
+        "channel_start_inclusive": 0,
+        "parent_child_id": "E16_c0000_0007",
+        "resolution_bp": 16,
+        "selected_for_gene": "BRAF",
+        "stage": "E16",
+        "stage_index": 2,
+        "stage_width": 1280
+      },
+      "kind": "eight_channel_only_sufficiency",
+      "location": "upstream"
+    },
+    {
+      "channel_policy": "only_named_eight_channel_child",
+      "condition_id": "sufficiency_E16_c0000_0007_downstream",
+      "condition_index": 37,
+      "feature": {
+        "channel_count": 8,
+        "channel_end_exclusive": 8,
+        "channel_start_inclusive": 0,
+        "parent_child_id": "E16_c0000_0007",
+        "resolution_bp": 16,
+        "selected_for_gene": "BRAF",
+        "stage": "E16",
+        "stage_index": 2,
+        "stage_width": 1280
+      },
+      "kind": "eight_channel_only_sufficiency",
+      "location": "downstream"
+    },
+    {
+      "channel_policy": "only_named_eight_channel_child",
+      "condition_id": "sufficiency_E2_c0168_0175_intended",
+      "condition_index": 38,
+      "feature": {
+        "channel_count": 8,
+        "channel_end_exclusive": 176,
+        "channel_start_inclusive": 168,
+        "parent_child_id": "E2_c0168_0175",
+        "resolution_bp": 2,
+        "selected_for_gene": "SLC25A48",
+        "stage": "E2",
+        "stage_index": 5,
+        "stage_width": 896
+      },
+      "kind": "eight_channel_only_sufficiency",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "only_named_eight_channel_child",
+      "condition_id": "sufficiency_E2_c0168_0175_upstream",
+      "condition_index": 39,
+      "feature": {
+        "channel_count": 8,
+        "channel_end_exclusive": 176,
+        "channel_start_inclusive": 168,
+        "parent_child_id": "E2_c0168_0175",
+        "resolution_bp": 2,
+        "selected_for_gene": "SLC25A48",
+        "stage": "E2",
+        "stage_index": 5,
+        "stage_width": 896
+      },
+      "kind": "eight_channel_only_sufficiency",
+      "location": "upstream"
+    },
+    {
+      "channel_policy": "only_named_eight_channel_child",
+      "condition_id": "sufficiency_E2_c0168_0175_downstream",
+      "condition_index": 40,
+      "feature": {
+        "channel_count": 8,
+        "channel_end_exclusive": 176,
+        "channel_start_inclusive": 168,
+        "parent_child_id": "E2_c0168_0175",
+        "resolution_bp": 2,
+        "selected_for_gene": "SLC25A48",
+        "stage": "E2",
+        "stage_index": 5,
+        "stage_width": 896
+      },
+      "kind": "eight_channel_only_sufficiency",
+      "location": "downstream"
+    },
+    {
+      "channel_policy": "only_named_eight_channel_child",
+      "condition_id": "sufficiency_E1_c0168_0175_intended",
+      "condition_index": 41,
+      "feature": {
+        "channel_count": 8,
+        "channel_end_exclusive": 176,
+        "channel_start_inclusive": 168,
+        "parent_child_id": "E1_c0168_0175",
+        "resolution_bp": 1,
+        "selected_for_gene": "SLC25A48",
+        "stage": "E1",
+        "stage_index": 6,
+        "stage_width": 768
+      },
+      "kind": "eight_channel_only_sufficiency",
+      "location": "intended"
+    },
+    {
+      "channel_policy": "only_named_eight_channel_child",
+      "condition_id": "sufficiency_E1_c0168_0175_upstream",
+      "condition_index": 42,
+      "feature": {
+        "channel_count": 8,
+        "channel_end_exclusive": 176,
+        "channel_start_inclusive": 168,
+        "parent_child_id": "E1_c0168_0175",
+        "resolution_bp": 1,
+        "selected_for_gene": "SLC25A48",
+        "stage": "E1",
+        "stage_index": 6,
+        "stage_width": 768
+      },
+      "kind": "eight_channel_only_sufficiency",
+      "location": "upstream"
+    },
+    {
+      "channel_policy": "only_named_eight_channel_child",
+      "condition_id": "sufficiency_E1_c0168_0175_downstream",
+      "condition_index": 43,
+      "feature": {
+        "channel_count": 8,
+        "channel_end_exclusive": 176,
+        "channel_start_inclusive": 168,
+        "parent_child_id": "E1_c0168_0175",
+        "resolution_bp": 1,
+        "selected_for_gene": "SLC25A48",
+        "stage": "E1",
+        "stage_index": 6,
+        "stage_width": 768
+      },
+      "kind": "eight_channel_only_sufficiency",
+      "location": "downstream"
+    }
+  ],
+  "controls": {
+    "equal_shape_upstream_and_downstream_sufficiency_controls": true,
+    "identity_and_full_route_exact_repeat": true,
+    "neutral_variants_secondary_specificity": true,
+    "non_V_routes_disabled": true,
+    "os_kernel_is_a_gate": false,
+    "reciprocal_transfer": true,
+    "same_allele_self_controls": true,
+    "selected_channel_donor_exact": true,
+    "withheld_channel_natural_exact": true
+  },
+  "design": {
+    "condition_applies_per_variant": 1,
+    "condition_count": 44,
+    "eight_channel_sufficiency_condition_count": 12,
+    "full_V_route_applies_per_variant": 2,
+    "identity_applies_per_variant": 2,
+    "individual_necessity_condition_count": 32,
+    "planned_compile_count": 1,
+    "planned_model_apply_count": 960,
+    "selected_child_count": 4,
+    "selected_individual_channel_count": 32,
+    "support": "V"
+  },
+  "inputs": {
+    "refinement_analysis_path": "results/channel_refinement_v1_model_behavior_analysis/ANALYSIS.json",
+    "refinement_analysis_sha256": "63c80ff05ef81fde128042a95147c637324066f291bd7f21caec45de440322c7",
+    "refinement_plan_path": "channel_refinement_plan_v1.json",
+    "refinement_plan_sha256": "0af4775213cd0f6fba05186006505a21ee08e499d3182f25d154a7c8704b1c19",
+    "refinement_raw_result_tree_sha256": "98904973454209d6068fd1ba7abe86435cc3e5271a144c6c2dabeec1eafc99f9",
+    "spatial_plan_path": "spatial_encoder_skip_plan_v1.json",
+    "spatial_plan_sha256": "f01e7253c39e048a3b7ce1d0bab3ca7d0244a756f510657dba245b20368ae8c7"
+  },
+  "question": "Which individual channels are necessary inside the four leading exon-specific subspaces, and are those eight-channel subspaces sufficient only at the intended variant neighborhood?",
+  "schema_version": "alphagenome-individual-channel-validation-plan-v1",
+  "scope": {
+    "confirmation_access": false,
+    "development_only": true,
+    "effect_count": 12,
+    "genes": [
+      "BRAF",
+      "SLC25A48"
+    ],
+    "neutral_count": 8,
+    "variant_count": 20
+  },
+  "selected_children": [
+    {
+      "channel_count": 8,
+      "channel_end_exclusive": 8,
+      "channel_start_inclusive": 0,
+      "group_id": "E32_c0000_0007",
+      "group_index": 4,
+      "parent_group_id": "E32_c0000_0031",
+      "parent_rank": 1,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 8,
+      "channel_end_exclusive": 8,
+      "channel_start_inclusive": 0,
+      "group_id": "E16_c0000_0007",
+      "group_index": 8,
+      "parent_group_id": "E16_c0000_0031",
+      "parent_rank": 2,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 8,
+      "channel_end_exclusive": 176,
+      "channel_start_inclusive": 168,
+      "group_id": "E2_c0168_0175",
+      "group_index": 17,
+      "parent_group_id": "E2_c0160_0191",
+      "parent_rank": 4,
+      "resolution_bp": 2,
+      "stage": "E2",
+      "stage_index": 5,
+      "stage_width": 896
+    },
+    {
+      "channel_count": 8,
+      "channel_end_exclusive": 176,
+      "channel_start_inclusive": 168,
+      "group_id": "E1_c0168_0175",
+      "group_index": 1,
+      "parent_group_id": "E1_c0160_0191",
+      "parent_rank": 0,
+      "resolution_bp": 1,
+      "stage": "E1",
+      "stage_index": 6,
+      "stage_width": 768
+    }
+  ]
+}

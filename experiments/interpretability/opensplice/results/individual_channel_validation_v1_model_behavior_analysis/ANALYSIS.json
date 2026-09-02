@@ -1,0 +1,2041 @@
+{
+  "control_summary": {
+    "all_runtime_controls_passed": true,
+    "all_shifted_sufficiency_B_exactly_zero": true,
+    "conditions_are_single_shot": true,
+    "identity_and_full_route_repeats_bit_exact": true,
+    "maximum_absolute_shifted_sufficiency_B": 0.0,
+    "prior_executable_maximum_absolute_target_mean_difference": 0.01953125,
+    "shifted_sufficiency_control_count": 160
+  },
+  "eight_channel_sufficiency": {
+    "all_children_pass_selected_gene_localized_sufficiency_rule": true,
+    "per_child": {
+      "E16_c0000_0007": {
+        "channel_end_exclusive": 8,
+        "channel_start_inclusive": 0,
+        "passes_selected_gene_localized_sufficiency_rule": true,
+        "per_gene": {
+          "BRAF": {
+            "effect": {
+              "median_bidirectional_bottleneck_by_location": {
+                "downstream": -0.0,
+                "intended": 0.0014101352737969012,
+                "upstream": -0.0
+              },
+              "median_per_variant_spatial_contrast": 0.0014101352737969012,
+              "positive_intended_count": 4,
+              "positive_spatial_contrast_count": 4,
+              "variant_count": 6
+            },
+            "neutral": {
+              "median_bidirectional_bottleneck_by_location": {
+                "downstream": 0.0,
+                "intended": 0.0012104016006664893,
+                "upstream": 0.0
+              },
+              "median_per_variant_spatial_contrast": 0.0012104016006664893,
+              "positive_intended_count": 2,
+              "positive_spatial_contrast_count": 2,
+              "variant_count": 4
+            }
+          },
+          "SLC25A48": {
+            "effect": {
+              "median_bidirectional_bottleneck_by_location": {
+                "downstream": 0.0,
+                "intended": 0.0,
+                "upstream": 0.0
+              },
+              "median_per_variant_spatial_contrast": 0.0,
+              "positive_intended_count": 0,
+              "positive_spatial_contrast_count": 0,
+              "variant_count": 6
+            },
+            "neutral": {
+              "median_bidirectional_bottleneck_by_location": {
+                "downstream": 0.0,
+                "intended": -0.06666666666666667,
+                "upstream": 0.0
+              },
+              "median_per_variant_spatial_contrast": -0.06666666666666667,
+              "positive_intended_count": 0,
+              "positive_spatial_contrast_count": 0,
+              "variant_count": 4
+            }
+          }
+        },
+        "selected_for_gene": "BRAF",
+        "stage": "E16"
+      },
+      "E1_c0168_0175": {
+        "channel_end_exclusive": 176,
+        "channel_start_inclusive": 168,
+        "passes_selected_gene_localized_sufficiency_rule": true,
+        "per_gene": {
+          "BRAF": {
+            "effect": {
+              "median_bidirectional_bottleneck_by_location": {
+                "downstream": -0.0,
+                "intended": 0.0,
+                "upstream": -0.0
+              },
+              "median_per_variant_spatial_contrast": 0.0,
+              "positive_intended_count": 1,
+              "positive_spatial_contrast_count": 1,
+              "variant_count": 6
+            },
+            "neutral": {
+              "median_bidirectional_bottleneck_by_location": {
+                "downstream": 0.0,
+                "intended": -0.0016129032258064516,
+                "upstream": 0.0
+              },
+              "median_per_variant_spatial_contrast": -0.0016129032258064516,
+              "positive_intended_count": 0,
+              "positive_spatial_contrast_count": 0,
+              "variant_count": 4
+            }
+          },
+          "SLC25A48": {
+            "effect": {
+              "median_bidirectional_bottleneck_by_location": {
+                "downstream": 0.0,
+                "intended": 0.026609094379918954,
+                "upstream": 0.0
+              },
+              "median_per_variant_spatial_contrast": 0.026609094379918954,
+              "positive_intended_count": 5,
+              "positive_spatial_contrast_count": 5,
+              "variant_count": 6
+            },
+            "neutral": {
+              "median_bidirectional_bottleneck_by_location": {
+                "downstream": 0.0,
+                "intended": 0.0,
+                "upstream": 0.0
+              },
+              "median_per_variant_spatial_contrast": 0.0,
+              "positive_intended_count": 0,
+              "positive_spatial_contrast_count": 0,
+              "variant_count": 4
+            }
+          }
+        },
+        "selected_for_gene": "SLC25A48",
+        "stage": "E1"
+      },
+      "E2_c0168_0175": {
+        "channel_end_exclusive": 176,
+        "channel_start_inclusive": 168,
+        "passes_selected_gene_localized_sufficiency_rule": true,
+        "per_gene": {
+          "BRAF": {
+            "effect": {
+              "median_bidirectional_bottleneck_by_location": {
+                "downstream": -0.0,
+                "intended": -0.0026079581123859643,
+                "upstream": -0.0
+              },
+              "median_per_variant_spatial_contrast": -0.0026079581123859643,
+              "positive_intended_count": 0,
+              "positive_spatial_contrast_count": 0,
+              "variant_count": 6
+            },
+            "neutral": {
+              "median_bidirectional_bottleneck_by_location": {
+                "downstream": 0.0,
+                "intended": -0.0015723270440251573,
+                "upstream": 0.0
+              },
+              "median_per_variant_spatial_contrast": -0.0015723270440251573,
+              "positive_intended_count": 0,
+              "positive_spatial_contrast_count": 0,
+              "variant_count": 4
+            }
+          },
+          "SLC25A48": {
+            "effect": {
+              "median_bidirectional_bottleneck_by_location": {
+                "downstream": 0.0,
+                "intended": 0.014624776976459142,
+                "upstream": 0.0
+              },
+              "median_per_variant_spatial_contrast": 0.014624776976459142,
+              "positive_intended_count": 6,
+              "positive_spatial_contrast_count": 6,
+              "variant_count": 6
+            },
+            "neutral": {
+              "median_bidirectional_bottleneck_by_location": {
+                "downstream": 0.0,
+                "intended": 0.0,
+                "upstream": 0.0
+              },
+              "median_per_variant_spatial_contrast": 0.0,
+              "positive_intended_count": 0,
+              "positive_spatial_contrast_count": 0,
+              "variant_count": 4
+            }
+          }
+        },
+        "selected_for_gene": "SLC25A48",
+        "stage": "E2"
+      },
+      "E32_c0000_0007": {
+        "channel_end_exclusive": 8,
+        "channel_start_inclusive": 0,
+        "passes_selected_gene_localized_sufficiency_rule": true,
+        "per_gene": {
+          "BRAF": {
+            "effect": {
+              "median_bidirectional_bottleneck_by_location": {
+                "downstream": -0.0,
+                "intended": 0.0113722501005738,
+                "upstream": -0.0
+              },
+              "median_per_variant_spatial_contrast": 0.0113722501005738,
+              "positive_intended_count": 5,
+              "positive_spatial_contrast_count": 5,
+              "variant_count": 6
+            },
+            "neutral": {
+              "median_bidirectional_bottleneck_by_location": {
+                "downstream": 0.0,
+                "intended": 0.0038121675236788013,
+                "upstream": 0.0
+              },
+              "median_per_variant_spatial_contrast": 0.0038121675236788013,
+              "positive_intended_count": 2,
+              "positive_spatial_contrast_count": 2,
+              "variant_count": 4
+            }
+          },
+          "SLC25A48": {
+            "effect": {
+              "median_bidirectional_bottleneck_by_location": {
+                "downstream": 0.0,
+                "intended": 0.000328515111695138,
+                "upstream": 0.0
+              },
+              "median_per_variant_spatial_contrast": 0.000328515111695138,
+              "positive_intended_count": 3,
+              "positive_spatial_contrast_count": 3,
+              "variant_count": 6
+            },
+            "neutral": {
+              "median_bidirectional_bottleneck_by_location": {
+                "downstream": 0.0,
+                "intended": -0.16666666666666666,
+                "upstream": 0.0
+              },
+              "median_per_variant_spatial_contrast": -0.16666666666666666,
+              "positive_intended_count": 0,
+              "positive_spatial_contrast_count": 0,
+              "variant_count": 4
+            }
+          }
+        },
+        "selected_for_gene": "BRAF",
+        "stage": "E32"
+      }
+    },
+    "selected_child_count": 4
+  },
+  "full_V_route": {
+    "BRAF": {
+      "neutral_control": {
+        "median_bidirectional_bottleneck": 0.39395925948688537,
+        "variant_count": 4
+      },
+      "significant_effect": {
+        "median_bidirectional_bottleneck": 0.4162531328320802,
+        "variant_count": 6
+      }
+    },
+    "SLC25A48": {
+      "neutral_control": {
+        "median_bidirectional_bottleneck": -0.1010752688172043,
+        "variant_count": 4
+      },
+      "significant_effect": {
+        "median_bidirectional_bottleneck": 0.39046872667562327,
+        "variant_count": 6
+      }
+    }
+  },
+  "individual_necessity": {
+    "advancing_channel_count": 3,
+    "advancing_channels": [
+      {
+        "channel_count": 1,
+        "channel_end_exclusive": 4,
+        "channel_start_inclusive": 3,
+        "condition_id": "necessity_E16_c0003",
+        "parent_child_id": "E16_c0000_0007",
+        "per_gene": {
+          "BRAF": {
+            "effect": {
+              "maximum": 0.030325443786982265,
+              "median": 0.012536929993577417,
+              "minimum": -0.01098901098901095,
+              "positive_count": 4,
+              "variant_count": 6
+            },
+            "neutral": {
+              "maximum": 0.01729559748427678,
+              "median": 0.0065643410471738495,
+              "minimum": 0.0007238508867173366,
+              "positive_count": 4,
+              "variant_count": 4
+            },
+            "passes_advance_rule": true
+          },
+          "SLC25A48": {
+            "effect": {
+              "maximum": 0.0050505050505050275,
+              "median": -6.159658344284669e-05,
+              "minimum": -0.0049261083743842304,
+              "positive_count": 2,
+              "variant_count": 6
+            },
+            "neutral": {
+              "maximum": 0.06451612903225806,
+              "median": 0.0,
+              "minimum": 0.0,
+              "positive_count": 1,
+              "variant_count": 4
+            },
+            "passes_advance_rule": false
+          }
+        },
+        "resolution_bp": 16,
+        "selected_for_gene": "BRAF",
+        "stage": "E16",
+        "stage_index": 2,
+        "stage_width": 1280
+      },
+      {
+        "channel_count": 1,
+        "channel_end_exclusive": 176,
+        "channel_start_inclusive": 175,
+        "condition_id": "necessity_E1_c0175",
+        "parent_child_id": "E1_c0168_0175",
+        "per_gene": {
+          "BRAF": {
+            "effect": {
+              "maximum": 0.0007396449704142327,
+              "median": 0.0,
+              "minimum": -0.015037593984962405,
+              "positive_count": 1,
+              "variant_count": 6
+            },
+            "neutral": {
+              "maximum": 0.0,
+              "median": 0.0,
+              "minimum": 0.0,
+              "positive_count": 0,
+              "variant_count": 4
+            },
+            "passes_advance_rule": false
+          },
+          "SLC25A48": {
+            "effect": {
+              "maximum": 0.09798270893371763,
+              "median": 0.03987051378089504,
+              "minimum": -0.00027320107599193566,
+              "positive_count": 4,
+              "variant_count": 6
+            },
+            "neutral": {
+              "maximum": 0.0,
+              "median": 0.0,
+              "minimum": 0.0,
+              "positive_count": 0,
+              "variant_count": 4
+            },
+            "passes_advance_rule": true
+          }
+        },
+        "resolution_bp": 1,
+        "selected_for_gene": "SLC25A48",
+        "stage": "E1",
+        "stage_index": 6,
+        "stage_width": 768
+      },
+      {
+        "channel_count": 1,
+        "channel_end_exclusive": 176,
+        "channel_start_inclusive": 175,
+        "condition_id": "necessity_E2_c0175",
+        "parent_child_id": "E2_c0168_0175",
+        "per_gene": {
+          "BRAF": {
+            "effect": {
+              "maximum": 0.0046242774566473965,
+              "median": 0.0,
+              "minimum": -0.015037593984962405,
+              "positive_count": 1,
+              "variant_count": 6
+            },
+            "neutral": {
+              "maximum": 0.0,
+              "median": -0.0003808798324128615,
+              "minimum": -0.001612903225806428,
+              "positive_count": 0,
+              "variant_count": 4
+            },
+            "passes_advance_rule": false
+          },
+          "SLC25A48": {
+            "effect": {
+              "maximum": 0.06369426751592355,
+              "median": 0.045123195533709276,
+              "minimum": 0.0,
+              "positive_count": 5,
+              "variant_count": 6
+            },
+            "neutral": {
+              "maximum": 0.06451612903225806,
+              "median": 0.0,
+              "minimum": 0.0,
+              "positive_count": 1,
+              "variant_count": 4
+            },
+            "passes_advance_rule": true
+          }
+        },
+        "resolution_bp": 2,
+        "selected_for_gene": "SLC25A48",
+        "stage": "E2",
+        "stage_index": 5,
+        "stage_width": 896
+      }
+    ],
+    "channel_count": 32,
+    "ranked_by_selected_child": {
+      "E16_c0000_0007": {
+        "ranked_condition_ids": [
+          "necessity_E16_c0003",
+          "necessity_E16_c0000",
+          "necessity_E16_c0001",
+          "necessity_E16_c0007",
+          "necessity_E16_c0006",
+          "necessity_E16_c0002",
+          "necessity_E16_c0004",
+          "necessity_E16_c0005"
+        ],
+        "selected_for_gene": "BRAF",
+        "summaries": [
+          {
+            "channel_count": 1,
+            "channel_end_exclusive": 4,
+            "channel_start_inclusive": 3,
+            "condition_id": "necessity_E16_c0003",
+            "parent_child_id": "E16_c0000_0007",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum": 0.030325443786982265,
+                  "median": 0.012536929993577417,
+                  "minimum": -0.01098901098901095,
+                  "positive_count": 4,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.01729559748427678,
+                  "median": 0.0065643410471738495,
+                  "minimum": 0.0007238508867173366,
+                  "positive_count": 4,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": true
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum": 0.0050505050505050275,
+                  "median": -6.159658344284669e-05,
+                  "minimum": -0.0049261083743842304,
+                  "positive_count": 2,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.06451612903225806,
+                  "median": 0.0,
+                  "minimum": 0.0,
+                  "positive_count": 1,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              }
+            },
+            "resolution_bp": 16,
+            "selected_for_gene": "BRAF",
+            "stage": "E16",
+            "stage_index": 2,
+            "stage_width": 1280
+          },
+          {
+            "channel_count": 1,
+            "channel_end_exclusive": 1,
+            "channel_start_inclusive": 0,
+            "condition_id": "necessity_E16_c0000",
+            "parent_child_id": "E16_c0000_0007",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum": 0.0046242774566473965,
+                  "median": -0.0003698224852070886,
+                  "minimum": -0.02564102564102566,
+                  "positive_count": 1,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.004838709677419395,
+                  "median": 0.0,
+                  "minimum": -0.00114263949723864,
+                  "positive_count": 1,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum": 0.0050505050505050275,
+                  "median": -4.106438896189779e-05,
+                  "minimum": -0.0016420361247947435,
+                  "positive_count": 1,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.3333333333333335,
+                  "median": 0.04838709677419355,
+                  "minimum": 0.0,
+                  "positive_count": 2,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              }
+            },
+            "resolution_bp": 16,
+            "selected_for_gene": "BRAF",
+            "stage": "E16",
+            "stage_index": 2,
+            "stage_width": 1280
+          },
+          {
+            "channel_count": 1,
+            "channel_end_exclusive": 2,
+            "channel_start_inclusive": 1,
+            "condition_id": "necessity_E16_c0001",
+            "parent_child_id": "E16_c0000_0007",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum": 0.0044444444444444176,
+                  "median": -0.0011286681715575453,
+                  "minimum": -0.02197802197802201,
+                  "positive_count": 2,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.006451612903225823,
+                  "median": -0.000552365359565099,
+                  "minimum": -0.0031446540880503138,
+                  "positive_count": 1,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum": 0.0,
+                  "median": -2.0532194480948895e-05,
+                  "minimum": -0.0014409221902016434,
+                  "positive_count": 0,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.06451612903225806,
+                  "median": 0.0,
+                  "minimum": -1.0,
+                  "positive_count": 1,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              }
+            },
+            "resolution_bp": 16,
+            "selected_for_gene": "BRAF",
+            "stage": "E16",
+            "stage_index": 2,
+            "stage_width": 1280
+          },
+          {
+            "channel_count": 1,
+            "channel_end_exclusive": 8,
+            "channel_start_inclusive": 7,
+            "condition_id": "necessity_E16_c0007",
+            "parent_child_id": "E16_c0000_0007",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum": 0.008136094674556227,
+                  "median": -0.0011286681715575453,
+                  "minimum": -0.02197802197802201,
+                  "positive_count": 2,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.00967741935483879,
+                  "median": 0.0003619254433586683,
+                  "minimum": 0.0,
+                  "positive_count": 2,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum": 0.00012319316688563786,
+                  "median": 0.0,
+                  "minimum": -0.0013449899125756448,
+                  "positive_count": 1,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.06451612903225806,
+                  "median": 0.0,
+                  "minimum": 0.0,
+                  "positive_count": 1,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              }
+            },
+            "resolution_bp": 16,
+            "selected_for_gene": "BRAF",
+            "stage": "E16",
+            "stage_index": 2,
+            "stage_width": 1280
+          },
+          {
+            "channel_count": 1,
+            "channel_end_exclusive": 7,
+            "channel_start_inclusive": 6,
+            "condition_id": "necessity_E16_c0006",
+            "parent_child_id": "E16_c0000_0007",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum": 0.0007396449704142327,
+                  "median": -0.0022847375357193944,
+                  "minimum": -0.00888888888888889,
+                  "positive_count": 1,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.001612903225806539,
+                  "median": -0.0003619254433586683,
+                  "minimum": -0.000761759664825723,
+                  "positive_count": 1,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum": 2.101546738397797e-05,
+                  "median": 0.0,
+                  "minimum": -0.00016425755584759116,
+                  "positive_count": 1,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.3333333333333335,
+                  "median": 0.04838709677419355,
+                  "minimum": 0.0,
+                  "positive_count": 2,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              }
+            },
+            "resolution_bp": 16,
+            "selected_for_gene": "BRAF",
+            "stage": "E16",
+            "stage_index": 2,
+            "stage_width": 1280
+          },
+          {
+            "channel_count": 1,
+            "channel_end_exclusive": 3,
+            "channel_start_inclusive": 2,
+            "condition_id": "necessity_E16_c0002",
+            "parent_child_id": "E16_c0000_0007",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum": 0.002257336343115146,
+                  "median": -0.0040537240537240615,
+                  "minimum": -0.015037593984962405,
+                  "positive_count": 1,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.011290322580645218,
+                  "median": -0.0003619254433586683,
+                  "minimum": -0.000761759664825723,
+                  "positive_count": 1,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum": 0.00024638633377133123,
+                  "median": 0.0,
+                  "minimum": -0.003284072249589487,
+                  "positive_count": 1,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.0967741935483871,
+                  "median": 0.0,
+                  "minimum": 0.0,
+                  "positive_count": 1,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              }
+            },
+            "resolution_bp": 16,
+            "selected_for_gene": "BRAF",
+            "stage": "E16",
+            "stage_index": 2,
+            "stage_width": 1280
+          },
+          {
+            "channel_count": 1,
+            "channel_end_exclusive": 5,
+            "channel_start_inclusive": 4,
+            "condition_id": "necessity_E16_c0004",
+            "parent_child_id": "E16_c0000_0007",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum": 0.002257336343115146,
+                  "median": -0.004444444444444445,
+                  "minimum": -0.02564102564102566,
+                  "positive_count": 2,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.006451612903225823,
+                  "median": 0.0023584905660377353,
+                  "minimum": -0.00114263949723864,
+                  "positive_count": 2,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum": 0.0050505050505050275,
+                  "median": 0.0002096714009368894,
+                  "minimum": -0.0014409221902016434,
+                  "positive_count": 4,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.06451612903225806,
+                  "median": 0.0,
+                  "minimum": 0.0,
+                  "positive_count": 1,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": true
+              }
+            },
+            "resolution_bp": 16,
+            "selected_for_gene": "BRAF",
+            "stage": "E16",
+            "stage_index": 2,
+            "stage_width": 1280
+          },
+          {
+            "channel_count": 1,
+            "channel_end_exclusive": 6,
+            "channel_start_inclusive": 5,
+            "condition_id": "necessity_E16_c0005",
+            "parent_child_id": "E16_c0000_0007",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum": -0.0014792899408283544,
+                  "median": -0.012310007524454492,
+                  "minimum": -0.02930402930402931,
+                  "positive_count": 0,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.006451612903225823,
+                  "median": -1.895438905419322e-05,
+                  "minimum": -0.0031446540880503138,
+                  "positive_count": 2,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum": 0.007575757575757569,
+                  "median": -0.0005356713447723094,
+                  "minimum": -0.0016420361247947435,
+                  "positive_count": 3,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.06451612903225806,
+                  "median": 0.0,
+                  "minimum": 0.0,
+                  "positive_count": 1,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              }
+            },
+            "resolution_bp": 16,
+            "selected_for_gene": "BRAF",
+            "stage": "E16",
+            "stage_index": 2,
+            "stage_width": 1280
+          }
+        ]
+      },
+      "E1_c0168_0175": {
+        "ranked_condition_ids": [
+          "necessity_E1_c0175",
+          "necessity_E1_c0169",
+          "necessity_E1_c0172",
+          "necessity_E1_c0168",
+          "necessity_E1_c0170",
+          "necessity_E1_c0171",
+          "necessity_E1_c0173",
+          "necessity_E1_c0174"
+        ],
+        "selected_for_gene": "SLC25A48",
+        "summaries": [
+          {
+            "channel_count": 1,
+            "channel_end_exclusive": 176,
+            "channel_start_inclusive": 175,
+            "condition_id": "necessity_E1_c0175",
+            "parent_child_id": "E1_c0168_0175",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum": 0.0007396449704142327,
+                  "median": 0.0,
+                  "minimum": -0.015037593984962405,
+                  "positive_count": 1,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.0,
+                  "median": 0.0,
+                  "minimum": 0.0,
+                  "positive_count": 0,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum": 0.09798270893371763,
+                  "median": 0.03987051378089504,
+                  "minimum": -0.00027320107599193566,
+                  "positive_count": 4,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.0,
+                  "median": 0.0,
+                  "minimum": 0.0,
+                  "positive_count": 0,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": true
+              }
+            },
+            "resolution_bp": 1,
+            "selected_for_gene": "SLC25A48",
+            "stage": "E1",
+            "stage_index": 6,
+            "stage_width": 768
+          },
+          {
+            "channel_count": 1,
+            "channel_end_exclusive": 170,
+            "channel_start_inclusive": 169,
+            "condition_id": "necessity_E1_c0169",
+            "parent_child_id": "E1_c0168_0175",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum": 0.0,
+                  "median": -0.0003698224852070886,
+                  "minimum": -0.01831501831501836,
+                  "positive_count": 0,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.0,
+                  "median": 0.0,
+                  "minimum": -0.001612903225806428,
+                  "positive_count": 0,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum": 0.0028818443804035088,
+                  "median": 0.0005749014454664858,
+                  "minimum": -0.0003362474781439251,
+                  "positive_count": 3,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.0,
+                  "median": 0.0,
+                  "minimum": 0.0,
+                  "positive_count": 0,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              }
+            },
+            "resolution_bp": 1,
+            "selected_for_gene": "SLC25A48",
+            "stage": "E1",
+            "stage_index": 6,
+            "stage_width": 768
+          },
+          {
+            "channel_count": 1,
+            "channel_end_exclusive": 173,
+            "channel_start_inclusive": 172,
+            "condition_id": "necessity_E1_c0172",
+            "parent_child_id": "E1_c0168_0175",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum": 0.009029345372460529,
+                  "median": 0.0,
+                  "minimum": -0.02564102564102566,
+                  "positive_count": 1,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.0,
+                  "median": 0.0,
+                  "minimum": 0.0,
+                  "positive_count": 0,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum": 0.0025252525252525415,
+                  "median": 6.304640215198942e-05,
+                  "minimum": 0.0,
+                  "positive_count": 3,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.0,
+                  "median": 0.0,
+                  "minimum": 0.0,
+                  "positive_count": 0,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              }
+            },
+            "resolution_bp": 1,
+            "selected_for_gene": "SLC25A48",
+            "stage": "E1",
+            "stage_index": 6,
+            "stage_width": 768
+          },
+          {
+            "channel_count": 1,
+            "channel_end_exclusive": 169,
+            "channel_start_inclusive": 168,
+            "condition_id": "necessity_E1_c0168",
+            "parent_child_id": "E1_c0168_0175",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum": 0.00366300366300365,
+                  "median": 0.0,
+                  "minimum": -0.016917293233082664,
+                  "positive_count": 2,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.0,
+                  "median": -0.0003808798324128615,
+                  "minimum": -0.001612903225806428,
+                  "positive_count": 0,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum": 0.0,
+                  "median": 0.0,
+                  "minimum": -0.0025252525252525415,
+                  "positive_count": 0,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.0,
+                  "median": 0.0,
+                  "minimum": 0.0,
+                  "positive_count": 0,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              }
+            },
+            "resolution_bp": 1,
+            "selected_for_gene": "SLC25A48",
+            "stage": "E1",
+            "stage_index": 6,
+            "stage_width": 768
+          },
+          {
+            "channel_count": 1,
+            "channel_end_exclusive": 171,
+            "channel_start_inclusive": 170,
+            "condition_id": "necessity_E1_c0170",
+            "parent_child_id": "E1_c0168_0175",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum": 0.0073260073260073,
+                  "median": 0.0,
+                  "minimum": -0.01879699248120298,
+                  "positive_count": 1,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.0,
+                  "median": 0.0,
+                  "minimum": 0.0,
+                  "positive_count": 0,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum": 0.0015923566878981443,
+                  "median": 0.0,
+                  "minimum": -0.00010507733692000087,
+                  "positive_count": 2,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.0,
+                  "median": 0.0,
+                  "minimum": 0.0,
+                  "positive_count": 0,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              }
+            },
+            "resolution_bp": 1,
+            "selected_for_gene": "SLC25A48",
+            "stage": "E1",
+            "stage_index": 6,
+            "stage_width": 768
+          },
+          {
+            "channel_count": 1,
+            "channel_end_exclusive": 172,
+            "channel_start_inclusive": 171,
+            "condition_id": "necessity_E1_c0171",
+            "parent_child_id": "E1_c0168_0175",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum": 0.014053254437869866,
+                  "median": -0.00564334085778781,
+                  "minimum": -0.014652014652014711,
+                  "positive_count": 1,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.0,
+                  "median": -0.000806451612903214,
+                  "minimum": -0.0031446540880503138,
+                  "positive_count": 0,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum": 0.00012319316688563786,
+                  "median": 0.0,
+                  "minimum": -0.0014409221902016434,
+                  "positive_count": 1,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.0,
+                  "median": 0.0,
+                  "minimum": 0.0,
+                  "positive_count": 0,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              }
+            },
+            "resolution_bp": 1,
+            "selected_for_gene": "SLC25A48",
+            "stage": "E1",
+            "stage_index": 6,
+            "stage_width": 768
+          },
+          {
+            "channel_count": 1,
+            "channel_end_exclusive": 174,
+            "channel_start_inclusive": 173,
+            "condition_id": "necessity_E1_c0173",
+            "parent_child_id": "E1_c0168_0175",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum": 0.0,
+                  "median": -0.0016794945944743067,
+                  "minimum": -0.01831501831501836,
+                  "positive_count": 0,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.0,
+                  "median": 0.0,
+                  "minimum": 0.0,
+                  "positive_count": 0,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum": 0.0025252525252525415,
+                  "median": 0.0,
+                  "minimum": -0.0014409221902016434,
+                  "positive_count": 2,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.0,
+                  "median": 0.0,
+                  "minimum": 0.0,
+                  "positive_count": 0,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              }
+            },
+            "resolution_bp": 1,
+            "selected_for_gene": "SLC25A48",
+            "stage": "E1",
+            "stage_index": 6,
+            "stage_width": 768
+          },
+          {
+            "channel_count": 1,
+            "channel_end_exclusive": 175,
+            "channel_start_inclusive": 174,
+            "condition_id": "necessity_E1_c0174",
+            "parent_child_id": "E1_c0168_0175",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum": 0.0,
+                  "median": -0.0003698224852070886,
+                  "minimum": -0.015037593984962405,
+                  "positive_count": 0,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.0,
+                  "median": -0.0003808798324128615,
+                  "minimum": -0.001612903225806428,
+                  "positive_count": 0,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum": 0.0025252525252525415,
+                  "median": 0.0,
+                  "minimum": 0.0,
+                  "positive_count": 2,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.0,
+                  "median": 0.0,
+                  "minimum": 0.0,
+                  "positive_count": 0,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              }
+            },
+            "resolution_bp": 1,
+            "selected_for_gene": "SLC25A48",
+            "stage": "E1",
+            "stage_index": 6,
+            "stage_width": 768
+          }
+        ]
+      },
+      "E2_c0168_0175": {
+        "ranked_condition_ids": [
+          "necessity_E2_c0175",
+          "necessity_E2_c0168",
+          "necessity_E2_c0170",
+          "necessity_E2_c0171",
+          "necessity_E2_c0172",
+          "necessity_E2_c0173",
+          "necessity_E2_c0174",
+          "necessity_E2_c0169"
+        ],
+        "selected_for_gene": "SLC25A48",
+        "summaries": [
+          {
+            "channel_count": 1,
+            "channel_end_exclusive": 176,
+            "channel_start_inclusive": 175,
+            "condition_id": "necessity_E2_c0175",
+            "parent_child_id": "E2_c0168_0175",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum": 0.0046242774566473965,
+                  "median": 0.0,
+                  "minimum": -0.015037593984962405,
+                  "positive_count": 1,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.0,
+                  "median": -0.0003808798324128615,
+                  "minimum": -0.001612903225806428,
+                  "positive_count": 0,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum": 0.06369426751592355,
+                  "median": 0.045123195533709276,
+                  "minimum": 0.0,
+                  "positive_count": 5,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.06451612903225806,
+                  "median": 0.0,
+                  "minimum": 0.0,
+                  "positive_count": 1,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": true
+              }
+            },
+            "resolution_bp": 2,
+            "selected_for_gene": "SLC25A48",
+            "stage": "E2",
+            "stage_index": 5,
+            "stage_width": 896
+          },
+          {
+            "channel_count": 1,
+            "channel_end_exclusive": 169,
+            "channel_start_inclusive": 168,
+            "condition_id": "necessity_E2_c0168",
+            "parent_child_id": "E2_c0168_0175",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum": 0.02080924855491334,
+                  "median": -0.0009398496240601295,
+                  "minimum": -0.01831501831501836,
+                  "positive_count": 1,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.0,
+                  "median": -0.0003808798324128615,
+                  "minimum": -0.001612903225806428,
+                  "positive_count": 0,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum": 8.212877792374007e-05,
+                  "median": 0.0,
+                  "minimum": -0.0015923566878980333,
+                  "positive_count": 1,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.06451612903225806,
+                  "median": 0.0,
+                  "minimum": 0.0,
+                  "positive_count": 1,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              }
+            },
+            "resolution_bp": 2,
+            "selected_for_gene": "SLC25A48",
+            "stage": "E2",
+            "stage_index": 5,
+            "stage_width": 896
+          },
+          {
+            "channel_count": 1,
+            "channel_end_exclusive": 171,
+            "channel_start_inclusive": 170,
+            "condition_id": "necessity_E2_c0170",
+            "parent_child_id": "E2_c0168_0175",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum": 0.0046242774566473965,
+                  "median": -0.007511653999759532,
+                  "minimum": -0.02197802197802201,
+                  "positive_count": 1,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.0,
+                  "median": -0.0003808798324128615,
+                  "minimum": -0.001612903225806428,
+                  "positive_count": 0,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum": 0.0003285151116951268,
+                  "median": 0.0,
+                  "minimum": -0.0014409221902016434,
+                  "positive_count": 2,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.06451612903225806,
+                  "median": 0.0,
+                  "minimum": 0.0,
+                  "positive_count": 1,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              }
+            },
+            "resolution_bp": 2,
+            "selected_for_gene": "SLC25A48",
+            "stage": "E2",
+            "stage_index": 5,
+            "stage_width": 896
+          },
+          {
+            "channel_count": 1,
+            "channel_end_exclusive": 172,
+            "channel_start_inclusive": 171,
+            "condition_id": "necessity_E2_c0171",
+            "parent_child_id": "E2_c0168_0175",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum": 0.0023121387283236983,
+                  "median": -0.0007396449704141772,
+                  "minimum": -0.015037593984962405,
+                  "positive_count": 2,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.001612903225806539,
+                  "median": 0.0003619254433586683,
+                  "minimum": -0.000761759664825723,
+                  "positive_count": 2,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum": 0.0027513140604467634,
+                  "median": 0.0,
+                  "minimum": -4.203093476801145e-05,
+                  "positive_count": 1,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.06451612903225806,
+                  "median": 0.0,
+                  "minimum": 0.0,
+                  "positive_count": 1,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              }
+            },
+            "resolution_bp": 2,
+            "selected_for_gene": "SLC25A48",
+            "stage": "E2",
+            "stage_index": 5,
+            "stage_width": 896
+          },
+          {
+            "channel_count": 1,
+            "channel_end_exclusive": 173,
+            "channel_start_inclusive": 172,
+            "condition_id": "necessity_E2_c0172",
+            "parent_child_id": "E2_c0168_0175",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum": 0.0046242774566473965,
+                  "median": 0.000739644970414205,
+                  "minimum": -0.01831501831501836,
+                  "positive_count": 3,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.003225806451612967,
+                  "median": 0.0003619254433586683,
+                  "minimum": -0.000761759664825723,
+                  "positive_count": 2,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum": 0.0004106438896189224,
+                  "median": 0.0,
+                  "minimum": -0.0001681237390719903,
+                  "positive_count": 1,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.06451612903225806,
+                  "median": 0.0,
+                  "minimum": 0.0,
+                  "positive_count": 1,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              }
+            },
+            "resolution_bp": 2,
+            "selected_for_gene": "SLC25A48",
+            "stage": "E2",
+            "stage_index": 5,
+            "stage_width": 896
+          },
+          {
+            "channel_count": 1,
+            "channel_end_exclusive": 174,
+            "channel_start_inclusive": 173,
+            "condition_id": "necessity_E2_c0173",
+            "parent_child_id": "E2_c0168_0175",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum": 0.0023121387283236983,
+                  "median": -0.0007396449704141772,
+                  "minimum": -0.016917293233082664,
+                  "positive_count": 1,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.0,
+                  "median": -0.0011873314453160755,
+                  "minimum": -0.0031446540880503138,
+                  "positive_count": 0,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum": 0.0003695795006570246,
+                  "median": 0.0,
+                  "minimum": -0.0014409221902016434,
+                  "positive_count": 1,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.06451612903225806,
+                  "median": 0.0,
+                  "minimum": 0.0,
+                  "positive_count": 1,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              }
+            },
+            "resolution_bp": 2,
+            "selected_for_gene": "SLC25A48",
+            "stage": "E2",
+            "stage_index": 5,
+            "stage_width": 896
+          },
+          {
+            "channel_count": 1,
+            "channel_end_exclusive": 175,
+            "channel_start_inclusive": 174,
+            "condition_id": "necessity_E2_c0174",
+            "parent_child_id": "E2_c0168_0175",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum": 0.0046242774566473965,
+                  "median": -0.006772009029345355,
+                  "minimum": -0.02197802197802201,
+                  "positive_count": 1,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.0007617596648257785,
+                  "median": 0.0003619254433586683,
+                  "minimum": -0.001612903225806428,
+                  "positive_count": 2,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum": 0.00016425755584753565,
+                  "median": 0.0,
+                  "minimum": -0.00029421654337591363,
+                  "positive_count": 1,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.06451612903225806,
+                  "median": 0.0,
+                  "minimum": 0.0,
+                  "positive_count": 1,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              }
+            },
+            "resolution_bp": 2,
+            "selected_for_gene": "SLC25A48",
+            "stage": "E2",
+            "stage_index": 5,
+            "stage_width": 896
+          },
+          {
+            "channel_count": 1,
+            "channel_end_exclusive": 170,
+            "channel_start_inclusive": 169,
+            "condition_id": "necessity_E2_c0169",
+            "parent_child_id": "E2_c0168_0175",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum": 0.0023121387283236983,
+                  "median": -0.002571146801916002,
+                  "minimum": -0.01879699248120298,
+                  "positive_count": 1,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.0007238508867173366,
+                  "median": -0.0003808798324128615,
+                  "minimum": -0.001612903225806428,
+                  "positive_count": 1,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum": 0.0,
+                  "median": -4.106438896189779e-05,
+                  "minimum": -0.0014409221902016434,
+                  "positive_count": 0,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.06451612903225806,
+                  "median": 0.0,
+                  "minimum": 0.0,
+                  "positive_count": 1,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              }
+            },
+            "resolution_bp": 2,
+            "selected_for_gene": "SLC25A48",
+            "stage": "E2",
+            "stage_index": 5,
+            "stage_width": 896
+          }
+        ]
+      },
+      "E32_c0000_0007": {
+        "ranked_condition_ids": [
+          "necessity_E32_c0003",
+          "necessity_E32_c0001",
+          "necessity_E32_c0002",
+          "necessity_E32_c0005",
+          "necessity_E32_c0006",
+          "necessity_E32_c0007",
+          "necessity_E32_c0004",
+          "necessity_E32_c0000"
+        ],
+        "selected_for_gene": "BRAF",
+        "summaries": [
+          {
+            "channel_count": 1,
+            "channel_end_exclusive": 4,
+            "channel_start_inclusive": 3,
+            "condition_id": "necessity_E32_c0003",
+            "parent_child_id": "E32_c0000_0007",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum": 0.03254437869822485,
+                  "median": 0.0034134057072769675,
+                  "minimum": -0.02930402930402931,
+                  "positive_count": 4,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.01729559748427678,
+                  "median": 0.01046252326745753,
+                  "minimum": 0.001447701773434673,
+                  "positive_count": 4,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum": 0.0025252525252525415,
+                  "median": -0.00018913920645596827,
+                  "minimum": -0.0014409221902016434,
+                  "positive_count": 1,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.0967741935483871,
+                  "median": 0.0,
+                  "minimum": 0.0,
+                  "positive_count": 1,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              }
+            },
+            "resolution_bp": 32,
+            "selected_for_gene": "BRAF",
+            "stage": "E32",
+            "stage_index": 1,
+            "stage_width": 1408
+          },
+          {
+            "channel_count": 1,
+            "channel_end_exclusive": 2,
+            "channel_start_inclusive": 1,
+            "condition_id": "necessity_E32_c0001",
+            "parent_child_id": "E32_c0000_0007",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum": 0.011094674556213047,
+                  "median": 0.0,
+                  "minimum": -0.01098901098901095,
+                  "positive_count": 1,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.003225806451612967,
+                  "median": -0.0003808798324128615,
+                  "minimum": -0.0015723270440251569,
+                  "positive_count": 1,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum": 0.0025252525252525415,
+                  "median": 0.0002053219448094612,
+                  "minimum": -0.0015923566878980333,
+                  "positive_count": 3,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.03225806451612903,
+                  "median": 0.0,
+                  "minimum": -1.0,
+                  "positive_count": 1,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              }
+            },
+            "resolution_bp": 32,
+            "selected_for_gene": "BRAF",
+            "stage": "E32",
+            "stage_index": 1,
+            "stage_width": 1408
+          },
+          {
+            "channel_count": 1,
+            "channel_end_exclusive": 3,
+            "channel_start_inclusive": 2,
+            "condition_id": "necessity_E32_c0002",
+            "parent_child_id": "E32_c0000_0007",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum": 0.0018796992481203145,
+                  "median": -0.0022847375357193944,
+                  "minimum": -0.02197802197802201,
+                  "positive_count": 1,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.00967741935483879,
+                  "median": 0.0,
+                  "minimum": -0.00114263949723864,
+                  "positive_count": 1,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum": 0.002161383285302576,
+                  "median": 0.0,
+                  "minimum": -0.0016420361247947435,
+                  "positive_count": 2,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.0967741935483871,
+                  "median": 0.0,
+                  "minimum": 0.0,
+                  "positive_count": 1,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              }
+            },
+            "resolution_bp": 32,
+            "selected_for_gene": "BRAF",
+            "stage": "E32",
+            "stage_index": 1,
+            "stage_width": 1408
+          },
+          {
+            "channel_count": 1,
+            "channel_end_exclusive": 6,
+            "channel_start_inclusive": 5,
+            "condition_id": "necessity_E32_c0005",
+            "parent_child_id": "E32_c0000_0007",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum": 0.009615384615384637,
+                  "median": -0.0022847375357193944,
+                  "minimum": -0.02197802197802201,
+                  "positive_count": 2,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.003225806451612967,
+                  "median": 0.0,
+                  "minimum": -0.00114263949723864,
+                  "positive_count": 1,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum": 0.007575757575757569,
+                  "median": 0.0,
+                  "minimum": -0.003284072249589487,
+                  "positive_count": 2,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.0967741935483871,
+                  "median": 0.0,
+                  "minimum": -1.0,
+                  "positive_count": 1,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              }
+            },
+            "resolution_bp": 32,
+            "selected_for_gene": "BRAF",
+            "stage": "E32",
+            "stage_index": 1,
+            "stage_width": 1408
+          },
+          {
+            "channel_count": 1,
+            "channel_end_exclusive": 7,
+            "channel_start_inclusive": 6,
+            "condition_id": "necessity_E32_c0006",
+            "parent_child_id": "E32_c0000_0007",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum": 0.007518796992481203,
+                  "median": -0.005553911900065739,
+                  "minimum": -0.02930402930402931,
+                  "positive_count": 2,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.00967741935483879,
+                  "median": 0.0015723270440251569,
+                  "minimum": -0.000761759664825723,
+                  "positive_count": 2,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum": 0.007575757575757569,
+                  "median": 0.0004814226582196546,
+                  "minimum": 0.0,
+                  "positive_count": 4,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.0967741935483871,
+                  "median": 0.0,
+                  "minimum": 0.0,
+                  "positive_count": 1,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": true
+              }
+            },
+            "resolution_bp": 32,
+            "selected_for_gene": "BRAF",
+            "stage": "E32",
+            "stage_index": 1,
+            "stage_width": 1408
+          },
+          {
+            "channel_count": 1,
+            "channel_end_exclusive": 8,
+            "channel_start_inclusive": 7,
+            "condition_id": "necessity_E32_c0007",
+            "parent_child_id": "E32_c0000_0007",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum": 0.002257336343115146,
+                  "median": -0.006621583544660442,
+                  "minimum": -0.015037593984962405,
+                  "positive_count": 1,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.003225806451612967,
+                  "median": 0.0,
+                  "minimum": -0.000761759664825723,
+                  "positive_count": 1,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum": 0.0050505050505050275,
+                  "median": 0.0,
+                  "minimum": -0.0004106438896189224,
+                  "positive_count": 1,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.3333333333333335,
+                  "median": 0.03225806451612903,
+                  "minimum": 0.0,
+                  "positive_count": 2,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              }
+            },
+            "resolution_bp": 32,
+            "selected_for_gene": "BRAF",
+            "stage": "E32",
+            "stage_index": 1,
+            "stage_width": 1408
+          },
+          {
+            "channel_count": 1,
+            "channel_end_exclusive": 5,
+            "channel_start_inclusive": 4,
+            "condition_id": "necessity_E32_c0004",
+            "parent_child_id": "E32_c0000_0007",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum": 0.00693641618497115,
+                  "median": -0.006736894908452473,
+                  "minimum": -0.02930402930402931,
+                  "positive_count": 2,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.004838709677419395,
+                  "median": 0.0003619254433586683,
+                  "minimum": -0.000761759664825723,
+                  "positive_count": 2,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum": 0.007575757575757569,
+                  "median": 0.0011185502670754133,
+                  "minimum": -0.0013449899125756448,
+                  "positive_count": 5,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.0967741935483871,
+                  "median": 0.0,
+                  "minimum": 0.0,
+                  "positive_count": 1,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": true
+              }
+            },
+            "resolution_bp": 32,
+            "selected_for_gene": "BRAF",
+            "stage": "E32",
+            "stage_index": 1,
+            "stage_width": 1408
+          },
+          {
+            "channel_count": 1,
+            "channel_end_exclusive": 1,
+            "channel_start_inclusive": 0,
+            "condition_id": "necessity_E32_c0000",
+            "parent_child_id": "E32_c0000_0007",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum": 0.009029345372460529,
+                  "median": -0.007822736030828531,
+                  "minimum": -0.016917293233082664,
+                  "positive_count": 1,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.003225806451612967,
+                  "median": 0.0,
+                  "minimum": -0.0003808798324128615,
+                  "positive_count": 1,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum": 0.0025252525252525415,
+                  "median": 0.0,
+                  "minimum": -0.0010087424344317752,
+                  "positive_count": 2,
+                  "variant_count": 6
+                },
+                "neutral": {
+                  "maximum": 0.3333333333333335,
+                  "median": 0.016129032258064516,
+                  "minimum": 0.0,
+                  "positive_count": 2,
+                  "variant_count": 4
+                },
+                "passes_advance_rule": false
+              }
+            },
+            "resolution_bp": 32,
+            "selected_for_gene": "BRAF",
+            "stage": "E32",
+            "stage_index": 1,
+            "stage_width": 1408
+          }
+        ]
+      }
+    }
+  },
+  "interpretation": {
+    "braf_channel_result": "E16 channel 3 passes the individual necessity rule. The E32 0-7 subspace is localized and sufficient, but none of its individual channels passes effect-over-neutral consistency, suggesting synergy or redundancy within that subspace.",
+    "claim_boundary": "The result identifies causal AlphaGenome coordinates. It does not identify a sequence motif, RBP or cellular mechanism.",
+    "next_experiment": "Test only-channel sufficiency and shifted localization for E16 channel 3 plus E2/E1 channel 175, then characterize their sequence preferences and validate controlled motif edits.",
+    "slc25a48_channel_result": "Channel 175 is individually necessary in both E2 and E1, and the corresponding 168-175 subspaces are sufficient only at the intended V neighborhood. This is the strongest current candidate for a persistent multiscale model feature."
+  },
+  "schema_version": "alphagenome-individual-channel-validation-analysis-v1",
+  "scope": {
+    "condition_count": 44,
+    "condition_result_count": 880,
+    "confirmation_access": false,
+    "development_only": true,
+    "effect_count": 12,
+    "model_apply_count": 960,
+    "neutral_count": 8,
+    "variant_count": 20
+  },
+  "source": {
+    "plan_path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/individual_channel_validation_plan_v1.json",
+    "plan_sha256": "b62145936dc1dccbf06d3fae777e35e68d742d2e2c19c0193fdd68a9a8018828",
+    "raw_condition_file_count": 880,
+    "raw_full_file_count": 20,
+    "raw_identity_file_count": 20,
+    "raw_result_tree_sha256": "9cc0728cf75eb3bd6986e21520ee085b6f7a829deb593589670f9baf7ef7047f",
+    "result_root": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/individual_channel_validation_v1"
+  }
+}

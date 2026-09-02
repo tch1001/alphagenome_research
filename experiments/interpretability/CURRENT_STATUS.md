@@ -166,12 +166,44 @@ over one dominant universal splice channel.
 Primary result: [8-channel analysis](opensplice/results/channel_refinement_v1_model_behavior_analysis/RESULT.md).
 Arithmetic check: [independent audit](opensplice/results/channel_refinement_v1_model_behavior_analysis/INDEPENDENT_AUDIT.md).
 
+### Individual-channel necessity and localized sufficiency
+
+A 960-apply validation withheld all 32 constituent channels individually and
+tested each of the four selected 8-channel subspaces by itself at intended,
+upstream and downstream positions. All runtime controls passed, and all 160
+shifted sufficiency controls had exactly zero recovery.
+
+Three coordinates pass the frozen rule requiring positive effect median
+necessity, an effect median larger than the gene-matched neutral median, and a
+positive loss in at least four of six effects:
+
+| Gene | Stage/channel | Effect median loss | Neutral median loss | Positive effects |
+|---|---|---:|---:|---:|
+| BRAF | E16 channel 3 | 0.01254 | 0.00656 | 4/6 |
+| SLC25A48 | E1 channel 175 | 0.03987 | 0.00000 | 4/6 |
+| SLC25A48 | E2 channel 175 | 0.04512 | 0.00000 | 5/6 |
+
+The repeated SLC25A48 coordinate is the strongest current mechanistic lead:
+channel 175 is necessary at two successive resolutions, and its E1 and E2
+eight-channel parent subspaces are independently sufficient at the intended
+variant neighborhood but not at either shifted location. This strengthens the
+hypothesis of a persistent multiscale model feature.
+
+All four selected parent subspaces pass the localized-sufficiency rule for
+their selected gene, although recovery is small (`B=0.00141` to `0.02661`).
+The BRAF E32 subspace is localized and sufficient, but no constituent channel
+passes the individual effect-over-neutral rule, suggesting within-subspace
+synergy or redundancy.
+
+Primary result: [individual-channel analysis](opensplice/results/individual_channel_validation_v1_model_behavior_analysis/RESULT.md).
+Arithmetic check: [independent audit](opensplice/results/individual_channel_validation_v1_model_behavior_analysis/INDEPENDENT_AUDIT.md).
+
 ## Main unresolved question
 
-Within the four leading exon-specific 8-channel subspaces, which individual
-channels are necessary and sufficient at the intended variant neighborhood?
-Which sequence patterns drive the surviving channels, and do controlled edits
-support the resulting motif or splicing-factor hypothesis?
+Are BRAF E16 channel 3 and SLC25A48 E2/E1 channel 175 sufficient by themselves
+at the intended variant neighborhood? Which sequence patterns drive those
+coordinates, and do controlled edits support the resulting motif or
+splicing-factor hypothesis?
 
 Prepared and completed channel experiments: [32-channel screen design](opensplice/channel_group_screen.md),
 [8-channel refinement design](opensplice/channel_refinement.md), and
@@ -183,10 +215,10 @@ Completed spatial experiment: [design](opensplice/spatial_encoder_skip_experimen
 
 ## Research sequence
 
-1. Resolve BRAF `E32:0-7`/`E16:0-7` and SLC25A48
-   `E2:168-175`/`E1:168-175` to individual channels.
-2. Test only-subspace sufficiency and intended-versus-shifted localization so
-   a high necessity rank cannot be mistaken for a portable causal feature.
+1. Test BRAF E16 channel 3 and SLC25A48 E2/E1 channel 175 by themselves at
+   intended and equal-shape shifted positions.
+2. Characterize surviving coordinates using sequence preference maps,
+   activation optimization and controlled nucleotide edits.
 3. Use neutral variants and non-target outputs as secondary specificity checks,
    recognizing that an experimental neutral need not be AlphaGenome-null.
 4. Characterize causal features with controlled sequence edits, motif scans,
