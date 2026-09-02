@@ -1,0 +1,29 @@
+{
+  "status": "complete",
+  "binding": {
+    "script_version": "alphagenome-channel-refinement-v1.0.0",
+    "script_sha256": "9c335e0a9c4dcbc14af2591b6aa873ce2a4fa4ca543059614091440e77e2b438",
+    "interpretability_sha256": "a839ece06f17bba8c2220487c3beca55d10188873e001e7cedf7fa3eb65bedc9",
+    "model_sha256": "3cfbc546de46232800ea5eae39fe9b1e12a8a1338f18cc58072f15f95303330b",
+    "plan_path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/channel_refinement_plan_v1.json",
+    "plan_sha256": "0af4775213cd0f6fba05186006505a21ee08e499d3182f25d154a7c8704b1c19",
+    "checkpoint_snapshot": "a8f293a76ee73d5b57f3bf2ae146510589fcf187",
+    "context_bp": 16384,
+    "attention_backend": "dense",
+    "confirmation_access": false
+  },
+  "variant_count": 20,
+  "parent_group_count": 5,
+  "group_count": 20,
+  "group_result_count": 400,
+  "model_apply_count_in_full_nonresume_run": 480,
+  "full_frozen_design_completed": true,
+  "prior_channel_screen_closure": {
+    "comparison_is_diagnostic_not_a_gate": true,
+    "case_count": 20,
+    "exact_target_readout_case_count": 0,
+    "maximum_absolute_target_mean_difference": 0.03125,
+    "maximum_absolute_bidirectional_bottleneck_difference": 2.8
+  },
+  "created_at_unix_s": 1788335395.7948856
+}

@@ -117,16 +117,65 @@ more than the six effects for every passing support.
 Primary result: [spatial model-behavior analysis](opensplice/results/spatial_encoder_skip_v1_model_behavior_analysis/RESULT.md).
 Arithmetic check: [independent audit](opensplice/results/spatial_encoder_skip_v1_model_behavior_analysis/INDEPENDENT_AUDIT.md).
 
+### Causal channel localization
+
+A complete 3,520-apply screen withheld each of 172 nonoverlapping 32-channel
+blocks from the V-local five-resolution route. All live donor, withheld-value,
+same-allele, baseline and non-route controls passed. Identity and full-route
+repeats were exact.
+
+The leading cross-gene blocks by the smaller of the two gene-level median
+necessity losses were:
+
+| Block | BRAF median loss | SLC25A48 median loss |
+|---|---:|---:|
+| E1 channels 160-191 | 0.02007 | 0.04814 |
+| E32 channels 0-31 | 0.01750 | 0.01567 |
+| E16 channels 0-31 | 0.01779 | 0.00963 |
+
+SLC25A48 ranked the same 160-191 channel band highly at every tested
+resolution. This aligns with a concrete architectural clue: each
+`DownResBlock` carries its existing channel prefix through a zero-padded
+residual path while appending 128 channels. Because intervening convolutions
+mix channels, this is evidence consistent with a persistent multiscale feature
+family, not proof that a feature has invariant identity across layers.
+
+Primary result: [32-channel analysis](opensplice/results/channel_group_screen_v1_model_behavior_analysis/RESULT.md).
+Arithmetic check: [independent audit](opensplice/results/channel_group_screen_v1_model_behavior_analysis/INDEPENDENT_AUDIT.md).
+
+### Eight-channel refinement
+
+The five selected parents were each split into four 8-channel children in a
+480-apply refinement. All runtime controls again passed. The finer result is
+more informative than the coarse shared ranking: all three purportedly shared
+parents have different dominant children in the two genes.
+
+| Parent | BRAF dominant child | SLC25A48 dominant child |
+|---|---|---|
+| E1 160-191 | E1 160-167 | E1 168-175 |
+| E32 0-31 | E32 0-7 | E32 16-23 |
+| E16 0-31 | E16 0-7 | E16 16-23 |
+
+BRAF preferentially uses channels 0-7 at both E32 and E16. SLC25A48's two
+strongest children overall are channels 168-175 at E2 and E1, narrowing its
+persistent coarse band to the same eight-channel slice at two resolutions.
+The best genuinely shared 8-channel maximin losses are only about 0.001.
+The current evidence therefore favors adjacent exon-specific channel programs
+over one dominant universal splice channel.
+
+Primary result: [8-channel analysis](opensplice/results/channel_refinement_v1_model_behavior_analysis/RESULT.md).
+Arithmetic check: [independent audit](opensplice/results/channel_refinement_v1_model_behavior_analysis/INDEPENDENT_AUDIT.md).
+
 ## Main unresolved question
 
-Within the spatially localized `E32+E16+E8+E2+E1` route, which channels
-causally carry the reciprocal effect across both genes? Which sequence
-patterns drive those channels, and do controlled edits support the resulting
-motif or splicing-factor hypothesis?
+Within the four leading exon-specific 8-channel subspaces, which individual
+channels are necessary and sufficient at the intended variant neighborhood?
+Which sequence patterns drive the surviving channels, and do controlled edits
+support the resulting motif or splicing-factor hypothesis?
 
-Prepared next experiment: [V-local grouped-channel necessity screen](opensplice/channel_group_screen.md),
-[machine-readable plan](opensplice/channel_group_screen_plan_v1.json), and
-[development-only runner](opensplice/run_channel_group_screen.py).
+Prepared and completed channel experiments: [32-channel screen design](opensplice/channel_group_screen.md),
+[8-channel refinement design](opensplice/channel_refinement.md), and
+[refinement plan](opensplice/channel_refinement_plan_v1.json).
 
 Completed spatial experiment: [design](opensplice/spatial_encoder_skip_experiment.md),
 [coordinate plan](opensplice/spatial_encoder_skip_plan_v1.json), and
@@ -134,10 +183,10 @@ Completed spatial experiment: [design](opensplice/spatial_encoder_skip_experimen
 
 ## Research sequence
 
-1. Rank channels/features inside the V-local `E32+E16+E8+E2+E1` route by
-   causal loss of reciprocal recovery, with the same shifted-position controls.
-2. Test whether rankings are shared across BRAF and SLC25A48 or represent
-   exon-specific channel programs.
+1. Resolve BRAF `E32:0-7`/`E16:0-7` and SLC25A48
+   `E2:168-175`/`E1:168-175` to individual channels.
+2. Test only-subspace sufficiency and intended-versus-shifted localization so
+   a high necessity rank cannot be mistaken for a portable causal feature.
 3. Use neutral variants and non-target outputs as secondary specificity checks,
    recognizing that an experimental neutral need not be AlphaGenome-null.
 4. Characterize causal features with controlled sequence edits, motif scans,

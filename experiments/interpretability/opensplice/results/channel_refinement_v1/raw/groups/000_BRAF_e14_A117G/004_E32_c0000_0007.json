@@ -1,0 +1,150 @@
+{
+  "status": "complete",
+  "fingerprint": "1c6ab7e0c65adf46421ee35c64a43e7e55f3e4bb384fad5ed116f5080e067cbb",
+  "configuration": {
+    "script_version": "alphagenome-channel-refinement-v1.0.0",
+    "script_sha256": "9c335e0a9c4dcbc14af2591b6aa873ce2a4fa4ca543059614091440e77e2b438",
+    "interpretability_sha256": "a839ece06f17bba8c2220487c3beca55d10188873e001e7cedf7fa3eb65bedc9",
+    "model_sha256": "3cfbc546de46232800ea5eae39fe9b1e12a8a1338f18cc58072f15f95303330b",
+    "plan_path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/channel_refinement_plan_v1.json",
+    "plan_sha256": "0af4775213cd0f6fba05186006505a21ee08e499d3182f25d154a7c8704b1c19",
+    "checkpoint_snapshot": "a8f293a76ee73d5b57f3bf2ae146510589fcf187",
+    "context_bp": 16384,
+    "attention_backend": "dense",
+    "confirmation_access": false,
+    "case": {
+      "order": 0,
+      "selection_version": "opensplice-circuit-v2-snv-only",
+      "selection_class": "significant_effect",
+      "observed_effect_sign": "positive",
+      "gene": "BRAF",
+      "exon_id": "BRAF_e14",
+      "ensembl_exon_id": "ENSE00003649805",
+      "chromosome": "chr7",
+      "strand": "-",
+      "exon_start_1based": 140754187,
+      "exon_end_1based": 140754233,
+      "variant_id": "BRAF_e14_A117G",
+      "position_1based": 140754187,
+      "reference_bases": "T",
+      "alternate_bases": "C",
+      "region": "5'SS",
+      "mut_type": "sub",
+      "delta_psi": 21.7989351502141,
+      "delta_logit": 4.36370722301283
+    },
+    "sequence_sha256": {
+      "reference": "4feb3caacdce694740825eeff2d9e52f5e47c666baba181f2dffddbde9c5aab7",
+      "alternate": "9ab26dab184711808a13ac315be08609dc7c15a54cb484a18b472c3d14c26ca0"
+    },
+    "target": {
+      "endpoints": [
+        {
+          "role": "acceptor",
+          "position_1based": 140754233,
+          "position_index": 8215,
+          "track_index": 3
+        },
+        {
+          "role": "donor",
+          "position_1based": 140754187,
+          "position_index": 8169,
+          "track_index": 2
+        }
+      ],
+      "padding_track_index": 4
+    },
+    "kind": "channel_screen_without_group",
+    "identity_fingerprint": "60e1f8e6aad3a7292d6bac21a6234a7d46975dc28ca197d11e80638d1c64285f",
+    "full_fingerprint": "d2b946a60dde180b6c51dd3e374b8db01b119a0d19294a991a4f082d8a2c03c2",
+    "group": {
+      "channel_count": 8,
+      "channel_end_exclusive": 8,
+      "channel_start_inclusive": 0,
+      "group_id": "E32_c0000_0007",
+      "group_index": 4,
+      "parent_group_id": "E32_c0000_0031",
+      "parent_rank": 1,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    }
+  },
+  "checks": {
+    "passed": true,
+    "repeat_checked": false,
+    "target_repeat_exact": null,
+    "trace_repeat_exact": null,
+    "baseline_targets_exact_from_identity": true,
+    "self_targets_exact": true,
+    "non_channel_routes_noop_exact": true,
+    "natural_same_allele_exact_by_stage": {
+      "E64": true,
+      "E32": true,
+      "E16": true,
+      "E8": true,
+      "E4": true,
+      "E2": true,
+      "E1": true
+    },
+    "selected_donor_channels_exact_by_stage": {
+      "E64": null,
+      "E32": true,
+      "E16": true,
+      "E8": true,
+      "E4": null,
+      "E2": true,
+      "E1": true
+    },
+    "withheld_channels_natural_exact_by_stage": {
+      "E64": true,
+      "E32": true,
+      "E16": true,
+      "E8": true,
+      "E4": true,
+      "E2": true,
+      "E1": true
+    },
+    "target_readout": {
+      "means": [
+        2.546875,
+        3.087890625,
+        2.61328125,
+        3.087890625,
+        3.037109375,
+        2.546875
+      ],
+      "totals": [
+        5.09375,
+        6.17578125,
+        5.2265625,
+        6.17578125,
+        6.07421875,
+        5.09375
+      ],
+      "num_values": 2,
+      "row_roles": [
+        "reference_baseline",
+        "alternate_baseline",
+        "reference_into_alternate",
+        "alternate_into_alternate_self_control",
+        "alternate_into_reference",
+        "reference_into_reference_self_control"
+      ]
+    },
+    "repeat_target_readout": null,
+    "raw_movement": {
+      "reference_into_alternate": -0.474609375,
+      "alternate_into_reference": 0.490234375
+    },
+    "recovery": {
+      "reference_into_alternate": 0.8772563176895307,
+      "alternate_into_reference": 0.9061371841155235,
+      "bidirectional_bottleneck": 0.8772563176895307,
+      "bidirectional_mean": 0.8916967509025271
+    }
+  },
+  "seconds": 0.11219244200037792,
+  "created_at_unix_s": 1788335331.106708
+}

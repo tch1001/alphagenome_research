@@ -1,0 +1,4875 @@
+{
+  "child_summaries": [
+    {
+      "channel_count": 8,
+      "channel_end_exclusive": 168,
+      "channel_start_inclusive": 160,
+      "cross_gene_maximin_effect_median_loss": 0.0011204333929517862,
+      "effect_median_exceeds_neutral_in_both_genes": true,
+      "group_id": "E1_c0160_0167",
+      "group_index": 0,
+      "parent_group_id": "E1_c0160_0191",
+      "parent_rank": 0,
+      "per_gene": {
+        "BRAF": {
+          "effect": {
+            "maximum_necessity_loss": 0.06859205776173283,
+            "median_necessity_loss": 0.01279734463026419,
+            "minimum_necessity_loss": 0.0,
+            "positive_necessity_count": 4,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": true,
+          "neutral": {
+            "maximum_necessity_loss": 0.008012820512820595,
+            "median_necessity_loss": 0.0,
+            "minimum_necessity_loss": 0.0,
+            "positive_necessity_count": 1,
+            "variant_count": 4
+          }
+        },
+        "SLC25A48": {
+          "effect": {
+            "maximum_necessity_loss": 0.0028818443804033977,
+            "median_necessity_loss": 0.0011204333929517862,
+            "minimum_necessity_loss": 0.0,
+            "positive_necessity_count": 5,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": true,
+          "neutral": {
+            "maximum_necessity_loss": 0.0,
+            "median_necessity_loss": 0.0,
+            "minimum_necessity_loss": 0.0,
+            "positive_necessity_count": 0,
+            "variant_count": 4
+          }
+        }
+      },
+      "positive_effect_median_in_both_genes": true,
+      "resolution_bp": 1,
+      "stage": "E1",
+      "stage_index": 6,
+      "stage_width": 768
+    },
+    {
+      "channel_count": 8,
+      "channel_end_exclusive": 176,
+      "channel_start_inclusive": 168,
+      "cross_gene_maximin_effect_median_loss": 0.0,
+      "effect_median_exceeds_neutral_in_both_genes": false,
+      "group_id": "E1_c0168_0175",
+      "group_index": 1,
+      "parent_group_id": "E1_c0160_0191",
+      "parent_rank": 0,
+      "per_gene": {
+        "BRAF": {
+          "effect": {
+            "maximum_necessity_loss": 0.0072202166064981865,
+            "median_necessity_loss": 0.0,
+            "minimum_necessity_loss": -0.011417697431018115,
+            "positive_necessity_count": 2,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": false,
+          "neutral": {
+            "maximum_necessity_loss": 0.0,
+            "median_necessity_loss": 0.0,
+            "minimum_necessity_loss": -0.0016025641025640969,
+            "positive_necessity_count": 0,
+            "variant_count": 4
+          }
+        },
+        "SLC25A48": {
+          "effect": {
+            "maximum_necessity_loss": 0.10086455331412103,
+            "median_necessity_loss": 0.04306356369923736,
+            "minimum_necessity_loss": 0.0,
+            "positive_necessity_count": 5,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": true,
+          "neutral": {
+            "maximum_necessity_loss": 0.0,
+            "median_necessity_loss": 0.0,
+            "minimum_necessity_loss": 0.0,
+            "positive_necessity_count": 0,
+            "variant_count": 4
+          }
+        }
+      },
+      "positive_effect_median_in_both_genes": false,
+      "resolution_bp": 1,
+      "stage": "E1",
+      "stage_index": 6,
+      "stage_width": 768
+    },
+    {
+      "channel_count": 8,
+      "channel_end_exclusive": 184,
+      "channel_start_inclusive": 176,
+      "cross_gene_maximin_effect_median_loss": 0.0010623582475710325,
+      "effect_median_exceeds_neutral_in_both_genes": true,
+      "group_id": "E1_c0176_0183",
+      "group_index": 2,
+      "parent_group_id": "E1_c0160_0191",
+      "parent_rank": 0,
+      "per_gene": {
+        "BRAF": {
+          "effect": {
+            "maximum_necessity_loss": 0.02527075812274371,
+            "median_necessity_loss": 0.0014730252255570064,
+            "minimum_necessity_loss": 0.0,
+            "positive_necessity_count": 3,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": true,
+          "neutral": {
+            "maximum_necessity_loss": 0.0,
+            "median_necessity_loss": 0.0,
+            "minimum_necessity_loss": -0.0016025641025640969,
+            "positive_necessity_count": 0,
+            "variant_count": 4
+          }
+        },
+        "SLC25A48": {
+          "effect": {
+            "maximum_necessity_loss": 0.0075949367088607445,
+            "median_necessity_loss": 0.0010623582475710325,
+            "minimum_necessity_loss": -0.001050067204301064,
+            "positive_necessity_count": 4,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": true,
+          "neutral": {
+            "maximum_necessity_loss": 0.0,
+            "median_necessity_loss": 0.0,
+            "minimum_necessity_loss": 0.0,
+            "positive_necessity_count": 0,
+            "variant_count": 4
+          }
+        }
+      },
+      "positive_effect_median_in_both_genes": true,
+      "resolution_bp": 1,
+      "stage": "E1",
+      "stage_index": 6,
+      "stage_width": 768
+    },
+    {
+      "channel_count": 8,
+      "channel_end_exclusive": 192,
+      "channel_start_inclusive": 184,
+      "cross_gene_maximin_effect_median_loss": -0.00018022582016680166,
+      "effect_median_exceeds_neutral_in_both_genes": false,
+      "group_id": "E1_c0184_0191",
+      "group_index": 3,
+      "parent_group_id": "E1_c0160_0191",
+      "parent_rank": 0,
+      "per_gene": {
+        "BRAF": {
+          "effect": {
+            "maximum_necessity_loss": 0.032490974729241895,
+            "median_necessity_loss": 0.0,
+            "minimum_necessity_loss": -0.010311176578898906,
+            "positive_necessity_count": 2,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": false,
+          "neutral": {
+            "maximum_necessity_loss": 0.001602564102564208,
+            "median_necessity_loss": 0.0,
+            "minimum_necessity_loss": 0.0,
+            "positive_necessity_count": 1,
+            "variant_count": 4
+          }
+        },
+        "SLC25A48": {
+          "effect": {
+            "maximum_necessity_loss": 0.0057636887608069065,
+            "median_necessity_loss": -0.00018022582016680166,
+            "minimum_necessity_loss": -0.010126582278481011,
+            "positive_necessity_count": 3,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": false,
+          "neutral": {
+            "maximum_necessity_loss": 0.0,
+            "median_necessity_loss": 0.0,
+            "minimum_necessity_loss": 0.0,
+            "positive_necessity_count": 0,
+            "variant_count": 4
+          }
+        }
+      },
+      "positive_effect_median_in_both_genes": false,
+      "resolution_bp": 1,
+      "stage": "E1",
+      "stage_index": 6,
+      "stage_width": 768
+    },
+    {
+      "channel_count": 8,
+      "channel_end_exclusive": 8,
+      "channel_start_inclusive": 0,
+      "cross_gene_maximin_effect_median_loss": 0.0,
+      "effect_median_exceeds_neutral_in_both_genes": false,
+      "group_id": "E32_c0000_0007",
+      "group_index": 4,
+      "parent_group_id": "E32_c0000_0031",
+      "parent_rank": 1,
+      "per_gene": {
+        "BRAF": {
+          "effect": {
+            "maximum_necessity_loss": 0.05708848715509035,
+            "median_necessity_loss": 0.0190044184109541,
+            "minimum_necessity_loss": -0.004444444444444473,
+            "positive_necessity_count": 5,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": true,
+          "neutral": {
+            "maximum_necessity_loss": 0.013335873499714268,
+            "median_necessity_loss": 0.007004861038748783,
+            "minimum_necessity_loss": -0.004807692307692291,
+            "positive_necessity_count": 3,
+            "variant_count": 4
+          }
+        },
+        "SLC25A48": {
+          "effect": {
+            "maximum_necessity_loss": 0.002161383285302576,
+            "median_necessity_loss": 0.0,
+            "minimum_necessity_loss": -0.0025316455696202667,
+            "positive_necessity_count": 2,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": false,
+          "neutral": {
+            "maximum_necessity_loss": 0.05555555555555555,
+            "median_necessity_loss": 0.0,
+            "minimum_necessity_loss": 0.0,
+            "positive_necessity_count": 1,
+            "variant_count": 4
+          }
+        }
+      },
+      "positive_effect_median_in_both_genes": false,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 8,
+      "channel_end_exclusive": 16,
+      "channel_start_inclusive": 8,
+      "cross_gene_maximin_effect_median_loss": -0.0063473940162807885,
+      "effect_median_exceeds_neutral_in_both_genes": false,
+      "group_id": "E32_c0008_0015",
+      "group_index": 5,
+      "parent_group_id": "E32_c0000_0031",
+      "parent_rank": 1,
+      "per_gene": {
+        "BRAF": {
+          "effect": {
+            "maximum_necessity_loss": 0.013808975834292248,
+            "median_necessity_loss": -0.0063473940162807885,
+            "minimum_necessity_loss": -0.010830324909747224,
+            "positive_necessity_count": 2,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": false,
+          "neutral": {
+            "maximum_necessity_loss": 0.0007254261878854029,
+            "median_necessity_loss": -0.00038102495713468465,
+            "minimum_necessity_loss": -0.0064102564102563875,
+            "positive_necessity_count": 1,
+            "variant_count": 4
+          }
+        },
+        "SLC25A48": {
+          "effect": {
+            "maximum_necessity_loss": 0.0007949125596184992,
+            "median_necessity_loss": -0.0003360215053763438,
+            "minimum_necessity_loss": -0.0075949367088608,
+            "positive_necessity_count": 2,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": false,
+          "neutral": {
+            "maximum_necessity_loss": 0.20000000000000018,
+            "median_necessity_loss": 0.027777777777777776,
+            "minimum_necessity_loss": -0.034482758620689655,
+            "positive_necessity_count": 2,
+            "variant_count": 4
+          }
+        }
+      },
+      "positive_effect_median_in_both_genes": false,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 8,
+      "channel_end_exclusive": 24,
+      "channel_start_inclusive": 16,
+      "cross_gene_maximin_effect_median_loss": -0.0021733104580137497,
+      "effect_median_exceeds_neutral_in_both_genes": false,
+      "group_id": "E32_c0016_0023",
+      "group_index": 6,
+      "parent_group_id": "E32_c0000_0031",
+      "parent_rank": 1,
+      "per_gene": {
+        "BRAF": {
+          "effect": {
+            "maximum_necessity_loss": 0.013320647002854402,
+            "median_necessity_loss": -0.0021733104580137497,
+            "minimum_necessity_loss": -0.022222222222222254,
+            "positive_necessity_count": 2,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": false,
+          "neutral": {
+            "maximum_necessity_loss": 0.004709576138147542,
+            "median_necessity_loss": -3.662372638399414e-05,
+            "minimum_necessity_loss": -0.008012820512820484,
+            "positive_necessity_count": 2,
+            "variant_count": 4
+          }
+        },
+        "SLC25A48": {
+          "effect": {
+            "maximum_necessity_loss": 0.024620434961017623,
+            "median_necessity_loss": 0.01243000438103986,
+            "minimum_necessity_loss": 0.011128775834658211,
+            "positive_necessity_count": 6,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": false,
+          "neutral": {
+            "maximum_necessity_loss": 0.05555555555555555,
+            "median_necessity_loss": 0.017241379310344827,
+            "minimum_necessity_loss": 0.0,
+            "positive_necessity_count": 2,
+            "variant_count": 4
+          }
+        }
+      },
+      "positive_effect_median_in_both_genes": false,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 8,
+      "channel_end_exclusive": 32,
+      "channel_start_inclusive": 24,
+      "cross_gene_maximin_effect_median_loss": 0.0008027520760092999,
+      "effect_median_exceeds_neutral_in_both_genes": true,
+      "group_id": "E32_c0024_0031",
+      "group_index": 7,
+      "parent_group_id": "E32_c0000_0031",
+      "parent_rank": 1,
+      "per_gene": {
+        "BRAF": {
+          "effect": {
+            "maximum_necessity_loss": 0.022099447513812154,
+            "median_necessity_loss": 0.009521091024421169,
+            "minimum_necessity_loss": -0.004602991944764101,
+            "positive_necessity_count": 5,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": true,
+          "neutral": {
+            "maximum_necessity_loss": 0.0003810249571347124,
+            "median_necessity_loss": 0.0,
+            "minimum_necessity_loss": -0.0064102564102563875,
+            "positive_necessity_count": 1,
+            "variant_count": 4
+          }
+        },
+        "SLC25A48": {
+          "effect": {
+            "maximum_necessity_loss": 0.002531645569620211,
+            "median_necessity_loss": 0.0008027520760092999,
+            "minimum_necessity_loss": -0.0004200268817204367,
+            "positive_necessity_count": 4,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": true,
+          "neutral": {
+            "maximum_necessity_loss": 0.0,
+            "median_necessity_loss": 0.0,
+            "minimum_necessity_loss": -0.034482758620689655,
+            "positive_necessity_count": 0,
+            "variant_count": 4
+          }
+        }
+      },
+      "positive_effect_median_in_both_genes": true,
+      "resolution_bp": 32,
+      "stage": "E32",
+      "stage_index": 1,
+      "stage_width": 1408
+    },
+    {
+      "channel_count": 8,
+      "channel_end_exclusive": 8,
+      "channel_start_inclusive": 0,
+      "cross_gene_maximin_effect_median_loss": -3.150201612903136e-05,
+      "effect_median_exceeds_neutral_in_both_genes": false,
+      "group_id": "E16_c0000_0007",
+      "group_index": 8,
+      "parent_group_id": "E16_c0000_0031",
+      "parent_rank": 2,
+      "per_gene": {
+        "BRAF": {
+          "effect": {
+            "maximum_necessity_loss": 0.03555555555555556,
+            "median_necessity_loss": 0.017309674052477575,
+            "minimum_necessity_loss": -0.010830324909747224,
+            "positive_necessity_count": 4,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": true,
+          "neutral": {
+            "maximum_necessity_loss": 0.012558869701726816,
+            "median_necessity_loss": 0.00459061134880831,
+            "minimum_necessity_loss": -0.0032051282051281937,
+            "positive_necessity_count": 2,
+            "variant_count": 4
+          }
+        },
+        "SLC25A48": {
+          "effect": {
+            "maximum_necessity_loss": 0.0014409221902016434,
+            "median_necessity_loss": -3.150201612903136e-05,
+            "minimum_necessity_loss": -0.0025316455696202667,
+            "positive_necessity_count": 1,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": false,
+          "neutral": {
+            "maximum_necessity_loss": 0.05555555555555555,
+            "median_necessity_loss": 0.0,
+            "minimum_necessity_loss": -0.06896551724137931,
+            "positive_necessity_count": 1,
+            "variant_count": 4
+          }
+        }
+      },
+      "positive_effect_median_in_both_genes": false,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 8,
+      "channel_end_exclusive": 16,
+      "channel_start_inclusive": 8,
+      "cross_gene_maximin_effect_median_loss": -0.005783418761262843,
+      "effect_median_exceeds_neutral_in_both_genes": false,
+      "group_id": "E16_c0008_0015",
+      "group_index": 9,
+      "parent_group_id": "E16_c0000_0031",
+      "parent_rank": 2,
+      "per_gene": {
+        "BRAF": {
+          "effect": {
+            "maximum_necessity_loss": 0.019889502762430955,
+            "median_necessity_loss": -0.005783418761262843,
+            "minimum_necessity_loss": -0.017126546146527144,
+            "positive_necessity_count": 2,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": false,
+          "neutral": {
+            "maximum_necessity_loss": 0.0003810249571347124,
+            "median_necessity_loss": -0.0015698587127158659,
+            "minimum_necessity_loss": -0.0032051282051281937,
+            "positive_necessity_count": 1,
+            "variant_count": 4
+          }
+        },
+        "SLC25A48": {
+          "effect": {
+            "maximum_necessity_loss": 0.0016413623307345304,
+            "median_necessity_loss": 0.00010286372613560468,
+            "minimum_necessity_loss": -0.0025316455696202667,
+            "positive_necessity_count": 3,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": true,
+          "neutral": {
+            "maximum_necessity_loss": 0.05555555555555555,
+            "median_necessity_loss": 0.0,
+            "minimum_necessity_loss": 0.0,
+            "positive_necessity_count": 1,
+            "variant_count": 4
+          }
+        }
+      },
+      "positive_effect_median_in_both_genes": false,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 8,
+      "channel_end_exclusive": 24,
+      "channel_start_inclusive": 16,
+      "cross_gene_maximin_effect_median_loss": -0.00583233052547133,
+      "effect_median_exceeds_neutral_in_both_genes": false,
+      "group_id": "E16_c0016_0023",
+      "group_index": 10,
+      "parent_group_id": "E16_c0000_0031",
+      "parent_rank": 2,
+      "per_gene": {
+        "BRAF": {
+          "effect": {
+            "maximum_necessity_loss": 0.013259668508287303,
+            "median_necessity_loss": -0.00583233052547133,
+            "minimum_necessity_loss": -0.017126546146527144,
+            "positive_necessity_count": 2,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": false,
+          "neutral": {
+            "maximum_necessity_loss": 0.0021762785636561532,
+            "median_necessity_loss": -0.00038102495713468465,
+            "minimum_necessity_loss": -0.0032051282051281937,
+            "positive_necessity_count": 1,
+            "variant_count": 4
+          }
+        },
+        "SLC25A48": {
+          "effect": {
+            "maximum_necessity_loss": 0.013130898645876077,
+            "median_necessity_loss": 0.008541712238513549,
+            "minimum_necessity_loss": 0.006615423387096753,
+            "positive_necessity_count": 6,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": true,
+          "neutral": {
+            "maximum_necessity_loss": 0.05555555555555555,
+            "median_necessity_loss": 0.0,
+            "minimum_necessity_loss": 0.0,
+            "positive_necessity_count": 1,
+            "variant_count": 4
+          }
+        }
+      },
+      "positive_effect_median_in_both_genes": false,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 8,
+      "channel_end_exclusive": 32,
+      "channel_start_inclusive": 24,
+      "cross_gene_maximin_effect_median_loss": 0.0,
+      "effect_median_exceeds_neutral_in_both_genes": false,
+      "group_id": "E16_c0024_0031",
+      "group_index": 11,
+      "parent_group_id": "E16_c0000_0031",
+      "parent_rank": 2,
+      "per_gene": {
+        "BRAF": {
+          "effect": {
+            "maximum_necessity_loss": 0.015469613259668502,
+            "median_necessity_loss": 0.0005832184795289408,
+            "minimum_necessity_loss": -0.00888888888888889,
+            "positive_necessity_count": 3,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": true,
+          "neutral": {
+            "maximum_necessity_loss": 0.0015698587127158103,
+            "median_necessity_loss": -0.00036271309394270146,
+            "minimum_necessity_loss": -0.008012820512820484,
+            "positive_necessity_count": 1,
+            "variant_count": 4
+          }
+        },
+        "SLC25A48": {
+          "effect": {
+            "maximum_necessity_loss": 0.0014409221902016434,
+            "median_necessity_loss": 0.0,
+            "minimum_necessity_loss": -0.000798051075268813,
+            "positive_necessity_count": 2,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": false,
+          "neutral": {
+            "maximum_necessity_loss": 0.5,
+            "median_necessity_loss": 0.0,
+            "minimum_necessity_loss": 0.0,
+            "positive_necessity_count": 1,
+            "variant_count": 4
+          }
+        }
+      },
+      "positive_effect_median_in_both_genes": false,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 8,
+      "channel_end_exclusive": 520,
+      "channel_start_inclusive": 512,
+      "cross_gene_maximin_effect_median_loss": -0.0003360215053763438,
+      "effect_median_exceeds_neutral_in_both_genes": false,
+      "group_id": "E16_c0512_0519",
+      "group_index": 12,
+      "parent_group_id": "E16_c0512_0543",
+      "parent_rank": 3,
+      "per_gene": {
+        "BRAF": {
+          "effect": {
+            "maximum_necessity_loss": 0.03222094361334865,
+            "median_necessity_loss": 0.004125171794058552,
+            "minimum_necessity_loss": -0.007365126127784949,
+            "positive_necessity_count": 5,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": true,
+          "neutral": {
+            "maximum_necessity_loss": 0.004807692307692402,
+            "median_necessity_loss": -0.0011064511450200598,
+            "minimum_necessity_loss": -0.0031397174254317317,
+            "positive_necessity_count": 1,
+            "variant_count": 4
+          }
+        },
+        "SLC25A48": {
+          "effect": {
+            "maximum_necessity_loss": 0.0014409221902016434,
+            "median_necessity_loss": -0.0003360215053763438,
+            "minimum_necessity_loss": -0.0016413623307345304,
+            "positive_necessity_count": 2,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": false,
+          "neutral": {
+            "maximum_necessity_loss": 0.05555555555555555,
+            "median_necessity_loss": 0.0,
+            "minimum_necessity_loss": 0.0,
+            "positive_necessity_count": 1,
+            "variant_count": 4
+          }
+        }
+      },
+      "positive_effect_median_in_both_genes": false,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 8,
+      "channel_end_exclusive": 528,
+      "channel_start_inclusive": 520,
+      "cross_gene_maximin_effect_median_loss": -0.0008977762857540761,
+      "effect_median_exceeds_neutral_in_both_genes": false,
+      "group_id": "E16_c0520_0527",
+      "group_index": 13,
+      "parent_group_id": "E16_c0512_0543",
+      "parent_rank": 3,
+      "per_gene": {
+        "BRAF": {
+          "effect": {
+            "maximum_necessity_loss": 0.019889502762430955,
+            "median_necessity_loss": 0.005661781796908544,
+            "minimum_necessity_loss": -0.013333333333333364,
+            "positive_necessity_count": 4,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": false,
+          "neutral": {
+            "maximum_necessity_loss": 0.015698587127158548,
+            "median_necessity_loss": 0.009111015040715986,
+            "minimum_necessity_loss": -0.0007254261878854029,
+            "positive_necessity_count": 3,
+            "variant_count": 4
+          }
+        },
+        "SLC25A48": {
+          "effect": {
+            "maximum_necessity_loss": 0.0014409221902016434,
+            "median_necessity_loss": -0.0008977762857540761,
+            "minimum_necessity_loss": -0.004924086992203536,
+            "positive_necessity_count": 1,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": false,
+          "neutral": {
+            "maximum_necessity_loss": 0.0,
+            "median_necessity_loss": 0.0,
+            "minimum_necessity_loss": -0.06896551724137931,
+            "positive_necessity_count": 0,
+            "variant_count": 4
+          }
+        }
+      },
+      "positive_effect_median_in_both_genes": false,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 8,
+      "channel_end_exclusive": 536,
+      "channel_start_inclusive": 528,
+      "cross_gene_maximin_effect_median_loss": 0.0,
+      "effect_median_exceeds_neutral_in_both_genes": true,
+      "group_id": "E16_c0528_0535",
+      "group_index": 14,
+      "parent_group_id": "E16_c0512_0543",
+      "parent_rank": 3,
+      "per_gene": {
+        "BRAF": {
+          "effect": {
+            "maximum_necessity_loss": 0.02166064981949456,
+            "median_necessity_loss": 0.0,
+            "minimum_necessity_loss": -0.005155588289449453,
+            "positive_necessity_count": 2,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": true,
+          "neutral": {
+            "maximum_necessity_loss": 0.0,
+            "median_necessity_loss": -0.0021413961484179067,
+            "minimum_necessity_loss": -0.008012820512820484,
+            "positive_necessity_count": 0,
+            "variant_count": 4
+          }
+        },
+        "SLC25A48": {
+          "effect": {
+            "maximum_necessity_loss": 0.0031796502384737746,
+            "median_necessity_loss": 0.0009261885473720588,
+            "minimum_necessity_loss": -0.0002520161290322509,
+            "positive_necessity_count": 4,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": true,
+          "neutral": {
+            "maximum_necessity_loss": 0.05555555555555555,
+            "median_necessity_loss": 0.0,
+            "minimum_necessity_loss": 0.0,
+            "positive_necessity_count": 1,
+            "variant_count": 4
+          }
+        }
+      },
+      "positive_effect_median_in_both_genes": false,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 8,
+      "channel_end_exclusive": 544,
+      "channel_start_inclusive": 536,
+      "cross_gene_maximin_effect_median_loss": -0.00019951276881718938,
+      "effect_median_exceeds_neutral_in_both_genes": false,
+      "group_id": "E16_c0536_0543",
+      "group_index": 15,
+      "parent_group_id": "E16_c0512_0543",
+      "parent_rank": 3,
+      "per_gene": {
+        "BRAF": {
+          "effect": {
+            "maximum_necessity_loss": 0.06408839779005526,
+            "median_necessity_loss": 0.016296655507437724,
+            "minimum_necessity_loss": -0.06137184115523464,
+            "positive_necessity_count": 4,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": false,
+          "neutral": {
+            "maximum_necessity_loss": 0.05549510337323177,
+            "median_necessity_loss": 0.02233778126635272,
+            "minimum_necessity_loss": 0.007239474185559147,
+            "positive_necessity_count": 4,
+            "variant_count": 4
+          }
+        },
+        "SLC25A48": {
+          "effect": {
+            "maximum_necessity_loss": 0.0014409221902016434,
+            "median_necessity_loss": -0.00019951276881718938,
+            "minimum_necessity_loss": -0.005063291139240533,
+            "positive_necessity_count": 2,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": false,
+          "neutral": {
+            "maximum_necessity_loss": 0.05555555555555555,
+            "median_necessity_loss": 0.0,
+            "minimum_necessity_loss": 0.0,
+            "positive_necessity_count": 1,
+            "variant_count": 4
+          }
+        }
+      },
+      "positive_effect_median_in_both_genes": false,
+      "resolution_bp": 16,
+      "stage": "E16",
+      "stage_index": 2,
+      "stage_width": 1280
+    },
+    {
+      "channel_count": 8,
+      "channel_end_exclusive": 168,
+      "channel_start_inclusive": 160,
+      "cross_gene_maximin_effect_median_loss": -0.005155588289449453,
+      "effect_median_exceeds_neutral_in_both_genes": false,
+      "group_id": "E2_c0160_0167",
+      "group_index": 16,
+      "parent_group_id": "E2_c0160_0191",
+      "parent_rank": 4,
+      "per_gene": {
+        "BRAF": {
+          "effect": {
+            "maximum_necessity_loss": 0.03314917127071826,
+            "median_necessity_loss": -0.005155588289449453,
+            "minimum_necessity_loss": -0.018050541516245522,
+            "positive_necessity_count": 2,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": false,
+          "neutral": {
+            "maximum_necessity_loss": 0.0043525571273123065,
+            "median_necessity_loss": 0.0,
+            "minimum_necessity_loss": -0.0007620499142693693,
+            "positive_necessity_count": 1,
+            "variant_count": 4
+          }
+        },
+        "SLC25A48": {
+          "effect": {
+            "maximum_necessity_loss": 0.023054755043227626,
+            "median_necessity_loss": 0.020764245105191176,
+            "minimum_necessity_loss": -0.005063291139240533,
+            "positive_necessity_count": 5,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": true,
+          "neutral": {
+            "maximum_necessity_loss": 0.0,
+            "median_necessity_loss": 0.0,
+            "minimum_necessity_loss": -0.5,
+            "positive_necessity_count": 0,
+            "variant_count": 4
+          }
+        }
+      },
+      "positive_effect_median_in_both_genes": false,
+      "resolution_bp": 2,
+      "stage": "E2",
+      "stage_index": 5,
+      "stage_width": 896
+    },
+    {
+      "channel_count": 8,
+      "channel_end_exclusive": 176,
+      "channel_start_inclusive": 168,
+      "cross_gene_maximin_effect_median_loss": 0.0,
+      "effect_median_exceeds_neutral_in_both_genes": false,
+      "group_id": "E2_c0168_0175",
+      "group_index": 17,
+      "parent_group_id": "E2_c0160_0191",
+      "parent_rank": 4,
+      "per_gene": {
+        "BRAF": {
+          "effect": {
+            "maximum_necessity_loss": 0.011049723756906105,
+            "median_necessity_loss": 0.0,
+            "minimum_necessity_loss": -0.010311176578898906,
+            "positive_necessity_count": 1,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": false,
+          "neutral": {
+            "maximum_necessity_loss": 0.0032051282051283048,
+            "median_necessity_loss": 0.0007437380510774139,
+            "minimum_necessity_loss": -0.0031397174254317317,
+            "positive_necessity_count": 3,
+            "variant_count": 4
+          }
+        },
+        "SLC25A48": {
+          "effect": {
+            "maximum_necessity_loss": 0.06518282988871227,
+            "median_necessity_loss": 0.04556050829739722,
+            "minimum_necessity_loss": 0.0,
+            "positive_necessity_count": 5,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": true,
+          "neutral": {
+            "maximum_necessity_loss": 0.0,
+            "median_necessity_loss": 0.0,
+            "minimum_necessity_loss": -0.06896551724137931,
+            "positive_necessity_count": 0,
+            "variant_count": 4
+          }
+        }
+      },
+      "positive_effect_median_in_both_genes": false,
+      "resolution_bp": 2,
+      "stage": "E2",
+      "stage_index": 5,
+      "stage_width": 896
+    },
+    {
+      "channel_count": 8,
+      "channel_end_exclusive": 184,
+      "channel_start_inclusive": 176,
+      "cross_gene_maximin_effect_median_loss": -0.0009514747859181716,
+      "effect_median_exceeds_neutral_in_both_genes": false,
+      "group_id": "E2_c0176_0183",
+      "group_index": 18,
+      "parent_group_id": "E2_c0160_0191",
+      "parent_rank": 4,
+      "per_gene": {
+        "BRAF": {
+          "effect": {
+            "maximum_necessity_loss": 0.028729281767955805,
+            "median_necessity_loss": -0.0009514747859181716,
+            "minimum_necessity_loss": -0.008838151353341928,
+            "positive_necessity_count": 1,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": false,
+          "neutral": {
+            "maximum_necessity_loss": 0.0043525571273123065,
+            "median_necessity_loss": 0.0,
+            "minimum_necessity_loss": -0.0016025641025640969,
+            "positive_necessity_count": 1,
+            "variant_count": 4
+          }
+        },
+        "SLC25A48": {
+          "effect": {
+            "maximum_necessity_loss": 0.0014409221902016434,
+            "median_necessity_loss": 0.0,
+            "minimum_necessity_loss": -0.0008190524193548154,
+            "positive_necessity_count": 2,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": false,
+          "neutral": {
+            "maximum_necessity_loss": 0.0,
+            "median_necessity_loss": 0.0,
+            "minimum_necessity_loss": -0.06896551724137931,
+            "positive_necessity_count": 0,
+            "variant_count": 4
+          }
+        }
+      },
+      "positive_effect_median_in_both_genes": false,
+      "resolution_bp": 2,
+      "stage": "E2",
+      "stage_index": 5,
+      "stage_width": 896
+    },
+    {
+      "channel_count": 8,
+      "channel_end_exclusive": 192,
+      "channel_start_inclusive": 184,
+      "cross_gene_maximin_effect_median_loss": 0.0,
+      "effect_median_exceeds_neutral_in_both_genes": false,
+      "group_id": "E2_c0184_0191",
+      "group_index": 19,
+      "parent_group_id": "E2_c0160_0191",
+      "parent_rank": 4,
+      "per_gene": {
+        "BRAF": {
+          "effect": {
+            "maximum_necessity_loss": 0.011049723756906105,
+            "median_necessity_loss": 0.0,
+            "minimum_necessity_loss": -0.0072202166064981865,
+            "positive_necessity_count": 2,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": true,
+          "neutral": {
+            "maximum_necessity_loss": 0.002901704751541556,
+            "median_necessity_loss": -0.00038102495713468465,
+            "minimum_necessity_loss": -0.0016025641025640969,
+            "positive_necessity_count": 1,
+            "variant_count": 4
+          }
+        },
+        "SLC25A48": {
+          "effect": {
+            "maximum_necessity_loss": 0.0002880184331797153,
+            "median_necessity_loss": 0.0,
+            "minimum_necessity_loss": -0.0025316455696202667,
+            "positive_necessity_count": 1,
+            "variant_count": 6
+          },
+          "effect_median_exceeds_neutral": false,
+          "neutral": {
+            "maximum_necessity_loss": 0.0,
+            "median_necessity_loss": 0.0,
+            "minimum_necessity_loss": -0.06896551724137931,
+            "positive_necessity_count": 0,
+            "variant_count": 4
+          }
+        }
+      },
+      "positive_effect_median_in_both_genes": false,
+      "resolution_bp": 2,
+      "stage": "E2",
+      "stage_index": 5,
+      "stage_width": 896
+    }
+  ],
+  "control_summary": {
+    "all_runtime_controls_passed": true,
+    "child_calls_are_single_shot": true,
+    "identity_and_full_route_repeats_bit_exact": true,
+    "prior_executable_comparison_is_diagnostic_not_a_gate": true,
+    "prior_executable_maximum_absolute_target_mean_difference": 0.03125
+  },
+  "full_V_route": {
+    "BRAF": {
+      "neutral_control": {
+        "median_bidirectional_bottleneck": 0.39494245844315795,
+        "variant_count": 4
+      },
+      "significant_effect": {
+        "median_bidirectional_bottleneck": 0.4134836067728183,
+        "variant_count": 6
+      }
+    },
+    "SLC25A48": {
+      "neutral_control": {
+        "median_bidirectional_bottleneck": -0.06226053639846743,
+        "variant_count": 4
+      },
+      "significant_effect": {
+        "median_bidirectional_bottleneck": 0.3896194220950224,
+        "variant_count": 6
+      }
+    }
+  },
+  "interpretation": {
+    "braf_program": "BRAF preferentially uses channels 0-7 at E32 and E16.",
+    "main_result": "All three parent blocks selected as cross-gene candidates have different dominant 8-channel children in BRAF and SLC25A48. Parent-level sharing therefore reflects adjacent gene-specific subspaces more than one dominant common child.",
+    "next_experiment": "Resolve the four specific 8-channel children to individual channels while adding only-child sufficiency and shifted spatial controls before sequence-feature attribution.",
+    "shared_residual": "E1 channels 160-167 and 176-183 retain small positive median necessity in both genes, but their maximin losses are about 0.001 and should not be overstated.",
+    "slc25a48_program": "SLC25A48 preferentially uses channels 168-175 at E2 and E1, strengthening the persistent multiscale-band hypothesis."
+  },
+  "parent_summaries": {
+    "E16_c0000_0031": {
+      "children": [
+        {
+          "channel_end_exclusive": 8,
+          "channel_start_inclusive": 0,
+          "cross_gene_maximin_effect_median_loss": -3.150201612903136e-05,
+          "group_id": "E16_c0000_0007",
+          "parent_group_id": "E16_c0000_0031",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.03555555555555556,
+                "median_necessity_loss": 0.017309674052477575,
+                "minimum_necessity_loss": -0.010830324909747224,
+                "positive_necessity_count": 4,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.012558869701726816,
+                "median_necessity_loss": 0.00459061134880831,
+                "minimum_necessity_loss": -0.0032051282051281937,
+                "positive_necessity_count": 2,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.0014409221902016434,
+                "median_necessity_loss": -3.150201612903136e-05,
+                "minimum_necessity_loss": -0.0025316455696202667,
+                "positive_necessity_count": 1,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.05555555555555555,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.06896551724137931,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E16"
+        },
+        {
+          "channel_end_exclusive": 16,
+          "channel_start_inclusive": 8,
+          "cross_gene_maximin_effect_median_loss": -0.005783418761262843,
+          "group_id": "E16_c0008_0015",
+          "parent_group_id": "E16_c0000_0031",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.019889502762430955,
+                "median_necessity_loss": -0.005783418761262843,
+                "minimum_necessity_loss": -0.017126546146527144,
+                "positive_necessity_count": 2,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.0003810249571347124,
+                "median_necessity_loss": -0.0015698587127158659,
+                "minimum_necessity_loss": -0.0032051282051281937,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.0016413623307345304,
+                "median_necessity_loss": 0.00010286372613560468,
+                "minimum_necessity_loss": -0.0025316455696202667,
+                "positive_necessity_count": 3,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.05555555555555555,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E16"
+        },
+        {
+          "channel_end_exclusive": 24,
+          "channel_start_inclusive": 16,
+          "cross_gene_maximin_effect_median_loss": -0.00583233052547133,
+          "group_id": "E16_c0016_0023",
+          "parent_group_id": "E16_c0000_0031",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.013259668508287303,
+                "median_necessity_loss": -0.00583233052547133,
+                "minimum_necessity_loss": -0.017126546146527144,
+                "positive_necessity_count": 2,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.0021762785636561532,
+                "median_necessity_loss": -0.00038102495713468465,
+                "minimum_necessity_loss": -0.0032051282051281937,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.013130898645876077,
+                "median_necessity_loss": 0.008541712238513549,
+                "minimum_necessity_loss": 0.006615423387096753,
+                "positive_necessity_count": 6,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.05555555555555555,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E16"
+        },
+        {
+          "channel_end_exclusive": 32,
+          "channel_start_inclusive": 24,
+          "cross_gene_maximin_effect_median_loss": 0.0,
+          "group_id": "E16_c0024_0031",
+          "parent_group_id": "E16_c0000_0031",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.015469613259668502,
+                "median_necessity_loss": 0.0005832184795289408,
+                "minimum_necessity_loss": -0.00888888888888889,
+                "positive_necessity_count": 3,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.0015698587127158103,
+                "median_necessity_loss": -0.00036271309394270146,
+                "minimum_necessity_loss": -0.008012820512820484,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.0014409221902016434,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.000798051075268813,
+                "positive_necessity_count": 2,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.5,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E16"
+        }
+      ],
+      "same_top_child_in_both_genes": false,
+      "stage": "E16",
+      "top_child_by_gene": {
+        "BRAF": {
+          "channel_end_exclusive": 8,
+          "channel_start_inclusive": 0,
+          "cross_gene_maximin_effect_median_loss": -3.150201612903136e-05,
+          "group_id": "E16_c0000_0007",
+          "parent_group_id": "E16_c0000_0031",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.03555555555555556,
+                "median_necessity_loss": 0.017309674052477575,
+                "minimum_necessity_loss": -0.010830324909747224,
+                "positive_necessity_count": 4,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.012558869701726816,
+                "median_necessity_loss": 0.00459061134880831,
+                "minimum_necessity_loss": -0.0032051282051281937,
+                "positive_necessity_count": 2,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.0014409221902016434,
+                "median_necessity_loss": -3.150201612903136e-05,
+                "minimum_necessity_loss": -0.0025316455696202667,
+                "positive_necessity_count": 1,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.05555555555555555,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.06896551724137931,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E16"
+        },
+        "SLC25A48": {
+          "channel_end_exclusive": 24,
+          "channel_start_inclusive": 16,
+          "cross_gene_maximin_effect_median_loss": -0.00583233052547133,
+          "group_id": "E16_c0016_0023",
+          "parent_group_id": "E16_c0000_0031",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.013259668508287303,
+                "median_necessity_loss": -0.00583233052547133,
+                "minimum_necessity_loss": -0.017126546146527144,
+                "positive_necessity_count": 2,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.0021762785636561532,
+                "median_necessity_loss": -0.00038102495713468465,
+                "minimum_necessity_loss": -0.0032051282051281937,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.013130898645876077,
+                "median_necessity_loss": 0.008541712238513549,
+                "minimum_necessity_loss": 0.006615423387096753,
+                "positive_necessity_count": 6,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.05555555555555555,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E16"
+        }
+      }
+    },
+    "E16_c0512_0543": {
+      "children": [
+        {
+          "channel_end_exclusive": 520,
+          "channel_start_inclusive": 512,
+          "cross_gene_maximin_effect_median_loss": -0.0003360215053763438,
+          "group_id": "E16_c0512_0519",
+          "parent_group_id": "E16_c0512_0543",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.03222094361334865,
+                "median_necessity_loss": 0.004125171794058552,
+                "minimum_necessity_loss": -0.007365126127784949,
+                "positive_necessity_count": 5,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.004807692307692402,
+                "median_necessity_loss": -0.0011064511450200598,
+                "minimum_necessity_loss": -0.0031397174254317317,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.0014409221902016434,
+                "median_necessity_loss": -0.0003360215053763438,
+                "minimum_necessity_loss": -0.0016413623307345304,
+                "positive_necessity_count": 2,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.05555555555555555,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E16"
+        },
+        {
+          "channel_end_exclusive": 528,
+          "channel_start_inclusive": 520,
+          "cross_gene_maximin_effect_median_loss": -0.0008977762857540761,
+          "group_id": "E16_c0520_0527",
+          "parent_group_id": "E16_c0512_0543",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.019889502762430955,
+                "median_necessity_loss": 0.005661781796908544,
+                "minimum_necessity_loss": -0.013333333333333364,
+                "positive_necessity_count": 4,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.015698587127158548,
+                "median_necessity_loss": 0.009111015040715986,
+                "minimum_necessity_loss": -0.0007254261878854029,
+                "positive_necessity_count": 3,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.0014409221902016434,
+                "median_necessity_loss": -0.0008977762857540761,
+                "minimum_necessity_loss": -0.004924086992203536,
+                "positive_necessity_count": 1,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.06896551724137931,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E16"
+        },
+        {
+          "channel_end_exclusive": 536,
+          "channel_start_inclusive": 528,
+          "cross_gene_maximin_effect_median_loss": 0.0,
+          "group_id": "E16_c0528_0535",
+          "parent_group_id": "E16_c0512_0543",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.02166064981949456,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.005155588289449453,
+                "positive_necessity_count": 2,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": -0.0021413961484179067,
+                "minimum_necessity_loss": -0.008012820512820484,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.0031796502384737746,
+                "median_necessity_loss": 0.0009261885473720588,
+                "minimum_necessity_loss": -0.0002520161290322509,
+                "positive_necessity_count": 4,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.05555555555555555,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E16"
+        },
+        {
+          "channel_end_exclusive": 544,
+          "channel_start_inclusive": 536,
+          "cross_gene_maximin_effect_median_loss": -0.00019951276881718938,
+          "group_id": "E16_c0536_0543",
+          "parent_group_id": "E16_c0512_0543",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.06408839779005526,
+                "median_necessity_loss": 0.016296655507437724,
+                "minimum_necessity_loss": -0.06137184115523464,
+                "positive_necessity_count": 4,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.05549510337323177,
+                "median_necessity_loss": 0.02233778126635272,
+                "minimum_necessity_loss": 0.007239474185559147,
+                "positive_necessity_count": 4,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.0014409221902016434,
+                "median_necessity_loss": -0.00019951276881718938,
+                "minimum_necessity_loss": -0.005063291139240533,
+                "positive_necessity_count": 2,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.05555555555555555,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E16"
+        }
+      ],
+      "same_top_child_in_both_genes": false,
+      "stage": "E16",
+      "top_child_by_gene": {
+        "BRAF": {
+          "channel_end_exclusive": 544,
+          "channel_start_inclusive": 536,
+          "cross_gene_maximin_effect_median_loss": -0.00019951276881718938,
+          "group_id": "E16_c0536_0543",
+          "parent_group_id": "E16_c0512_0543",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.06408839779005526,
+                "median_necessity_loss": 0.016296655507437724,
+                "minimum_necessity_loss": -0.06137184115523464,
+                "positive_necessity_count": 4,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.05549510337323177,
+                "median_necessity_loss": 0.02233778126635272,
+                "minimum_necessity_loss": 0.007239474185559147,
+                "positive_necessity_count": 4,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.0014409221902016434,
+                "median_necessity_loss": -0.00019951276881718938,
+                "minimum_necessity_loss": -0.005063291139240533,
+                "positive_necessity_count": 2,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.05555555555555555,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E16"
+        },
+        "SLC25A48": {
+          "channel_end_exclusive": 536,
+          "channel_start_inclusive": 528,
+          "cross_gene_maximin_effect_median_loss": 0.0,
+          "group_id": "E16_c0528_0535",
+          "parent_group_id": "E16_c0512_0543",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.02166064981949456,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.005155588289449453,
+                "positive_necessity_count": 2,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": -0.0021413961484179067,
+                "minimum_necessity_loss": -0.008012820512820484,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.0031796502384737746,
+                "median_necessity_loss": 0.0009261885473720588,
+                "minimum_necessity_loss": -0.0002520161290322509,
+                "positive_necessity_count": 4,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.05555555555555555,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E16"
+        }
+      }
+    },
+    "E1_c0160_0191": {
+      "children": [
+        {
+          "channel_end_exclusive": 168,
+          "channel_start_inclusive": 160,
+          "cross_gene_maximin_effect_median_loss": 0.0011204333929517862,
+          "group_id": "E1_c0160_0167",
+          "parent_group_id": "E1_c0160_0191",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.06859205776173283,
+                "median_necessity_loss": 0.01279734463026419,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 4,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.008012820512820595,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.0028818443804033977,
+                "median_necessity_loss": 0.0011204333929517862,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 5,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E1"
+        },
+        {
+          "channel_end_exclusive": 176,
+          "channel_start_inclusive": 168,
+          "cross_gene_maximin_effect_median_loss": 0.0,
+          "group_id": "E1_c0168_0175",
+          "parent_group_id": "E1_c0160_0191",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.0072202166064981865,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.011417697431018115,
+                "positive_necessity_count": 2,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.0016025641025640969,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.10086455331412103,
+                "median_necessity_loss": 0.04306356369923736,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 5,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E1"
+        },
+        {
+          "channel_end_exclusive": 184,
+          "channel_start_inclusive": 176,
+          "cross_gene_maximin_effect_median_loss": 0.0010623582475710325,
+          "group_id": "E1_c0176_0183",
+          "parent_group_id": "E1_c0160_0191",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.02527075812274371,
+                "median_necessity_loss": 0.0014730252255570064,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 3,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.0016025641025640969,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.0075949367088607445,
+                "median_necessity_loss": 0.0010623582475710325,
+                "minimum_necessity_loss": -0.001050067204301064,
+                "positive_necessity_count": 4,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E1"
+        },
+        {
+          "channel_end_exclusive": 192,
+          "channel_start_inclusive": 184,
+          "cross_gene_maximin_effect_median_loss": -0.00018022582016680166,
+          "group_id": "E1_c0184_0191",
+          "parent_group_id": "E1_c0160_0191",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.032490974729241895,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.010311176578898906,
+                "positive_necessity_count": 2,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.001602564102564208,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.0057636887608069065,
+                "median_necessity_loss": -0.00018022582016680166,
+                "minimum_necessity_loss": -0.010126582278481011,
+                "positive_necessity_count": 3,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E1"
+        }
+      ],
+      "same_top_child_in_both_genes": false,
+      "stage": "E1",
+      "top_child_by_gene": {
+        "BRAF": {
+          "channel_end_exclusive": 168,
+          "channel_start_inclusive": 160,
+          "cross_gene_maximin_effect_median_loss": 0.0011204333929517862,
+          "group_id": "E1_c0160_0167",
+          "parent_group_id": "E1_c0160_0191",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.06859205776173283,
+                "median_necessity_loss": 0.01279734463026419,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 4,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.008012820512820595,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.0028818443804033977,
+                "median_necessity_loss": 0.0011204333929517862,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 5,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E1"
+        },
+        "SLC25A48": {
+          "channel_end_exclusive": 176,
+          "channel_start_inclusive": 168,
+          "cross_gene_maximin_effect_median_loss": 0.0,
+          "group_id": "E1_c0168_0175",
+          "parent_group_id": "E1_c0160_0191",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.0072202166064981865,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.011417697431018115,
+                "positive_necessity_count": 2,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.0016025641025640969,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.10086455331412103,
+                "median_necessity_loss": 0.04306356369923736,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 5,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E1"
+        }
+      }
+    },
+    "E2_c0160_0191": {
+      "children": [
+        {
+          "channel_end_exclusive": 168,
+          "channel_start_inclusive": 160,
+          "cross_gene_maximin_effect_median_loss": -0.005155588289449453,
+          "group_id": "E2_c0160_0167",
+          "parent_group_id": "E2_c0160_0191",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.03314917127071826,
+                "median_necessity_loss": -0.005155588289449453,
+                "minimum_necessity_loss": -0.018050541516245522,
+                "positive_necessity_count": 2,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.0043525571273123065,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.0007620499142693693,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.023054755043227626,
+                "median_necessity_loss": 0.020764245105191176,
+                "minimum_necessity_loss": -0.005063291139240533,
+                "positive_necessity_count": 5,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.5,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E2"
+        },
+        {
+          "channel_end_exclusive": 176,
+          "channel_start_inclusive": 168,
+          "cross_gene_maximin_effect_median_loss": 0.0,
+          "group_id": "E2_c0168_0175",
+          "parent_group_id": "E2_c0160_0191",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.011049723756906105,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.010311176578898906,
+                "positive_necessity_count": 1,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.0032051282051283048,
+                "median_necessity_loss": 0.0007437380510774139,
+                "minimum_necessity_loss": -0.0031397174254317317,
+                "positive_necessity_count": 3,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.06518282988871227,
+                "median_necessity_loss": 0.04556050829739722,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 5,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.06896551724137931,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E2"
+        },
+        {
+          "channel_end_exclusive": 184,
+          "channel_start_inclusive": 176,
+          "cross_gene_maximin_effect_median_loss": -0.0009514747859181716,
+          "group_id": "E2_c0176_0183",
+          "parent_group_id": "E2_c0160_0191",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.028729281767955805,
+                "median_necessity_loss": -0.0009514747859181716,
+                "minimum_necessity_loss": -0.008838151353341928,
+                "positive_necessity_count": 1,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.0043525571273123065,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.0016025641025640969,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.0014409221902016434,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.0008190524193548154,
+                "positive_necessity_count": 2,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.06896551724137931,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E2"
+        },
+        {
+          "channel_end_exclusive": 192,
+          "channel_start_inclusive": 184,
+          "cross_gene_maximin_effect_median_loss": 0.0,
+          "group_id": "E2_c0184_0191",
+          "parent_group_id": "E2_c0160_0191",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.011049723756906105,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.0072202166064981865,
+                "positive_necessity_count": 2,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.002901704751541556,
+                "median_necessity_loss": -0.00038102495713468465,
+                "minimum_necessity_loss": -0.0016025641025640969,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.0002880184331797153,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.0025316455696202667,
+                "positive_necessity_count": 1,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.06896551724137931,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E2"
+        }
+      ],
+      "same_top_child_in_both_genes": true,
+      "stage": "E2",
+      "top_child_by_gene": {
+        "BRAF": {
+          "channel_end_exclusive": 176,
+          "channel_start_inclusive": 168,
+          "cross_gene_maximin_effect_median_loss": 0.0,
+          "group_id": "E2_c0168_0175",
+          "parent_group_id": "E2_c0160_0191",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.011049723756906105,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.010311176578898906,
+                "positive_necessity_count": 1,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.0032051282051283048,
+                "median_necessity_loss": 0.0007437380510774139,
+                "minimum_necessity_loss": -0.0031397174254317317,
+                "positive_necessity_count": 3,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.06518282988871227,
+                "median_necessity_loss": 0.04556050829739722,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 5,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.06896551724137931,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E2"
+        },
+        "SLC25A48": {
+          "channel_end_exclusive": 176,
+          "channel_start_inclusive": 168,
+          "cross_gene_maximin_effect_median_loss": 0.0,
+          "group_id": "E2_c0168_0175",
+          "parent_group_id": "E2_c0160_0191",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.011049723756906105,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.010311176578898906,
+                "positive_necessity_count": 1,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.0032051282051283048,
+                "median_necessity_loss": 0.0007437380510774139,
+                "minimum_necessity_loss": -0.0031397174254317317,
+                "positive_necessity_count": 3,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.06518282988871227,
+                "median_necessity_loss": 0.04556050829739722,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 5,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.06896551724137931,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E2"
+        }
+      }
+    },
+    "E32_c0000_0031": {
+      "children": [
+        {
+          "channel_end_exclusive": 8,
+          "channel_start_inclusive": 0,
+          "cross_gene_maximin_effect_median_loss": 0.0,
+          "group_id": "E32_c0000_0007",
+          "parent_group_id": "E32_c0000_0031",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.05708848715509035,
+                "median_necessity_loss": 0.0190044184109541,
+                "minimum_necessity_loss": -0.004444444444444473,
+                "positive_necessity_count": 5,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.013335873499714268,
+                "median_necessity_loss": 0.007004861038748783,
+                "minimum_necessity_loss": -0.004807692307692291,
+                "positive_necessity_count": 3,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.002161383285302576,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.0025316455696202667,
+                "positive_necessity_count": 2,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.05555555555555555,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E32"
+        },
+        {
+          "channel_end_exclusive": 16,
+          "channel_start_inclusive": 8,
+          "cross_gene_maximin_effect_median_loss": -0.0063473940162807885,
+          "group_id": "E32_c0008_0015",
+          "parent_group_id": "E32_c0000_0031",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.013808975834292248,
+                "median_necessity_loss": -0.0063473940162807885,
+                "minimum_necessity_loss": -0.010830324909747224,
+                "positive_necessity_count": 2,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.0007254261878854029,
+                "median_necessity_loss": -0.00038102495713468465,
+                "minimum_necessity_loss": -0.0064102564102563875,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.0007949125596184992,
+                "median_necessity_loss": -0.0003360215053763438,
+                "minimum_necessity_loss": -0.0075949367088608,
+                "positive_necessity_count": 2,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.20000000000000018,
+                "median_necessity_loss": 0.027777777777777776,
+                "minimum_necessity_loss": -0.034482758620689655,
+                "positive_necessity_count": 2,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E32"
+        },
+        {
+          "channel_end_exclusive": 24,
+          "channel_start_inclusive": 16,
+          "cross_gene_maximin_effect_median_loss": -0.0021733104580137497,
+          "group_id": "E32_c0016_0023",
+          "parent_group_id": "E32_c0000_0031",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.013320647002854402,
+                "median_necessity_loss": -0.0021733104580137497,
+                "minimum_necessity_loss": -0.022222222222222254,
+                "positive_necessity_count": 2,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.004709576138147542,
+                "median_necessity_loss": -3.662372638399414e-05,
+                "minimum_necessity_loss": -0.008012820512820484,
+                "positive_necessity_count": 2,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.024620434961017623,
+                "median_necessity_loss": 0.01243000438103986,
+                "minimum_necessity_loss": 0.011128775834658211,
+                "positive_necessity_count": 6,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.05555555555555555,
+                "median_necessity_loss": 0.017241379310344827,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 2,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E32"
+        },
+        {
+          "channel_end_exclusive": 32,
+          "channel_start_inclusive": 24,
+          "cross_gene_maximin_effect_median_loss": 0.0008027520760092999,
+          "group_id": "E32_c0024_0031",
+          "parent_group_id": "E32_c0000_0031",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.022099447513812154,
+                "median_necessity_loss": 0.009521091024421169,
+                "minimum_necessity_loss": -0.004602991944764101,
+                "positive_necessity_count": 5,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.0003810249571347124,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.0064102564102563875,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.002531645569620211,
+                "median_necessity_loss": 0.0008027520760092999,
+                "minimum_necessity_loss": -0.0004200268817204367,
+                "positive_necessity_count": 4,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.034482758620689655,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E32"
+        }
+      ],
+      "same_top_child_in_both_genes": false,
+      "stage": "E32",
+      "top_child_by_gene": {
+        "BRAF": {
+          "channel_end_exclusive": 8,
+          "channel_start_inclusive": 0,
+          "cross_gene_maximin_effect_median_loss": 0.0,
+          "group_id": "E32_c0000_0007",
+          "parent_group_id": "E32_c0000_0031",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.05708848715509035,
+                "median_necessity_loss": 0.0190044184109541,
+                "minimum_necessity_loss": -0.004444444444444473,
+                "positive_necessity_count": 5,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.013335873499714268,
+                "median_necessity_loss": 0.007004861038748783,
+                "minimum_necessity_loss": -0.004807692307692291,
+                "positive_necessity_count": 3,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.002161383285302576,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.0025316455696202667,
+                "positive_necessity_count": 2,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.05555555555555555,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E32"
+        },
+        "SLC25A48": {
+          "channel_end_exclusive": 24,
+          "channel_start_inclusive": 16,
+          "cross_gene_maximin_effect_median_loss": -0.0021733104580137497,
+          "group_id": "E32_c0016_0023",
+          "parent_group_id": "E32_c0000_0031",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.013320647002854402,
+                "median_necessity_loss": -0.0021733104580137497,
+                "minimum_necessity_loss": -0.022222222222222254,
+                "positive_necessity_count": 2,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.004709576138147542,
+                "median_necessity_loss": -3.662372638399414e-05,
+                "minimum_necessity_loss": -0.008012820512820484,
+                "positive_necessity_count": 2,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.024620434961017623,
+                "median_necessity_loss": 0.01243000438103986,
+                "minimum_necessity_loss": 0.011128775834658211,
+                "positive_necessity_count": 6,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.05555555555555555,
+                "median_necessity_loss": 0.017241379310344827,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 2,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E32"
+        }
+      }
+    }
+  },
+  "rankings": {
+    "all_child_ids_by_gene": {
+      "BRAF": [
+        "E32_c0000_0007",
+        "E16_c0000_0007",
+        "E16_c0536_0543",
+        "E1_c0160_0167",
+        "E32_c0024_0031",
+        "E16_c0520_0527",
+        "E16_c0512_0519",
+        "E1_c0176_0183",
+        "E16_c0024_0031",
+        "E16_c0528_0535",
+        "E1_c0168_0175",
+        "E1_c0184_0191",
+        "E2_c0168_0175",
+        "E2_c0184_0191",
+        "E2_c0176_0183",
+        "E32_c0016_0023",
+        "E2_c0160_0167",
+        "E16_c0008_0015",
+        "E16_c0016_0023",
+        "E32_c0008_0015"
+      ],
+      "SLC25A48": [
+        "E2_c0168_0175",
+        "E1_c0168_0175",
+        "E2_c0160_0167",
+        "E32_c0016_0023",
+        "E16_c0016_0023",
+        "E1_c0160_0167",
+        "E1_c0176_0183",
+        "E16_c0528_0535",
+        "E32_c0024_0031",
+        "E16_c0008_0015",
+        "E16_c0024_0031",
+        "E2_c0176_0183",
+        "E2_c0184_0191",
+        "E32_c0000_0007",
+        "E16_c0000_0007",
+        "E1_c0184_0191",
+        "E16_c0536_0543",
+        "E16_c0512_0519",
+        "E32_c0008_0015",
+        "E16_c0520_0527"
+      ]
+    },
+    "cross_gene_all_child_ids": [
+      "E1_c0160_0167",
+      "E1_c0176_0183",
+      "E32_c0024_0031",
+      "E16_c0024_0031",
+      "E16_c0528_0535",
+      "E1_c0168_0175",
+      "E2_c0168_0175",
+      "E2_c0184_0191",
+      "E32_c0000_0007",
+      "E16_c0000_0007",
+      "E1_c0184_0191",
+      "E16_c0536_0543",
+      "E16_c0512_0519",
+      "E16_c0520_0527",
+      "E2_c0176_0183",
+      "E32_c0016_0023",
+      "E2_c0160_0167",
+      "E16_c0008_0015",
+      "E16_c0016_0023",
+      "E32_c0008_0015"
+    ],
+    "top_10_by_gene": {
+      "BRAF": [
+        {
+          "channel_end_exclusive": 8,
+          "channel_start_inclusive": 0,
+          "cross_gene_maximin_effect_median_loss": 0.0,
+          "group_id": "E32_c0000_0007",
+          "parent_group_id": "E32_c0000_0031",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.05708848715509035,
+                "median_necessity_loss": 0.0190044184109541,
+                "minimum_necessity_loss": -0.004444444444444473,
+                "positive_necessity_count": 5,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.013335873499714268,
+                "median_necessity_loss": 0.007004861038748783,
+                "minimum_necessity_loss": -0.004807692307692291,
+                "positive_necessity_count": 3,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.002161383285302576,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.0025316455696202667,
+                "positive_necessity_count": 2,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.05555555555555555,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E32"
+        },
+        {
+          "channel_end_exclusive": 8,
+          "channel_start_inclusive": 0,
+          "cross_gene_maximin_effect_median_loss": -3.150201612903136e-05,
+          "group_id": "E16_c0000_0007",
+          "parent_group_id": "E16_c0000_0031",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.03555555555555556,
+                "median_necessity_loss": 0.017309674052477575,
+                "minimum_necessity_loss": -0.010830324909747224,
+                "positive_necessity_count": 4,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.012558869701726816,
+                "median_necessity_loss": 0.00459061134880831,
+                "minimum_necessity_loss": -0.0032051282051281937,
+                "positive_necessity_count": 2,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.0014409221902016434,
+                "median_necessity_loss": -3.150201612903136e-05,
+                "minimum_necessity_loss": -0.0025316455696202667,
+                "positive_necessity_count": 1,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.05555555555555555,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.06896551724137931,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E16"
+        },
+        {
+          "channel_end_exclusive": 544,
+          "channel_start_inclusive": 536,
+          "cross_gene_maximin_effect_median_loss": -0.00019951276881718938,
+          "group_id": "E16_c0536_0543",
+          "parent_group_id": "E16_c0512_0543",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.06408839779005526,
+                "median_necessity_loss": 0.016296655507437724,
+                "minimum_necessity_loss": -0.06137184115523464,
+                "positive_necessity_count": 4,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.05549510337323177,
+                "median_necessity_loss": 0.02233778126635272,
+                "minimum_necessity_loss": 0.007239474185559147,
+                "positive_necessity_count": 4,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.0014409221902016434,
+                "median_necessity_loss": -0.00019951276881718938,
+                "minimum_necessity_loss": -0.005063291139240533,
+                "positive_necessity_count": 2,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.05555555555555555,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E16"
+        },
+        {
+          "channel_end_exclusive": 168,
+          "channel_start_inclusive": 160,
+          "cross_gene_maximin_effect_median_loss": 0.0011204333929517862,
+          "group_id": "E1_c0160_0167",
+          "parent_group_id": "E1_c0160_0191",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.06859205776173283,
+                "median_necessity_loss": 0.01279734463026419,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 4,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.008012820512820595,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.0028818443804033977,
+                "median_necessity_loss": 0.0011204333929517862,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 5,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E1"
+        },
+        {
+          "channel_end_exclusive": 32,
+          "channel_start_inclusive": 24,
+          "cross_gene_maximin_effect_median_loss": 0.0008027520760092999,
+          "group_id": "E32_c0024_0031",
+          "parent_group_id": "E32_c0000_0031",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.022099447513812154,
+                "median_necessity_loss": 0.009521091024421169,
+                "minimum_necessity_loss": -0.004602991944764101,
+                "positive_necessity_count": 5,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.0003810249571347124,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.0064102564102563875,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.002531645569620211,
+                "median_necessity_loss": 0.0008027520760092999,
+                "minimum_necessity_loss": -0.0004200268817204367,
+                "positive_necessity_count": 4,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.034482758620689655,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E32"
+        },
+        {
+          "channel_end_exclusive": 528,
+          "channel_start_inclusive": 520,
+          "cross_gene_maximin_effect_median_loss": -0.0008977762857540761,
+          "group_id": "E16_c0520_0527",
+          "parent_group_id": "E16_c0512_0543",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.019889502762430955,
+                "median_necessity_loss": 0.005661781796908544,
+                "minimum_necessity_loss": -0.013333333333333364,
+                "positive_necessity_count": 4,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.015698587127158548,
+                "median_necessity_loss": 0.009111015040715986,
+                "minimum_necessity_loss": -0.0007254261878854029,
+                "positive_necessity_count": 3,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.0014409221902016434,
+                "median_necessity_loss": -0.0008977762857540761,
+                "minimum_necessity_loss": -0.004924086992203536,
+                "positive_necessity_count": 1,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.06896551724137931,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E16"
+        },
+        {
+          "channel_end_exclusive": 520,
+          "channel_start_inclusive": 512,
+          "cross_gene_maximin_effect_median_loss": -0.0003360215053763438,
+          "group_id": "E16_c0512_0519",
+          "parent_group_id": "E16_c0512_0543",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.03222094361334865,
+                "median_necessity_loss": 0.004125171794058552,
+                "minimum_necessity_loss": -0.007365126127784949,
+                "positive_necessity_count": 5,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.004807692307692402,
+                "median_necessity_loss": -0.0011064511450200598,
+                "minimum_necessity_loss": -0.0031397174254317317,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.0014409221902016434,
+                "median_necessity_loss": -0.0003360215053763438,
+                "minimum_necessity_loss": -0.0016413623307345304,
+                "positive_necessity_count": 2,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.05555555555555555,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E16"
+        },
+        {
+          "channel_end_exclusive": 184,
+          "channel_start_inclusive": 176,
+          "cross_gene_maximin_effect_median_loss": 0.0010623582475710325,
+          "group_id": "E1_c0176_0183",
+          "parent_group_id": "E1_c0160_0191",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.02527075812274371,
+                "median_necessity_loss": 0.0014730252255570064,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 3,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.0016025641025640969,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.0075949367088607445,
+                "median_necessity_loss": 0.0010623582475710325,
+                "minimum_necessity_loss": -0.001050067204301064,
+                "positive_necessity_count": 4,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E1"
+        },
+        {
+          "channel_end_exclusive": 32,
+          "channel_start_inclusive": 24,
+          "cross_gene_maximin_effect_median_loss": 0.0,
+          "group_id": "E16_c0024_0031",
+          "parent_group_id": "E16_c0000_0031",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.015469613259668502,
+                "median_necessity_loss": 0.0005832184795289408,
+                "minimum_necessity_loss": -0.00888888888888889,
+                "positive_necessity_count": 3,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.0015698587127158103,
+                "median_necessity_loss": -0.00036271309394270146,
+                "minimum_necessity_loss": -0.008012820512820484,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.0014409221902016434,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.000798051075268813,
+                "positive_necessity_count": 2,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.5,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E16"
+        },
+        {
+          "channel_end_exclusive": 536,
+          "channel_start_inclusive": 528,
+          "cross_gene_maximin_effect_median_loss": 0.0,
+          "group_id": "E16_c0528_0535",
+          "parent_group_id": "E16_c0512_0543",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.02166064981949456,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.005155588289449453,
+                "positive_necessity_count": 2,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": -0.0021413961484179067,
+                "minimum_necessity_loss": -0.008012820512820484,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.0031796502384737746,
+                "median_necessity_loss": 0.0009261885473720588,
+                "minimum_necessity_loss": -0.0002520161290322509,
+                "positive_necessity_count": 4,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.05555555555555555,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E16"
+        }
+      ],
+      "SLC25A48": [
+        {
+          "channel_end_exclusive": 176,
+          "channel_start_inclusive": 168,
+          "cross_gene_maximin_effect_median_loss": 0.0,
+          "group_id": "E2_c0168_0175",
+          "parent_group_id": "E2_c0160_0191",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.011049723756906105,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.010311176578898906,
+                "positive_necessity_count": 1,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.0032051282051283048,
+                "median_necessity_loss": 0.0007437380510774139,
+                "minimum_necessity_loss": -0.0031397174254317317,
+                "positive_necessity_count": 3,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.06518282988871227,
+                "median_necessity_loss": 0.04556050829739722,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 5,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.06896551724137931,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E2"
+        },
+        {
+          "channel_end_exclusive": 176,
+          "channel_start_inclusive": 168,
+          "cross_gene_maximin_effect_median_loss": 0.0,
+          "group_id": "E1_c0168_0175",
+          "parent_group_id": "E1_c0160_0191",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.0072202166064981865,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.011417697431018115,
+                "positive_necessity_count": 2,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.0016025641025640969,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.10086455331412103,
+                "median_necessity_loss": 0.04306356369923736,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 5,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E1"
+        },
+        {
+          "channel_end_exclusive": 168,
+          "channel_start_inclusive": 160,
+          "cross_gene_maximin_effect_median_loss": -0.005155588289449453,
+          "group_id": "E2_c0160_0167",
+          "parent_group_id": "E2_c0160_0191",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.03314917127071826,
+                "median_necessity_loss": -0.005155588289449453,
+                "minimum_necessity_loss": -0.018050541516245522,
+                "positive_necessity_count": 2,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.0043525571273123065,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.0007620499142693693,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.023054755043227626,
+                "median_necessity_loss": 0.020764245105191176,
+                "minimum_necessity_loss": -0.005063291139240533,
+                "positive_necessity_count": 5,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.5,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E2"
+        },
+        {
+          "channel_end_exclusive": 24,
+          "channel_start_inclusive": 16,
+          "cross_gene_maximin_effect_median_loss": -0.0021733104580137497,
+          "group_id": "E32_c0016_0023",
+          "parent_group_id": "E32_c0000_0031",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.013320647002854402,
+                "median_necessity_loss": -0.0021733104580137497,
+                "minimum_necessity_loss": -0.022222222222222254,
+                "positive_necessity_count": 2,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.004709576138147542,
+                "median_necessity_loss": -3.662372638399414e-05,
+                "minimum_necessity_loss": -0.008012820512820484,
+                "positive_necessity_count": 2,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.024620434961017623,
+                "median_necessity_loss": 0.01243000438103986,
+                "minimum_necessity_loss": 0.011128775834658211,
+                "positive_necessity_count": 6,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.05555555555555555,
+                "median_necessity_loss": 0.017241379310344827,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 2,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E32"
+        },
+        {
+          "channel_end_exclusive": 24,
+          "channel_start_inclusive": 16,
+          "cross_gene_maximin_effect_median_loss": -0.00583233052547133,
+          "group_id": "E16_c0016_0023",
+          "parent_group_id": "E16_c0000_0031",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.013259668508287303,
+                "median_necessity_loss": -0.00583233052547133,
+                "minimum_necessity_loss": -0.017126546146527144,
+                "positive_necessity_count": 2,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.0021762785636561532,
+                "median_necessity_loss": -0.00038102495713468465,
+                "minimum_necessity_loss": -0.0032051282051281937,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.013130898645876077,
+                "median_necessity_loss": 0.008541712238513549,
+                "minimum_necessity_loss": 0.006615423387096753,
+                "positive_necessity_count": 6,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.05555555555555555,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E16"
+        },
+        {
+          "channel_end_exclusive": 168,
+          "channel_start_inclusive": 160,
+          "cross_gene_maximin_effect_median_loss": 0.0011204333929517862,
+          "group_id": "E1_c0160_0167",
+          "parent_group_id": "E1_c0160_0191",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.06859205776173283,
+                "median_necessity_loss": 0.01279734463026419,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 4,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.008012820512820595,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.0028818443804033977,
+                "median_necessity_loss": 0.0011204333929517862,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 5,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E1"
+        },
+        {
+          "channel_end_exclusive": 184,
+          "channel_start_inclusive": 176,
+          "cross_gene_maximin_effect_median_loss": 0.0010623582475710325,
+          "group_id": "E1_c0176_0183",
+          "parent_group_id": "E1_c0160_0191",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.02527075812274371,
+                "median_necessity_loss": 0.0014730252255570064,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 3,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.0016025641025640969,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.0075949367088607445,
+                "median_necessity_loss": 0.0010623582475710325,
+                "minimum_necessity_loss": -0.001050067204301064,
+                "positive_necessity_count": 4,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E1"
+        },
+        {
+          "channel_end_exclusive": 536,
+          "channel_start_inclusive": 528,
+          "cross_gene_maximin_effect_median_loss": 0.0,
+          "group_id": "E16_c0528_0535",
+          "parent_group_id": "E16_c0512_0543",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.02166064981949456,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.005155588289449453,
+                "positive_necessity_count": 2,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": -0.0021413961484179067,
+                "minimum_necessity_loss": -0.008012820512820484,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.0031796502384737746,
+                "median_necessity_loss": 0.0009261885473720588,
+                "minimum_necessity_loss": -0.0002520161290322509,
+                "positive_necessity_count": 4,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.05555555555555555,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E16"
+        },
+        {
+          "channel_end_exclusive": 32,
+          "channel_start_inclusive": 24,
+          "cross_gene_maximin_effect_median_loss": 0.0008027520760092999,
+          "group_id": "E32_c0024_0031",
+          "parent_group_id": "E32_c0000_0031",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.022099447513812154,
+                "median_necessity_loss": 0.009521091024421169,
+                "minimum_necessity_loss": -0.004602991944764101,
+                "positive_necessity_count": 5,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.0003810249571347124,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.0064102564102563875,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.002531645569620211,
+                "median_necessity_loss": 0.0008027520760092999,
+                "minimum_necessity_loss": -0.0004200268817204367,
+                "positive_necessity_count": 4,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.034482758620689655,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E32"
+        },
+        {
+          "channel_end_exclusive": 16,
+          "channel_start_inclusive": 8,
+          "cross_gene_maximin_effect_median_loss": -0.005783418761262843,
+          "group_id": "E16_c0008_0015",
+          "parent_group_id": "E16_c0000_0031",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.019889502762430955,
+                "median_necessity_loss": -0.005783418761262843,
+                "minimum_necessity_loss": -0.017126546146527144,
+                "positive_necessity_count": 2,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.0003810249571347124,
+                "median_necessity_loss": -0.0015698587127158659,
+                "minimum_necessity_loss": -0.0032051282051281937,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.0016413623307345304,
+                "median_necessity_loss": 0.00010286372613560468,
+                "minimum_necessity_loss": -0.0025316455696202667,
+                "positive_necessity_count": 3,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.05555555555555555,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E16"
+        }
+      ]
+    },
+    "top_10_cross_gene": [
+      {
+        "channel_end_exclusive": 168,
+        "channel_start_inclusive": 160,
+        "cross_gene_maximin_effect_median_loss": 0.0011204333929517862,
+        "group_id": "E1_c0160_0167",
+        "parent_group_id": "E1_c0160_0191",
+        "per_gene": {
+          "BRAF": {
+            "effect": {
+              "maximum_necessity_loss": 0.06859205776173283,
+              "median_necessity_loss": 0.01279734463026419,
+              "minimum_necessity_loss": 0.0,
+              "positive_necessity_count": 4,
+              "variant_count": 6
+            },
+            "effect_median_exceeds_neutral": true,
+            "neutral": {
+              "maximum_necessity_loss": 0.008012820512820595,
+              "median_necessity_loss": 0.0,
+              "minimum_necessity_loss": 0.0,
+              "positive_necessity_count": 1,
+              "variant_count": 4
+            }
+          },
+          "SLC25A48": {
+            "effect": {
+              "maximum_necessity_loss": 0.0028818443804033977,
+              "median_necessity_loss": 0.0011204333929517862,
+              "minimum_necessity_loss": 0.0,
+              "positive_necessity_count": 5,
+              "variant_count": 6
+            },
+            "effect_median_exceeds_neutral": true,
+            "neutral": {
+              "maximum_necessity_loss": 0.0,
+              "median_necessity_loss": 0.0,
+              "minimum_necessity_loss": 0.0,
+              "positive_necessity_count": 0,
+              "variant_count": 4
+            }
+          }
+        },
+        "stage": "E1"
+      },
+      {
+        "channel_end_exclusive": 184,
+        "channel_start_inclusive": 176,
+        "cross_gene_maximin_effect_median_loss": 0.0010623582475710325,
+        "group_id": "E1_c0176_0183",
+        "parent_group_id": "E1_c0160_0191",
+        "per_gene": {
+          "BRAF": {
+            "effect": {
+              "maximum_necessity_loss": 0.02527075812274371,
+              "median_necessity_loss": 0.0014730252255570064,
+              "minimum_necessity_loss": 0.0,
+              "positive_necessity_count": 3,
+              "variant_count": 6
+            },
+            "effect_median_exceeds_neutral": true,
+            "neutral": {
+              "maximum_necessity_loss": 0.0,
+              "median_necessity_loss": 0.0,
+              "minimum_necessity_loss": -0.0016025641025640969,
+              "positive_necessity_count": 0,
+              "variant_count": 4
+            }
+          },
+          "SLC25A48": {
+            "effect": {
+              "maximum_necessity_loss": 0.0075949367088607445,
+              "median_necessity_loss": 0.0010623582475710325,
+              "minimum_necessity_loss": -0.001050067204301064,
+              "positive_necessity_count": 4,
+              "variant_count": 6
+            },
+            "effect_median_exceeds_neutral": true,
+            "neutral": {
+              "maximum_necessity_loss": 0.0,
+              "median_necessity_loss": 0.0,
+              "minimum_necessity_loss": 0.0,
+              "positive_necessity_count": 0,
+              "variant_count": 4
+            }
+          }
+        },
+        "stage": "E1"
+      },
+      {
+        "channel_end_exclusive": 32,
+        "channel_start_inclusive": 24,
+        "cross_gene_maximin_effect_median_loss": 0.0008027520760092999,
+        "group_id": "E32_c0024_0031",
+        "parent_group_id": "E32_c0000_0031",
+        "per_gene": {
+          "BRAF": {
+            "effect": {
+              "maximum_necessity_loss": 0.022099447513812154,
+              "median_necessity_loss": 0.009521091024421169,
+              "minimum_necessity_loss": -0.004602991944764101,
+              "positive_necessity_count": 5,
+              "variant_count": 6
+            },
+            "effect_median_exceeds_neutral": true,
+            "neutral": {
+              "maximum_necessity_loss": 0.0003810249571347124,
+              "median_necessity_loss": 0.0,
+              "minimum_necessity_loss": -0.0064102564102563875,
+              "positive_necessity_count": 1,
+              "variant_count": 4
+            }
+          },
+          "SLC25A48": {
+            "effect": {
+              "maximum_necessity_loss": 0.002531645569620211,
+              "median_necessity_loss": 0.0008027520760092999,
+              "minimum_necessity_loss": -0.0004200268817204367,
+              "positive_necessity_count": 4,
+              "variant_count": 6
+            },
+            "effect_median_exceeds_neutral": true,
+            "neutral": {
+              "maximum_necessity_loss": 0.0,
+              "median_necessity_loss": 0.0,
+              "minimum_necessity_loss": -0.034482758620689655,
+              "positive_necessity_count": 0,
+              "variant_count": 4
+            }
+          }
+        },
+        "stage": "E32"
+      },
+      {
+        "channel_end_exclusive": 32,
+        "channel_start_inclusive": 24,
+        "cross_gene_maximin_effect_median_loss": 0.0,
+        "group_id": "E16_c0024_0031",
+        "parent_group_id": "E16_c0000_0031",
+        "per_gene": {
+          "BRAF": {
+            "effect": {
+              "maximum_necessity_loss": 0.015469613259668502,
+              "median_necessity_loss": 0.0005832184795289408,
+              "minimum_necessity_loss": -0.00888888888888889,
+              "positive_necessity_count": 3,
+              "variant_count": 6
+            },
+            "effect_median_exceeds_neutral": true,
+            "neutral": {
+              "maximum_necessity_loss": 0.0015698587127158103,
+              "median_necessity_loss": -0.00036271309394270146,
+              "minimum_necessity_loss": -0.008012820512820484,
+              "positive_necessity_count": 1,
+              "variant_count": 4
+            }
+          },
+          "SLC25A48": {
+            "effect": {
+              "maximum_necessity_loss": 0.0014409221902016434,
+              "median_necessity_loss": 0.0,
+              "minimum_necessity_loss": -0.000798051075268813,
+              "positive_necessity_count": 2,
+              "variant_count": 6
+            },
+            "effect_median_exceeds_neutral": false,
+            "neutral": {
+              "maximum_necessity_loss": 0.5,
+              "median_necessity_loss": 0.0,
+              "minimum_necessity_loss": 0.0,
+              "positive_necessity_count": 1,
+              "variant_count": 4
+            }
+          }
+        },
+        "stage": "E16"
+      },
+      {
+        "channel_end_exclusive": 536,
+        "channel_start_inclusive": 528,
+        "cross_gene_maximin_effect_median_loss": 0.0,
+        "group_id": "E16_c0528_0535",
+        "parent_group_id": "E16_c0512_0543",
+        "per_gene": {
+          "BRAF": {
+            "effect": {
+              "maximum_necessity_loss": 0.02166064981949456,
+              "median_necessity_loss": 0.0,
+              "minimum_necessity_loss": -0.005155588289449453,
+              "positive_necessity_count": 2,
+              "variant_count": 6
+            },
+            "effect_median_exceeds_neutral": true,
+            "neutral": {
+              "maximum_necessity_loss": 0.0,
+              "median_necessity_loss": -0.0021413961484179067,
+              "minimum_necessity_loss": -0.008012820512820484,
+              "positive_necessity_count": 0,
+              "variant_count": 4
+            }
+          },
+          "SLC25A48": {
+            "effect": {
+              "maximum_necessity_loss": 0.0031796502384737746,
+              "median_necessity_loss": 0.0009261885473720588,
+              "minimum_necessity_loss": -0.0002520161290322509,
+              "positive_necessity_count": 4,
+              "variant_count": 6
+            },
+            "effect_median_exceeds_neutral": true,
+            "neutral": {
+              "maximum_necessity_loss": 0.05555555555555555,
+              "median_necessity_loss": 0.0,
+              "minimum_necessity_loss": 0.0,
+              "positive_necessity_count": 1,
+              "variant_count": 4
+            }
+          }
+        },
+        "stage": "E16"
+      },
+      {
+        "channel_end_exclusive": 176,
+        "channel_start_inclusive": 168,
+        "cross_gene_maximin_effect_median_loss": 0.0,
+        "group_id": "E1_c0168_0175",
+        "parent_group_id": "E1_c0160_0191",
+        "per_gene": {
+          "BRAF": {
+            "effect": {
+              "maximum_necessity_loss": 0.0072202166064981865,
+              "median_necessity_loss": 0.0,
+              "minimum_necessity_loss": -0.011417697431018115,
+              "positive_necessity_count": 2,
+              "variant_count": 6
+            },
+            "effect_median_exceeds_neutral": false,
+            "neutral": {
+              "maximum_necessity_loss": 0.0,
+              "median_necessity_loss": 0.0,
+              "minimum_necessity_loss": -0.0016025641025640969,
+              "positive_necessity_count": 0,
+              "variant_count": 4
+            }
+          },
+          "SLC25A48": {
+            "effect": {
+              "maximum_necessity_loss": 0.10086455331412103,
+              "median_necessity_loss": 0.04306356369923736,
+              "minimum_necessity_loss": 0.0,
+              "positive_necessity_count": 5,
+              "variant_count": 6
+            },
+            "effect_median_exceeds_neutral": true,
+            "neutral": {
+              "maximum_necessity_loss": 0.0,
+              "median_necessity_loss": 0.0,
+              "minimum_necessity_loss": 0.0,
+              "positive_necessity_count": 0,
+              "variant_count": 4
+            }
+          }
+        },
+        "stage": "E1"
+      },
+      {
+        "channel_end_exclusive": 176,
+        "channel_start_inclusive": 168,
+        "cross_gene_maximin_effect_median_loss": 0.0,
+        "group_id": "E2_c0168_0175",
+        "parent_group_id": "E2_c0160_0191",
+        "per_gene": {
+          "BRAF": {
+            "effect": {
+              "maximum_necessity_loss": 0.011049723756906105,
+              "median_necessity_loss": 0.0,
+              "minimum_necessity_loss": -0.010311176578898906,
+              "positive_necessity_count": 1,
+              "variant_count": 6
+            },
+            "effect_median_exceeds_neutral": false,
+            "neutral": {
+              "maximum_necessity_loss": 0.0032051282051283048,
+              "median_necessity_loss": 0.0007437380510774139,
+              "minimum_necessity_loss": -0.0031397174254317317,
+              "positive_necessity_count": 3,
+              "variant_count": 4
+            }
+          },
+          "SLC25A48": {
+            "effect": {
+              "maximum_necessity_loss": 0.06518282988871227,
+              "median_necessity_loss": 0.04556050829739722,
+              "minimum_necessity_loss": 0.0,
+              "positive_necessity_count": 5,
+              "variant_count": 6
+            },
+            "effect_median_exceeds_neutral": true,
+            "neutral": {
+              "maximum_necessity_loss": 0.0,
+              "median_necessity_loss": 0.0,
+              "minimum_necessity_loss": -0.06896551724137931,
+              "positive_necessity_count": 0,
+              "variant_count": 4
+            }
+          }
+        },
+        "stage": "E2"
+      },
+      {
+        "channel_end_exclusive": 192,
+        "channel_start_inclusive": 184,
+        "cross_gene_maximin_effect_median_loss": 0.0,
+        "group_id": "E2_c0184_0191",
+        "parent_group_id": "E2_c0160_0191",
+        "per_gene": {
+          "BRAF": {
+            "effect": {
+              "maximum_necessity_loss": 0.011049723756906105,
+              "median_necessity_loss": 0.0,
+              "minimum_necessity_loss": -0.0072202166064981865,
+              "positive_necessity_count": 2,
+              "variant_count": 6
+            },
+            "effect_median_exceeds_neutral": true,
+            "neutral": {
+              "maximum_necessity_loss": 0.002901704751541556,
+              "median_necessity_loss": -0.00038102495713468465,
+              "minimum_necessity_loss": -0.0016025641025640969,
+              "positive_necessity_count": 1,
+              "variant_count": 4
+            }
+          },
+          "SLC25A48": {
+            "effect": {
+              "maximum_necessity_loss": 0.0002880184331797153,
+              "median_necessity_loss": 0.0,
+              "minimum_necessity_loss": -0.0025316455696202667,
+              "positive_necessity_count": 1,
+              "variant_count": 6
+            },
+            "effect_median_exceeds_neutral": false,
+            "neutral": {
+              "maximum_necessity_loss": 0.0,
+              "median_necessity_loss": 0.0,
+              "minimum_necessity_loss": -0.06896551724137931,
+              "positive_necessity_count": 0,
+              "variant_count": 4
+            }
+          }
+        },
+        "stage": "E2"
+      },
+      {
+        "channel_end_exclusive": 8,
+        "channel_start_inclusive": 0,
+        "cross_gene_maximin_effect_median_loss": 0.0,
+        "group_id": "E32_c0000_0007",
+        "parent_group_id": "E32_c0000_0031",
+        "per_gene": {
+          "BRAF": {
+            "effect": {
+              "maximum_necessity_loss": 0.05708848715509035,
+              "median_necessity_loss": 0.0190044184109541,
+              "minimum_necessity_loss": -0.004444444444444473,
+              "positive_necessity_count": 5,
+              "variant_count": 6
+            },
+            "effect_median_exceeds_neutral": true,
+            "neutral": {
+              "maximum_necessity_loss": 0.013335873499714268,
+              "median_necessity_loss": 0.007004861038748783,
+              "minimum_necessity_loss": -0.004807692307692291,
+              "positive_necessity_count": 3,
+              "variant_count": 4
+            }
+          },
+          "SLC25A48": {
+            "effect": {
+              "maximum_necessity_loss": 0.002161383285302576,
+              "median_necessity_loss": 0.0,
+              "minimum_necessity_loss": -0.0025316455696202667,
+              "positive_necessity_count": 2,
+              "variant_count": 6
+            },
+            "effect_median_exceeds_neutral": false,
+            "neutral": {
+              "maximum_necessity_loss": 0.05555555555555555,
+              "median_necessity_loss": 0.0,
+              "minimum_necessity_loss": 0.0,
+              "positive_necessity_count": 1,
+              "variant_count": 4
+            }
+          }
+        },
+        "stage": "E32"
+      },
+      {
+        "channel_end_exclusive": 8,
+        "channel_start_inclusive": 0,
+        "cross_gene_maximin_effect_median_loss": -3.150201612903136e-05,
+        "group_id": "E16_c0000_0007",
+        "parent_group_id": "E16_c0000_0031",
+        "per_gene": {
+          "BRAF": {
+            "effect": {
+              "maximum_necessity_loss": 0.03555555555555556,
+              "median_necessity_loss": 0.017309674052477575,
+              "minimum_necessity_loss": -0.010830324909747224,
+              "positive_necessity_count": 4,
+              "variant_count": 6
+            },
+            "effect_median_exceeds_neutral": true,
+            "neutral": {
+              "maximum_necessity_loss": 0.012558869701726816,
+              "median_necessity_loss": 0.00459061134880831,
+              "minimum_necessity_loss": -0.0032051282051281937,
+              "positive_necessity_count": 2,
+              "variant_count": 4
+            }
+          },
+          "SLC25A48": {
+            "effect": {
+              "maximum_necessity_loss": 0.0014409221902016434,
+              "median_necessity_loss": -3.150201612903136e-05,
+              "minimum_necessity_loss": -0.0025316455696202667,
+              "positive_necessity_count": 1,
+              "variant_count": 6
+            },
+            "effect_median_exceeds_neutral": false,
+            "neutral": {
+              "maximum_necessity_loss": 0.05555555555555555,
+              "median_necessity_loss": 0.0,
+              "minimum_necessity_loss": -0.06896551724137931,
+              "positive_necessity_count": 1,
+              "variant_count": 4
+            }
+          }
+        },
+        "stage": "E16"
+      }
+    ]
+  },
+  "recommended_individual_channel_refinement": {
+    "deduplicated_child_ids": [
+      "E32_c0000_0007",
+      "E16_c0000_0007",
+      "E2_c0168_0175",
+      "E1_c0168_0175"
+    ],
+    "individual_channel_count": 32,
+    "per_gene": {
+      "BRAF": [
+        {
+          "channel_end_exclusive": 8,
+          "channel_start_inclusive": 0,
+          "cross_gene_maximin_effect_median_loss": 0.0,
+          "group_id": "E32_c0000_0007",
+          "parent_group_id": "E32_c0000_0031",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.05708848715509035,
+                "median_necessity_loss": 0.0190044184109541,
+                "minimum_necessity_loss": -0.004444444444444473,
+                "positive_necessity_count": 5,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.013335873499714268,
+                "median_necessity_loss": 0.007004861038748783,
+                "minimum_necessity_loss": -0.004807692307692291,
+                "positive_necessity_count": 3,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.002161383285302576,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.0025316455696202667,
+                "positive_necessity_count": 2,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.05555555555555555,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E32"
+        },
+        {
+          "channel_end_exclusive": 8,
+          "channel_start_inclusive": 0,
+          "cross_gene_maximin_effect_median_loss": -3.150201612903136e-05,
+          "group_id": "E16_c0000_0007",
+          "parent_group_id": "E16_c0000_0031",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.03555555555555556,
+                "median_necessity_loss": 0.017309674052477575,
+                "minimum_necessity_loss": -0.010830324909747224,
+                "positive_necessity_count": 4,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.012558869701726816,
+                "median_necessity_loss": 0.00459061134880831,
+                "minimum_necessity_loss": -0.0032051282051281937,
+                "positive_necessity_count": 2,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.0014409221902016434,
+                "median_necessity_loss": -3.150201612903136e-05,
+                "minimum_necessity_loss": -0.0025316455696202667,
+                "positive_necessity_count": 1,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.05555555555555555,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.06896551724137931,
+                "positive_necessity_count": 1,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E16"
+        }
+      ],
+      "SLC25A48": [
+        {
+          "channel_end_exclusive": 176,
+          "channel_start_inclusive": 168,
+          "cross_gene_maximin_effect_median_loss": 0.0,
+          "group_id": "E2_c0168_0175",
+          "parent_group_id": "E2_c0160_0191",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.011049723756906105,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.010311176578898906,
+                "positive_necessity_count": 1,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.0032051282051283048,
+                "median_necessity_loss": 0.0007437380510774139,
+                "minimum_necessity_loss": -0.0031397174254317317,
+                "positive_necessity_count": 3,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.06518282988871227,
+                "median_necessity_loss": 0.04556050829739722,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 5,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.06896551724137931,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E2"
+        },
+        {
+          "channel_end_exclusive": 176,
+          "channel_start_inclusive": 168,
+          "cross_gene_maximin_effect_median_loss": 0.0,
+          "group_id": "E1_c0168_0175",
+          "parent_group_id": "E1_c0160_0191",
+          "per_gene": {
+            "BRAF": {
+              "effect": {
+                "maximum_necessity_loss": 0.0072202166064981865,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.011417697431018115,
+                "positive_necessity_count": 2,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": false,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": -0.0016025641025640969,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            },
+            "SLC25A48": {
+              "effect": {
+                "maximum_necessity_loss": 0.10086455331412103,
+                "median_necessity_loss": 0.04306356369923736,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 5,
+                "variant_count": 6
+              },
+              "effect_median_exceeds_neutral": true,
+              "neutral": {
+                "maximum_necessity_loss": 0.0,
+                "median_necessity_loss": 0.0,
+                "minimum_necessity_loss": 0.0,
+                "positive_necessity_count": 0,
+                "variant_count": 4
+              }
+            }
+          },
+          "stage": "E1"
+        }
+      ]
+    },
+    "selection_rule": "top two children per gene with positive effect median necessity exceeding the gene-matched neutral median"
+  },
+  "schema_version": "alphagenome-channel-refinement-analysis-v1",
+  "scope": {
+    "child_group_count": 20,
+    "confirmation_access": false,
+    "development_only": true,
+    "effect_count": 12,
+    "group_result_count": 400,
+    "model_apply_count": 480,
+    "neutral_count": 8,
+    "parent_group_count": 5,
+    "variant_count": 20
+  },
+  "shared_parent_divergence": {
+    "different_top_child_in_both_gene_count": 3,
+    "parent_count": 3,
+    "per_parent": {
+      "E16_c0000_0031": {
+        "children": [
+          {
+            "channel_end_exclusive": 8,
+            "channel_start_inclusive": 0,
+            "cross_gene_maximin_effect_median_loss": -3.150201612903136e-05,
+            "group_id": "E16_c0000_0007",
+            "parent_group_id": "E16_c0000_0031",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum_necessity_loss": 0.03555555555555556,
+                  "median_necessity_loss": 0.017309674052477575,
+                  "minimum_necessity_loss": -0.010830324909747224,
+                  "positive_necessity_count": 4,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": true,
+                "neutral": {
+                  "maximum_necessity_loss": 0.012558869701726816,
+                  "median_necessity_loss": 0.00459061134880831,
+                  "minimum_necessity_loss": -0.0032051282051281937,
+                  "positive_necessity_count": 2,
+                  "variant_count": 4
+                }
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum_necessity_loss": 0.0014409221902016434,
+                  "median_necessity_loss": -3.150201612903136e-05,
+                  "minimum_necessity_loss": -0.0025316455696202667,
+                  "positive_necessity_count": 1,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": false,
+                "neutral": {
+                  "maximum_necessity_loss": 0.05555555555555555,
+                  "median_necessity_loss": 0.0,
+                  "minimum_necessity_loss": -0.06896551724137931,
+                  "positive_necessity_count": 1,
+                  "variant_count": 4
+                }
+              }
+            },
+            "stage": "E16"
+          },
+          {
+            "channel_end_exclusive": 16,
+            "channel_start_inclusive": 8,
+            "cross_gene_maximin_effect_median_loss": -0.005783418761262843,
+            "group_id": "E16_c0008_0015",
+            "parent_group_id": "E16_c0000_0031",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum_necessity_loss": 0.019889502762430955,
+                  "median_necessity_loss": -0.005783418761262843,
+                  "minimum_necessity_loss": -0.017126546146527144,
+                  "positive_necessity_count": 2,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": false,
+                "neutral": {
+                  "maximum_necessity_loss": 0.0003810249571347124,
+                  "median_necessity_loss": -0.0015698587127158659,
+                  "minimum_necessity_loss": -0.0032051282051281937,
+                  "positive_necessity_count": 1,
+                  "variant_count": 4
+                }
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum_necessity_loss": 0.0016413623307345304,
+                  "median_necessity_loss": 0.00010286372613560468,
+                  "minimum_necessity_loss": -0.0025316455696202667,
+                  "positive_necessity_count": 3,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": true,
+                "neutral": {
+                  "maximum_necessity_loss": 0.05555555555555555,
+                  "median_necessity_loss": 0.0,
+                  "minimum_necessity_loss": 0.0,
+                  "positive_necessity_count": 1,
+                  "variant_count": 4
+                }
+              }
+            },
+            "stage": "E16"
+          },
+          {
+            "channel_end_exclusive": 24,
+            "channel_start_inclusive": 16,
+            "cross_gene_maximin_effect_median_loss": -0.00583233052547133,
+            "group_id": "E16_c0016_0023",
+            "parent_group_id": "E16_c0000_0031",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum_necessity_loss": 0.013259668508287303,
+                  "median_necessity_loss": -0.00583233052547133,
+                  "minimum_necessity_loss": -0.017126546146527144,
+                  "positive_necessity_count": 2,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": false,
+                "neutral": {
+                  "maximum_necessity_loss": 0.0021762785636561532,
+                  "median_necessity_loss": -0.00038102495713468465,
+                  "minimum_necessity_loss": -0.0032051282051281937,
+                  "positive_necessity_count": 1,
+                  "variant_count": 4
+                }
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum_necessity_loss": 0.013130898645876077,
+                  "median_necessity_loss": 0.008541712238513549,
+                  "minimum_necessity_loss": 0.006615423387096753,
+                  "positive_necessity_count": 6,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": true,
+                "neutral": {
+                  "maximum_necessity_loss": 0.05555555555555555,
+                  "median_necessity_loss": 0.0,
+                  "minimum_necessity_loss": 0.0,
+                  "positive_necessity_count": 1,
+                  "variant_count": 4
+                }
+              }
+            },
+            "stage": "E16"
+          },
+          {
+            "channel_end_exclusive": 32,
+            "channel_start_inclusive": 24,
+            "cross_gene_maximin_effect_median_loss": 0.0,
+            "group_id": "E16_c0024_0031",
+            "parent_group_id": "E16_c0000_0031",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum_necessity_loss": 0.015469613259668502,
+                  "median_necessity_loss": 0.0005832184795289408,
+                  "minimum_necessity_loss": -0.00888888888888889,
+                  "positive_necessity_count": 3,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": true,
+                "neutral": {
+                  "maximum_necessity_loss": 0.0015698587127158103,
+                  "median_necessity_loss": -0.00036271309394270146,
+                  "minimum_necessity_loss": -0.008012820512820484,
+                  "positive_necessity_count": 1,
+                  "variant_count": 4
+                }
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum_necessity_loss": 0.0014409221902016434,
+                  "median_necessity_loss": 0.0,
+                  "minimum_necessity_loss": -0.000798051075268813,
+                  "positive_necessity_count": 2,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": false,
+                "neutral": {
+                  "maximum_necessity_loss": 0.5,
+                  "median_necessity_loss": 0.0,
+                  "minimum_necessity_loss": 0.0,
+                  "positive_necessity_count": 1,
+                  "variant_count": 4
+                }
+              }
+            },
+            "stage": "E16"
+          }
+        ],
+        "same_top_child_in_both_genes": false,
+        "stage": "E16",
+        "top_child_by_gene": {
+          "BRAF": {
+            "channel_end_exclusive": 8,
+            "channel_start_inclusive": 0,
+            "cross_gene_maximin_effect_median_loss": -3.150201612903136e-05,
+            "group_id": "E16_c0000_0007",
+            "parent_group_id": "E16_c0000_0031",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum_necessity_loss": 0.03555555555555556,
+                  "median_necessity_loss": 0.017309674052477575,
+                  "minimum_necessity_loss": -0.010830324909747224,
+                  "positive_necessity_count": 4,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": true,
+                "neutral": {
+                  "maximum_necessity_loss": 0.012558869701726816,
+                  "median_necessity_loss": 0.00459061134880831,
+                  "minimum_necessity_loss": -0.0032051282051281937,
+                  "positive_necessity_count": 2,
+                  "variant_count": 4
+                }
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum_necessity_loss": 0.0014409221902016434,
+                  "median_necessity_loss": -3.150201612903136e-05,
+                  "minimum_necessity_loss": -0.0025316455696202667,
+                  "positive_necessity_count": 1,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": false,
+                "neutral": {
+                  "maximum_necessity_loss": 0.05555555555555555,
+                  "median_necessity_loss": 0.0,
+                  "minimum_necessity_loss": -0.06896551724137931,
+                  "positive_necessity_count": 1,
+                  "variant_count": 4
+                }
+              }
+            },
+            "stage": "E16"
+          },
+          "SLC25A48": {
+            "channel_end_exclusive": 24,
+            "channel_start_inclusive": 16,
+            "cross_gene_maximin_effect_median_loss": -0.00583233052547133,
+            "group_id": "E16_c0016_0023",
+            "parent_group_id": "E16_c0000_0031",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum_necessity_loss": 0.013259668508287303,
+                  "median_necessity_loss": -0.00583233052547133,
+                  "minimum_necessity_loss": -0.017126546146527144,
+                  "positive_necessity_count": 2,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": false,
+                "neutral": {
+                  "maximum_necessity_loss": 0.0021762785636561532,
+                  "median_necessity_loss": -0.00038102495713468465,
+                  "minimum_necessity_loss": -0.0032051282051281937,
+                  "positive_necessity_count": 1,
+                  "variant_count": 4
+                }
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum_necessity_loss": 0.013130898645876077,
+                  "median_necessity_loss": 0.008541712238513549,
+                  "minimum_necessity_loss": 0.006615423387096753,
+                  "positive_necessity_count": 6,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": true,
+                "neutral": {
+                  "maximum_necessity_loss": 0.05555555555555555,
+                  "median_necessity_loss": 0.0,
+                  "minimum_necessity_loss": 0.0,
+                  "positive_necessity_count": 1,
+                  "variant_count": 4
+                }
+              }
+            },
+            "stage": "E16"
+          }
+        }
+      },
+      "E1_c0160_0191": {
+        "children": [
+          {
+            "channel_end_exclusive": 168,
+            "channel_start_inclusive": 160,
+            "cross_gene_maximin_effect_median_loss": 0.0011204333929517862,
+            "group_id": "E1_c0160_0167",
+            "parent_group_id": "E1_c0160_0191",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum_necessity_loss": 0.06859205776173283,
+                  "median_necessity_loss": 0.01279734463026419,
+                  "minimum_necessity_loss": 0.0,
+                  "positive_necessity_count": 4,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": true,
+                "neutral": {
+                  "maximum_necessity_loss": 0.008012820512820595,
+                  "median_necessity_loss": 0.0,
+                  "minimum_necessity_loss": 0.0,
+                  "positive_necessity_count": 1,
+                  "variant_count": 4
+                }
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum_necessity_loss": 0.0028818443804033977,
+                  "median_necessity_loss": 0.0011204333929517862,
+                  "minimum_necessity_loss": 0.0,
+                  "positive_necessity_count": 5,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": true,
+                "neutral": {
+                  "maximum_necessity_loss": 0.0,
+                  "median_necessity_loss": 0.0,
+                  "minimum_necessity_loss": 0.0,
+                  "positive_necessity_count": 0,
+                  "variant_count": 4
+                }
+              }
+            },
+            "stage": "E1"
+          },
+          {
+            "channel_end_exclusive": 176,
+            "channel_start_inclusive": 168,
+            "cross_gene_maximin_effect_median_loss": 0.0,
+            "group_id": "E1_c0168_0175",
+            "parent_group_id": "E1_c0160_0191",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum_necessity_loss": 0.0072202166064981865,
+                  "median_necessity_loss": 0.0,
+                  "minimum_necessity_loss": -0.011417697431018115,
+                  "positive_necessity_count": 2,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": false,
+                "neutral": {
+                  "maximum_necessity_loss": 0.0,
+                  "median_necessity_loss": 0.0,
+                  "minimum_necessity_loss": -0.0016025641025640969,
+                  "positive_necessity_count": 0,
+                  "variant_count": 4
+                }
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum_necessity_loss": 0.10086455331412103,
+                  "median_necessity_loss": 0.04306356369923736,
+                  "minimum_necessity_loss": 0.0,
+                  "positive_necessity_count": 5,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": true,
+                "neutral": {
+                  "maximum_necessity_loss": 0.0,
+                  "median_necessity_loss": 0.0,
+                  "minimum_necessity_loss": 0.0,
+                  "positive_necessity_count": 0,
+                  "variant_count": 4
+                }
+              }
+            },
+            "stage": "E1"
+          },
+          {
+            "channel_end_exclusive": 184,
+            "channel_start_inclusive": 176,
+            "cross_gene_maximin_effect_median_loss": 0.0010623582475710325,
+            "group_id": "E1_c0176_0183",
+            "parent_group_id": "E1_c0160_0191",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum_necessity_loss": 0.02527075812274371,
+                  "median_necessity_loss": 0.0014730252255570064,
+                  "minimum_necessity_loss": 0.0,
+                  "positive_necessity_count": 3,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": true,
+                "neutral": {
+                  "maximum_necessity_loss": 0.0,
+                  "median_necessity_loss": 0.0,
+                  "minimum_necessity_loss": -0.0016025641025640969,
+                  "positive_necessity_count": 0,
+                  "variant_count": 4
+                }
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum_necessity_loss": 0.0075949367088607445,
+                  "median_necessity_loss": 0.0010623582475710325,
+                  "minimum_necessity_loss": -0.001050067204301064,
+                  "positive_necessity_count": 4,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": true,
+                "neutral": {
+                  "maximum_necessity_loss": 0.0,
+                  "median_necessity_loss": 0.0,
+                  "minimum_necessity_loss": 0.0,
+                  "positive_necessity_count": 0,
+                  "variant_count": 4
+                }
+              }
+            },
+            "stage": "E1"
+          },
+          {
+            "channel_end_exclusive": 192,
+            "channel_start_inclusive": 184,
+            "cross_gene_maximin_effect_median_loss": -0.00018022582016680166,
+            "group_id": "E1_c0184_0191",
+            "parent_group_id": "E1_c0160_0191",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum_necessity_loss": 0.032490974729241895,
+                  "median_necessity_loss": 0.0,
+                  "minimum_necessity_loss": -0.010311176578898906,
+                  "positive_necessity_count": 2,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": false,
+                "neutral": {
+                  "maximum_necessity_loss": 0.001602564102564208,
+                  "median_necessity_loss": 0.0,
+                  "minimum_necessity_loss": 0.0,
+                  "positive_necessity_count": 1,
+                  "variant_count": 4
+                }
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum_necessity_loss": 0.0057636887608069065,
+                  "median_necessity_loss": -0.00018022582016680166,
+                  "minimum_necessity_loss": -0.010126582278481011,
+                  "positive_necessity_count": 3,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": false,
+                "neutral": {
+                  "maximum_necessity_loss": 0.0,
+                  "median_necessity_loss": 0.0,
+                  "minimum_necessity_loss": 0.0,
+                  "positive_necessity_count": 0,
+                  "variant_count": 4
+                }
+              }
+            },
+            "stage": "E1"
+          }
+        ],
+        "same_top_child_in_both_genes": false,
+        "stage": "E1",
+        "top_child_by_gene": {
+          "BRAF": {
+            "channel_end_exclusive": 168,
+            "channel_start_inclusive": 160,
+            "cross_gene_maximin_effect_median_loss": 0.0011204333929517862,
+            "group_id": "E1_c0160_0167",
+            "parent_group_id": "E1_c0160_0191",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum_necessity_loss": 0.06859205776173283,
+                  "median_necessity_loss": 0.01279734463026419,
+                  "minimum_necessity_loss": 0.0,
+                  "positive_necessity_count": 4,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": true,
+                "neutral": {
+                  "maximum_necessity_loss": 0.008012820512820595,
+                  "median_necessity_loss": 0.0,
+                  "minimum_necessity_loss": 0.0,
+                  "positive_necessity_count": 1,
+                  "variant_count": 4
+                }
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum_necessity_loss": 0.0028818443804033977,
+                  "median_necessity_loss": 0.0011204333929517862,
+                  "minimum_necessity_loss": 0.0,
+                  "positive_necessity_count": 5,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": true,
+                "neutral": {
+                  "maximum_necessity_loss": 0.0,
+                  "median_necessity_loss": 0.0,
+                  "minimum_necessity_loss": 0.0,
+                  "positive_necessity_count": 0,
+                  "variant_count": 4
+                }
+              }
+            },
+            "stage": "E1"
+          },
+          "SLC25A48": {
+            "channel_end_exclusive": 176,
+            "channel_start_inclusive": 168,
+            "cross_gene_maximin_effect_median_loss": 0.0,
+            "group_id": "E1_c0168_0175",
+            "parent_group_id": "E1_c0160_0191",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum_necessity_loss": 0.0072202166064981865,
+                  "median_necessity_loss": 0.0,
+                  "minimum_necessity_loss": -0.011417697431018115,
+                  "positive_necessity_count": 2,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": false,
+                "neutral": {
+                  "maximum_necessity_loss": 0.0,
+                  "median_necessity_loss": 0.0,
+                  "minimum_necessity_loss": -0.0016025641025640969,
+                  "positive_necessity_count": 0,
+                  "variant_count": 4
+                }
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum_necessity_loss": 0.10086455331412103,
+                  "median_necessity_loss": 0.04306356369923736,
+                  "minimum_necessity_loss": 0.0,
+                  "positive_necessity_count": 5,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": true,
+                "neutral": {
+                  "maximum_necessity_loss": 0.0,
+                  "median_necessity_loss": 0.0,
+                  "minimum_necessity_loss": 0.0,
+                  "positive_necessity_count": 0,
+                  "variant_count": 4
+                }
+              }
+            },
+            "stage": "E1"
+          }
+        }
+      },
+      "E32_c0000_0031": {
+        "children": [
+          {
+            "channel_end_exclusive": 8,
+            "channel_start_inclusive": 0,
+            "cross_gene_maximin_effect_median_loss": 0.0,
+            "group_id": "E32_c0000_0007",
+            "parent_group_id": "E32_c0000_0031",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum_necessity_loss": 0.05708848715509035,
+                  "median_necessity_loss": 0.0190044184109541,
+                  "minimum_necessity_loss": -0.004444444444444473,
+                  "positive_necessity_count": 5,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": true,
+                "neutral": {
+                  "maximum_necessity_loss": 0.013335873499714268,
+                  "median_necessity_loss": 0.007004861038748783,
+                  "minimum_necessity_loss": -0.004807692307692291,
+                  "positive_necessity_count": 3,
+                  "variant_count": 4
+                }
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum_necessity_loss": 0.002161383285302576,
+                  "median_necessity_loss": 0.0,
+                  "minimum_necessity_loss": -0.0025316455696202667,
+                  "positive_necessity_count": 2,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": false,
+                "neutral": {
+                  "maximum_necessity_loss": 0.05555555555555555,
+                  "median_necessity_loss": 0.0,
+                  "minimum_necessity_loss": 0.0,
+                  "positive_necessity_count": 1,
+                  "variant_count": 4
+                }
+              }
+            },
+            "stage": "E32"
+          },
+          {
+            "channel_end_exclusive": 16,
+            "channel_start_inclusive": 8,
+            "cross_gene_maximin_effect_median_loss": -0.0063473940162807885,
+            "group_id": "E32_c0008_0015",
+            "parent_group_id": "E32_c0000_0031",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum_necessity_loss": 0.013808975834292248,
+                  "median_necessity_loss": -0.0063473940162807885,
+                  "minimum_necessity_loss": -0.010830324909747224,
+                  "positive_necessity_count": 2,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": false,
+                "neutral": {
+                  "maximum_necessity_loss": 0.0007254261878854029,
+                  "median_necessity_loss": -0.00038102495713468465,
+                  "minimum_necessity_loss": -0.0064102564102563875,
+                  "positive_necessity_count": 1,
+                  "variant_count": 4
+                }
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum_necessity_loss": 0.0007949125596184992,
+                  "median_necessity_loss": -0.0003360215053763438,
+                  "minimum_necessity_loss": -0.0075949367088608,
+                  "positive_necessity_count": 2,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": false,
+                "neutral": {
+                  "maximum_necessity_loss": 0.20000000000000018,
+                  "median_necessity_loss": 0.027777777777777776,
+                  "minimum_necessity_loss": -0.034482758620689655,
+                  "positive_necessity_count": 2,
+                  "variant_count": 4
+                }
+              }
+            },
+            "stage": "E32"
+          },
+          {
+            "channel_end_exclusive": 24,
+            "channel_start_inclusive": 16,
+            "cross_gene_maximin_effect_median_loss": -0.0021733104580137497,
+            "group_id": "E32_c0016_0023",
+            "parent_group_id": "E32_c0000_0031",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum_necessity_loss": 0.013320647002854402,
+                  "median_necessity_loss": -0.0021733104580137497,
+                  "minimum_necessity_loss": -0.022222222222222254,
+                  "positive_necessity_count": 2,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": false,
+                "neutral": {
+                  "maximum_necessity_loss": 0.004709576138147542,
+                  "median_necessity_loss": -3.662372638399414e-05,
+                  "minimum_necessity_loss": -0.008012820512820484,
+                  "positive_necessity_count": 2,
+                  "variant_count": 4
+                }
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum_necessity_loss": 0.024620434961017623,
+                  "median_necessity_loss": 0.01243000438103986,
+                  "minimum_necessity_loss": 0.011128775834658211,
+                  "positive_necessity_count": 6,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": false,
+                "neutral": {
+                  "maximum_necessity_loss": 0.05555555555555555,
+                  "median_necessity_loss": 0.017241379310344827,
+                  "minimum_necessity_loss": 0.0,
+                  "positive_necessity_count": 2,
+                  "variant_count": 4
+                }
+              }
+            },
+            "stage": "E32"
+          },
+          {
+            "channel_end_exclusive": 32,
+            "channel_start_inclusive": 24,
+            "cross_gene_maximin_effect_median_loss": 0.0008027520760092999,
+            "group_id": "E32_c0024_0031",
+            "parent_group_id": "E32_c0000_0031",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum_necessity_loss": 0.022099447513812154,
+                  "median_necessity_loss": 0.009521091024421169,
+                  "minimum_necessity_loss": -0.004602991944764101,
+                  "positive_necessity_count": 5,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": true,
+                "neutral": {
+                  "maximum_necessity_loss": 0.0003810249571347124,
+                  "median_necessity_loss": 0.0,
+                  "minimum_necessity_loss": -0.0064102564102563875,
+                  "positive_necessity_count": 1,
+                  "variant_count": 4
+                }
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum_necessity_loss": 0.002531645569620211,
+                  "median_necessity_loss": 0.0008027520760092999,
+                  "minimum_necessity_loss": -0.0004200268817204367,
+                  "positive_necessity_count": 4,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": true,
+                "neutral": {
+                  "maximum_necessity_loss": 0.0,
+                  "median_necessity_loss": 0.0,
+                  "minimum_necessity_loss": -0.034482758620689655,
+                  "positive_necessity_count": 0,
+                  "variant_count": 4
+                }
+              }
+            },
+            "stage": "E32"
+          }
+        ],
+        "same_top_child_in_both_genes": false,
+        "stage": "E32",
+        "top_child_by_gene": {
+          "BRAF": {
+            "channel_end_exclusive": 8,
+            "channel_start_inclusive": 0,
+            "cross_gene_maximin_effect_median_loss": 0.0,
+            "group_id": "E32_c0000_0007",
+            "parent_group_id": "E32_c0000_0031",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum_necessity_loss": 0.05708848715509035,
+                  "median_necessity_loss": 0.0190044184109541,
+                  "minimum_necessity_loss": -0.004444444444444473,
+                  "positive_necessity_count": 5,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": true,
+                "neutral": {
+                  "maximum_necessity_loss": 0.013335873499714268,
+                  "median_necessity_loss": 0.007004861038748783,
+                  "minimum_necessity_loss": -0.004807692307692291,
+                  "positive_necessity_count": 3,
+                  "variant_count": 4
+                }
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum_necessity_loss": 0.002161383285302576,
+                  "median_necessity_loss": 0.0,
+                  "minimum_necessity_loss": -0.0025316455696202667,
+                  "positive_necessity_count": 2,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": false,
+                "neutral": {
+                  "maximum_necessity_loss": 0.05555555555555555,
+                  "median_necessity_loss": 0.0,
+                  "minimum_necessity_loss": 0.0,
+                  "positive_necessity_count": 1,
+                  "variant_count": 4
+                }
+              }
+            },
+            "stage": "E32"
+          },
+          "SLC25A48": {
+            "channel_end_exclusive": 24,
+            "channel_start_inclusive": 16,
+            "cross_gene_maximin_effect_median_loss": -0.0021733104580137497,
+            "group_id": "E32_c0016_0023",
+            "parent_group_id": "E32_c0000_0031",
+            "per_gene": {
+              "BRAF": {
+                "effect": {
+                  "maximum_necessity_loss": 0.013320647002854402,
+                  "median_necessity_loss": -0.0021733104580137497,
+                  "minimum_necessity_loss": -0.022222222222222254,
+                  "positive_necessity_count": 2,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": false,
+                "neutral": {
+                  "maximum_necessity_loss": 0.004709576138147542,
+                  "median_necessity_loss": -3.662372638399414e-05,
+                  "minimum_necessity_loss": -0.008012820512820484,
+                  "positive_necessity_count": 2,
+                  "variant_count": 4
+                }
+              },
+              "SLC25A48": {
+                "effect": {
+                  "maximum_necessity_loss": 0.024620434961017623,
+                  "median_necessity_loss": 0.01243000438103986,
+                  "minimum_necessity_loss": 0.011128775834658211,
+                  "positive_necessity_count": 6,
+                  "variant_count": 6
+                },
+                "effect_median_exceeds_neutral": false,
+                "neutral": {
+                  "maximum_necessity_loss": 0.05555555555555555,
+                  "median_necessity_loss": 0.017241379310344827,
+                  "minimum_necessity_loss": 0.0,
+                  "positive_necessity_count": 2,
+                  "variant_count": 4
+                }
+              }
+            },
+            "stage": "E32"
+          }
+        }
+      }
+    }
+  },
+  "source": {
+    "plan_path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/channel_refinement_plan_v1.json",
+    "plan_sha256": "0af4775213cd0f6fba05186006505a21ee08e499d3182f25d154a7c8704b1c19",
+    "raw_full_file_count": 20,
+    "raw_group_file_count": 400,
+    "raw_identity_file_count": 20,
+    "raw_result_tree_sha256": "98904973454209d6068fd1ba7abe86435cc3e5271a144c6c2dabeec1eafc99f9",
+    "result_root": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/results/channel_refinement_v1"
+  }
+}

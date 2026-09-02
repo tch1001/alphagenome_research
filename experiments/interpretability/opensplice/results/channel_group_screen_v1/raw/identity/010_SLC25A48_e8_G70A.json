@@ -1,0 +1,81 @@
+{
+  "status": "complete",
+  "fingerprint": "dc3cb55c734f152994d1b3c629b5ba87c1a6e5201b63357651e2b67e3255e275",
+  "configuration": {
+    "script_version": "alphagenome-channel-group-screen-v1.0.0",
+    "script_sha256": "b81a62ade6c7c80b81fb23bc3b55c335487bf5196f4ef7d985a4e0215d6892f2",
+    "interpretability_sha256": "a839ece06f17bba8c2220487c3beca55d10188873e001e7cedf7fa3eb65bedc9",
+    "model_sha256": "3cfbc546de46232800ea5eae39fe9b1e12a8a1338f18cc58072f15f95303330b",
+    "plan_path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/channel_group_screen_plan_v1.json",
+    "plan_sha256": "ed8db2247321a467d50c5c328c7a9e96ba03eb7b853a572d5ef52325b865509a",
+    "checkpoint_snapshot": "a8f293a76ee73d5b57f3bf2ae146510589fcf187",
+    "context_bp": 16384,
+    "attention_backend": "dense",
+    "confirmation_access": false,
+    "case": {
+      "order": 10,
+      "selection_version": "opensplice-circuit-v2-snv-only",
+      "selection_class": "significant_effect",
+      "observed_effect_sign": "negative",
+      "gene": "SLC25A48",
+      "exon_id": "SLC25A48_e8",
+      "ensembl_exon_id": "ENSE00003835789",
+      "chromosome": "chr5",
+      "strand": "+",
+      "exon_start_1based": 135880773,
+      "exon_end_1based": 135880910,
+      "variant_id": "SLC25A48_e8_G70A",
+      "position_1based": 135880772,
+      "reference_bases": "G",
+      "alternate_bases": "A",
+      "region": "3'SS",
+      "mut_type": "sub",
+      "delta_psi": -11.1003117071938,
+      "delta_logit": -3.49904855531437
+    },
+    "sequence_sha256": {
+      "reference": "b16e30c28f34302d70bed028d30bcbf871ae6a11e22fbd09dea3d6becd6a17f8",
+      "alternate": "c13334969256113b3253e9a4d01d054be2c973556a2940d7ab8746b3a438ec34"
+    },
+    "target": {
+      "endpoints": [
+        {
+          "role": "acceptor",
+          "position_1based": 135880773,
+          "position_index": 8124,
+          "track_index": 1
+        },
+        {
+          "role": "donor",
+          "position_1based": 135880910,
+          "position_index": 8261,
+          "track_index": 0
+        }
+      ],
+      "padding_track_index": 4
+    },
+    "kind": "channel_screen_identity"
+  },
+  "checks": {
+    "passed": true,
+    "target_repeat_exact": true,
+    "target_duplicate_rows_exact": true,
+    "trace_repeat_exact": true,
+    "trace_duplicate_rows_exact": true,
+    "target_total_equals_two_times_mean": true,
+    "num_values": 2,
+    "target_means": {
+      "reference_baseline": -0.1953125,
+      "alternate_baseline": -5.62890625,
+      "reference_into_alternate": -5.62890625,
+      "alternate_into_alternate_self_control": -5.62890625,
+      "alternate_into_reference": -0.1953125,
+      "reference_into_reference_self_control": -0.1953125
+    }
+  },
+  "seconds": {
+    "first": 0.11282002500229282,
+    "repeat": 0.11318474300060188
+  },
+  "created_at_unix_s": 1788333303.564948
+}
