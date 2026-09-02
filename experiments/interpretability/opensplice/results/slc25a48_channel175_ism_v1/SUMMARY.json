@@ -1,0 +1,27 @@
+{
+  "status": "complete",
+  "binding": {
+    "script_version": "alphagenome-slc25a48-channel175-ism-v1.0.0",
+    "source_sha256": {
+      "experiments/interpretability/opensplice/run_slc25a48_channel175_ism.py": "fb1b5b9340768498dbeeb9dfbbec1c4bdaeeba85a7e6cfaba4f5adaf0232809b",
+      "src/alphagenome_research/model/convolutions.py": "f88c4dd626e55cf6bde20ae1cdefc6b0e1ff3ff871bc2b1accbc5731b780fef0",
+      "src/alphagenome_research/model/interpretability.py": "94ac8523caee017fbf5edbf8daeec0138a632dc242fd2b114aee8239441fb47b",
+      "src/alphagenome_research/model/model.py": "e4b72ffca8326d11cc128d1076ed3081b482de5264ea0bfac5a4464e694029e7",
+      "src/alphagenome_research/model/dna_model.py": "886d64fcd3a32f20dec68a986216d00ccb4020777b87df930fb46fdc3e153abd"
+    },
+    "plan_path": "/home/degen2/alphafold-stuff/alphagenome_research/experiments/interpretability/opensplice/slc25a48_channel175_ism_plan_v1.json",
+    "plan_sha256": "9241dfbfd72788b6e06d20640c331c3205d0e40d559dbfc5f6fc78448b6a6b8d",
+    "checkpoint_snapshot": "a8f293a76ee73d5b57f3bf2ae146510589fcf187",
+    "context_bp": 16384,
+    "confirmation_access": false
+  },
+  "batch_count": 25,
+  "candidate_edit_count": 123,
+  "full_frozen_design_completed": true,
+  "model_apply_count_in_full_nonresume_run": 50,
+  "reference_across_batches_exact": true,
+  "all_runtime_controls_passed": true,
+  "reference_acceptor_window_minus32_plus32": "TCTGAATGTCCCGCCGTCTCTCTCACCCCTAGGTCTTTGCTCAGGCTGTCCCCTCTGCCTGACAT",
+  "confirmation_access": false,
+  "created_at_unix_s": 1788341890.0827076
+}

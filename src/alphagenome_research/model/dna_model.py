@@ -233,6 +233,16 @@ EncoderBlockDecompositionApplyFn = Callable[
     ],
     interpretability.EncoderBlockDecomposition,
 ]
+SpliceClassificationLogitMarginEvidenceApplyFn = Callable[
+    [
+        hk.Params,
+        hk.State,
+        Float32[Array, 'B S 4'],
+        Int32[Array, 'B'],
+        interpretability.SpliceClassificationLogitMarginSelection,
+    ],
+    interpretability.SpliceClassificationLogitMarginEvidence,
+]
 
 
 def extract_predictions(
@@ -2137,6 +2147,66 @@ def create_paired_targeted_route_census_apply(
         organism_index,
         trace_selection,
         interventions,
+        target_selection,
+    )
+    return output
+
+  return _apply_fn
+
+
+def create_splice_classification_logit_margin_evidence_apply(
+    metadata: Mapping[dna_model.Organism, AlphaGenomeOutputMetadata],
+    *,
+    num_splice_sites: int = model.DEFAULT_NUM_SPLICE_SITES,
+    splice_site_threshold: float = model.DEFAULT_SPLICE_SITE_THRESHOLD,
+    attention_backend: str = attention.ATTENTION_BACKEND_DENSE,
+) -> SpliceClassificationLogitMarginEvidenceApplyFn:
+  """Creates a no-intervention apply returning both canonical margins.
+
+  This is a compact output reducer for controlled sequence edits. It follows
+  the normal trunk and head computation, adds no checkpoint parameters or
+  state, and returns the acceptor and donor class-minus-padding margins as
+  well as their mean.
+  """
+  jmp_policy = jmp.get_policy('params=float32,compute=bfloat16,output=bfloat16')
+
+  @hk.transform_with_state
+  def _forward(
+      dna_sequence: Float[Array, 'B S 4'],
+      organism_index: Int32[Array, 'B'],
+      target_selection: (
+          interpretability.SpliceClassificationLogitMarginSelection
+      ),
+  ):
+    with hk.mixed_precision.push_policy(model.AlphaGenome, jmp_policy):
+      alphagenome = model.AlphaGenome(
+          metadata,
+          num_splice_sites=num_splice_sites,
+          splice_site_threshold=splice_site_threshold,
+          attention_backend=attention_backend,
+      )
+      embeddings = alphagenome.forward_trunk(dna_sequence, organism_index)
+      predictions = alphagenome.forward_heads(embeddings, organism_index)
+      logits = predictions['splice_sites_classification']['logits']
+      return interpretability.splice_classification_logit_margin_evidence(
+          logits, target_selection
+      )
+
+  def _apply_fn(
+      params: hk.Params,
+      state: hk.State,
+      dna_sequence: Float32[Array, 'B S 4'],
+      organism_index: Int32[Array, 'B'],
+      target_selection: (
+          interpretability.SpliceClassificationLogitMarginSelection
+      ),
+  ) -> interpretability.SpliceClassificationLogitMarginEvidence:
+    output, _ = _forward.apply(
+        params,
+        state,
+        None,
+        dna_sequence,
+        organism_index,
         target_selection,
     )
     return output

@@ -248,11 +248,33 @@ likely also reflects how the decoder consumes the coarser skip.
 Primary result: [encoder decomposition](opensplice/results/encoder_feature_decomposition_v1_model_behavior_analysis/RESULT.md).
 Arithmetic check: [independent audit](opensplice/results/encoder_feature_decomposition_v1_model_behavior_analysis/INDEPENDENT_AUDIT.md).
 
+### Controlled sequence-to-feature-to-output test
+
+A complete saturation-mutagenesis map tested all 123 SNVs from -20 to +20 bp
+around the same SLC25A48 acceptor. The actual GRCh38 sequence at -3..0 is
+`TAGG`, exactly the core preferred by the checkpoint's channel-175 direct
+kernel. All 6/6 substitutions of the invariant acceptor `AG` reduce the
+acceptor logit margin (median `-10.672`). Across all 12 core substitutions,
+median absolute output change is `6.775`, versus `0.453` for the 111 edits
+outside the core.
+
+Across all edits, E2 channel-175 change predicts acceptor-logit change with
+Pearson `r=0.935` (tie-aware Spearman `rho=0.633`); E1 gives `r=0.933`. The
+nonlinear E1 update alone gives `r=0.933`, versus `r=0.622` for the direct
+kernel. Combined with the prior single-channel interventions, this closes a
+local model mechanism: sequence disruption changes a composite E1 acceptor
+detector, E2 carries and amplifies it, and the feature is causally used in the
+splice prediction.
+
+Primary result: [saturation-mutagenesis analysis](opensplice/results/slc25a48_channel175_ism_v1_model_behavior_analysis/RESULT.md).
+Arithmetic check: [independent audit](opensplice/results/slc25a48_channel175_ism_v1_model_behavior_analysis/INDEPENDENT_AUDIT.md).
+
 ## Main unresolved question
 
-Do systematic controlled edits across the SLC25A48 acceptor confirm the
-weight-derived `TAGG` feature and link E1/E2 channel-175 changes to AlphaGenome's
-splice output? What earlier inherited program produces BRAF E16 channel 3?
+Does the channel-175 acceptor mechanism generalize to held-out exons and
+sequence backgrounds, and which decoder operation makes E2:175 more causally
+portable than E1:175? What earlier inherited program produces BRAF E16
+channel 3?
 
 Prepared and completed channel experiments: [32-channel screen design](opensplice/channel_group_screen.md),
 [8-channel refinement design](opensplice/channel_refinement.md), and
@@ -264,9 +286,11 @@ Completed spatial experiment: [design](opensplice/spatial_encoder_skip_experimen
 
 ## Research sequence
 
-1. Saturation-mutate the SLC25A48 acceptor neighborhood and jointly measure
-   channel-175 activations and canonical splice-logit output.
-2. Trace the earlier inherited program that produces BRAF E16 channel 3.
+1. Test channel 175 on held-out acceptors and sequence-background controls,
+   with no selection on the confirmation set until the design is frozen.
+2. Decompose the E2 versus E1 decoder skip consumption to explain the causal
+   portability gap.
+3. Trace the earlier inherited program that produces BRAF E16 channel 3.
 3. Use neutral variants and non-target outputs as secondary specificity checks,
    recognizing that an experimental neutral need not be AlphaGenome-null.
 4. Characterize causal features with controlled sequence edits, motif scans,
